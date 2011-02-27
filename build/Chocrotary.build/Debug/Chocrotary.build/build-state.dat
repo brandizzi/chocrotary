@@ -1,0 +1,673 @@
+TChocrotary
+v7
+r0
+t320461349.623866
+cCheck dependencies
+cProcessInfoPlistFile /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist Chocrotary-Info.plist
+cCopyStringsFile /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+cCompileXIB /Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/MainMenu.xib
+cProcessPCH /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch.gch Chocrotary_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o /Users/brandizzi/Documents/software/secretary/chocrotary/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+cLd /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary normal x86_64
+cTouch /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app
+
+N/Developer/SDKs/MacOSX10.6.sdk
+c000000004BF416E200000000000000EE
+t1274287842
+s238
+
+N/Developer/SDKs/MacOSX10.6.sdk/System/Library/Frameworks/Cocoa.framework/Headers/Cocoa.h
+c0000000040C4AA6800000000000001E5
+t1086630504
+s485
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/stdlib.h
+c000000004A5C14A70000000000002DF5
+t1247548583
+s11765
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/include/time.h
+c000000004A5C14A7000000000000178E
+t1247548583
+s6030
+
+N/Developer/SDKs/MacOSX10.6.sdk/usr/lib/gcc/i686-apple-darwin10/4.2.1/include/stdbool.h
+c000000004A11EB240000000000000644
+t1242688292
+s1604
+
+N/System/Library/Frameworks/Cocoa.framework/Cocoa
+c000000004A1F2D63000000000000A5E0
+t1243557219
+s42464
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/../lib/libsecretary.dylib
+c000000004D572CDE0000000000004D30
+t1297558750
+s19760
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.h
+c000000004D6719C10000000000000157
+t1298602433
+s343
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.m
+c000000004D6719C1000000000000018F
+t1298602433
+s399
+i"ChocrotaryAppDelegate.h"
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.h
+c000000004D671E7800000000000001BA
+t1298603640
+s442
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.m
+c000000004D67237700000000000002F9
+t1298604919
+s761
+i"ChocrotaryTableDataSource.h"
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/Chocrotary_Prefix.pch
+c000000004D6719C10000000000000097
+t1298602433
+s151
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/InfoPlist.strings
+c000000004D6719C1000000000000002D
+t1298602433
+s45
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/MainMenu.xib
+c000000004D6721D50000000000030DCB
+t1298604501
+s200139
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.h
+c000000004D671F2C00000000000000F6
+t1298603820
+s246
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m
+c000000004D671EE800000000000000F2
+t1298603752
+s242
+i"SecretarySecretary.h"
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Chocrotary.LinkFileList
+c000000004D67205500000000000001B2
+t1298604117
+s434
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o
+t1298603796
+s21216
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o
+t1298604924
+s22912
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/SecretarySecretary.o
+t2
+s0
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o
+t1298603796
+s5024
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app
+t1298604924
+s102
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist
+t1298603768
+s895
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary
+t1298604924
+s15936
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/PkgInfo
+t1298603768
+s8
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1298603770
+s92
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/MainMenu.nib
+t1298604505
+s39173
+
+N/Users/brandizzi/Documents/software/secretary/Chocrotary/main.m
+c000000004D6719C10000000000000113
+t1298602433
+s275
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/../lib/include/secretary/secretary.h
+c000000004D68433600000000000008A0
+t1298678582
+s2208
+i<secretary/task.h>
+i<secretary/project.h>
+i<time.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.h
+c000000004D6719C10000000000000157
+t1298602433
+s343
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m
+c000000004D6719C1000000000000018F
+t1298602433
+s399
+i"ChocrotaryAppDelegate.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.h
+c000000004D69A0680000000000000210
+t1298767976
+s528
+i<Cocoa/Cocoa.h>
+i"secretary/notebook.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m
+c000000004D69A24A000000000000045C
+t1298768458
+s1116
+i"ChocrotaryTableDataSource.h"
+i"secretary/notebook.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch
+c000000004D6719C10000000000000097
+t1298602433
+s151
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.h
+c000000004D698C6E00000000000000E6
+t1298762862
+s230
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.m
+c000000004D698C6E00000000000000DA
+t1298762862
+s218
+i"ChtProject.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.h
+c000000004D698F6300000000000005F3
+t1298763619
+s1523
+i<Cocoa/Cocoa.h>
+i<ChtTask.h>
+i<ChtProject.h>
+i<secretary/secretary.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m
+c000000004D698F71000000000000064B
+t1298763633
+s1611
+i"ChtSecretary.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.h
+c000000004D698C5000000000000000E0
+t1298762832
+s224
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.m
+c000000004D698C5000000000000000D1
+t1298762832
+s209
+i"ChtTask.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/InfoPlist.strings
+c000000004D6719C1000000000000002D
+t1298602433
+s45
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/MainMenu.xib
+c000000004D69A29700000000000311B6
+t1298768535
+s201142
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.h
+c000000004D6986D300000000000000E4
+t1298761427
+s228
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.m
+c000000004D6986D300000000000000D7
+t1298761427
+s215
+i"Secretary.h"
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app
+t1298768549
+s102
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist
+t1298603768
+s895
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary
+t1298768549
+s32648
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/PkgInfo
+t1298603768
+s8
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/InfoPlist.strings
+t1298603770
+s92
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/MainMenu.nib
+t1298768546
+s39681
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Chocrotary.LinkFileList
+c000000004D6998BC00000000000001B2
+t1298766012
+s434
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o
+t1298763117
+s21216
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o
+t1298768548
+s25376
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtProject.o
+t1298763117
+s5480
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtSecretary.o
+t1298763129
+s5804
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtTask.o
+t1298763117
+s5456
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Secretary.o
+t1298761436
+s5476
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o
+t1298763117
+s5024
+
+N/Users/brandizzi/Documents/software/secretary/chocrotary/main.m
+c000000004D6719C10000000000000113
+t1298602433
+s275
+i<Cocoa/Cocoa.h>
+
+N/Users/brandizzi/Documents/software/secretary/lib/include/secretary/notebook.h
+c000000004D68433600000000000001A8
+t1298678582
+s424
+i<secretary/secretary.h>
+
+N/Users/brandizzi/Documents/software/secretary/lib/include/secretary/project.h
+c000000004D684336000000000000027D
+t1298678582
+s637
+i<secretary/task.h>
+i<stdlib.h>
+
+N/Users/brandizzi/Documents/software/secretary/lib/include/secretary/secretary.h
+c000000004D68433600000000000008A0
+t1298678582
+s2208
+i<secretary/task.h>
+i<secretary/project.h>
+i<time.h>
+
+N/Users/brandizzi/Documents/software/secretary/lib/include/secretary/task.h
+c000000004D68433600000000000003AF
+t1298678582
+s943
+i<stdlib.h>
+i<time.h>
+i<stdbool.h>
+
+N/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-acmwmaqepbdcqsclljilqeqxqpuu/Chocrotary_Prefix.pch.gch
+t1298669399
+s54306576
+
+N/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch.gch
+t1298763116
+s54306576
+
+N/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cuasryzwonxttafxnkvdlhwfeumb/Chocrotary_Prefix.pch.gch
+t1298736033
+s54306576
+
+N/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch.gch
+t1298603795
+s54306576
+
+NChocrotary-Info.plist
+c000000004D6719C100000000000003EA
+t1298602433
+s1002
+
+CCheck dependencies
+r0
+lSLF07#2@18"Check dependencies320461344#320461344#0(0"0(0#1#0"8616726176#0"0#
+
+CCompileC build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o /Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320296595.461840
+e320296596.781521
+r1
+xCompileC
+xbuild/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@88"Compile /Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.m320296595#320296596#0(0"0(0#0#80"/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.m8631755008#1742"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/include -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryAppDelegate.m -o /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o0#
+
+CCompileC build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o /Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320297723.664854
+e320297724.133300
+r1
+xCompileC
+xbuild/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@92"Compile /Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.m320297723#320297724#0(0"0(0#0#84"/Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.m8631018816#1750"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/include -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/Chocrotary/ChocrotaryTableDataSource.m -o /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o0#
+
+CCompileC build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/SecretarySecretary.o /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320296596.781609
+e320296596.986908
+r0
+xCompileC
+xbuild/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/SecretarySecretary.o
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+oIn file included from /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m:9:
+o/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.h:10:32: error: secretary/secretary.h: No such file or directory
+lSLF07#2@85"Compile /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m320296596#320296596#0(244"In file included from /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m:9:/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.h:10:32: error: secretary/secretary.h: No such file or directory1(4@48"Secretary/secretary.h: No such file or directory320296596#103#141#2(7@99"In file included from /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m320296596#18446744073709551615#0#0(6@77"/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m320296552#9#0#9#0#0"0(13@129"Secretary/secretary.h: No such file or directory in /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.h320296596#18446744073709551615#0#0(6@77"/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.h320296567#10#0#10#0#0"0(6@77"/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.h320296567#10#0#10#0#28"*: No such file or directory0(0#0#77"/Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m8628385632#1736"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/include -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/Chocrotary/SecretarySecretary.m -o /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/SecretarySecretary.o1#
+
+CCompileC build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o /Users/brandizzi/Documents/software/secretary/Chocrotary/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320296595.410375
+e320296596.780258
+r1
+xCompileC
+xbuild/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@71"Compile /Users/brandizzi/Documents/software/secretary/Chocrotary/main.m320296595#320296596#0(0"0(0#0#63"/Users/brandizzi/Documents/software/secretary/Chocrotary/main.m8621061728#1708"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/include -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/Chocrotary/main.m -o /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320455916.783230
+e320455917.346345
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@88"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m320455916#320455917#0(0"0(0#0#80"/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m8617098816#1849"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryAppDelegate.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryAppDelegate.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320461346.411043
+e320461348.545084
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@92"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m320461346#320461348#0(0"0(0#0#84"/Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m8623793120#1857"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/ChocrotaryTableDataSource.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChocrotaryTableDataSource.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtProject.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320455917.645160
+e320455917.833004
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtProject.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@77"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.m320455917#320455917#0(0"0(0#0#69"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.m8623351456#1827"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/ChtProject.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtProject.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtSecretary.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320455929.668868
+e320455929.865996
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtSecretary.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: incomplete implementation of class 'ChtSecretary'
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-free' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthDoneTask:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countDoneTasks' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-undo:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-doIt:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-unschedule:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthScheduledForToday:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthScheduled:forDate:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthScheduled:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countScheduledForToday' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countScheduledFor:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countScheduled' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-schedule:toDate:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-deleteProject:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-deleteTask:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-moveToInbox:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-move:toProject:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthProject:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getProject:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countProject' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-start:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthInboxTask:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countInbox' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthTask:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getTasks:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countTask' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-appoint:' not found
+o/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-new' not found
+lSLF07#2@79"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320455929#320455929#0(3872"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: incomplete implementation of class 'ChtSecretary'/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-free' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthDoneTask:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countDoneTasks' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-undo:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-doIt:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-unschedule:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthScheduledForToday:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthScheduled:forDate:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthScheduled:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countScheduledForToday' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countScheduledFor:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countScheduled' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-schedule:toDate:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-deleteProject:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-deleteTask:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-moveToInbox:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-move:toProject:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthProject:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getProject:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countProject' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-start:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthInboxTask:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countInbox' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getNthTask:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-getTasks:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-countTask' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-appoint:' not found/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m:14: warning: method definition for '-new' not found29(22@49"Incomplete implementation of class 'ChtSecretary'320455929#0#135#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#38"incomplete implementation of class '*'0(22@39"Method definition for '-free' not found320455929#135#125#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@50"Method definition for '-getNthDoneTask:' not found320455929#260#136#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@49"Method definition for '-countDoneTasks' not found320455929#396#135#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@40"Method definition for '-undo:' not found320455929#531#126#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@40"Method definition for '-doIt:' not found320455929#657#126#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@46"Method definition for '-unschedule:' not found320455929#783#132#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@59"Method definition for '-getNthScheduledForToday:' not found320455929#915#145#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@59"Method definition for '-getNthScheduled:forDate:' not found320455929#1060#145#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@51"Method definition for '-getNthScheduled:' not found320455929#1205#137#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@57"Method definition for '-countScheduledForToday' not found320455929#1342#143#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@53"Method definition for '-countScheduledFor:' not found320455929#1485#139#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@49"Method definition for '-countScheduled' not found320455929#1624#135#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@51"Method definition for '-schedule:toDate:' not found320455929#1759#137#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@49"Method definition for '-deleteProject:' not found320455929#1896#135#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@46"Method definition for '-deleteTask:' not found320455929#2031#132#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@47"Method definition for '-moveToInbox:' not found320455929#2163#133#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@50"Method definition for '-move:toProject:' not found320455929#2296#136#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@49"Method definition for '-getNthProject:' not found320455929#2432#135#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@46"Method definition for '-getProject:' not found320455929#2567#132#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@47"Method definition for '-countProject' not found320455929#2699#133#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@41"Method definition for '-start:' not found320455929#2832#127#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@51"Method definition for '-getNthInboxTask:' not found320455929#2959#137#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@45"Method definition for '-countInbox' not found320455929#3096#131#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@46"Method definition for '-getNthTask:' not found320455929#3227#132#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@44"Method definition for '-getTasks:' not found320455929#3359#130#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@44"Method definition for '-countTask' not found320455929#3489#130#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@43"Method definition for '-appoint:' not found320455929#3619#129#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(22@38"Method definition for '-new' not found320455929#3748#124#0(6@71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m320454369#14#0#14#0#35"method definition for '*' not found0(0#0#71"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m8615934144#1831"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/ChtSecretary.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtSecretary.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtTask.o /Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320455917.561640
+e320455917.766479
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtTask.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@74"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.m320455917#320455917#0(0"0(0#0#66"/Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.m8622582592#1821"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/ChtTask.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/ChtTask.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Secretary.o /Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320454235.782996
+e320454236.722062
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Secretary.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@76"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.m320454235#320454236#0(0"0(0#0#68"/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.m8607710240#1794"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cuasryzwonxttafxnkvdlhwfeumb/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Secretary.o0#
+
+CCompileC build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o /Users/brandizzi/Documents/software/secretary/chocrotary/main.m normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320455916.758792
+e320455917.335844
+r1
+xCompileC
+xbuild/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o
+x/Users/brandizzi/Documents/software/secretary/chocrotary/main.m
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@71"Compile /Users/brandizzi/Documents/software/secretary/chocrotary/main.m320455916#320455917#0(0"0(0#0#63"/Users/brandizzi/Documents/software/secretary/chocrotary/main.m8621168704#1815"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -include /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch -c /Users/brandizzi/Documents/software/secretary/chocrotary/main.m -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/main.o0#
+
+CCompileXIB /Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/MainMenu.xib
+s320297304.602258
+e320297305.148606
+r1
+xCompileXIB
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/MainMenu.xib
+lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib320297304#320297305#0(0"0(0#0#83"/Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/MainMenu.xib8627676608#421"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/MainMenu.nib /Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/MainMenu.xib --sdk /Developer/SDKs/MacOSX10.6.sdk0#
+
+CCompileXIB /Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/MainMenu.xib
+s320461344.904353
+e320461346.410474
+r1
+xCompileXIB
+x/Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/MainMenu.xib
+lSLF07#2@37"CompileXIB English.lproj/MainMenu.xib320461344#320461346#0(0"0(0#0#83"/Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/MainMenu.xib8604036512#421"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    /Developer/usr/bin/ibtool --errors --warnings --notices --output-format human-readable-text --compile /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/MainMenu.nib /Users/brandizzi/Documents/software/secretary/chocrotary/English.lproj/MainMenu.xib --sdk /Developer/SDKs/MacOSX10.6.sdk0#
+
+CCopyStringsFile /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+s320296568.554511
+e320296570.028220
+r1
+xCopyStringsFile
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/InfoPlist.strings
+xEnglish.lproj/InfoPlist.strings
+lSLF07#2@36"Copy English.lproj/InfoPlist.strings320296568#320296570#0(0"0(0#0#88"/Users/brandizzi/Documents/software/secretary/Chocrotary/English.lproj/InfoPlist.strings8628130688#404"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv ICONV /usr/bin/iconv    /Developer/Library/Xcode/Plug-ins/CoreBuildTasks.xcplugin/Contents/Resources/copystrings --validate --inputencoding utf-8 --outputencoding UTF-16 English.lproj/InfoPlist.strings --outdir /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj0#
+
+CCopyStringsFile /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Resources/English.lproj/InfoPlist.strings English.lproj/InfoPlist.strings
+r0
+
+CLd /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary normal x86_64
+s320297724.133401
+e320297724.749343
+r1
+xLd
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary
+xnormal
+xx86_64
+lSLF07#2@114"Link /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary320297724#320297724#0(0"0(0#0#0"8629153024#713"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -L/Users/brandizzi/Documents/software/secretary/Chocrotary/../lib -F/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -filelist /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Chocrotary.LinkFileList -mmacosx-version-min=10.6 -framework Cocoa -o /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary0#
+
+CLd /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary normal x86_64
+s320461348.545303
+e320461349.604243
+r1
+xLd
+x/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary
+xnormal
+xx86_64
+lSLF07#2@114"Link /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary320461348#320461349#0(0"0(0#0#0"8603976512#1596"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv MACOSX_DEPLOYMENT_TARGET 10.6    /Developer/usr/bin/gcc-4.2 -arch x86_64 -isysroot /Developer/SDKs/MacOSX10.6.sdk -L/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -L../lib -L../lib/.hg -L../lib/cutest -L../lib/include -L../lib/src -L../lib/.hg/store -L../lib/include/secretary -L../lib/src/test -L../lib/.hg/store/data -L../lib/include/secretary/test -L../lib/.hg/store/data/cutest -L../lib/.hg/store/data/include -L../lib/.hg/store/data/src -L../lib/.hg/store/data/include/secretary -L../lib/.hg/store/data/include/test -L../lib/.hg/store/data/src/test -L../lib/.hg/store/data/include/secretary/test -L../lib -L../lib/.hg -L../lib/cutest -L../lib/include -L../lib/src -L../lib/.hg/store -L../lib/include/secretary -L../lib/src/test -L../lib/.hg/store/data -L../lib/include/secretary/test -L../lib/.hg/store/data/cutest -L../lib/.hg/store/data/include -L../lib/.hg/store/data/src -L../lib/.hg/store/data/include/secretary -L../lib/.hg/store/data/include/test -L../lib/.hg/store/data/src/test -L../lib/.hg/store/data/include/secretary/test -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -filelist /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Objects-normal/x86_64/Chocrotary.LinkFileList -Xlinker -rpath -Xlinker ../lib/libsecretary.dylib -mmacosx-version-min=10.6 ../lib/libsecretary.a -framework Cocoa -o /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/MacOS/Chocrotary0#
+
+CProcessInfoPlistFile /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist Chocrotary-Info.plist
+s320296568.550865
+e320296568.554412
+r1
+xProcessInfoPlistFile
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist
+xChocrotary-Info.plist
+lSLF07#2@29"Process Chocrotary-Info.plist320296568#320296568#0(0"0(0#0#78"/Users/brandizzi/Documents/software/secretary/Chocrotary/Chocrotary-Info.plist30962724183932976#373"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    builtin-infoPlistUtility Chocrotary-Info.plist -genpkginfo /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/PkgInfo -expandbuildsettings -platform macosx -o /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist0#
+
+CProcessInfoPlistFile /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app/Contents/Info.plist Chocrotary-Info.plist
+r0
+
+CProcessPCH /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-acmwmaqepbdcqsclljilqeqxqpuu/Chocrotary_Prefix.pch.gch Chocrotary_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320362157.204000
+e320362199.557042
+r1
+xProcessPCH
+x/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-acmwmaqepbdcqsclljilqeqxqpuu/Chocrotary_Prefix.pch.gch
+xChocrotary_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile Chocrotary_Prefix.pch320362157#320362199#0(0"0(0#0#78"/Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch8751164178648163328#1593"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -c /Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch -o /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-acmwmaqepbdcqsclljilqeqxqpuu/Chocrotary_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch.gch Chocrotary_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320455901.516577
+e320455916.758546
+r1
+xProcessPCH
+x/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch.gch
+xChocrotary_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile Chocrotary_Prefix.pch320455901#320455916#0(0"0(0#0#78"/Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch8623576992#1700"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I. -Ichocrotary-1.moved-aside -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -c /Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch -o /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cjufecyntqblpvbdewgdtztrtrkm/Chocrotary_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cuasryzwonxttafxnkvdlhwfeumb/Chocrotary_Prefix.pch.gch Chocrotary_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320428826.644750
+e320428833.158030
+r1
+xProcessPCH
+x/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cuasryzwonxttafxnkvdlhwfeumb/Chocrotary_Prefix.pch.gch
+xChocrotary_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile Chocrotary_Prefix.pch320428826#320428833#0(0"0(0#0#78"/Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch8751164178648163328#1669"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/include -I../lib/include -I../lib/include/secretary -I../lib/include/secretary/test -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/chocrotary/build/chocrotary.build/Debug/Chocrotary.build/DerivedSources -c /Users/brandizzi/Documents/software/secretary/chocrotary/Chocrotary_Prefix.pch -o /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-cuasryzwonxttafxnkvdlhwfeumb/Chocrotary_Prefix.pch.gch0#
+
+CProcessPCH /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch.gch Chocrotary_Prefix.pch normal x86_64 objective-c com.apple.compilers.gcc.4_2
+s320296570.496846
+e320296595.410103
+r1
+xProcessPCH
+x/var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch.gch
+xChocrotary_Prefix.pch
+xnormal
+xx86_64
+xobjective-c
+xcom.apple.compilers.gcc.4_2
+lSLF07#2@32"Precompile Chocrotary_Prefix.pch320296570#320296595#0(0"0(0#0#78"/Users/brandizzi/Documents/software/secretary/Chocrotary/Chocrotary_Prefix.pch8645312640#1593"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    setenv LANG en_US.US-ASCII    /Developer/usr/bin/gcc-4.2 -x objective-c-header -arch x86_64 -fmessage-length=0 -pipe -std=gnu99 -Wno-trigraphs -fpascal-strings -fasm-blocks -O0 -Wreturn-type -Wunused-variable -isysroot /Developer/SDKs/MacOSX10.6.sdk -mfix-and-continue -mmacosx-version-min=10.6 -gdwarf-2 -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-generated-files.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-own-target-headers.hmap -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-all-target-headers.hmap -iquote /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/Chocrotary-project-headers.hmap -F/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/include -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources/x86_64 -I/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Chocrotary.build/Debug/Chocrotary.build/DerivedSources -c /Users/brandizzi/Documents/software/secretary/Chocrotary/Chocrotary_Prefix.pch -o /var/folders/ge/ge-L4HmPFEihxFWhnmOHXk+++TM/-Caches-/com.apple.Xcode.502/SharedPrecompiledHeaders/Chocrotary_Prefix-gccnigsnuvigbuclpclvtsugvsug/Chocrotary_Prefix.pch.gch0#
+
+CTouch /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app
+s320297724.749471
+e320297724.752831
+r1
+xTouch
+x/Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app
+lSLF07#2@89"Touch /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app320297724#320297724#0(0"0(0#0#0"8645324704#170"    cd /Users/brandizzi/Documents/software/secretary/Chocrotary    /usr/bin/touch -c /Users/brandizzi/Documents/software/secretary/Chocrotary/build/Debug/Chocrotary.app0#
+
+CTouch /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app
+s320461349.604367
+e320461349.623814
+r1
+xTouch
+x/Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app
+lSLF07#2@89"Touch /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app320461349#320461349#0(0"0(0#0#0"8603392096#170"    cd /Users/brandizzi/Documents/software/secretary/chocrotary    /usr/bin/touch -c /Users/brandizzi/Documents/software/secretary/chocrotary/build/Debug/Chocrotary.app0#
+
