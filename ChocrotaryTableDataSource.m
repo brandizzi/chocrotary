@@ -37,5 +37,16 @@
 	}
 }
 
-
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	Task *task = secretary_get_nth_task(secretary, row);
+	if ([[tableColumn identifier] isEqualToString: @"done" ]) {
+		BOOL value = [object boolValue];
+		if (value) {
+			secretary_do(secretary, task);
+		} else {
+			secretary_undo(secretary, task);
+		}
+	}
+	notebook_save(notebook);
+}
 @end

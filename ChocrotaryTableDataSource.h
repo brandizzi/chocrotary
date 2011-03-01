@@ -16,7 +16,12 @@
 
 - (id) init;
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
-
+- (id)tableView:(NSTableView *)tableView 
+		objectValueForTableColumn:(NSTableColumn *)tableColumn 
+		row:(NSInteger)row;
+- (void)tableView:(NSTableView *)aTableView 
+		setObjectValue:(id)anObject 
+		forTableColumn:(NSTableColumn *)aTableColumn 
+	    row:(NSInteger)rowIndex;
 
 @end
