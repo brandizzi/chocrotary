@@ -12,18 +12,13 @@
 
 @implementation ChocrotaryTableDataSource
 
--(id) init {
-	notebook = notebook_new("/Users/brandizzi/Documents/software/secretary/Chocrotary/secretary.notebook");
-	secretary = notebook_get_secretary(notebook);
-	return self;
-}
-
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
+	Secretary *secretary = [controller getSecretary];
 	return secretary_count_task(secretary);
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	Task *task = secretary_get_nth_task(secretary, row);
+	Task *task = secretary_get_nth_task([controller getSecretary], row);
 	if ([[tableColumn identifier] isEqualToString: @"done" ]) {
 		NSButtonCell *button = [NSButtonCell new];
 		[button setButtonType:NSSwitchButton];
@@ -38,7 +33,7 @@
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	Task *task = secretary_get_nth_task(secretary, row);
+	Task *task = secretary_get_nth_task([controller getSecretary], row);
 	if ([[tableColumn identifier] isEqualToString: @"done" ]) {
 		BOOL value = [object boolValue];
 		if (value) {
@@ -47,6 +42,6 @@
 			secretary_undo(secretary, task);
 		}
 	}
-	notebook_save(notebook);
+	[controller save];
 }
 @end

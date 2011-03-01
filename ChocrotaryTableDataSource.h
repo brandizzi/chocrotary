@@ -7,14 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#include "secretary/notebook.h"
+#import "ChocrotaryController.h"
+#import "secretary/notebook.h"
 
 @interface ChocrotaryTableDataSource : NSObject {
-	Notebook *notebook;
-	Secretary *secretary;
+	IBOutlet ChocrotaryController *controller;
 }
 
-- (id) init;
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 - (id)tableView:(NSTableView *)tableView 
 		objectValueForTableColumn:(NSTableColumn *)tableColumn 
