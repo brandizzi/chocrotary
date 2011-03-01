@@ -234,7 +234,7 @@
 				);
 				INFOPLIST_FILE = "Chocrotary-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
-				LD_RUNPATH_SEARCH_PATHS = ../lib/libsecretary.dylib;
+				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"\"$(SRCROOT)/../lib\"/**",

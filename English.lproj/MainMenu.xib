@@ -12,6 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
+			<integer value="533"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1318,7 +1319,7 @@
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
 				<object class="NSView" key="NSWindowView" id="439893737">
-					<nil key="NSNextResponder"/>
+					<reference key="NSNextResponder"/>
 					<int key="NSvFlags">256</int>
 					<object class="NSMutableArray" key="NSSubviews">
 						<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1413,7 +1414,7 @@
 													<reference key="NSTableView" ref="1073200766"/>
 												</object>
 												<object class="NSTableColumn" id="11356424">
-													<string key="NSIdentifier">task</string>
+													<string key="NSIdentifier">description</string>
 													<double key="NSWidth">764</double>
 													<double key="NSMinWidth">40</double>
 													<double key="NSMaxWidth">1000</double>
@@ -1480,7 +1481,6 @@
 									<reference key="NSSuperview" ref="867080880"/>
 									<reference key="NSTarget" ref="867080880"/>
 									<string key="NSAction">_doScroller:</string>
-									<double key="NSCurValue">0.46846846846846846</double>
 									<double key="NSPercent">0.99672131147540988</double>
 								</object>
 								<object class="NSScroller" id="162180721">
@@ -1522,6 +1522,7 @@
 						</object>
 					</object>
 					<string key="NSFrameSize">{852, 724}</string>
+					<reference key="NSSuperview"/>
 				</object>
 				<string key="NSScreenRect">{{0, 0}, {1920, 1178}}</string>
 				<string key="NSMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -2227,19 +2228,19 @@
 				</object>
 				<object class="IBConnectionRecord">
 					<object class="IBOutletConnection" key="connection">
-						<string key="label">dataSource</string>
-						<reference key="source" ref="1073200766"/>
-						<reference key="destination" ref="368666615"/>
-					</object>
-					<int key="connectionID">551</int>
-				</object>
-				<object class="IBConnectionRecord">
-					<object class="IBOutletConnection" key="connection">
 						<string key="label">controller</string>
 						<reference key="source" ref="368666615"/>
 						<reference key="destination" ref="276645703"/>
 					</object>
-					<int key="connectionID">563</int>
+					<int key="connectionID">572</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="1073200766"/>
+						<reference key="destination" ref="368666615"/>
+					</object>
+					<int key="connectionID">573</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -3769,9 +3770,9 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{120, -102}, {852, 724}}</string>
+					<string>{{384, 4}, {852, 724}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{120, -102}, {852, 724}}</string>
+					<string>{{384, 4}, {852, 724}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -3923,7 +3924,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">563</int>
+			<int key="maxID">573</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptionsV3.1+">

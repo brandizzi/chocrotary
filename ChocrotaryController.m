@@ -13,6 +13,7 @@
 -(id)init {
 	notebook = notebook_new("/Users/brandizzi/Documents/software/secretary/Chocrotary/secretary.notebook");
 	secretary = notebook_get_secretary(notebook);
+	NSLog(@"Controller done");
 	return self;
 	
 }

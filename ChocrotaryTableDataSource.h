@@ -17,9 +17,5 @@
 - (id)tableView:(NSTableView *)tableView 
 		objectValueForTableColumn:(NSTableColumn *)tableColumn 
 		row:(NSInteger)row;
-- (void)tableView:(NSTableView *)aTableView 
-		setObjectValue:(id)anObject 
-		forTableColumn:(NSTableColumn *)aTableColumn 
-	    row:(NSInteger)rowIndex;
-
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 @end
