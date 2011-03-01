@@ -8,7 +8,6 @@
 
 #import "ChocrotaryController.h"
 
-
 @implementation ChocrotaryController
 
 -(id)init {
@@ -20,6 +19,29 @@
 
 -(Secretary*)getSecretary {
 	return secretary;
+}
+
+-(NSInteger) countTasks {
+	return secretary_count_task(secretary);
+}
+
+-(ChocrotaryTask*) getNthTask:(NSInteger)n {
+	return secretary_get_nth_task(secretary, n);
+}
+
+-(void) doIt:(ChocrotaryTask*) task {
+	secretary_do(secretary, task);
+}
+-(void) undo:(ChocrotaryTask*) task {
+	secretary_undo(secretary, task);
+}
+
+-(void) switchDone:(ChocrotaryTask*) task {
+	if (task_is_done(task)) {
+		secretary_undo(secretary, task);
+	} else {
+		secretary_do(secretary, task);
+	}
 }
 
 -(void)save {

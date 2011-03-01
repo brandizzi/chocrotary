@@ -8,7 +8,6 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ChocrotaryController.h"
-#import "secretary/notebook.h"
 
 @interface ChocrotaryTableDataSource : NSObject {
 	IBOutlet ChocrotaryController *controller;

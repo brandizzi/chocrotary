@@ -13,7 +13,7 @@
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
 			<integer value="29"/>
-			<integer value="372"/>
+			<integer value="371"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1315,7 +1315,7 @@
 				<int key="NSWindowBacking">2</int>
 				<string key="NSWindowRect">{{335, 26}, {852, 724}}</string>
 				<int key="NSWTFlags">1954021376</int>
-				<string key="NSWindowTitle">Chocrotary</string>
+				<string key="NSWindowTitle">Secretary</string>
 				<string key="NSWindowClass">ChocrotaryController</string>
 				<nil key="NSViewClass"/>
 				<string key="NSWindowContentMaxSize">{1.79769e+308, 1.79769e+308}</string>
@@ -3771,9 +3771,9 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{121, -102}, {852, 724}}</string>
+					<string>{{120, -102}, {852, 724}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{121, -102}, {852, 724}}</string>
+					<string>{{120, -102}, {852, 724}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>

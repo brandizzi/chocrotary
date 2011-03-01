@@ -7,19 +7,17 @@
 //
 
 #import "ChocrotaryTableDataSource.h"
-#import "secretary/notebook.h"
 
 
 @implementation ChocrotaryTableDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	Secretary *secretary = [controller getSecretary];
-	return secretary_count_task(secretary);
+	return [controller countTasks];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	Task *task = secretary_get_nth_task([controller getSecretary], row);
-	if ([[tableColumn identifier] isEqualToString: @"done" ]) {
+	ChocrotaryTask *task = [controller getNthTask:row];
+ 	if ([[tableColumn identifier] isEqualToString: @"done" ]) {
 		NSButtonCell *button = [NSButtonCell new];
 		[button setButtonType:NSSwitchButton];
 		[button setState:task_is_done(task)];
@@ -33,14 +31,9 @@
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	Task *task = secretary_get_nth_task([controller getSecretary], row);
+	ChocrotaryTask *task = [controller getNthTask:row];
 	if ([[tableColumn identifier] isEqualToString: @"done" ]) {
-		BOOL value = [object boolValue];
-		if (value) {
-			secretary_do(secretary, task);
-		} else {
-			secretary_undo(secretary, task);
-		}
+		[controller switchDone:task];
 	}
 	[controller save];
 }
