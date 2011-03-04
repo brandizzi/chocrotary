@@ -10,6 +10,8 @@
 
 @implementation ChocrotaryController
 
+@synthesize tableView;
+
 -(id)init {
 	notebook = notebook_new("/Users/brandizzi/Documents/software/secretary/Chocrotary/secretary.notebook");
 	secretary = notebook_get_secretary(notebook);
@@ -51,6 +53,26 @@
 
 -(void)save {
 	notebook_save(notebook);
+}
+
+-(IBAction) addTask:(id)sender {
+	// TODO That is ugly as HELL!
+	secretary_appoint(secretary, "");
+	[tableView reloadData];
+	NSInteger lastRow = [tableView numberOfRows]-1;
+	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
+	[tableView editColumn:1 row:lastRow withEvent:nil select:YES];
+}
+
+-(IBAction) removeTask:(id)sender {
+	NSIndexSet* indexes = [tableView selectedRowIndexes];
+	NSInteger index = [indexes firstIndex];
+	while (index != NSNotFound) {
+		Task *task = secretary_get_nth_task(secretary, index);
+		secretary_delete_task(secretary, task);
+		index = [indexes indexGreaterThanIndex:index];
+	}
+	[tableView reloadData];
 }
 
 @end

@@ -14,7 +14,11 @@ typedef Task ChocrotaryTask;
 @interface ChocrotaryController : NSObject {
 	Notebook *notebook;
 	Secretary *secretary;
+	IBOutlet NSTableView* tableView;
 }
+
+@property(readwrite,assign) NSTableView* tableView;
+
 
 -(id)init;
 -(Secretary*) getSecretary;
@@ -28,5 +32,8 @@ typedef Task ChocrotaryTask;
 -(void) switchDone:(ChocrotaryTask*) task;
 
 -(void)save;
+
+-(IBAction) addTask:(id)sender;
+-(IBAction) removeTask:(id)sender;
 
 @end
