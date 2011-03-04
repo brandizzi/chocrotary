@@ -30,6 +30,10 @@
 	return secretary_get_nth_task(secretary, n);
 }
 
+-(void) changeDescription:(ChocrotaryTask*) task to:(NSString*) description {
+	task_set_description(task, [description UTF8String]);
+}
+
 -(void) doIt:(ChocrotaryTask*) task {
 	secretary_do(secretary, task);
 }

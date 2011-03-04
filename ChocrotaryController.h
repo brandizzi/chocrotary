@@ -21,6 +21,7 @@ typedef Task ChocrotaryTask;
 
 -(NSInteger) countTasks;
 -(ChocrotaryTask*) getNthTask:(NSInteger)n;
+-(void) changeDescription:(ChocrotaryTask*) task to:(NSString*) description;
 
 -(void) doIt:(ChocrotaryTask*) task;
 -(void) undo:(ChocrotaryTask*) task;
