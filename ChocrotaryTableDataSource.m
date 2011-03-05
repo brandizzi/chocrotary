@@ -63,13 +63,18 @@
 	} else if ([columnName isEqualToString: @"description"]) {
 		[controller changeDescription:task to:object];
 	} else if ([columnName isEqualToString: @"scheduled"]) {
-		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-		[formatter setDateStyle:NSDateFormatterMediumStyle];
-		[formatter setTimeStyle:NSDateFormatterNoStyle];
-		NSDate *date = [formatter dateFromString:object];
-		time_t time = [date timeIntervalSince1970];
-		secretary_schedule([controller getSecretary], task, *localtime(&time));
-		NSLog(@"d %d %d", task_get_scheduled_date(task).tm_mday, task_get_scheduled_date(task).tm_mon);
+		NSString *value = object;
+		if ([value length] != 0) {
+			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+			[formatter setDateStyle:NSDateFormatterMediumStyle];
+			[formatter setTimeStyle:NSDateFormatterNoStyle];
+			NSDate *date = [formatter dateFromString:object];
+			time_t time = [date timeIntervalSince1970];
+			secretary_schedule([controller getSecretary], task, *localtime(&time));
+		} else {
+			task_unschedule(task);
+		}
+
 	}
 	[controller save];
 }
