@@ -12,11 +12,11 @@
 @implementation ChocrotaryTableDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [controller countTasks];
+	return [[controller getSecretary] countTasks];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotaryTask *task = [controller getNthTask:row];
+	ChocrotaryTask *task = [[controller getSecretary] getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
  	if ([columnName isEqualToString: @"done" ]) {
 		NSButtonCell *button = [NSButtonCell new];
@@ -56,12 +56,14 @@
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotaryTask *task = [controller getNthTask:row];
+	ChocrotarySecretary* secretary = [controller getSecretary];
+	ChocrotaryTask *task = [secretary getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
 	if ([columnName isEqualToString: @"done" ]) {
-		[controller switchDone:task];
+		[secretary switchDoneStatus:task];
 	} else if ([columnName isEqualToString: @"description"]) {
-		[controller changeDescription:task to:object];
+		const char *description = [object UTF8String];
+		task_set_description(task, description);
 	} else if ([columnName isEqualToString: @"scheduled"]) {
 		NSString *value = object;
 		if ([value length] != 0) {
@@ -69,10 +71,9 @@
 			[formatter setDateStyle:NSDateFormatterMediumStyle];
 			[formatter setTimeStyle:NSDateFormatterNoStyle];
 			NSDate *date = [formatter dateFromString:object];
-			time_t time = [date timeIntervalSince1970];
-			secretary_schedule([controller getSecretary], task, *localtime(&time));
+			[secretary schedule:task to:date];
 		} else {
-			task_unschedule(task);
+			[secretary unschedule:task];
 		}
 
 	}

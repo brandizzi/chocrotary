@@ -13,7 +13,7 @@
 @implementation ChocrotaryProjectTableDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return secretary_count_project([controller getSecretary])+2;
+	return [[controller getSecretary] countProjects ]+2;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
@@ -26,8 +26,8 @@
 			return @"Scheduled";
 			break;
 		default:
-			if (row < secretary_count_project(secretary)+2) {
-				ChocrotaryProject *project = secretary_get_nth_project(secretary, row-2);
+			if (row < [secretary countProjects ]+2) {
+				ChocrotaryProject *project = [secretary getNthProject: row-2];
 				return [NSString stringWithUTF8String:project_get_name(project)];
 			}
 			break;
@@ -37,9 +37,9 @@
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	ChocrotarySecretary *secretary = [controller getSecretary];
-	if (row < secretary_count_project(secretary)+2) {
+	if (row < [secretary countProjects]+2) {
 		NSString *name = object;
-		ChocrotaryProject *project = secretary_get_nth_project(secretary, row-2);
+		ChocrotaryProject *project = [secretary getNthProject:row-2];
 		project_set_name(project, [name UTF8String]);
 	}
 	[controller save];
