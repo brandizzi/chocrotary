@@ -10,17 +10,17 @@
 
 @implementation ChocrotaryController
 
-@synthesize tableView;
+@synthesize taskTableView;
 
 -(id)init {
-	notebook = notebook_new("/Users/brandizzi/.secretary/secretary.notebook");
+	notebook = notebook_new("/Users/brandizzi/Documents/software/secretary/Chocrotary/secretary.notebook");
 	secretary = notebook_get_secretary(notebook);
 	NSLog(@"Controller done");
 	return self;
 	
 }
 
--(Secretary*)getSecretary {
+-(ChocrotarySecretary*)getSecretary {
 	return secretary;
 }
 
@@ -58,21 +58,42 @@
 -(IBAction) addTask:(id)sender {
 	// TODO That is ugly as HELL!
 	secretary_appoint(secretary, "");
-	[tableView reloadData];
-	NSInteger lastRow = [tableView numberOfRows]-1;
-	[tableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
-	[tableView editColumn:1 row:lastRow withEvent:nil select:YES];
+	[taskTableView reloadData];
+	NSInteger lastRow = [taskTableView numberOfRows]-1;
+	[taskTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
+	[taskTableView editColumn:1 row:lastRow withEvent:nil select:YES];
 }
 
 -(IBAction) removeTask:(id)sender {
-	NSIndexSet* indexes = [tableView selectedRowIndexes];
+	NSIndexSet* indexes = [taskTableView selectedRowIndexes];
 	NSInteger index = [indexes firstIndex];
 	while (index != NSNotFound) {
 		Task *task = secretary_get_nth_task(secretary, index);
 		secretary_delete_task(secretary, task);
 		index = [indexes indexGreaterThanIndex:index];
 	}
-	[tableView reloadData];
+	[taskTableView reloadData];
 }
+
+-(IBAction) addProject:(id)sender {
+	secretary_start(secretary, "");
+	[projectTableView reloadData];
+	NSInteger lastRow = [projectTableView numberOfRows]-1;
+	[projectTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
+	[projectTableView editColumn:0 row:lastRow withEvent:nil select:YES];
+	
+}
+
+-(IBAction) removeProject:(id)sender {
+	NSIndexSet* indexes = [projectTableView selectedRowIndexes];
+	NSInteger index = [indexes firstIndex];
+	while (index != NSNotFound && index >= 2) {
+		ChocrotaryProject *project = secretary_get_nth_project(secretary, index-2);
+		secretary_delete_project(secretary, project);
+		index = [indexes indexGreaterThanIndex:index];
+	}
+	[projectTableView reloadData];
+}
+
 
 @end

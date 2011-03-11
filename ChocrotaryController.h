@@ -9,19 +9,22 @@
 #import <Cocoa/Cocoa.h>
 #import <secretary/notebook.h>
 
+typedef Secretary ChocrotarySecretary;
 typedef Task ChocrotaryTask;
+typedef Project ChocrotaryProject;
 
 @interface ChocrotaryController : NSObject {
 	Notebook *notebook;
-	Secretary *secretary;
-	IBOutlet NSTableView* tableView;
+	ChocrotarySecretary *secretary;
+	IBOutlet NSTableView* taskTableView;
+	IBOutlet NSTableView* projectTableView;
 }
 
-@property(readwrite,assign) NSTableView* tableView;
+@property(readwrite,assign) NSTableView* taskTableView;
 
 
 -(id)init;
--(Secretary*) getSecretary;
+-(ChocrotarySecretary*) getSecretary;
 
 -(NSInteger) countTasks;
 -(ChocrotaryTask*) getNthTask:(NSInteger)n;
@@ -35,5 +38,8 @@ typedef Task ChocrotaryTask;
 
 -(IBAction) addTask:(id)sender;
 -(IBAction) removeTask:(id)sender;
+
+-(IBAction) addProject:(id)sender;
+-(IBAction) removeProject:(id)sender;
 
 @end
