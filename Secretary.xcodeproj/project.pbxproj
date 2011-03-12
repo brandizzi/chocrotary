@@ -12,12 +12,23 @@
 		0317BDF11329DA56004055F8 /* ChocrotarySecretary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */; };
 		036EAF82131755A4006C1EC1 /* ChocrotaryTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EAF81131755A4006C1EC1 /* ChocrotaryTableDataSource.m */; };
 		03C97DCF131C8D8D0081FC4D /* ChocrotaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C97DCE131C8D8D0081FC4D /* ChocrotaryController.m */; };
+		03D17878132C02A4004F43A1 /* TestChocrotarySecretary.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D17877132C02A4004F43A1 /* TestChocrotarySecretary.m */; };
 		1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */ = {isa = PBXBuildFile; fileRef = 1DDD58140DA1D0A300B32029 /* MainMenu.xib */; };
 		256AC3DA0F4B6AC300CF3369 /* ChocrotaryAppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 256AC3D90F4B6AC300CF3369 /* ChocrotaryAppDelegate.m */; };
 		8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 089C165CFE840E0CC02AAC07 /* InfoPlist.strings */; };
 		8D11072D0486CEB800E47090 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = 29B97316FDCFA39411CA2CEA /* main.m */; settings = {ATTRIBUTES = (); }; };
 		8D11072F0486CEB800E47090 /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */; };
 /* End PBXBuildFile section */
+
+/* Begin PBXContainerItemProxy section */
+		03D17874132C00C1004F43A1 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090;
+			remoteInfo = Secretary;
+		};
+/* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
 		0317BCB31329CC96004055F8 /* ChocrotaryProjectTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryProjectTableDataSource.h; sourceTree = "<group>"; };
@@ -31,6 +42,10 @@
 		037BDB8713245D90003DFB4C /* Portuguese (Brazil) */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "Portuguese (Brazil)"; path = "Portuguese (Brazil).lproj/MainMenu.xib"; sourceTree = "<group>"; };
 		03C97DCD131C8D8D0081FC4D /* ChocrotaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryController.h; sourceTree = "<group>"; };
 		03C97DCE131C8D8D0081FC4D /* ChocrotaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryController.m; sourceTree = "<group>"; };
+		03D1786F132C00A9004F43A1 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
+		03D17870132C00A9004F43A1 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
+		03D17876132C02A4004F43A1 /* TestChocrotarySecretary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestChocrotarySecretary.h; path = ../Chocrotary/TestChocrotarySecretary.h; sourceTree = SOURCE_ROOT; };
+		03D17877132C02A4004F43A1 /* TestChocrotarySecretary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = TestChocrotarySecretary.m; path = ../Chocrotary/TestChocrotarySecretary.m; sourceTree = SOURCE_ROOT; };
 		089C165DFE840E0CC02AAC07 /* English */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.strings; name = English; path = English.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		1058C7A1FEA54F0111CA2CBB /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = /System/Library/Frameworks/Cocoa.framework; sourceTree = "<absolute>"; };
 		13E42FB307B3F0F600E4EEF1 /* CoreData.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreData.framework; path = /System/Library/Frameworks/CoreData.framework; sourceTree = "<absolute>"; };
@@ -46,6 +61,13 @@
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
+		03D1786C132C00A9004F43A1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072E0486CEB800E47090 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
@@ -72,6 +94,8 @@
 				0317BD771329D733004055F8 /* ChocrotaryNotebook.m */,
 				0317BDEF1329DA56004055F8 /* ChocrotarySecretary.h */,
 				0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */,
+				03D17876132C02A4004F43A1 /* TestChocrotarySecretary.h */,
+				03D17877132C02A4004F43A1 /* TestChocrotarySecretary.m */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
@@ -98,6 +122,7 @@
 			isa = PBXGroup;
 			children = (
 				8D1107320486CEB800E47090 /* Secretary.app */,
+				03D1786F132C00A9004F43A1 /* Unit Tests.octest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -110,6 +135,7 @@
 				29B97317FDCFA39411CA2CEA /* Resources */,
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
+				03D17870132C00A9004F43A1 /* Unit Tests-Info.plist */,
 			);
 			name = Chocrotary;
 			sourceTree = "<group>";
@@ -145,6 +171,25 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
+		03D1786E132C00A9004F43A1 /* Unit Tests */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = 03D17873132C00A9004F43A1 /* Build configuration list for PBXNativeTarget "Unit Tests" */;
+			buildPhases = (
+				03D1786A132C00A9004F43A1 /* Resources */,
+				03D1786B132C00A9004F43A1 /* Sources */,
+				03D1786C132C00A9004F43A1 /* Frameworks */,
+				03D1786D132C00A9004F43A1 /* ShellScript */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+				03D17875132C00C1004F43A1 /* PBXTargetDependency */,
+			);
+			name = "Unit Tests";
+			productName = "Unit Tests";
+			productReference = 03D1786F132C00A9004F43A1 /* Unit Tests.octest */;
+			productType = "com.apple.product-type.bundle";
+		};
 		8D1107260486CEB800E47090 /* Secretary */ = {
 			isa = PBXNativeTarget;
 			buildConfigurationList = C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Secretary" */;
@@ -184,11 +229,19 @@
 			projectRoot = "";
 			targets = (
 				8D1107260486CEB800E47090 /* Secretary */,
+				03D1786E132C00A9004F43A1 /* Unit Tests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
+		03D1786A132C00A9004F43A1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D1107290486CEB800E47090 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -200,7 +253,31 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		03D1786D132C00A9004F43A1 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "# Run the unit tests in this test bundle.\n\"${SYSTEM_DEVELOPER_DIR}/Tools/RunUnitTests\"\n";
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
+		03D1786B132C00A9004F43A1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				03D17878132C02A4004F43A1 /* TestChocrotarySecretary.m in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 		8D11072C0486CEB800E47090 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
@@ -216,6 +293,14 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
+
+/* Begin PBXTargetDependency section */
+		03D17875132C00C1004F43A1 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Secretary */;
+			targetProxy = 03D17874132C00C1004F43A1 /* PBXContainerItemProxy */;
+		};
+/* End PBXTargetDependency section */
 
 /* Begin PBXVariantGroup section */
 		089C165CFE840E0CC02AAC07 /* InfoPlist.strings */ = {
@@ -238,6 +323,64 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03D17871132C00A9004F43A1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				BUNDLE_LOADER = "$(TEST_HOST)";
+				COPY_PHASE_STRIP = NO;
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				HEADER_SEARCH_PATHS = ../lib/include;
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+					../lib/libsecretary.a,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Secretary.app/Contents/MacOS/Secretary";
+				WRAPPER_EXTENSION = octest;
+			};
+			name = Debug;
+		};
+		03D17872132C00A9004F43A1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				GCC_ENABLE_OBJC_EXCEPTIONS = YES;
+				GCC_MODEL_TUNING = G5;
+				GCC_PRECOMPILE_PREFIX_HEADER = YES;
+				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
+				INFOPLIST_FILE = "Unit Tests-Info.plist";
+				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				OTHER_LDFLAGS = (
+					"-framework",
+					Cocoa,
+					"-framework",
+					SenTestingKit,
+				);
+				PREBINDING = NO;
+				PRODUCT_NAME = "Unit Tests";
+				WRAPPER_EXTENSION = octest;
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		C01FCF4B08A954540054247B /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -258,8 +401,8 @@
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"\"$(SRCROOT)/../lib\"/**",
-					"../lib/**",
+					"\"$(SRCROOT)/../lib\"",
+					../lib,
 				);
 				OTHER_LDFLAGS = ../lib/libsecretary.a;
 				PRODUCT_NAME = Secretary;
@@ -313,6 +456,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03D17873132C00A9004F43A1 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03D17871132C00A9004F43A1 /* Debug */,
+				03D17872132C00A9004F43A1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		C01FCF4A08A954540054247B /* Build configuration list for PBXNativeTarget "Secretary" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
