@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <secretary/secretary.h>
-#import <ChocrotaryNotebook.h>
+#import "ChocrotaryNotebook.h"
 
 @interface ChocrotaryController : NSObject {
 	ChocrotaryNotebook *notebook;
@@ -18,10 +18,10 @@
 }
 
 @property(readwrite,assign) NSTableView* taskTableView;
-
+@property(readonly) ChocrotarySecretary *secretary;
 
 -(id)init;
--(ChocrotarySecretary*) getSecretary;
+-(id) initWithNotebook:(ChocrotaryNotebook*) n;
 
 -(void)save;
 

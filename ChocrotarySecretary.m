@@ -12,11 +12,13 @@
 
 @implementation ChocrotarySecretary
 -(id)init {
+	[super init];
 	secretary = secretary_new();
 	return self;
 }
 
 -(id)initWithSecretary:(Secretary*) ready {
+	[super init];
 	secretary = ready;
 	return self;
 }
@@ -76,6 +78,25 @@
 
 -(void) deleteProject:(ChocrotaryProject*) project {
 	secretary_delete_project(secretary, project);
+}
+
+-(void) move:(ChocrotaryTask*) task to:(ChocrotaryProject*) project {
+	secretary_move(secretary, task, project);
+}
+
+
+-(NSInteger) countInboxTasks {
+	return secretary_count_inbox(secretary);
+}
+
+-(ChocrotaryTask*) getNthInboxTask:(NSInteger) n {
+	return secretary_get_nth_inbox_task(secretary, n);
+}
+
+
+-(void)release {
+	secretary_free(secretary);
+	[super release];
 }
 
 @end

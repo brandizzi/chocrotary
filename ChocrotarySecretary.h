@@ -35,4 +35,10 @@ typedef Project ChocrotaryProject;
 -(ChocrotaryProject*) getNthProject:(NSInteger)n;
 -(void) deleteProject:(ChocrotaryProject*) project;
 
+-(void) move:(ChocrotaryTask*) task to:(ChocrotaryProject*) project;
+
+-(NSInteger) countInboxTasks;
+-(ChocrotaryTask*) getNthInboxTask:(NSInteger) n;
+
+-(void)release;
 @end

@@ -15,6 +15,12 @@
 	secretary = [[ChocrotarySecretary alloc] initWithSecretary:notebook_get_secretary(notebook)];
 	return self;
 }
+
+-(id) initWithFile:(NSString*)filename {
+	notebook = notebook_new([filename UTF8String]);
+	secretary = [[ChocrotarySecretary alloc] initWithSecretary:notebook_get_secretary(notebook)];
+	return self;
+}
 -(ChocrotarySecretary*) getSecretary {
 	return secretary;
 }

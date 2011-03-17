@@ -11,15 +11,19 @@
 @implementation ChocrotaryController
 
 @synthesize taskTableView;
+@synthesize secretary;
 
 -(id)init {
-	notebook = [[ChocrotaryNotebook alloc] init];
-	secretary = [notebook getSecretary];
-	return self;
-	
+	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
 }
 
--(ChocrotarySecretary*)getSecretary {
+-(id) initWithNotebook:(ChocrotaryNotebook*) n {
+	notebook = n;
+	secretary = [notebook getSecretary];
+	return self;
+}
+
+-(ChocrotarySecretary*)secretary {
 	return secretary;
 }
 

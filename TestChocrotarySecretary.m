@@ -16,4 +16,19 @@
 	STAssertEquals([chocrotary countTasks], 0L, @"Should not contain any task");
 	[chocrotary release];
 }
+
+-(void) testMoveToProject {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+
+	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary appoint:@"Buy pequi"];
+	
+	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
+	[secretary move:(ChocrotaryTask*) task1 to:(ChocrotaryProject*) project];
+	[secretary schedule:task2 to:[NSDate date]];
+	
+	STAssertEquals([secretary countInboxTasks], 1L, @"Should have only one task in inbox");
+	STAssertEquals([secretary getNthInboxTask:0], task3, @"Task 3 should be the task in inbox");
+}
 @end

@@ -1,22 +1,32 @@
 //
-//  ChocrotaryTableDataSource.m
-//  Chocrotary
+//  ChocrotaryInboxTableDataSource.m
+//  Secretary
 //
-//  Created by Adam Victor Nazareth Brandizzi on 25/02/11.
+//  Created by Adam Victor Nazareth Brandizzi on 14/03/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChocrotaryTableDataSource.h"
+#import "ChocrotaryInboxTableDataSource.h"
 
 
-@implementation ChocrotaryTableDataSource
+@implementation ChocrotaryInboxTableDataSource
+- (id) init {
+	[super init];
+	return self;
+}
+
+- (id) initWithController:(ChocrotaryController*) c {
+	[super init];
+	controller = c;
+	return self;
+}
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [[controller secretary] countTasks];
+	return [[controller secretary] countInboxTasks];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotaryTask *task = [[controller secretary] getNthTask:row];
+	ChocrotaryTask *task = [[controller secretary] getNthInboxTask:row];
 	NSString *columnName = [tableColumn identifier];
  	if ([columnName isEqualToString: @"done" ]) {
 		NSButtonCell *button = [NSButtonCell new];
@@ -54,10 +64,9 @@
 		return @"";
 	}
 }
-
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	ChocrotarySecretary* secretary = [controller secretary];
-	ChocrotaryTask *task = [secretary getNthTask:row];
+	ChocrotaryTask *task = [secretary getNthInboxTask:row];
 	NSString *columnName = [tableColumn identifier];
 	if ([columnName isEqualToString: @"done" ]) {
 		[secretary switchDoneStatus:task];
@@ -75,8 +84,9 @@
 		} else {
 			[secretary unschedule:task];
 		}
-
+		
 	}
 	[controller save];
 }
+
 @end

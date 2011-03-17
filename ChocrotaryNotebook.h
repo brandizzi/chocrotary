@@ -8,7 +8,7 @@
 
 #import <Cocoa/Cocoa.h>
 #import <secretary/notebook.h>
-#import <ChocrotarySecretary.h>
+#import "ChocrotarySecretary.h"
 
 @interface ChocrotaryNotebook : NSObject {
 	Notebook *notebook;
@@ -16,6 +16,7 @@
 }
 
 -(id) init;
+-(id) initWithFile:(NSString*)filename;
 -(ChocrotarySecretary*) getSecretary;
 -(void)save;
 

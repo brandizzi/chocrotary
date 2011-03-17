@@ -12,5 +12,5 @@
 @interface TestChocrotarySecretary : SenTestCase {
 }
 -(void) testZero;
-
+-(void) testMoveToProject;
 @end

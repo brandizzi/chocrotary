@@ -13,11 +13,11 @@
 @implementation ChocrotaryProjectTableDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [[controller getSecretary] countProjects ]+2;
+	return [[controller secretary] countProjects ]+2;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretary *secretary = [controller getSecretary];
+	ChocrotarySecretary *secretary = [controller secretary];
 	switch (row) {
 		case 0:
 			return @"Inbox";
@@ -36,7 +36,7 @@
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretary *secretary = [controller getSecretary];
+	ChocrotarySecretary *secretary = [controller secretary];
 	if (row < [secretary countProjects]+2) {
 		NSString *name = object;
 		ChocrotaryProject *project = [secretary getNthProject:row-2];
