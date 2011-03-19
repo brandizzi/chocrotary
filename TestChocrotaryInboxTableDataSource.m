@@ -8,10 +8,21 @@
 
 #import "TestChocrotaryInboxTableDataSource.h"
 #import "ChocrotarySecretary.h"
+#import "ChocrotaryNotebook.h"
 #import "ChocrotaryInboxTableDataSource.h"
 
 
 @implementation TestChocrotaryInboxTableDataSource
+
+-(void) testColumns {
+	ChocrotaryInboxTableDataSource *dataSource = [[ChocrotaryInboxTableDataSource alloc] init];
+	STAssertEquals([dataSource numberOfColumns], 2L, @"Should have 2 columns");
+	NSTableColumn *column = [dataSource getNthColumn:0];
+	STAssertEqualObjects([column identifier], @"done", @"Identifier of 1st column should be 'done'");
+	column = [dataSource getNthColumn:1];
+	STAssertEqualObjects([column identifier], @"description", @"Identifier of 2nd column should be 'description'");
+}
+
 -(void) testInboxTasks {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
@@ -29,11 +40,11 @@
 
 	STAssertEquals([dataSource numberOfRowsInTableView:nil], 1L, @"Should have only one");
 	
-	NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"done"];
+	NSTableColumn *column = [dataSource getNthColumn:0];
 	NSButtonCell * doneCheckbox = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
-	[column setIdentifier:@"description"];
+	column = [dataSource getNthColumn:1];
 	NSString *description = [dataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" desxc column should be Not nil");
 	STAssertEqualObjects(description, @"Buy pequi", @"Wrong task description");

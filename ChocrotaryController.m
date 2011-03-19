@@ -7,6 +7,8 @@
 //
 
 #import "ChocrotaryController.h"
+#import "ChocrotaryInboxTableDataSource.h"
+
 
 @implementation ChocrotaryController
 
@@ -75,5 +77,14 @@
 	[self save];
 }
 
+-(IBAction) reconfigureTaskTable:(id)sender {
+	for (NSTableColumn *tableColumn in [taskTableView tableColumns]) {
+		[taskTableView removeTableColumn:tableColumn];
+	}
+	for (NSInteger i = 0; i < [inboxTableDataSource numberOfColumns]; i++) {
+		[taskTableView addTableColumn:[inboxTableDataSource getNthColumn:i]];
+	}
+	[taskTableView setDataSource:inboxTableDataSource];
+}
 
 @end

@@ -7,9 +7,10 @@
 //
 
 #import "ChocrotaryInboxTableDataSource.h"
-
+#import "ChocrotaryController.h"
 
 @implementation ChocrotaryInboxTableDataSource
+
 - (id) init {
 	[super init];
 	return self;
@@ -87,6 +88,27 @@
 		
 	}
 	[controller save];
+}
+
+-(NSInteger) numberOfColumns {
+	return 2;
+}
+
+-(NSTableColumn *) getNthColumn:(NSInteger) index{
+	NSTableColumn *column = [[NSTableColumn alloc] init];
+	switch (index) {
+		case 0:
+			[column setIdentifier:@"done"];
+			[column setWidth:20];
+			return column;
+		case 1:
+			[column setIdentifier:@"description"];
+			[column setResizingMask:NSTableColumnAutoresizingMask];
+			return column;
+		default:
+			return nil;
+			
+	}
 }
 
 @end

@@ -9,12 +9,14 @@
 #import <Cocoa/Cocoa.h>
 #import <secretary/secretary.h>
 #import "ChocrotaryNotebook.h"
+#import "ChocrotaryTableViewDataSource.h"
 
 @interface ChocrotaryController : NSObject {
 	ChocrotaryNotebook *notebook;
 	ChocrotarySecretary *secretary;
 	IBOutlet NSTableView* taskTableView;
 	IBOutlet NSTableView* projectTableView;
+	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
 }
 
 @property(readwrite,assign) NSTableView* taskTableView;
@@ -30,5 +32,7 @@
 
 -(IBAction) addProject:(id)sender;
 -(IBAction) removeProject:(id)sender;
+
+-(IBAction) reconfigureTaskTable:(id)sender;
 
 @end

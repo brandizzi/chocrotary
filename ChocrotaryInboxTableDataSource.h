@@ -7,10 +7,11 @@
 //
 
 #import <Cocoa/Cocoa.h>
+
+#import "ChocrotaryTableViewDataSource.h"
 #import "ChocrotaryController.h"
 
-
-@interface ChocrotaryInboxTableDataSource : NSObject {
+@interface ChocrotaryInboxTableDataSource : NSObject<ChocrotaryTableViewDataSource> {
 	IBOutlet ChocrotaryController *controller;
 }
 - (id) init;
@@ -18,4 +19,7 @@
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
+
+-(NSInteger) numberOfColumns;
+-(NSTableColumn *) getNthColumn:(NSInteger) index;
 @end

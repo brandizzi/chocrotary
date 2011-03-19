@@ -39,6 +39,7 @@
 		0317BD771329D733004055F8 /* ChocrotaryNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryNotebook.m; sourceTree = "<group>"; };
 		0317BDEF1329DA56004055F8 /* ChocrotarySecretary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotarySecretary.h; sourceTree = "<group>"; };
 		0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotarySecretary.m; sourceTree = "<group>"; };
+		036A5C961334564B00DD767E /* ChocrotaryTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTableViewDataSource.h; sourceTree = "<group>"; };
 		036EAF80131755A4006C1EC1 /* ChocrotaryTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTableDataSource.h; sourceTree = "<group>"; };
 		036EAF81131755A4006C1EC1 /* ChocrotaryTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryTableDataSource.m; sourceTree = "<group>"; };
 		037BDB8713245D90003DFB4C /* Portuguese (Brazil) */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "Portuguese (Brazil)"; path = "Portuguese (Brazil).lproj/MainMenu.xib"; sourceTree = "<group>"; };
@@ -115,6 +116,7 @@
 				0317BD771329D733004055F8 /* ChocrotaryNotebook.m */,
 				0317BDEF1329DA56004055F8 /* ChocrotarySecretary.h */,
 				0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */,
+				036A5C961334564B00DD767E /* ChocrotaryTableViewDataSource.h */,
 			);
 			name = Classes;
 			sourceTree = "<group>";
