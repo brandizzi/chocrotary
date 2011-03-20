@@ -13,4 +13,5 @@
 }
 -(void) testZero;
 -(void) testMoveToProject;
+-(void) testCountScheduled;
 @end

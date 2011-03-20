@@ -49,6 +49,5 @@
 	NSString *description = [dataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" desxc column should be Not nil");
 	STAssertEqualObjects(description, @"Buy pequi", @"Wrong task description");
-
 }
 @end

@@ -25,6 +25,9 @@ typedef Project ChocrotaryProject;
 
 -(void)schedule:(ChocrotaryTask*)task to:(NSDate*) date;
 -(void)unschedule:(ChocrotaryTask*)task;
+-(NSInteger)countScheduledTasks;
+-(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n;
+
 
 -(void)doTask:(ChocrotaryTask*) task;
 -(void)undo:(ChocrotaryTask*) task;

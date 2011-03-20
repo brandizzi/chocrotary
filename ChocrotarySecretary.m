@@ -44,6 +44,14 @@
 	secretary_unschedule(secretary, task);
 }
 
+-(NSInteger)countScheduledTasks {
+	return secretary_count_scheduled(secretary);
+}
+
+-(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n {
+	return secretary_get_nth_scheduled(secretary, n);
+}
+
 -(void)doTask:(ChocrotaryTask*) task {
 	secretary_do(secretary, task);
 }
