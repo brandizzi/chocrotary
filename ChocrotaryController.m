@@ -12,11 +12,7 @@
 
 @implementation ChocrotaryController
 
-@synthesize projectTableView;
-@synthesize taskTableView;
-@synthesize secretary;
-@synthesize currentDataSource; 
-@synthesize inboxTableDataSource; 
+@synthesize projectTableView, taskTableView, secretary, currentDataSource, inboxTableDataSource, scheduledTableDataSource;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
@@ -81,7 +77,7 @@
 }
 
 -(IBAction) reconfigureTaskTable:(id)sender {
-	for (NSTableColumn *tableColumn in [taskTableView tableColumns]) {
+	for (NSTableColumn *tableColumn in [[taskTableView tableColumns] copy]) {
 		[taskTableView removeTableColumn:tableColumn];
 	}
 	for (NSInteger i = 0; i < [currentDataSource numberOfColumns]; i++) {

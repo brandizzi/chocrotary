@@ -7,6 +7,7 @@
 //
 
 #import "ChocrotaryProjectTableViewDelegate.h"
+#import "ChocrotaryProjectTableViewDataSource.h"
 
 
 @implementation ChocrotaryProjectTableViewDelegate
@@ -14,7 +15,17 @@
 @synthesize controller, tableView;
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification {
-	controller.currentDataSource = controller.inboxTableDataSource;
+	switch ([tableView selectedRow]) {
+		case ChocrotaryProjectTableViewDataSourceInbox:
+			controller.currentDataSource = controller.inboxTableDataSource;
+			break;
+		case ChocrotaryProjectTableViewDataSourceScheduled:
+			controller.currentDataSource = controller.scheduledTableDataSource;
+			break;
+		default:
+			break;
+	}
+
 	[controller reconfigureTaskTable:self];
 }
 

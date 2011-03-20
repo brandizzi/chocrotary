@@ -9,6 +9,10 @@
 #import <Cocoa/Cocoa.h>
 #import "ChocrotaryController.h"
 
+#define ChocrotaryProjectTableViewDataSourceInbox 0
+#define	ChocrotaryProjectTableViewDataSourceScheduled 1
+#define ChocrotaryProjectTableViewDataSourceProjects 2
+
 
 @interface ChocrotaryProjectTableViewDataSource : NSObject < NSTableViewDataSource > {
 	IBOutlet ChocrotaryController *controller;
