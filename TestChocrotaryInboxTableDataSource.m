@@ -9,13 +9,14 @@
 #import "TestChocrotaryInboxTableDataSource.h"
 #import "ChocrotarySecretary.h"
 #import "ChocrotaryNotebook.h"
-#import "ChocrotaryInboxTableDataSource.h"
+#import "ChocrotaryController.h"
+#import "ChocrotaryInboxTableViewDataSource.h"
 
 
 @implementation TestChocrotaryInboxTableDataSource
 
 -(void) testColumns {
-	ChocrotaryInboxTableDataSource *dataSource = [[ChocrotaryInboxTableDataSource alloc] init];
+	ChocrotaryInboxTableViewDataSource *dataSource = [[ChocrotaryInboxTableViewDataSource alloc] init];
 	STAssertEquals([dataSource numberOfColumns], 2L, @"Should have 2 columns");
 	NSTableColumn *column = [dataSource getNthColumn:0];
 	STAssertEqualObjects([column identifier], @"done", @"Identifier of 1st column should be 'done'");
@@ -36,7 +37,7 @@
 	[secretary schedule:task2 to:[NSDate date]];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
-	ChocrotaryInboxTableDataSource *dataSource = [[ChocrotaryInboxTableDataSource alloc] initWithController:controller];
+	ChocrotaryInboxTableViewDataSource *dataSource = [[ChocrotaryInboxTableViewDataSource alloc] initWithController:controller];
 
 	STAssertEquals([dataSource numberOfRowsInTableView:nil], 1L, @"Should have only one");
 	

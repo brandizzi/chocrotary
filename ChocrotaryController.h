@@ -14,13 +14,21 @@
 @interface ChocrotaryController : NSObject {
 	ChocrotaryNotebook *notebook;
 	ChocrotarySecretary *secretary;
+	
 	IBOutlet NSTableView* taskTableView;
 	IBOutlet NSTableView* projectTableView;
-	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
+	
+	IBOutlet id<ChocrotaryTableViewDataSource> currentDataSource;
+	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource;
 }
 
-@property(readwrite,assign) NSTableView* taskTableView;
 @property(readonly) ChocrotarySecretary *secretary;
+
+@property(readwrite,assign) NSTableView* taskTableView;
+@property(readwrite,assign) NSTableView* projectTableView;
+
+@property(readwrite,assign) id<ChocrotaryTableViewDataSource> currentDataSource; 
+@property(readwrite,assign) id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
 
 -(id)init;
 -(id) initWithNotebook:(ChocrotaryNotebook*) n;

@@ -7,13 +7,16 @@
 //
 
 #import "ChocrotaryController.h"
-#import "ChocrotaryInboxTableDataSource.h"
+#import "ChocrotaryInboxTableViewDataSource.h"
 
 
 @implementation ChocrotaryController
 
+@synthesize projectTableView;
 @synthesize taskTableView;
 @synthesize secretary;
+@synthesize currentDataSource; 
+@synthesize inboxTableDataSource; 
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
@@ -81,10 +84,10 @@
 	for (NSTableColumn *tableColumn in [taskTableView tableColumns]) {
 		[taskTableView removeTableColumn:tableColumn];
 	}
-	for (NSInteger i = 0; i < [inboxTableDataSource numberOfColumns]; i++) {
-		[taskTableView addTableColumn:[inboxTableDataSource getNthColumn:i]];
+	for (NSInteger i = 0; i < [currentDataSource numberOfColumns]; i++) {
+		[taskTableView addTableColumn:[currentDataSource getNthColumn:i]];
 	}
-	[taskTableView setDataSource:inboxTableDataSource];
+	[taskTableView setDataSource:currentDataSource];
 }
 
 @end
