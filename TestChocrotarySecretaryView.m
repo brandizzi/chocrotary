@@ -25,7 +25,7 @@
 	[secretary move:task1 to:project];
 	[secretary schedule:task2 to:[NSDate date]];
 	
-	ChocrotarySecretaryView *inboxView = [[ChocrotarySecretaryInboxView alloc] initWithSecretary:secretary];
+	ChocrotarySecretaryView *inboxView = [[ChocrotarySecretaryInboxView alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([inboxView countTasks], 1L, @"Should have one task");
 	STAssertEquals([inboxView getNthTask:0], task3, @"Should be task 3, which is neither associated to project nor scheduled");
 }
@@ -41,7 +41,7 @@
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
 	[secretary schedule:task3 to:future];
 	
-	ChocrotarySecretaryView *scheduledView = [[ChocrotarySecretaryScheduledView alloc] initWithSecretary:secretary];
+	ChocrotarySecretaryView *scheduledView = [[ChocrotarySecretaryScheduledView alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([scheduledView countTasks], 2L, @"Should have two task scheduled");
 	STAssertEquals([scheduledView getNthTask:0], task2, @"Should be task 2");
 	STAssertEquals([scheduledView getNthTask:1], task3, @"Should be task 3");
@@ -59,7 +59,7 @@
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
 	[secretary schedule:task3 to:future];
 	
-	ChocrotarySecretaryView *todayView = [[ChocrotarySecretaryScheduledForTodayView alloc] initWithSecretary:secretary];
+	ChocrotarySecretaryView *todayView = [[ChocrotarySecretaryScheduledForTodayView alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([todayView countTasks], 1L, @"Should have one task scheduled for today");
 	STAssertEquals([todayView getNthTask:0], task2, @"Should be task 2");
 	

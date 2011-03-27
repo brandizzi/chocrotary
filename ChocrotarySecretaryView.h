@@ -10,10 +10,12 @@
 #import "ChocrotarySecretary.h"
 
 @interface ChocrotarySecretaryView : NSObject {
-	@protected
 	ChocrotarySecretary *secretary;
 }
-- (id) initWithSecretary: (ChocrotarySecretary*) secretary;
+
+@property (readonly) ChocrotarySecretary *secretary;
+
+- (id) initWithChocrotarySecretary: (ChocrotarySecretary*) secretary;
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
 @end

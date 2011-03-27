@@ -7,11 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
+#import "ChocrotarySecretaryView.h"
 
 @protocol ChocrotaryTableViewDataSource <NSTableViewDataSource>
 
 -(NSInteger) numberOfColumns;
 -(NSTableColumn *) getNthColumn:(NSInteger) index;
 -(id) controller;
+-(ChocrotarySecretaryView*) secretaryView;
 
 @end

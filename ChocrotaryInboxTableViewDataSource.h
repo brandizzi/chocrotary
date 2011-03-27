@@ -11,14 +11,15 @@
 #import "ChocrotaryTableViewDataSource.h"
 #import "ChocrotaryController.h"
 #import "ChocrotaryBaseTableViewDataSource.h"
+#import "ChocrotarySecretaryView.h"
 
-@interface ChocrotaryInboxTableViewDataSource : ChocrotaryBaseTableViewDataSource {	
+@interface ChocrotaryInboxTableViewDataSource : ChocrotaryBaseTableViewDataSource <ChocrotaryTableViewDataSource> {	
 	IBOutlet ChocrotaryController *controller;
 }
 
 @property (readonly) ChocrotaryController *controller;
 
 - (id) initWithController:(ChocrotaryController*) c;
-
+- (ChocrotarySecretaryView*) secretaryView;
 
 @end

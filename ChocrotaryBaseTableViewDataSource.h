@@ -10,7 +10,7 @@
 #import "ChocrotaryTableViewDataSource.h"
 #import "ChocrotaryController.h"
 
-@interface ChocrotaryBaseTableViewDataSource : NSObject <ChocrotaryTableViewDataSource>  {
+@interface ChocrotaryBaseTableViewDataSource : NSObject {
 }
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;

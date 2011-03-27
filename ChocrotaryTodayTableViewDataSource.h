@@ -8,13 +8,15 @@
 
 #import <Cocoa/Cocoa.h>
 #import "ChocrotaryBaseTableViewDataSource.h"
+#import "ChocrotarySecretaryView.h"
 
-@interface ChocrotaryTodayTableViewDataSource : ChocrotaryBaseTableViewDataSource {
+@interface ChocrotaryTodayTableViewDataSource : ChocrotaryBaseTableViewDataSource <ChocrotaryTableViewDataSource> {
 	IBOutlet ChocrotaryController *controller;
 }
 
 @property (readonly) ChocrotaryController *controller;
 
 - (id) initWithController:(ChocrotaryController*) c;
+- (ChocrotarySecretaryView*) secretaryView;
 
 @end

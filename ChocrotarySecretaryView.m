@@ -10,7 +10,10 @@
 
 
 @implementation ChocrotarySecretaryView
-- (id) initWithSecretary: (ChocrotarySecretary*) secretary {
+
+@synthesize secretary;
+
+- (id) initWithChocrotarySecretary: (ChocrotarySecretary*) secretary {
 	self->secretary = secretary;
 	return self;
 }
