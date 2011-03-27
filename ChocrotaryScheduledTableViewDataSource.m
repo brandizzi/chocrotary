@@ -13,37 +13,10 @@
 
 @synthesize controller;
 
-- (id) initWithController:(ChocrotaryController*) controller {
-	[self init];
-	self.controller = controller;
+- (id) initWithController:(ChocrotaryController*) c {
+	[super init];
+	controller = c;
 	return self;
-}
-
--(NSInteger) numberOfColumns {
-	return 4;
-}
-
--(NSTableColumn *) getNthColumn:(NSInteger) index{
-	NSTableColumn *column = [[NSTableColumn alloc] init];
-	switch (index) {
-		case 0:
-			[column setIdentifier:@"done"];
-			[column setWidth:20];
-			return column;
-		case 1:
-			[column setIdentifier:@"description"];
-			[column setResizingMask:NSTableColumnAutoresizingMask];
-			return column;
-		case 2:
-			[column setIdentifier:@"project"];
-			return column;
-		case 3:
-			[column setIdentifier:@"scheduled"];
-			return column;
-		default:
-			return nil;
-			
-	}
 }
 
 -(NSInteger) numberOfRowsInTableView:(NSTableView*) tableView {

@@ -52,6 +52,14 @@
 	return secretary_get_nth_scheduled(secretary, n);
 }
 
+-(NSInteger) countTasksScheduledForToday {
+	return secretary_count_scheduled_for_today(secretary);
+}
+
+-(ChocrotaryTask*) getNthTaskScheduledForToday:(NSInteger)n {
+	return secretary_get_nth_scheduled_for_today(secretary, n);
+}
+
 -(void)doTask:(ChocrotaryTask*) task {
 	secretary_do(secretary, task);
 }

@@ -14,6 +14,6 @@
 }
 - (void) testTableViewSelectInbox;
 - (void) testTableViewSelectScheduled;
-
+- (void) testTableViewSelectScheduledForToday;
 
 @end

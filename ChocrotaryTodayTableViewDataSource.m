@@ -1,15 +1,15 @@
 //
-//  ChocrotaryInboxTableDataSource.m
+//  ChocrotaryTodayTableViewDataSource.m
 //  Secretary
 //
-//  Created by Adam Victor Nazareth Brandizzi on 14/03/11.
+//  Created by Adam Victor Nazareth Brandizzi on 27/03/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChocrotaryInboxTableViewDataSource.h"
-#import "ChocrotaryController.h"
+#import "ChocrotaryTodayTableViewDataSource.h"
 
-@implementation ChocrotaryInboxTableViewDataSource
+
+@implementation ChocrotaryTodayTableViewDataSource
 
 @synthesize controller;
 
@@ -19,12 +19,12 @@
 	return self;
 }
 
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [[controller secretary] countInboxTasks];
+-(NSInteger) numberOfRowsInTableView:(NSTableView*) tableView {
+	return [controller.secretary countTasksScheduledForToday];
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotaryTask *task = [[controller secretary] getNthInboxTask:row];
+	ChocrotaryTask *task = [[controller secretary] getNthTaskScheduledForToday:row];
 	NSString *columnName = [tableColumn identifier];
  	if ([columnName isEqualToString: @"done" ]) {
 		NSButtonCell *button = [NSButtonCell new];
@@ -57,38 +57,17 @@
 			return @"";
 		}
 		return datepicker;
+	} else if ([columnName isEqualToString: @"project"]) {
+		ChocrotaryProject *project = task_get_project(task);
+		if (project != NULL) {
+			return [[NSString alloc] initWithUTF8String:project_get_name(project) ];		
+		} else {
+			return @"";
+		}
 	} else {
 		NSLog(@"But how?!");
 		return @"";
 	}
-}
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretary* secretary = [controller secretary];
-	ChocrotaryTask *task = [secretary getNthInboxTask:row];
-	NSString *columnName = [tableColumn identifier];
-	if ([columnName isEqualToString: @"done" ]) {
-		[secretary switchDoneStatus:task];
-	} else if ([columnName isEqualToString: @"description"]) {
-		const char *description = [object UTF8String];
-		task_set_description(task, description);
-	} else if ([columnName isEqualToString: @"scheduled"]) {
-		NSString *value = object;
-		if ([value length] != 0) {
-			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
-			[formatter setDateStyle:NSDateFormatterMediumStyle];
-			[formatter setTimeStyle:NSDateFormatterNoStyle];
-			NSDate *date = [formatter dateFromString:object];
-			[secretary schedule:task to:date];
-		} else {
-			[secretary unschedule:task];
-		}
-		
-	}
-	[controller save];
-}
-
--(NSInteger) numberOfColumns {
-	return 2;
 }
 
 @end

@@ -10,16 +10,15 @@
 
 #import "ChocrotaryTableViewDataSource.h"
 #import "ChocrotaryController.h"
+#import "ChocrotaryBaseTableViewDataSource.h"
 
-@interface ChocrotaryInboxTableViewDataSource : NSObject<ChocrotaryTableViewDataSource> {
+@interface ChocrotaryInboxTableViewDataSource : ChocrotaryBaseTableViewDataSource {	
 	IBOutlet ChocrotaryController *controller;
 }
-- (id) init;
-- (id) initWithController:(ChocrotaryController*) controller;
-- (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
-- (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 
--(NSInteger) numberOfColumns;
--(NSTableColumn *) getNthColumn:(NSInteger) index;
+@property (readonly) ChocrotaryController *controller;
+
+- (id) initWithController:(ChocrotaryController*) c;
+
+
 @end

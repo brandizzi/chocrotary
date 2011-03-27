@@ -12,7 +12,9 @@
 
 @implementation ChocrotaryController
 
-@synthesize projectTableView, taskTableView, secretary, currentDataSource, inboxTableDataSource, scheduledTableDataSource;
+@synthesize projectTableView, taskTableView, secretary, 
+	currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
+	todayTableDataSource;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];

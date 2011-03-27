@@ -13,21 +13,24 @@
 @implementation ChocrotaryProjectTableViewDataSource
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	return [[controller secretary] countProjects ]+2;
+	return [[controller secretary] countProjects ]+ChocrotaryProjectTableViewDataSourceFirstProject;
 }
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	ChocrotarySecretary *secretary = [controller secretary];
 	switch (row) {
-		case 0:
+		case ChocrotaryProjectTableViewDataSourceInbox:
 			return @"Inbox";
 			break;
-		case 1:
+		case ChocrotaryProjectTableViewDataSourceScheduled:
 			return @"Scheduled";
 			break;
+		case ChocrotaryProjectTableViewDataSourceScheduledForToday:
+			return @"For today";
+			break;			
 		default:
-			if (row < [secretary countProjects ]+2) {
-				ChocrotaryProject *project = [secretary getNthProject: row-2];
+			if (row < [secretary countProjects ]+ChocrotaryProjectTableViewDataSourceFirstProject) {
+				ChocrotaryProject *project = [secretary getNthProject: row-ChocrotaryProjectTableViewDataSourceFirstProject];
 				return [NSString stringWithUTF8String:project_get_name(project)];
 			}
 			break;
@@ -37,7 +40,7 @@
 
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	ChocrotarySecretary *secretary = [controller secretary];
-	if (row < [secretary countProjects]+2) {
+	if (row < [secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
 		NSString *name = object;
 		ChocrotaryProject *project = [secretary getNthProject:row-2];
 		project_set_name(project, [name UTF8String]);

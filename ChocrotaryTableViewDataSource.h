@@ -12,6 +12,6 @@
 
 -(NSInteger) numberOfColumns;
 -(NSTableColumn *) getNthColumn:(NSInteger) index;
-
+-(id) controller;
 
 @end

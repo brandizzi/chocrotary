@@ -28,6 +28,8 @@ typedef Project ChocrotaryProject;
 -(NSInteger)countScheduledTasks;
 -(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n;
 
+-(NSInteger) countTasksScheduledForToday;
+-(ChocrotaryTask*) getNthTaskScheduledForToday:(NSInteger)n;
 
 -(void)doTask:(ChocrotaryTask*) task;
 -(void)undo:(ChocrotaryTask*) task;

@@ -21,6 +21,7 @@
 	IBOutlet id<ChocrotaryTableViewDataSource> currentDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> scheduledTableDataSource;
+	IBOutlet id<ChocrotaryTableViewDataSource> todayTableDataSource;
 }
 
 @property(readonly) ChocrotarySecretary *secretary;
@@ -31,6 +32,8 @@
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> currentDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> scheduledTableDataSource; 
+@property(readwrite,assign) id<ChocrotaryTableViewDataSource> todayTableDataSource; 
+
 
 -(id)init;
 -(id) initWithNotebook:(ChocrotaryNotebook*) n;

@@ -22,6 +22,10 @@
 		case ChocrotaryProjectTableViewDataSourceScheduled:
 			controller.currentDataSource = controller.scheduledTableDataSource;
 			break;
+		case ChocrotaryProjectTableViewDataSourceScheduledForToday:
+			controller.currentDataSource = controller.todayTableDataSource;
+			break;
+
 		default:
 			break;
 	}

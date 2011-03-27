@@ -43,4 +43,20 @@
 	STAssertEquals([secretary countScheduledTasks], 1L, @"Should have only one schduled tasks");
 	STAssertEquals([secretary getNthScheduledTask:0], task2, @"Should be task 2");
 }
+
+-(void) testCountScheduledForToday {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	
+	/*ChocrotaryTask *task1 = */[secretary appoint:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary appoint:@"Buy pequi"];
+	
+	[secretary schedule:task2 to:[NSDate date]];
+	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:60*60*72];
+	[secretary schedule:task3 to:future];
+	
+	STAssertEquals([secretary countTasksScheduledForToday], 1L, @"Should have only one schduled tasks");
+	STAssertEquals([secretary getNthTaskScheduledForToday:0], task2, @"Should be task 2");
+}
+
 @end
