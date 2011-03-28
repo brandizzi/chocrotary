@@ -10,6 +10,9 @@
 
 
 @implementation ChocrotaryNotebook 
+
+@synthesize secretary;
+
 -(id) init {
 	notebook = notebook_new("/Users/brandizzi/Documents/software/secretary/Chocrotary/secretary.notebook");
 	secretary = [[ChocrotarySecretary alloc] initWithSecretary:notebook_get_secretary(notebook)];

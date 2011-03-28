@@ -1,5 +1,5 @@
 //
-//  TestChocrotarySecretaryView.h
+//  TestChocrotaryTasksInProjectTableViewDataSource.h
 //  Secretary
 //
 //  Created by Adam Victor Nazareth Brandizzi on 27/03/11.
@@ -9,11 +9,9 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface TestChocrotarySecretaryView : SenTestCase {
+@interface TestChocrotaryTasksInProjectTableViewDataSource : SenTestCase {
 
 }
--(void) testInboxView;
--(void) testScheduledView;
--(void) testTodayView;
--(void) testProjectView;
+-(void) testColumns;
+-(void) testProject;
 @end

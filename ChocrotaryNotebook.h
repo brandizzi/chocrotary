@@ -15,6 +15,8 @@
 	ChocrotarySecretary *secretary;
 }
 
+@property (readonly) ChocrotarySecretary *secretary;
+
 -(id) init;
 -(id) initWithFile:(NSString*)filename;
 -(ChocrotarySecretary*) getSecretary;

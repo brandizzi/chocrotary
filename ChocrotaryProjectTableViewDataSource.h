@@ -21,6 +21,8 @@ typedef enum {
 @interface ChocrotaryProjectTableViewDataSource : NSObject < NSTableViewDataSource > {
 	IBOutlet ChocrotaryController *controller;
 }
+
+@property (readwrite,assign) ChocrotaryController *controller;
 	
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 - (id)tableView:(NSTableView *)tableView 

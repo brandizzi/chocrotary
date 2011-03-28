@@ -14,7 +14,7 @@
 
 @synthesize projectTableView, taskTableView, secretary, 
 	currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
-	todayTableDataSource;
+	todayTableDataSource, tasksInProjectTableDataSource;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];

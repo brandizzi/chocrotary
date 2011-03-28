@@ -15,7 +15,8 @@
 @synthesize controller, tableView;
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification {
-	switch ([tableView selectedRow]) {
+	NSInteger row = [tableView selectedRow];
+	switch (row) {
 		case ChocrotaryProjectTableViewDataSourceInbox:
 			controller.currentDataSource = controller.inboxTableDataSource;
 			break;
@@ -25,9 +26,13 @@
 		case ChocrotaryProjectTableViewDataSourceScheduledForToday:
 			controller.currentDataSource = controller.todayTableDataSource;
 			break;
-
 		default:
-			break;
+		if (row < [controller.secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
+			NSInteger projectIndex = row - ChocrotaryProjectTableViewDataSourceFirstProject;
+			ChocrotaryProject *project = [controller.secretary getNthProject:projectIndex];
+			[controller.tasksInProjectTableDataSource setProject:project];
+			controller.currentDataSource = controller.tasksInProjectTableDataSource;
+		}
 	}
 
 	[controller reconfigureTaskTable:self];

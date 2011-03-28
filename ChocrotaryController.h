@@ -22,6 +22,7 @@
 	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> scheduledTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> todayTableDataSource;
+	IBOutlet id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
 }
 
 @property(readonly) ChocrotarySecretary *secretary;
@@ -33,6 +34,7 @@
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> scheduledTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> todayTableDataSource; 
+@property(readwrite,assign) id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
 
 
 -(id)init;
