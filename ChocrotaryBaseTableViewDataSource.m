@@ -44,6 +44,17 @@
 	}
 }
 
+-(id) controller {
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
+}
+
+-(ChocrotarySecretaryView*) secretaryView {
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
+}
+
+
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
 	ChocrotarySecretaryView* view = [self secretaryView];
 	return [view countTasks];

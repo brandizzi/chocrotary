@@ -13,9 +13,19 @@
 
 @synthesize secretary;
 
-- (id) initWithChocrotarySecretary: (ChocrotarySecretary*) secretary {
-	self->secretary = secretary;
+- (id) initWithChocrotarySecretary: (ChocrotarySecretary*) s {
+	self->secretary = s;
 	return self;
+}
+
+- (NSInteger) countTasks {
+	[self doesNotRecognizeSelector:_cmd];
+	return 0L;
+}
+
+- (ChocrotaryTask *) getNthTask:(NSInteger) n {
+	[self doesNotRecognizeSelector:_cmd];
+	return nil;
 }
 
 @end

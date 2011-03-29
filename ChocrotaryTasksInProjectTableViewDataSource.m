@@ -22,9 +22,8 @@
 	if (project != NULL) {
 		return [[ChocrotarySecretaryProjectView alloc] 
 				initWithChocrotarySecretary:controller.secretary forProject:project];
-	} else {
-		return nil;
 	}
+ 	return nil;
 }
 
 
