@@ -43,7 +43,6 @@
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	STAssertEqualObjects([controller currentDataSource], inboxDataSource, @"Should display inbox now");
-	STAssertEquals([taskTableView numberOfColumns], 2L, @"Inbox table should have 2 columns");
 }
 
 - (void) testTableViewSelectScheduled {
@@ -73,7 +72,6 @@
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	STAssertEqualObjects([controller currentDataSource], scheduledDataSource, @"Should display scheduled now");
-	STAssertEquals([taskTableView numberOfColumns], 4L, @"scheduled table should have 4 columns");
 }
 
 - (void) testTableViewSelectScheduledForToday {
@@ -103,7 +101,6 @@
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	STAssertEqualObjects([controller currentDataSource], todayDataSource, @"Should display scheduled now");
-	STAssertEquals([taskTableView numberOfColumns], 4L, @"scheduled table should have 4 columns");
 }
 
 - (void) testTableViewSelectProject {
@@ -144,14 +141,12 @@
 
 	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display project view now");
 	STAssertEquals(tipDataSource.project, project1, @"Should be project 1");
-	STAssertEquals([taskTableView numberOfColumns], 4L, @"scheduled table should have 4 columns");
 
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display scheduled now");
-	STAssertEquals(tipDataSource.project, project2, @"Should be project 1");
-	STAssertEquals([taskTableView numberOfColumns], 4L, @"scheduled table should have 4 columns");
+	STAssertEquals(tipDataSource.project, project2, @"Should be project 2");
 
 }
 @end

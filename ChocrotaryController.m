@@ -79,12 +79,12 @@
 }
 
 -(IBAction) reconfigureTaskTable:(id)sender {
-	for (NSTableColumn *tableColumn in [[taskTableView tableColumns] copy]) {
+	/*for (NSTableColumn *tableColumn in [[taskTableView tableColumns] copy]) {
 		[taskTableView removeTableColumn:tableColumn];
 	}
 	for (NSInteger i = 0; i < [currentDataSource numberOfColumns]; i++) {
 		[taskTableView addTableColumn:[currentDataSource getNthColumn:i]];
-	}
+	}*/
 	[taskTableView setDataSource:currentDataSource];
 }
 

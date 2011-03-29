@@ -45,9 +45,21 @@
 	NSButtonCell * doneCheckbox = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
+
 	column = [dataSource getNthColumn:1];
 	NSString *description = [dataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" desxc column should be Not nil");
 	STAssertEqualObjects(description, @"Buy pequi", @"Wrong task description");
+	
+	column = [dataSource getNthColumn:2];
+	NSString *projectName = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
+	STAssertNotNil(projectName, @" project column should be Not nil");
+	STAssertEqualObjects(projectName, @"", @"Should have no project");	
+	
+	column = [dataSource getNthColumn:3];
+	NSString *when = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
+	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
+	STAssertEqualObjects(when,@"", @"Should be today");	
+	
 }
 @end

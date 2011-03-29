@@ -202,30 +202,25 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>039A27D91341A33000FE9038</string>
+				<string>039A283B1341A9C500FE9038</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>ChocrotarySecretaryProjectView.m</string>
+				<string>TestChocrotaryInboxTableDataSource.m</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>039A27E21341A3C200FE9038</string>
+						<string>039A28411341AA0D00FE9038</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>ChocrotarySecretaryProjectView.m</string>
+						<string>TestChocrotaryInboxTableDataSource.m</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>039A28091341A59400FE9038</string>
+						<string>039A28431341AA0D00FE9038</string>
 						<key>history</key>
 						<array>
-							<string>039A27E31341A3C200FE9038</string>
-							<string>039A27E41341A3C200FE9038</string>
-							<string>039A27E51341A3C200FE9038</string>
-							<string>039A28061341A59400FE9038</string>
-							<string>039A28071341A59400FE9038</string>
-							<string>039A28081341A59400FE9038</string>
-							<string>039A27FE1341A58700FE9038</string>
+							<string>039A28421341AA0D00FE9038</string>
+							<string>039A283C1341A9D500FE9038</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -241,7 +236,7 @@
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>-19 60 750 718 0 0 1280 778 </string>
+				<string>16 60 750 718 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -328,14 +323,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>19</integer>
-									<integer>17</integer>
-									<integer>16</integer>
+									<integer>5</integer>
+									<integer>1</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 44}, {334, 471}}</string>
+							<string>{{0, 664}, {334, 471}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -370,7 +364,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ChocrotarySecretaryProjectView.h</string>
+								<string>TestChocrotaryScheduledTableViewDataSource.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -378,11 +372,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ChocrotarySecretaryProjectView.h</string>
+										<string>TestChocrotaryScheduledTableViewDataSource.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>039A28051341A59400FE9038</string>
+										<string>039A28401341AA0D00FE9038</string>
 										<key>history</key>
 										<array>
 											<string>035393971319C4FD005E89B4</string>
@@ -395,19 +389,16 @@
 											<string>03BBF1C61331AC5500E28732</string>
 											<string>03A07A9C13359DDB002C53D6</string>
 											<string>03A07A9F13359DDB002C53D6</string>
-											<string>03BBB3E11335A2CE00CD499F</string>
 											<string>03670537133EEBB300A56085</string>
 											<string>03670538133EEBB300A56085</string>
 											<string>03670544133EEBB300A56085</string>
 											<string>03670577133EEE8E00A56085</string>
 											<string>036705B6133EF20100A56085</string>
-											<string>036705B8133EF20100A56085</string>
 											<string>036705BA133EF20100A56085</string>
 											<string>03670603133EF4D200A56085</string>
 											<string>03670631133EF6E500A56085</string>
 											<string>0367063D133EF7DD00A56085</string>
 											<string>0367064F133EF85A00A56085</string>
-											<string>03670677133EFAE300A56085</string>
 											<string>03670678133EFAE300A56085</string>
 											<string>0367067A133EFAE300A56085</string>
 											<string>0367067C133EFAE300A56085</string>
@@ -429,7 +420,6 @@
 											<string>0330599A134004BB007B0B1C</string>
 											<string>0330599B134004BB007B0B1C</string>
 											<string>0330599C134004BB007B0B1C</string>
-											<string>03305936133FFC7E007B0B1C</string>
 											<string>033059D71340076F007B0B1C</string>
 											<string>03305A0513400A7A007B0B1C</string>
 											<string>03305A0613400A7A007B0B1C</string>
@@ -446,7 +436,11 @@
 											<string>03305B171340175A007B0B1C</string>
 											<string>039A27E01341A3C200FE9038</string>
 											<string>039A28031341A59400FE9038</string>
-											<string>039A28041341A59400FE9038</string>
+											<string>039A282F1341A92600FE9038</string>
+											<string>039A28301341A92600FE9038</string>
+											<string>039A28311341A92600FE9038</string>
+											<string>039A283F1341AA0D00FE9038</string>
+											<string>03305936133FFC7E007B0B1C</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -621,7 +615,7 @@
 	<key>PerspectivesBarVisible</key>
 	<false/>
 	<key>PinnedNavigatorIdentifier</key>
-	<string>039A27D91341A33000FE9038</string>
+	<string>039A283B1341A9C500FE9038</string>
 	<key>ShelfIsVisible</key>
 	<false/>
 	<key>SourceDescription</key>
@@ -646,13 +640,12 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>039A28111341A59400FE9038</string>
 		<string>039A28121341A59400FE9038</string>
 		<string>039A28131341A59400FE9038</string>
 		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
 		<string>/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.xcodeproj</string>
-		<string>039A27D91341A33000FE9038</string>
+		<string>039A283B1341A9C500FE9038</string>
 		<string>036EAF7C13175147006C1EC1</string>
 	</array>
 	<key>WindowString</key>
@@ -677,7 +670,7 @@
 								<key>PBXProjectModuleGUID</key>
 								<string>1CD0528F0623707200166675</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ChocrotarySecretaryProjectView.h</string>
+								<string>TestChocrotaryProjectTableViewDelegate.m</string>
 								<key>StatusBarVisibility</key>
 								<true/>
 							</dict>
