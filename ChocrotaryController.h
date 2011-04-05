@@ -23,6 +23,8 @@
 	IBOutlet id<ChocrotaryTableViewDataSource> scheduledTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> todayTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
+	
+	IBOutlet NSMutableArray *projectArray;
 }
 
 @property(readonly) ChocrotarySecretary *secretary;
@@ -35,7 +37,7 @@
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> scheduledTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> todayTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
-
+@property(readwrite,assign) NSMutableArray *projectArray;
 
 -(id)init;
 -(id) initWithNotebook:(ChocrotaryNotebook*) n;

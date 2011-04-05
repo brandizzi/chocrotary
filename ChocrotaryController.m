@@ -14,15 +14,23 @@
 
 @synthesize projectTableView, taskTableView, secretary, 
 	currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
-	todayTableDataSource, tasksInProjectTableDataSource;
+	todayTableDataSource, tasksInProjectTableDataSource, projectArray;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
 }
 
 -(id) initWithNotebook:(ChocrotaryNotebook*) n {
+	[super init];
 	notebook = n;
 	secretary = [notebook getSecretary];
+	
+	projectArray = [NSMutableArray arrayWithCapacity:[secretary countProjects]*2];
+	for (int i = 0; i < [secretary countProjects]; i++) {
+		ChocrotaryProject *project = [secretary getNthProject:i];
+		[projectArray addObject:[NSString stringWithUTF8String:project_get_name(project)] ];
+	}
+	
 	return self;
 }
 
@@ -63,6 +71,7 @@
 	NSInteger lastRow = [projectTableView numberOfRows]-1;
 	[projectTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
 	[projectTableView editColumn:0 row:lastRow withEvent:nil select:YES];
+	[projectArray addObject:@""];
 	[self save];
 }
 

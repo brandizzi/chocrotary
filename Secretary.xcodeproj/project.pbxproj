@@ -27,6 +27,7 @@
 		03A07A8313359C02002C53D6 /* TestChocrotaryScheduledTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A07A8213359C02002C53D6 /* TestChocrotaryScheduledTableViewDataSource.m */; };
 		03A07A8A13359CF0002C53D6 /* ChocrotaryScheduledTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03A07A8913359CF0002C53D6 /* ChocrotaryScheduledTableViewDataSource.m */; };
 		03C97DCF131C8D8D0081FC4D /* ChocrotaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03C97DCE131C8D8D0081FC4D /* ChocrotaryController.m */; };
+		03CC289B134ABEF100769D49 /* TestChocrotaryController.m in Sources */ = {isa = PBXBuildFile; fileRef = 03CC289A134ABEF100769D49 /* TestChocrotaryController.m */; };
 		03D17878132C02A4004F43A1 /* TestChocrotarySecretary.m in Sources */ = {isa = PBXBuildFile; fileRef = 03D17877132C02A4004F43A1 /* TestChocrotarySecretary.m */; };
 		03E361A2132D5750005E5BC5 /* TestChocrotaryInboxTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E361A1132D5750005E5BC5 /* TestChocrotaryInboxTableDataSource.m */; };
 		03E36203132DC2B2005E5BC5 /* ChocrotaryInboxTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 03E36202132DC2B2005E5BC5 /* ChocrotaryInboxTableViewDataSource.m */; };
@@ -90,6 +91,8 @@
 		03A07A8913359CF0002C53D6 /* ChocrotaryScheduledTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryScheduledTableViewDataSource.m; sourceTree = "<group>"; };
 		03C97DCD131C8D8D0081FC4D /* ChocrotaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryController.h; sourceTree = "<group>"; };
 		03C97DCE131C8D8D0081FC4D /* ChocrotaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryController.m; sourceTree = "<group>"; };
+		03CC2899134ABEF100769D49 /* TestChocrotaryController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestChocrotaryController.h; sourceTree = "<group>"; };
+		03CC289A134ABEF100769D49 /* TestChocrotaryController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestChocrotaryController.m; sourceTree = "<group>"; };
 		03D1786F132C00A9004F43A1 /* Unit Tests.octest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = "Unit Tests.octest"; sourceTree = BUILT_PRODUCTS_DIR; };
 		03D17870132C00A9004F43A1 /* Unit Tests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Unit Tests-Info.plist"; sourceTree = "<group>"; };
 		03D17876132C02A4004F43A1 /* TestChocrotarySecretary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = TestChocrotarySecretary.h; path = ../Chocrotary/TestChocrotarySecretary.h; sourceTree = SOURCE_ROOT; };
@@ -187,6 +190,8 @@
 				0396806F133F72C000F584AC /* TestChocrotarySecretaryView.m */,
 				03305962134000CF007B0B1C /* TestChocrotaryTasksInProjectTableViewDataSource.h */,
 				03305963134000CF007B0B1C /* TestChocrotaryTasksInProjectTableViewDataSource.m */,
+				03CC2899134ABEF100769D49 /* TestChocrotaryController.h */,
+				03CC289A134ABEF100769D49 /* TestChocrotaryController.m */,
 			);
 			name = "Test Classes";
 			sourceTree = "<group>";
@@ -394,6 +399,7 @@
 				03670496133EE0A700A56085 /* TestChocrotaryTodayTableViewDataSource.m in Sources */,
 				03968070133F72C000F584AC /* TestChocrotarySecretaryView.m in Sources */,
 				03305964134000CF007B0B1C /* TestChocrotaryTasksInProjectTableViewDataSource.m in Sources */,
+				03CC289B134ABEF100769D49 /* TestChocrotaryController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
