@@ -216,7 +216,7 @@
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>03CC2928134AC42200769D49</string>
+						<string>03CC293A134AC6E800769D49</string>
 						<key>history</key>
 						<array>
 							<string>03CC28A9134ABFB200769D49</string>
@@ -277,8 +277,6 @@
 			<key>Layout</key>
 			<array>
 				<dict>
-					<key>BecomeActive</key>
-					<true/>
 					<key>ContentConfiguration</key>
 					<dict>
 						<key>PBXBottomSmartGroupGIDs</key>
@@ -327,8 +325,8 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>56</integer>
-									<integer>55</integer>
+									<integer>53</integer>
+									<integer>50</integer>
 									<integer>0</integer>
 								</array>
 							</array>
@@ -363,12 +361,14 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
 								<string>1CE0B20306471E060097A5F4</string>
 								<key>PBXProjectModuleLabel</key>
-								<string>ChocrotaryController.m</string>
+								<string>ChocrotaryBaseTableViewDataSource.m</string>
 								<key>PBXSplitModuleInNavigatorKey</key>
 								<dict>
 									<key>Split0</key>
@@ -376,11 +376,11 @@
 										<key>PBXProjectModuleGUID</key>
 										<string>1CE0B20406471E060097A5F4</string>
 										<key>PBXProjectModuleLabel</key>
-										<string>ChocrotaryController.m</string>
+										<string>ChocrotaryBaseTableViewDataSource.m</string>
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>03CC2922134AC42200769D49</string>
+										<string>03CC2938134AC6E800769D49</string>
 										<key>history</key>
 										<array>
 											<string>035393971319C4FD005E89B4</string>
@@ -425,7 +425,6 @@
 											<string>03305A4513400D17007B0B1C</string>
 											<string>03305ACA13401315007B0B1C</string>
 											<string>03305ACE13401315007B0B1C</string>
-											<string>03305AD113401315007B0B1C</string>
 											<string>03305AD213401315007B0B1C</string>
 											<string>039A27E01341A3C200FE9038</string>
 											<string>039A28031341A59400FE9038</string>
@@ -434,10 +433,11 @@
 											<string>039A283F1341AA0D00FE9038</string>
 											<string>03305AD013401315007B0B1C</string>
 											<string>03CC28C0134AC15600769D49</string>
-											<string>03CC291D134AC42200769D49</string>
 											<string>03CC291E134AC42200769D49</string>
 											<string>03CC2920134AC42200769D49</string>
 											<string>03CC2921134AC42200769D49</string>
+											<string>03CC2933134AC6DF00769D49</string>
+											<string>03CC2932134AC6D500769D49</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -637,15 +637,14 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>03CC290F134AC2CC00769D49</string>
 		<string>03CC28D2134AC15600769D49</string>
 		<string>03CC28D3134AC15600769D49</string>
-		<string>1C78EAAD065D492600B07095</string>
 		<string>1CD10A99069EF8BA00B06720</string>
-		<string>03CC28CF134AC15600769D49</string>
 		<string>03CC289D134ABEF400769D49</string>
-		<string>036EAF7C13175147006C1EC1</string>
+		<string>03CC28CF134AC15600769D49</string>
 		<string>/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.xcodeproj</string>
+		<string>1C78EAAD065D492600B07095</string>
+		<string>036EAF7C13175147006C1EC1</string>
 	</array>
 	<key>WindowString</key>
 	<string>364 163 741 509 0 0 1280 778 </string>
@@ -982,6 +981,8 @@
 					<key>Dock</key>
 					<array>
 						<dict>
+							<key>BecomeActive</key>
+							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -1027,7 +1028,7 @@
 			<key>WindowToolGUID</key>
 			<string>1C78EAAD065D492600B07095</string>
 			<key>WindowToolIsVisible</key>
-			<false/>
+			<true/>
 		</dict>
 		<dict>
 			<key>Identifier</key>
