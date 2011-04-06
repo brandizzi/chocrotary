@@ -10,26 +10,7 @@
 #import "ChocrotaryTasksInProjectTableViewDataSource.h"
 
 @implementation TestChocrotaryTasksInProjectTableViewDataSource
--(void) testColumns {
-	ChocrotaryTasksInProjectTableViewDataSource *dataSource = [[ChocrotaryTasksInProjectTableViewDataSource alloc] init];
-	STAssertEquals([dataSource numberOfColumns], 4L, @"Should have 4 columns");
-	
-	NSTableColumn *column = [dataSource getNthColumn:0];
-	STAssertNotNil(column, @"1st column not found");
-	STAssertEqualObjects([column identifier], @"done", @"Identifier of 1st column should be 'done'");
-	
-	column = [dataSource getNthColumn:1];
-	STAssertNotNil(column, @"2nd column not found");
-	STAssertEqualObjects([column identifier], @"description", @"Identifier of 2nd column should be 'description'");
-	
-	column = [dataSource getNthColumn:2];
-	STAssertNotNil(column, @"2rd column not found");
-	STAssertEqualObjects([column identifier], @"project", @"Identifier of 3nd column should be 'project'");
-	
-	column = [dataSource getNthColumn:3];
-	STAssertNotNil(column, @"4th column not found");
-	STAssertEqualObjects([column identifier], @"scheduled", @"Identifier of 4nd column should be 'scheduled'");
-}
+
 -(void) testProject {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
@@ -51,22 +32,22 @@
 	dataSource.project = project1;
 	STAssertEquals([dataSource numberOfRowsInTableView:nil], 1L, @"Should have one");
 	
-	NSTableColumn *column = [dataSource getNthColumn:0];
+	NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"done"];
 	NSButtonCell * doneCheckbox = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
-	column = [dataSource getNthColumn:1];
+	[column setIdentifier:@"description"];
 	NSString *description = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, @"Improve interface", @"Wrong task description");
 	
-	column = [dataSource getNthColumn:2];
+	[column setIdentifier:@"project"];
 	NSString *projectName = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"Chocrotary", @"Should have project Chocrotary");	
 	
-	column = [dataSource getNthColumn:3];
+	[column setIdentifier:@"scheduled"];
 	NSDatePickerCell *when = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertTrue([[when dateValue] timeIntervalSinceNow] < 10, @"Should be today");	
@@ -75,22 +56,22 @@
 	dataSource.project = project2;
 	STAssertEquals([dataSource numberOfRowsInTableView:nil], 1L, @"Should have one");
 	
-	column = [dataSource getNthColumn:0];
+	[column setIdentifier:@"done"];
 	doneCheckbox = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
-	column = [dataSource getNthColumn:1];
+	[column setIdentifier:@"description"];
 	description = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, @"Add hidden option", @"Wrong task description");
 	
-	column = [dataSource getNthColumn:2];
+	 [column setIdentifier:@"project"];
 	projectName = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"libsecretary", @"Should have project Chocrotary");	
 	
-	column = [dataSource getNthColumn:3];
+	[column setIdentifier:@"scheduled"];
 	NSString *nothing = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(nothing, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects(nothing, @"", @"Should have no date");	

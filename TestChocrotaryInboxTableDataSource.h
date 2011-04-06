@@ -12,6 +12,5 @@
 @interface TestChocrotaryInboxTableDataSource : SenTestCase {
 
 }
--(void) testColumns;
 -(void) testInboxTasks;
 @end

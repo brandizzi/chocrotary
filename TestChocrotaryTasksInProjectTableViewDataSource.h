@@ -12,6 +12,5 @@
 @interface TestChocrotaryTasksInProjectTableViewDataSource : SenTestCase {
 
 }
--(void) testColumns;
 -(void) testProject;
 @end

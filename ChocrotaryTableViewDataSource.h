@@ -12,8 +12,6 @@
 @protocol ChocrotaryTableViewDataSource <NSTableViewDataSource>
 
 @required
--(NSInteger) numberOfColumns;
--(NSTableColumn *) getNthColumn:(NSInteger) index;
 -(id) controller;
 -(ChocrotarySecretaryView*) secretaryView;
 

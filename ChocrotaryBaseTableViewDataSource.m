@@ -15,35 +15,6 @@
 	return self;
 }
 
-
--(NSInteger) numberOfColumns {
-	return 4;
-}
-
-
--(NSTableColumn *) getNthColumn:(NSInteger) index{
-	NSTableColumn *column = [[NSTableColumn alloc] init];
-	switch (index) {
-		case 0:
-			[column setIdentifier:@"done"];
-			[column setWidth:20];
-			return column;
-		case 1:
-			[column setIdentifier:@"description"];
-			[column setResizingMask:NSTableColumnAutoresizingMask];
-			return column;
-		case 2:
-			[column setIdentifier:@"project"];
-			return column;
-		case 3:
-			[column setIdentifier:@"scheduled"];
-			return column;
-		default:
-			return nil;
-			
-	}
-}
-
 -(id) controller {
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;
@@ -59,6 +30,7 @@
 	ChocrotarySecretaryView* view = [self secretaryView];
 	return [view countTasks];
 }
+
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	ChocrotarySecretaryView* view = [self secretaryView];

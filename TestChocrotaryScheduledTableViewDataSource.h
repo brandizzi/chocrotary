@@ -12,6 +12,5 @@
 @interface TestChocrotaryScheduledTableViewDataSource : SenTestCase {
 
 }
--(void) testColumns;
 -(void) testScheduleTasks;
 @end

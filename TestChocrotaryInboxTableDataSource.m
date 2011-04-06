@@ -15,15 +15,6 @@
 
 @implementation TestChocrotaryInboxTableDataSource
 
--(void) testColumns {
-	ChocrotaryInboxTableViewDataSource *dataSource = [[ChocrotaryInboxTableViewDataSource alloc] init];
-	STAssertEquals([dataSource numberOfColumns], 2L, @"Should have 2 columns");
-	NSTableColumn *column = [dataSource getNthColumn:0];
-	STAssertEqualObjects([column identifier], @"done", @"Identifier of 1st column should be 'done'");
-	column = [dataSource getNthColumn:1];
-	STAssertEqualObjects([column identifier], @"description", @"Identifier of 2nd column should be 'description'");
-}
-
 -(void) testInboxTasks {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
@@ -41,22 +32,22 @@
 
 	STAssertEquals([dataSource numberOfRowsInTableView:nil], 1L, @"Should have only one");
 	
-	NSTableColumn *column = [dataSource getNthColumn:0];
+	NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"done"];
 	NSButtonCell * doneCheckbox = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 
-	column = [dataSource getNthColumn:1];
+	[column setIdentifier:@"description"];
 	NSString *description = [dataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" desxc column should be Not nil");
 	STAssertEqualObjects(description, @"Buy pequi", @"Wrong task description");
 	
-	column = [dataSource getNthColumn:2];
+	[column setIdentifier:@"project"];
 	NSString *projectName = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"", @"Should have no project");	
 	
-	column = [dataSource getNthColumn:3];
+	[column setIdentifier:@"scheduled"];
 	NSString *when = [dataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects(when,@"", @"Should be today");	

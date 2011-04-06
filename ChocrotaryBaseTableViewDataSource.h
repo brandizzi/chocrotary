@@ -13,8 +13,6 @@
 @interface ChocrotaryBaseTableViewDataSource : NSObject < ChocrotaryTableViewDataSource > {
 }
 
--(NSInteger) numberOfColumns;
--(NSTableColumn *) getNthColumn:(NSInteger) index;
 -(id) controller;
 -(ChocrotarySecretaryView*) secretaryView;
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;

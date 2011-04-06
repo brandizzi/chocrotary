@@ -20,10 +20,6 @@
 	return self;
 }
 
--(NSInteger) numberOfColumns {
-	return 2;
-}
-
 -(ChocrotarySecretaryView*) secretaryView {
 	return [[ChocrotarySecretaryInboxView alloc] initWithChocrotarySecretary:[controller secretary]];
 }
