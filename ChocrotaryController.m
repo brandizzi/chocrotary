@@ -95,6 +95,8 @@
 		[taskTableView addTableColumn:[currentDataSource getNthColumn:i]];
 	}*/
 	[taskTableView setDataSource:currentDataSource];
+	[taskTableView reloadData];
+
 }
 
 @end

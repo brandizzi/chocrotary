@@ -145,7 +145,7 @@
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display scheduled now");
+	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display project view now");
 	STAssertEquals(tipDataSource.project, project2, @"Should be project 2");
 
 }
