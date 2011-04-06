@@ -14,7 +14,25 @@
 @synthesize secretary;
 
 -(id) init {
-	notebook = notebook_new("/Users/brandizzi/Documents/software/secretary/Chocrotary/secretary.notebook");
+	NSString *executableName = [[[NSBundle mainBundle] infoDictionary] 
+								objectForKey:@"CFBundleExecutable"];
+	NSArray* paths = NSSearchPathForDirectoriesInDomains(
+														 NSApplicationSupportDirectory,
+														 NSUserDomainMask,
+														 YES);
+	NSString *path = [[paths objectAtIndex:0] stringByAppendingPathComponent:executableName];
+	NSFileManager *manager = [NSFileManager defaultManager];
+	BOOL isDirectory, exists;
+	exists = [manager fileExistsAtPath:path isDirectory:&isDirectory];
+	if (!exists || isDirectory) {
+		if (!isDirectory) {
+			[manager removeItemAtPath:path error:NULL];
+		}
+		[manager createDirectoryAtPath:path withIntermediateDirectories:YES 
+							attributes:nil error:NULL];
+	}
+	
+	notebook = notebook_new([[path stringByAppendingPathComponent:@"secretary.notebook"] UTF8String]);
 	secretary = [[ChocrotarySecretary alloc] initWithSecretary:notebook_get_secretary(notebook)];
 	return self;
 }
