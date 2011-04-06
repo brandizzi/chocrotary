@@ -7,7 +7,7 @@
 //
 
 #import "ChocrotaryController.h"
-#import "ChocrotaryInboxTableViewDataSource.h"
+#import "ChocrotaryProjectTableViewDataSource.h"
 
 
 @implementation ChocrotaryController
@@ -78,8 +78,9 @@
 -(IBAction) removeProject:(id)sender {
 	NSIndexSet* indexes = [projectTableView selectedRowIndexes];
 	NSInteger index = [indexes firstIndex];
-	while (index != NSNotFound && index >= 2) {
-		ChocrotaryProject *project = [secretary getNthProject: index-2];
+	while (index != NSNotFound && index >= ChocrotaryProjectTableViewDataSourceFirstProject) {
+		ChocrotaryProject *project = [secretary 
+									  getNthProject: index-ChocrotaryProjectTableViewDataSourceFirstProject];
 		[secretary deleteProject:project];
 		index = [indexes indexGreaterThanIndex:index];
 	}
@@ -88,12 +89,6 @@
 }
 
 -(IBAction) reconfigureTaskTable:(id)sender {
-	/*for (NSTableColumn *tableColumn in [[taskTableView tableColumns] copy]) {
-		[taskTableView removeTableColumn:tableColumn];
-	}
-	for (NSInteger i = 0; i < [currentDataSource numberOfColumns]; i++) {
-		[taskTableView addTableColumn:[currentDataSource getNthColumn:i]];
-	}*/
 	[taskTableView setDataSource:currentDataSource];
 	[taskTableView reloadData];
 
