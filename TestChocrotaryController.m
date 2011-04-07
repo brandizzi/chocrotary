@@ -20,13 +20,15 @@
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	
-	STAssertEquals([controller.projectArray count], 2UL, @"Should have two");
+	STAssertEquals([controller.projectArray count], 3UL, @"Should have three");
+	STAssertTrue([controller.projectArray containsObject:@""], @"Should have empty string");
 	STAssertTrue([controller.projectArray containsObject:@"A project"], @"Should have first project");
 	STAssertTrue([controller.projectArray containsObject:@"Another project"],  @"Should have snd project");
 	
 	[controller addProject:nil];
 	
-	STAssertEquals([controller.projectArray count], 3UL, @"Should have one more");
+	STAssertEquals([controller.projectArray count], 4UL, @"Should have one more");
+	STAssertTrue([controller.projectArray containsObject:@""], @"Should have empty string");
 	STAssertTrue([controller.projectArray containsObject:@"A project"],  @"Should have first project");
 	STAssertTrue([controller.projectArray containsObject:@"Another project"],  @"Should have snd project");
 	STAssertTrue([controller.projectArray containsObject:@""],  @"Should have empty project");

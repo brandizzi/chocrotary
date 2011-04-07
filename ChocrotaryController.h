@@ -43,6 +43,7 @@
 -(id) initWithNotebook:(ChocrotaryNotebook*) n;
 
 -(void)save;
+-(void)reloadProjectArray;
 
 -(IBAction) addTask:(id)sender;
 -(IBAction) removeTask:(id)sender;

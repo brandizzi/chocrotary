@@ -26,16 +26,22 @@
 	secretary = [notebook getSecretary];
 	
 	projectArray = [NSMutableArray arrayWithCapacity:[secretary countProjects]*2];
-	for (int i = 0; i < [secretary countProjects]; i++) {
-		ChocrotaryProject *project = [secretary getNthProject:i];
-		[projectArray addObject:[NSString stringWithUTF8String:project_get_name(project)] ];
-	}
-	
+	[self reloadProjectArray];
 	return self;
 }
 
 -(ChocrotarySecretary*)secretary {
 	return secretary;
+}
+
+-(void)reloadProjectArray {
+	[projectArray removeAllObjects];
+	[projectArray addObject:@""];
+	for (int i = 0; i < [secretary countProjects]; i++) {
+		ChocrotaryProject *project = [secretary getNthProject:i];
+		[projectArray addObject:[NSString stringWithUTF8String:project_get_name(project)] ];
+	}
+	
 }
 
 -(void)save {
@@ -45,7 +51,6 @@
 }
 
 -(IBAction) addTask:(id)sender {
-	// TODO That is ugly as HELL!
 	[secretary appoint:@""];
 	[taskTableView reloadData];
 	NSInteger lastRow = [taskTableView numberOfRows]-1;
@@ -72,6 +77,7 @@
 	[projectTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
 	[projectTableView editColumn:0 row:lastRow withEvent:nil select:YES];
 	[projectArray addObject:@""];
+	[self reloadProjectArray];
 	[self save];
 }
 
@@ -84,6 +90,7 @@
 		[secretary deleteProject:project];
 		index = [indexes indexGreaterThanIndex:index];
 	}
+	[self reloadProjectArray];
 	[projectTableView reloadData];
 	[self save];
 }

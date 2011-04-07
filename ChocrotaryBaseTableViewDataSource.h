@@ -10,6 +10,11 @@
 #import "ChocrotaryTableViewDataSource.h"
 #import "ChocrotaryController.h"
 
+#define ChocrotaryTaskTableColumnDone @"done"
+#define ChocrotaryTaskTableColumnDescription @"description"
+#define ChocrotaryTaskTableColumnProject @"project"
+#define ChocrotaryTaskTableColumnScheduled @"scheduled"
+
 @interface ChocrotaryBaseTableViewDataSource : NSObject < ChocrotaryTableViewDataSource > {
 }
 

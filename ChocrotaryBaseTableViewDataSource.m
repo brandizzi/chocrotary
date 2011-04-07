@@ -36,16 +36,16 @@
 	ChocrotarySecretaryView* view = [self secretaryView];
 	ChocrotaryTask *task = [view getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
- 	if ([columnName isEqualToString: @"done" ]) {
+ 	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
 		NSButtonCell *button = [NSButtonCell new];
 		[button setButtonType:NSSwitchButton];
 		[button setState:task_is_done(task)];
 		[button setTitle:@""];
 		[tableColumn setDataCell:button];
 		return button;
-	} else if ([columnName isEqualToString: @"description"]) {
+	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnDescription]) {
 		return [[NSString alloc] initWithUTF8String:task_get_description(task) ];
-	} else if ([columnName isEqualToString: @"scheduled"]) {
+	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnScheduled]) {
 		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
 		NSDatePickerCell *datepicker = [NSDatePickerCell new];
 		[datepicker setDatePickerStyle: NSClockAndCalendarDatePickerStyle];
@@ -67,7 +67,7 @@
 			return @"";
 		}
 		return datepicker;
-	} else if ([columnName isEqualToString: @"project"]) {
+	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
 		ChocrotaryProject *project = task_get_project(task);
 		if (project != NULL) {
 			return [[NSString alloc] initWithUTF8String:project_get_name(project) ];
@@ -84,12 +84,12 @@
 	ChocrotarySecretaryView* view = [self secretaryView];
 	ChocrotaryTask *task = [view getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
-	if ([columnName isEqualToString: @"done" ]) {
+	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
 		[view.secretary switchDoneStatus:task];
-	} else if ([columnName isEqualToString: @"description"]) {
+	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnDescription]) {
 		const char *description = [object UTF8String];
 		task_set_description(task, description);
-	} else if ([columnName isEqualToString: @"scheduled"]) {
+	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnScheduled]) {
 		NSString *value = object;
 		if ([value length] != 0) {
 			NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
