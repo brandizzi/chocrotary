@@ -12,7 +12,7 @@
 
 @implementation TestChocrotaryController
 
--(void) testUpdateProjectArray {
+-(void) testUpdateProjectsMenu {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
 	
 	[notebook.secretary start:@"A project"];
@@ -45,6 +45,5 @@
 	
 	remove("fluflufile");
 }
-
 
 @end

@@ -72,7 +72,7 @@
 	NSIndexSet* indexes = [taskTableView selectedRowIndexes];
 	NSInteger index = [indexes firstIndex];
 	while (index != NSNotFound) {
-		Task *task = [secretary getNthTask:index];
+		Task *task = [currentDataSource.secretaryView getNthTask:index];
 		[secretary deleteTask:task];
 		index = [indexes indexGreaterThanIndex:index];
 	}

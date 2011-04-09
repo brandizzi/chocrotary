@@ -47,6 +47,7 @@
 		ChocrotaryProject *project = [secretary getNthProject:row-ChocrotaryProjectTableViewDataSourceFirstProject];
 		project_set_name(project, [name UTF8String]);
 	}
+	[controller reloadMenuOfProjects];
 	[controller save];
 }
 
