@@ -89,6 +89,18 @@
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnDescription]) {
 		const char *description = [object UTF8String];
 		task_set_description(task, description);
+	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
+		NSNumber *number = object;
+		NSInteger selectedIndex = [number integerValue];
+		NSPopUpButtonCell *projectCell = [tableColumn dataCell];
+		NSMenuItem *selected = [projectCell itemAtIndex:selectedIndex];
+		NSInteger projectIndex = [selected tag];
+		if (projectIndex != ChocrotaryControllerNoProject) {
+			ChocrotaryProject *project = [view.secretary getNthProject:projectIndex];
+			[view.secretary move:task to:project];
+		} else {
+			[view.secretary moveTaskToInbox:task];
+		}
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnScheduled]) {
 		NSString *value = object;
 		if ([value length] != 0) {
@@ -102,6 +114,7 @@
 		}
 		
 	}
+	[[self controller] reloadMenuOfProjects];
 	[[self controller] save];
 }
 

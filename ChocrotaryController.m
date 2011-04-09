@@ -14,19 +14,22 @@
 
 @synthesize projectTableView, taskTableView, secretary, 
 	currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
-	todayTableDataSource, tasksInProjectTableDataSource, projectArray;
+	todayTableDataSource, tasksInProjectTableDataSource, projectArray, projectsMenu;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
 }
 
--(id) initWithNotebook:(ChocrotaryNotebook*) n {
+-(id) initWithNotebook:(ChocrotaryNotebook*) aNotebook {
 	[super init];
-	notebook = n;
+	notebook = aNotebook;
 	secretary = [notebook getSecretary];
 	
 	projectArray = [NSMutableArray arrayWithCapacity:[secretary countProjects]*2];
-	[self reloadProjectArray];
+	if (projectsMenu == nil) {
+		projectsMenu = [NSMenu new];
+	}
+	[self reloadMenuOfProjects];
 	return self;
 }
 
@@ -34,12 +37,19 @@
 	return secretary;
 }
 
--(void)reloadProjectArray {
+-(void)reloadMenuOfProjects {
 	[projectArray removeAllObjects];
 	[projectArray addObject:@""];
+
+	[projectsMenu removeAllItems];
+	NSMenuItem *item = [projectsMenu addItemWithTitle:@"" action:nil keyEquivalent:@""];
+	[item setTag:-1];
 	for (int i = 0; i < [secretary countProjects]; i++) {
 		ChocrotaryProject *project = [secretary getNthProject:i];
-		[projectArray addObject:[NSString stringWithUTF8String:project_get_name(project)] ];
+		NSString *projectName = [NSString stringWithUTF8String:project_get_name(project)];
+		[projectArray addObject:projectName];
+		item = [projectsMenu addItemWithTitle:projectName action:nil keyEquivalent:@""];
+		[item setTag:i];
 	}
 	
 }
@@ -76,9 +86,7 @@
 	NSInteger lastRow = [projectTableView numberOfRows]-1;
 	[projectTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
 	[projectTableView editColumn:0 row:lastRow withEvent:nil select:YES];
-	[projectArray addObject:@""];
-	[self reloadProjectArray];
-	[self save];
+	[self reloadMenuOfProjects];
 }
 
 -(IBAction) removeProject:(id)sender {
@@ -90,7 +98,7 @@
 		[secretary deleteProject:project];
 		index = [indexes indexGreaterThanIndex:index];
 	}
-	[self reloadProjectArray];
+	[self reloadMenuOfProjects];
 	[projectTableView reloadData];
 	[self save];
 }

@@ -38,9 +38,11 @@ typedef Project ChocrotaryProject;
 -(ChocrotaryProject*) start:(NSString*)name;
 -(NSInteger) countProjects;
 -(ChocrotaryProject*) getNthProject:(NSInteger)n;
+-(ChocrotaryProject*) getProjectByName:(NSString*) projectName;
 -(void) deleteProject:(ChocrotaryProject*) project;
 
 -(void) move:(ChocrotaryTask*) task to:(ChocrotaryProject*) project;
+-(void) moveTaskToInbox:(ChocrotaryTask*) task;
 
 -(NSInteger) countInboxTasks;
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n;

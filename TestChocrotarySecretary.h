@@ -13,6 +13,8 @@
 }
 -(void) testZero;
 -(void) testMoveToProject;
+-(void) testMoveToInbox;
 -(void) testCountScheduled;
 -(void) testCountScheduledForToday;
+-(void) testGetProject;
 @end

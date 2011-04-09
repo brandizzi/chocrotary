@@ -88,6 +88,10 @@
 	return secretary_get_nth_project(secretary, n);
 }
 
+-(ChocrotaryProject*) getProjectByName:(NSString*) projectName {
+	return secretary_get_project(secretary, [projectName UTF8String]);
+}
+
 -(NSInteger) countProjects {
 	return secretary_count_project(secretary);
 }
@@ -98,6 +102,10 @@
 
 -(void) move:(ChocrotaryTask*) task to:(ChocrotaryProject*) project {
 	secretary_move(secretary, task, project);
+}
+
+-(void)moveTaskToInbox:(ChocrotaryTask*) task {
+	secretary_move_to_inbox(secretary, task);
 }
 
 

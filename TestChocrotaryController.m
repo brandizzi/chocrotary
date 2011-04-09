@@ -20,18 +20,28 @@
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	
-	STAssertEquals([controller.projectArray count], 3UL, @"Should have three");
-	STAssertTrue([controller.projectArray containsObject:@""], @"Should have empty string");
-	STAssertTrue([controller.projectArray containsObject:@"A project"], @"Should have first project");
-	STAssertTrue([controller.projectArray containsObject:@"Another project"],  @"Should have snd project");
+	NSMenu *menu = controller.projectsMenu;
+	STAssertNotNil(menu, @"should have menu");
+	
+	STAssertEquals([menu numberOfItems], 3L, @"Should have three");
+	STAssertEqualObjects([[menu itemAtIndex:0] title], @"", @"Should have empty string");
+	STAssertEquals([[menu itemAtIndex:0] tag], ChocrotaryControllerNoProject, @"Should point to notthing");
+	STAssertEqualObjects([[menu itemAtIndex:1] title], @"A project", @"Should have first project");
+	STAssertEquals([[menu itemAtIndex:1] tag], 0L, @"Should be index of project 1");
+	STAssertEqualObjects([[menu itemAtIndex:2] title], @"Another project",  @"Should have snd project");
+	STAssertEquals([[menu itemAtIndex:2] tag], 1L, @"Should be index of projct 2");
 	
 	[controller addProject:nil];
 	
-	STAssertEquals([controller.projectArray count], 4UL, @"Should have one more");
-	STAssertTrue([controller.projectArray containsObject:@""], @"Should have empty string");
-	STAssertTrue([controller.projectArray containsObject:@"A project"],  @"Should have first project");
-	STAssertTrue([controller.projectArray containsObject:@"Another project"],  @"Should have snd project");
-	STAssertTrue([controller.projectArray containsObject:@""],  @"Should have empty project");
+	STAssertEquals([menu numberOfItems], 4L, @"Should have one more");
+	STAssertEqualObjects([[menu itemAtIndex:0] title], @"", @"Should have empty string");
+	STAssertEquals([[menu itemAtIndex:0] tag], ChocrotaryControllerNoProject, @"Should point to notthing");
+	STAssertEqualObjects([[menu itemAtIndex:1] title], @"A project", @"Should have first project");
+	STAssertEquals([[menu itemAtIndex:1] tag], 0L, @"Should be index of project 1");
+	STAssertEqualObjects([[menu itemAtIndex:2] title], @"Another project",  @"Should have snd project");
+	STAssertEquals([[menu itemAtIndex:2] tag], 1L, @"Should be index of projct 2");
+	STAssertEqualObjects([[menu itemAtIndex:3] title], @"",  @"Should have title of new project (still empty)");
+	STAssertEquals([[menu itemAtIndex:3] tag], 2L, @"Should be index of new project");
 	
 	remove("fluflufile");
 }

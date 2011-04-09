@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="533"/>
+			<integer value="913"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
 			<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1992,6 +1992,14 @@
 					</object>
 					<int key="connectionID">923</int>
 				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">projectsMenu</string>
+						<reference key="source" ref="276645703"/>
+						<reference key="destination" ref="979292412"/>
+					</object>
+					<int key="connectionID">924</int>
+				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
 				<object class="NSArray" key="orderedObjects">
@@ -3268,9 +3276,9 @@
 					<integer value="1"/>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<integer value="1"/>
-					<string>{{157, 22}, {852, 724}}</string>
+					<string>{{-120, 17}, {852, 724}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{157, 22}, {852, 724}}</string>
+					<string>{{-120, 17}, {852, 724}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -3380,7 +3388,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{350, 686}, {648, 23}}</string>
+					<string>{{73, 681}, {648, 23}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
@@ -3405,7 +3413,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">923</int>
+			<int key="maxID">924</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -3520,6 +3528,7 @@
 							<string>inboxTableDataSource</string>
 							<string>projectArray</string>
 							<string>projectTableView</string>
+							<string>projectsMenu</string>
 							<string>scheduledTableDataSource</string>
 							<string>taskTableView</string>
 							<string>tasksInProjectTableDataSource</string>
@@ -3531,6 +3540,7 @@
 							<string>id</string>
 							<string>NSMutableArray</string>
 							<string>NSTableView</string>
+							<string>NSMenu</string>
 							<string>id</string>
 							<string>NSTableView</string>
 							<string>id</string>
@@ -3545,6 +3555,7 @@
 							<string>inboxTableDataSource</string>
 							<string>projectArray</string>
 							<string>projectTableView</string>
+							<string>projectsMenu</string>
 							<string>scheduledTableDataSource</string>
 							<string>taskTableView</string>
 							<string>tasksInProjectTableDataSource</string>
@@ -3567,6 +3578,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">projectTableView</string>
 								<string key="candidateClassName">NSTableView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">projectsMenu</string>
+								<string key="candidateClassName">NSMenu</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">scheduledTableDataSource</string>
