@@ -50,6 +50,7 @@
 
 -(id)init;
 -(id) initWithNotebook:(ChocrotaryNotebook*) n;
+-(void) awakeFromNib;
 
 -(void)save;
 -(void)reloadMenuOfProjects;

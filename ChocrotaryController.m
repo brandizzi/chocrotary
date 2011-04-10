@@ -36,6 +36,11 @@
 	return self;
 }
 
+-(void) awakeFromNib {
+	NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
+	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
+}
+
 -(ChocrotarySecretary*)secretary {
 	return secretary;
 }
