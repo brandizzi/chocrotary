@@ -202,26 +202,26 @@
 			<key>Content</key>
 			<dict>
 				<key>PBXProjectModuleGUID</key>
-				<string>03FBA024135002DF00599AF7</string>
+				<string>03D720F613517D2E00A116E7</string>
 				<key>PBXProjectModuleLabel</key>
-				<string>ChocrotaryBaseTableViewDataSource.m</string>
+				<string>ChocrotaryController.m</string>
 				<key>PBXSplitModuleInNavigatorKey</key>
 				<dict>
 					<key>Split0</key>
 					<dict>
 						<key>PBXProjectModuleGUID</key>
-						<string>03FBA029135002EB00599AF7</string>
+						<string>03D7210A13517FB500A116E7</string>
 						<key>PBXProjectModuleLabel</key>
-						<string>ChocrotaryBaseTableViewDataSource.m</string>
+						<string>ChocrotaryController.m</string>
 						<key>_historyCapacity</key>
 						<integer>0</integer>
 						<key>bookmark</key>
-						<string>037E8ED213517A690010FCED</string>
+						<string>0378D51D135181D00025905E</string>
 						<key>history</key>
 						<array>
-							<string>03FBA052135008B900599AF7</string>
-							<string>03FBA054135008B900599AF7</string>
-							<string>03FBA056135008B900599AF7</string>
+							<string>03D7210B13517FB500A116E7</string>
+							<string>03D7210C13517FB500A116E7</string>
+							<string>031C7A3E1351805600CF2E0F</string>
 						</array>
 					</dict>
 					<key>SplitCount</key>
@@ -233,11 +233,11 @@
 			<key>Geometry</key>
 			<dict>
 				<key>Frame</key>
-				<string>{{0, 20}, {750, 677}}</string>
+				<string>{{0, 20}, {1254, 665}}</string>
 				<key>PBXModuleWindowStatusBarHidden2</key>
 				<false/>
 				<key>RubberWindowFrame</key>
-				<string>14 60 750 718 0 0 1280 778 </string>
+				<string>26 72 1254 706 0 0 1280 778 </string>
 			</dict>
 		</dict>
 	</array>
@@ -322,13 +322,13 @@
 							<key>PBXSmartGroupTreeModuleOutlineStateSelectionKey</key>
 							<array>
 								<array>
-									<integer>57</integer>
-									<integer>54</integer>
+									<integer>49</integer>
+									<integer>20</integer>
 									<integer>0</integer>
 								</array>
 							</array>
 							<key>PBXSmartGroupTreeModuleOutlineStateVisibleRectKey</key>
-							<string>{{0, 735}, {334, 471}}</string>
+							<string>{{0, 0}, {334, 471}}</string>
 						</dict>
 						<key>PBXTopSmartGroupGIDs</key>
 						<array/>
@@ -375,7 +375,7 @@
 										<key>_historyCapacity</key>
 										<integer>0</integer>
 										<key>bookmark</key>
-										<string>037E8ED013517A690010FCED</string>
+										<string>0378D51A135181D00025905E</string>
 										<key>history</key>
 										<array>
 											<string>035393971319C4FD005E89B4</string>
@@ -441,7 +441,7 @@
 											<string>0309D652134EDBC1000EA515</string>
 											<string>03323427134FFBAB0015C146</string>
 											<string>039A28031341A59400FE9038</string>
-											<string>03FBA050135008B900599AF7</string>
+											<string>031C7A3A1351805600CF2E0F</string>
 										</array>
 									</dict>
 									<key>SplitCount</key>
@@ -499,9 +499,9 @@
 			</array>
 			<key>TableOfContents</key>
 			<array>
-				<string>037E8EC8135175B80010FCED</string>
+				<string>0378D51B135181D00025905E</string>
 				<string>1CE0B1FE06471DED0097A5F4</string>
-				<string>037E8EC9135175B80010FCED</string>
+				<string>0378D51C135181D00025905E</string>
 				<string>1CE0B20306471E060097A5F4</string>
 				<string>1CE0B20506471E060097A5F4</string>
 			</array>
@@ -616,7 +616,7 @@
 	<key>PerspectivesBarVisible</key>
 	<false/>
 	<key>PinnedNavigatorIdentifier</key>
-	<string>03FBA024135002DF00599AF7</string>
+	<string>03D720F613517D2E00A116E7</string>
 	<key>ShelfIsVisible</key>
 	<false/>
 	<key>SourceDescription</key>
@@ -641,13 +641,9 @@
 	<integer>5</integer>
 	<key>WindowOrderList</key>
 	<array>
-		<string>037E8EDB13517A690010FCED</string>
-		<string>037E8EDC13517A690010FCED</string>
-		<string>1C78EAAD065D492600B07095</string>
-		<string>1CD10A99069EF8BA00B06720</string>
-		<string>/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.xcodeproj</string>
-		<string>03FBA024135002DF00599AF7</string>
 		<string>036EAF7C13175147006C1EC1</string>
+		<string>/Users/brandizzi/Documents/software/secretary/chocrotary/Secretary.xcodeproj</string>
+		<string>03D720F613517D2E00A116E7</string>
 	</array>
 	<key>WindowString</key>
 	<string>364 163 741 509 0 0 1280 778 </string>
@@ -688,8 +684,6 @@
 							<string>253pt</string>
 						</dict>
 						<dict>
-							<key>BecomeActive</key>
-							<true/>
 							<key>ContentConfiguration</key>
 							<dict>
 								<key>PBXProjectModuleGUID</key>
@@ -729,7 +723,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>036EAF7C13175147006C1EC1</string>
-				<string>037E8ECB135175B90010FCED</string>
+				<string>0378D51E135181D00025905E</string>
 				<string>1CD0528F0623707200166675</string>
 				<string>XCMainBuildResultsModuleGUID</string>
 			</array>
@@ -742,7 +736,7 @@
 			<key>WindowToolGUID</key>
 			<string>036EAF7C13175147006C1EC1</string>
 			<key>WindowToolIsVisible</key>
-			<true/>
+			<false/>
 		</dict>
 		<dict>
 			<key>FirstTimeWindowDisplayed</key>
@@ -851,13 +845,13 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1CD10A99069EF8BA00B06720</string>
-				<string>037E8ED413517A690010FCED</string>
+				<string>03D7211013517FB500A116E7</string>
 				<string>1C162984064C10D400B95A72</string>
-				<string>037E8ED513517A690010FCED</string>
-				<string>037E8ED613517A690010FCED</string>
-				<string>037E8ED713517A690010FCED</string>
-				<string>037E8ED813517A690010FCED</string>
-				<string>037E8ED913517A690010FCED</string>
+				<string>03D7211113517FB500A116E7</string>
+				<string>03D7211213517FB500A116E7</string>
+				<string>03D7211313517FB500A116E7</string>
+				<string>03D7211413517FB500A116E7</string>
+				<string>03D7211513517FB500A116E7</string>
 			</array>
 			<key>ToolbarConfiguration</key>
 			<string>xcode.toolbar.config.debugV3</string>
@@ -1011,7 +1005,7 @@
 			<key>TableOfContents</key>
 			<array>
 				<string>1C78EAAD065D492600B07095</string>
-				<string>037E8EDA13517A690010FCED</string>
+				<string>03D7211613517FB500A116E7</string>
 				<string>1C78EAAC065D492600B07095</string>
 			</array>
 			<key>ToolbarConfiguration</key>
