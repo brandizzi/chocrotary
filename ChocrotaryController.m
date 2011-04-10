@@ -8,6 +8,9 @@
 
 #import "ChocrotaryController.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
+#import "ChocrotaryTasksInProjectTableViewDataSource.h"
+#import "ChocrotaryScheduledTableViewDataSource.h"
+#import "ChocrotaryTodayTableViewDataSource.h"
 
 
 @implementation ChocrotaryController
@@ -61,7 +64,13 @@
 }
 
 -(IBAction) addTask:(id)sender {
-	[secretary appoint:@""];
+	ChocrotaryTask *task = [secretary appoint:@""];
+	if ([currentDataSource isMemberOfClass:[ChocrotaryTasksInProjectTableViewDataSource class]]) {
+		[secretary move:task to:[(ChocrotaryTasksInProjectTableViewDataSource*)currentDataSource project]];
+	} else if ([currentDataSource isMemberOfClass:[ChocrotaryScheduledTableViewDataSource class]] ||
+			   [currentDataSource isMemberOfClass:[ChocrotaryTodayTableViewDataSource class]]) {
+		[secretary schedule:task to:[NSDate date]];
+	}
 	[taskTableView reloadData];
 	NSInteger lastRow = [taskTableView numberOfRows]-1;
 	[taskTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
