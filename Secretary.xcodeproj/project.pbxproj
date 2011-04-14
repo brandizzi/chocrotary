@@ -6,6 +6,21 @@
 	objectVersion = 45;
 	objects = {
 
+/* Begin PBXAggregateTarget section */
+		03326A8013569C2100A263F2 /* Generate .dmg */ = {
+			isa = PBXAggregateTarget;
+			buildConfigurationList = 03326A8713569C7200A263F2 /* Build configuration list for PBXAggregateTarget "Generate .dmg" */;
+			buildPhases = (
+				03326A7F13569C2100A263F2 /* ShellScript */,
+			);
+			dependencies = (
+				03326A8613569C5400A263F2 /* PBXTargetDependency */,
+			);
+			name = "Generate .dmg";
+			productName = "Generate .dmg";
+		};
+/* End PBXAggregateTarget section */
+
 /* Begin PBXBuildFile section */
 		0317BCB51329CC96004055F8 /* ChocrotaryProjectTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BCB41329CC96004055F8 /* ChocrotaryProjectTableViewDataSource.m */; };
 		0317BD781329D733004055F8 /* ChocrotaryNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BD771329D733004055F8 /* ChocrotaryNotebook.m */; };
@@ -46,6 +61,13 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
+		03326A8513569C5400A263F2 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
+			proxyType = 1;
+			remoteGlobalIDString = 8D1107260486CEB800E47090 /* Secretary */;
+			remoteInfo = Secretary;
+		};
 		03D17874132C00C1004F43A1 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 29B97313FDCFA39411CA2CEA /* Project object */;
@@ -388,6 +410,7 @@
 			targets = (
 				8D1107260486CEB800E47090 /* Secretary */,
 				03D1786E132C00A9004F43A1 /* Unit Tests */,
+				03326A8013569C2100A263F2 /* Generate .dmg */,
 			);
 		};
 /* End PBXProject section */
@@ -417,6 +440,19 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
+		03326A7F13569C2100A263F2 /* ShellScript */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+			);
+			outputPaths = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "mkdir -p /tmp/topack && echo \"temp dir created\" || exit 1\ncp -R ${OBJROOT}/Debug/Secretary.app /tmp/topack && echo \"Bundle copied\" || exit 1\nhdiutil create -fs HFS+ -volname \"Secretary\" -srcfolder \"/tmp/topack\" \"${HOME}/Desktop/Secretary.dmg\" && echo \"Image generated\" || exit 1\nrm -r /tmp/topack && echo \"temp dir removed\" || exit 1";
+		};
 		03D1786D132C00A9004F43A1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
@@ -478,6 +514,11 @@
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
+		03326A8613569C5400A263F2 /* PBXTargetDependency */ = {
+			isa = PBXTargetDependency;
+			target = 8D1107260486CEB800E47090 /* Secretary */;
+			targetProxy = 03326A8513569C5400A263F2 /* PBXContainerItemProxy */;
+		};
 		03D17875132C00C1004F43A1 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
 			target = 8D1107260486CEB800E47090 /* Secretary */;
@@ -505,6 +546,29 @@
 /* End PBXVariantGroup section */
 
 /* Begin XCBuildConfiguration section */
+		03326A8113569C2100A263F2 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = NO;
+				Executable = "${PROJECT_NAME}";
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				PRODUCT_NAME = "Generate .dmg";
+				SECRETARY_VERSION = "${PRODUCT_VERSION}";
+			};
+			name = Debug;
+		};
+		03326A8213569C2100A263F2 /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				COPY_PHASE_STRIP = YES;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				GCC_ENABLE_FIX_AND_CONTINUE = NO;
+				PRODUCT_NAME = "Generate .dmg";
+				ZERO_LINK = NO;
+			};
+			name = Release;
+		};
 		03D17871132C00A9004F43A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -638,6 +702,15 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		03326A8713569C7200A263F2 /* Build configuration list for PBXAggregateTarget "Generate .dmg" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				03326A8113569C2100A263F2 /* Debug */,
+				03326A8213569C2100A263F2 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		03D17873132C00A9004F43A1 /* Build configuration list for PBXNativeTarget "Unit Tests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
