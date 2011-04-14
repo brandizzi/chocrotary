@@ -180,6 +180,18 @@
 			name = Delegates;
 			sourceTree = "<group>";
 		};
+		0386722B13569AC20049B310 /* Icons */ = {
+			isa = PBXGroup;
+			children = (
+				0386720F135697320049B310 /* Secretary.icns */,
+				038672031356971A0049B310 /* project-add.tiff */,
+				038672041356971A0049B310 /* project-remove.tiff */,
+				038672051356971A0049B310 /* task-add.tiff */,
+				038672061356971A0049B310 /* task-remove.tiff */,
+			);
+			name = Icons;
+			sourceTree = "<group>";
+		};
 		03968074133F730100F584AC /* Secretary Views */ = {
 			isa = PBXGroup;
 			children = (
@@ -297,11 +309,7 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0386720F135697320049B310 /* Secretary.icns */,
-				038672031356971A0049B310 /* project-add.tiff */,
-				038672041356971A0049B310 /* project-remove.tiff */,
-				038672051356971A0049B310 /* task-add.tiff */,
-				038672061356971A0049B310 /* task-remove.tiff */,
+				0386722B13569AC20049B310 /* Icons */,
 				8D1107310486CEB800E47090 /* Secretary-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
