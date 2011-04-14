@@ -18,7 +18,11 @@
 		0367049E133EE11300A56085 /* ChocrotaryBaseTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367049D133EE11300A56085 /* ChocrotaryBaseTableViewDataSource.m */; };
 		0367051E133EE82D00A56085 /* ChocrotaryTodayTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0367051D133EE82D00A56085 /* ChocrotaryTodayTableViewDataSource.m */; };
 		036EAF82131755A4006C1EC1 /* ChocrotaryTableDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 036EAF81131755A4006C1EC1 /* ChocrotaryTableDataSource.m */; };
-		0371110D13553060005E102D /* Secretary.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0371110C13553060005E102D /* Secretary.icns */; };
+		038672071356971A0049B310 /* project-add.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 038672031356971A0049B310 /* project-add.tiff */; };
+		038672081356971A0049B310 /* project-remove.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 038672041356971A0049B310 /* project-remove.tiff */; };
+		038672091356971A0049B310 /* task-add.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 038672051356971A0049B310 /* task-add.tiff */; };
+		0386720A1356971A0049B310 /* task-remove.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 038672061356971A0049B310 /* task-remove.tiff */; };
+		03867210135697320049B310 /* Secretary.icns in Resources */ = {isa = PBXBuildFile; fileRef = 0386720F135697320049B310 /* Secretary.icns */; };
 		03968070133F72C000F584AC /* TestChocrotarySecretaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 0396806F133F72C000F584AC /* TestChocrotarySecretaryView.m */; };
 		0396807A133F743C00F584AC /* ChocrotarySecretaryView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03968079133F743C00F584AC /* ChocrotarySecretaryView.m */; };
 		03968086133F751700F584AC /* ChocrotarySecretaryInboxView.m in Sources */ = {isa = PBXBuildFile; fileRef = 03968085133F751700F584AC /* ChocrotarySecretaryInboxView.m */; };
@@ -75,8 +79,11 @@
 		036A5C961334564B00DD767E /* ChocrotaryTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTableViewDataSource.h; sourceTree = "<group>"; };
 		036EAF80131755A4006C1EC1 /* ChocrotaryTableDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTableDataSource.h; sourceTree = "<group>"; };
 		036EAF81131755A4006C1EC1 /* ChocrotaryTableDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryTableDataSource.m; sourceTree = "<group>"; };
-		0371110C13553060005E102D /* Secretary.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Secretary.icns; path = ../Chocrotary/Secretary.icns; sourceTree = SOURCE_ROOT; };
-		037BDB8713245D90003DFB4C /* Portuguese (Brazil) */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = "Portuguese (Brazil)"; path = "Portuguese (Brazil).lproj/MainMenu.xib"; sourceTree = "<group>"; };
+		038672031356971A0049B310 /* project-add.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "project-add.tiff"; path = "../Chocrotary/Icons/project-add.tiff"; sourceTree = SOURCE_ROOT; };
+		038672041356971A0049B310 /* project-remove.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "project-remove.tiff"; path = "../Chocrotary/Icons/project-remove.tiff"; sourceTree = SOURCE_ROOT; };
+		038672051356971A0049B310 /* task-add.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "task-add.tiff"; path = "../Chocrotary/Icons/task-add.tiff"; sourceTree = SOURCE_ROOT; };
+		038672061356971A0049B310 /* task-remove.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "task-remove.tiff"; path = "../Chocrotary/Icons/task-remove.tiff"; sourceTree = SOURCE_ROOT; };
+		0386720F135697320049B310 /* Secretary.icns */ = {isa = PBXFileReference; lastKnownFileType = image.icns; name = Secretary.icns; path = ../Chocrotary/Icons/Secretary.icns; sourceTree = SOURCE_ROOT; };
 		0396806E133F72C000F584AC /* TestChocrotarySecretaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestChocrotarySecretaryView.h; sourceTree = "<group>"; };
 		0396806F133F72C000F584AC /* TestChocrotarySecretaryView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestChocrotarySecretaryView.m; sourceTree = "<group>"; };
 		03968078133F743C00F584AC /* ChocrotarySecretaryView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotarySecretaryView.h; sourceTree = "<group>"; };
@@ -150,8 +157,6 @@
 				03E36202132DC2B2005E5BC5 /* ChocrotaryInboxTableViewDataSource.m */,
 				0317BCB31329CC96004055F8 /* ChocrotaryProjectTableViewDataSource.h */,
 				0317BCB41329CC96004055F8 /* ChocrotaryProjectTableViewDataSource.m */,
-				03A07A0A13359340002C53D6 /* ChocrotaryProjectTableViewDelegate.h */,
-				03A07A0B13359340002C53D6 /* ChocrotaryProjectTableViewDelegate.m */,
 				03A07A8813359CF0002C53D6 /* ChocrotaryScheduledTableViewDataSource.h */,
 				03A07A8913359CF0002C53D6 /* ChocrotaryScheduledTableViewDataSource.m */,
 				0367049C133EE11300A56085 /* ChocrotaryBaseTableViewDataSource.h */,
@@ -164,6 +169,15 @@
 				0350AFFD134D6A7200AFBD04 /* ChocrotaryTaskTableViewDelegate.m */,
 			);
 			name = "TableView Data Sources";
+			sourceTree = "<group>";
+		};
+		0386717B135682940049B310 /* Delegates */ = {
+			isa = PBXGroup;
+			children = (
+				03A07A0A13359340002C53D6 /* ChocrotaryProjectTableViewDelegate.h */,
+				03A07A0B13359340002C53D6 /* ChocrotaryProjectTableViewDelegate.m */,
+			);
+			name = Delegates;
 			sourceTree = "<group>";
 		};
 		03968074133F730100F584AC /* Secretary Views */ = {
@@ -211,6 +225,7 @@
 		080E96DDFE201D6D7F000001 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
+				0386717B135682940049B310 /* Delegates */,
 				03968074133F730100F584AC /* Secretary Views */,
 				036704A2133EE17E00A56085 /* TableView Data Sources */,
 				03E36213132DC44D005E5BC5 /* ChocrotaryNotebook.h */,
@@ -282,7 +297,11 @@
 		29B97317FDCFA39411CA2CEA /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				0371110C13553060005E102D /* Secretary.icns */,
+				0386720F135697320049B310 /* Secretary.icns */,
+				038672031356971A0049B310 /* project-add.tiff */,
+				038672041356971A0049B310 /* project-remove.tiff */,
+				038672051356971A0049B310 /* task-add.tiff */,
+				038672061356971A0049B310 /* task-remove.tiff */,
 				8D1107310486CEB800E47090 /* Secretary-Info.plist */,
 				089C165CFE840E0CC02AAC07 /* InfoPlist.strings */,
 				1DDD58140DA1D0A300B32029 /* MainMenu.xib */,
@@ -379,7 +398,11 @@
 			files = (
 				8D11072B0486CEB800E47090 /* InfoPlist.strings in Resources */,
 				1DDD58160DA1D0A300B32029 /* MainMenu.xib in Resources */,
-				0371110D13553060005E102D /* Secretary.icns in Resources */,
+				038672071356971A0049B310 /* project-add.tiff in Resources */,
+				038672081356971A0049B310 /* project-remove.tiff in Resources */,
+				038672091356971A0049B310 /* task-add.tiff in Resources */,
+				0386720A1356971A0049B310 /* task-remove.tiff in Resources */,
+				03867210135697320049B310 /* Secretary.icns in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -467,7 +490,6 @@
 			isa = PBXVariantGroup;
 			children = (
 				1DDD58150DA1D0A300B32029 /* English */,
-				037BDB8713245D90003DFB4C /* Portuguese (Brazil) */,
 			);
 			name = MainMenu.xib;
 			sourceTree = "<group>";
