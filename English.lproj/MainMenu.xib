@@ -199,8 +199,8 @@
 								<object class="NSMenuItem" id="477696297">
 									<reference key="NSMenu" ref="905348570"/>
 									<string key="NSTitle">Remove project</string>
-									<string key="NSKeyEquiv"/>
-									<int key="NSKeyEquivModMask">1179648</int>
+									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
+									<int key="NSKeyEquivModMask">131072</int>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -232,7 +232,7 @@
 								<object class="NSMenuItem" id="32521103">
 									<reference key="NSMenu" ref="1071762643"/>
 									<string key="NSTitle">Remove task</string>
-									<string key="NSKeyEquiv"/>
+									<string type="base64-UTF8" key="NSKeyEquiv">CA</string>
 									<int key="NSMnemonicLoc">2147483647</int>
 									<reference key="NSOnImage" ref="35465992"/>
 									<reference key="NSMixedImage" ref="502551668"/>
@@ -1689,11 +1689,6 @@
 						<reference key="parent" ref="905348570"/>
 					</object>
 					<object class="IBObjectRecord">
-						<int key="objectID">986</int>
-						<reference key="object" ref="477696297"/>
-						<reference key="parent" ref="905348570"/>
-					</object>
-					<object class="IBObjectRecord">
 						<int key="objectID">987</int>
 						<reference key="object" ref="240630012"/>
 						<object class="NSMutableArray" key="children">
@@ -1716,6 +1711,11 @@
 						<int key="objectID">990</int>
 						<reference key="object" ref="245466693"/>
 						<reference key="parent" ref="1071762643"/>
+					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">986</int>
+						<reference key="object" ref="477696297"/>
+						<reference key="parent" ref="905348570"/>
 					</object>
 					<object class="IBObjectRecord">
 						<int key="objectID">991</int>
@@ -1862,9 +1862,9 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{234, 20}, {852, 669}}</string>
+					<string>{{378, 20}, {852, 669}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{234, 20}, {852, 669}}</string>
+					<string>{{378, 20}, {852, 669}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -1930,12 +1930,12 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{632, 691}, {196, 43}}</string>
+					<string>{{632, 691}, {202, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{704, 691}, {162, 43}}</string>
+					<string>{{704, 691}, {168, 43}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
