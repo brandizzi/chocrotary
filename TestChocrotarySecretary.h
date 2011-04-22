@@ -17,4 +17,5 @@
 -(void) testCountScheduled;
 -(void) testCountScheduledForToday;
 -(void) testGetProject;
+-(void) testAttachDetachObserver;
 @end

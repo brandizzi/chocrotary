@@ -12,8 +12,8 @@
 
 @implementation ChocrotarySecretary
 -(id)init {
-	[super init];
-	secretary = secretary_new();
+	[self initWithSecretary:secretary_new()];
+	observers = [NSMutableSet new];
 	return self;
 }
 
@@ -121,6 +121,24 @@
 -(void)release {
 	secretary_free(secretary);
 	[super release];
+}
+
+-(void)attachObserver:(id<ChocrotarySecretaryObserver>)observer {
+	[observers addObject:observer];
+}
+-(void)detachObserver:(id<ChocrotarySecretaryObserver>)observer {
+	[observers removeObject:observer];
+}
+
+-(void)notifyProjectsUpdate {
+	for (id<ChocrotarySecretaryObserver> observer in observers) {
+		[observer projectsWereUpdated:self];
+	}
+}
+-(void)notifyTasksUpdate {
+	for (id<ChocrotarySecretaryObserver> observer in observers) {
+		[observer tasksWereUpdated:self];
+	}
 }
 
 @end
