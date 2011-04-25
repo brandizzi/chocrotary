@@ -7,7 +7,7 @@
 //
 
 #import "ChocrotaryTasksInProjectTableViewDataSource.h"
-#import "ChocrotarySecretaryProjectView.h"
+#import "ChocrotarySecretaryProjectPerspective.h"
 
 @implementation ChocrotaryTasksInProjectTableViewDataSource
 
@@ -18,9 +18,9 @@
 	return self;
 }
 
-- (ChocrotarySecretaryView*) secretaryView {
+- (ChocrotarySecretaryPerspective*) secretaryPerspective {
 	if (project != NULL) {
-		return [[ChocrotarySecretaryProjectView alloc] 
+		return [[ChocrotarySecretaryProjectPerspective alloc] 
 				initWithChocrotarySecretary:controller.secretary forProject:project];
 	}
  	return nil;

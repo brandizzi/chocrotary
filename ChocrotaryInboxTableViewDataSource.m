@@ -8,7 +8,7 @@
 
 #import "ChocrotaryInboxTableViewDataSource.h"
 #import "ChocrotaryController.h"
-#import "ChocrotarySecretaryInboxView.h"
+#import "ChocrotarySecretaryInboxPerspective.h"
 
 @implementation ChocrotaryInboxTableViewDataSource
 
@@ -20,8 +20,8 @@
 	return self;
 }
 
--(ChocrotarySecretaryView*) secretaryView {
-	return [[ChocrotarySecretaryInboxView alloc] initWithChocrotarySecretary:[controller secretary]];
+-(ChocrotarySecretaryPerspective*) secretaryPerspective {
+	return [[ChocrotarySecretaryInboxPerspective alloc] initWithChocrotarySecretary:[controller secretary]];
 }
 
 @end

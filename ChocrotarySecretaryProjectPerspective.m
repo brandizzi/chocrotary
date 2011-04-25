@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChocrotarySecretaryProjectView.h"
+#import "ChocrotarySecretaryProjectPerspective.h"
 
 
-@implementation ChocrotarySecretaryProjectView
+@implementation ChocrotarySecretaryProjectPerspective
 
 @synthesize project;
 

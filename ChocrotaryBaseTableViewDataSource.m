@@ -20,20 +20,20 @@
 	return nil;
 }
 
--(ChocrotarySecretaryView*) secretaryView {
+-(ChocrotarySecretaryPerspective*) secretaryPerspective {
 	[self doesNotRecognizeSelector:_cmd];
 	return nil;
 }
 
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	ChocrotarySecretaryView* view = [self secretaryView];
+	ChocrotarySecretaryPerspective* view = [self secretaryPerspective];
 	return [view countTasks];
 }
 
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretaryView* view = [self secretaryView];
+	ChocrotarySecretaryPerspective* view = [self secretaryPerspective];
 	ChocrotaryTask *task = [view getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
  	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
@@ -81,7 +81,7 @@
 	}
 }
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretaryView* view = [self secretaryView];
+	ChocrotarySecretaryPerspective* view = [self secretaryPerspective];
 	ChocrotaryTask *task = [view getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
 	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {

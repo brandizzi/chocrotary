@@ -6,10 +6,10 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChocrotarySecretaryScheduledView.h"
+#import "ChocrotarySecretaryScheduledPerspective.h"
 
 
-@implementation ChocrotarySecretaryScheduledView
+@implementation ChocrotarySecretaryScheduledPerspective
 - (NSInteger) countTasks {
 	return [secretary countScheduledTasks];
 }

@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ChocrotarySecretary.h"
 
-@interface ChocrotarySecretaryView : NSObject {
+@interface ChocrotarySecretaryPerspective : NSObject {
 	ChocrotarySecretary *secretary;
 }
 

@@ -19,6 +19,6 @@ ChocrotaryBaseTableViewDataSource <ChocrotaryTableViewDataSource> {
 @property (readwrite,assign) ChocrotaryProject *project;
 
 - (id) initWithController:(ChocrotaryController*) c;
-- (ChocrotarySecretaryView*) secretaryView;
+- (ChocrotarySecretaryPerspective*) secretaryPerspective;
 
 @end

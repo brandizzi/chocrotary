@@ -7,7 +7,7 @@
 //
 
 #import "ChocrotaryTodayTableViewDataSource.h"
-#import "ChocrotarySecretaryScheduledForTodayView.h"
+#import "ChocrotarySecretaryScheduledForTodayPerspective.h"
 
 
 @implementation ChocrotaryTodayTableViewDataSource
@@ -20,8 +20,8 @@
 	return self;
 }
 
-- (ChocrotarySecretaryView*) secretaryView {
-	return [[ChocrotarySecretaryScheduledForTodayView alloc] initWithChocrotarySecretary:[controller secretary]];
+- (ChocrotarySecretaryPerspective*) secretaryPerspective {
+	return [[ChocrotarySecretaryScheduledForTodayPerspective alloc] initWithChocrotarySecretary:[controller secretary]];
 }
 
 @end

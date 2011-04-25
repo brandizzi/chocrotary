@@ -19,7 +19,7 @@
 }
 
 -(id) controller;
--(ChocrotarySecretaryView*) secretaryView;
+-(ChocrotarySecretaryPerspective*) secretaryPerspective;
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 
 @end

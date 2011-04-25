@@ -7,13 +7,13 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ChocrotarySecretaryView.h"
+#import "ChocrotarySecretaryPerspective.h"
 
 @protocol ChocrotaryTableViewDataSource <NSTableViewDataSource>
 
 @required
 -(id) controller;
--(ChocrotarySecretaryView*) secretaryView;
+-(ChocrotarySecretaryPerspective*) secretaryPerspective;
 
 @optional
 -(void) setProject:(ChocrotaryProject*) project;

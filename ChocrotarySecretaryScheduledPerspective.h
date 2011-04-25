@@ -1,5 +1,5 @@
 //
-//  ChocrotarySecretaryInboxView.h
+//  ChocrotarySecretaryScheduledView.h
 //  Secretary
 //
 //  Created by Adam Victor Nazareth Brandizzi on 27/03/11.
@@ -7,12 +7,15 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ChocrotarySecretaryView.h"
+#import "ChocrotarySecretaryPerspective.h"
 
-@interface ChocrotarySecretaryInboxView : ChocrotarySecretaryView {
+
+@interface ChocrotarySecretaryScheduledPerspective : ChocrotarySecretaryPerspective {
 
 }
 
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
+
+
 @end

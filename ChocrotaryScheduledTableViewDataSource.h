@@ -9,7 +9,7 @@
 #import <Cocoa/Cocoa.h>
 #import "ChocrotaryBaseTableViewDataSource.h"
 #import "ChocrotaryController.h"
-#import "ChocrotarySecretaryView.h"
+#import "ChocrotarySecretaryPerspective.h"
 
 @interface ChocrotaryScheduledTableViewDataSource : ChocrotaryBaseTableViewDataSource <ChocrotaryTableViewDataSource> {
 	IBOutlet ChocrotaryController *controller;
@@ -19,6 +19,6 @@
 
 
 - (id) initWithController:(ChocrotaryController*) c;
-- (ChocrotarySecretaryView*) secretaryView;
+- (ChocrotarySecretaryPerspective*) secretaryPerspective;
 
 @end

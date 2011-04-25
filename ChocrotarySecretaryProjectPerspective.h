@@ -7,10 +7,10 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ChocrotarySecretaryView.h"
+#import "ChocrotarySecretaryPerspective.h"
 #import "ChocrotarySecretary.h"
 
-@interface ChocrotarySecretaryProjectView : ChocrotarySecretaryView {
+@interface ChocrotarySecretaryProjectPerspective : ChocrotarySecretaryPerspective {
 	ChocrotaryProject *project;
 }
 

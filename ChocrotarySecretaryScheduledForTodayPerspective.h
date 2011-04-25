@@ -7,9 +7,9 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "ChocrotarySecretaryView.h"
+#import "ChocrotarySecretaryPerspective.h"
 
-@interface ChocrotarySecretaryScheduledForTodayView : ChocrotarySecretaryView {
+@interface ChocrotarySecretaryScheduledForTodayPerspective : ChocrotarySecretaryPerspective {
 
 }
 

@@ -15,7 +15,7 @@
    forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	if ([[tableColumn identifier] isEqualToString:ChocrotaryTaskTableColumnProject]) {
 		ChocrotaryBaseTableViewDataSource *dataSource = (ChocrotaryBaseTableViewDataSource*)[tableView dataSource];
-		ChocrotarySecretaryView *view = [dataSource secretaryView];
+		ChocrotarySecretaryPerspective *view = [dataSource secretaryPerspective];
 		ChocrotaryTask *task = [view getNthTask:row];
 		ChocrotaryProject *project = task_get_project(task);
 	
