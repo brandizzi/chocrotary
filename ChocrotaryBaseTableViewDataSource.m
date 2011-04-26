@@ -39,12 +39,12 @@
  	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
 		NSButtonCell *button = [NSButtonCell new];
 		[button setButtonType:NSSwitchButton];
-		[button setState:task_is_done(task)];
+		[button setState:[task done]];
 		[button setTitle:@""];
 		[tableColumn setDataCell:button];
 		return button;
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnDescription]) {
-		return [[NSString alloc] initWithUTF8String:task_get_description(task) ];
+		return [task description];
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnScheduled]) {
 		[NSDateFormatter setDefaultFormatterBehavior:NSDateFormatterBehavior10_4];
 		NSDatePickerCell *datepicker = [NSDatePickerCell new];
@@ -58,17 +58,15 @@
 		[formatter setTimeStyle:NSDateFormatterNoStyle];
 		[datepicker setFormatter:formatter];
 		[datepicker setDatePickerMode:NSSingleDateMode];
-		if (task_is_scheduled(task)) {
-			struct tm scheduled_for = task_get_scheduled_date(task);
-			time_t since1970 = mktime(&scheduled_for);
-			NSDate *date = [NSDate dateWithTimeIntervalSince1970:since1970];
+		if ([task isScheduled]) {
+			NSDate *date = [task scheduledFor];
 			[datepicker setDateValue:date];
 		} else {
 			return @"";
 		}
 		return datepicker;
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
-		ChocrotaryProject *project = task_get_project(task);
+		ChocrotaryProject *project = [task project];
 		if (project != NULL) {
 			return [[NSString alloc] initWithUTF8String:project_get_name(project) ];
 		} else {
@@ -87,8 +85,7 @@
 	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
 		[view.secretary switchDoneStatus:task];
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnDescription]) {
-		const char *description = [object UTF8String];
-		task_set_description(task, description);
+		[task setDescription:object];
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
 		NSNumber *number = object;
 		NSInteger selectedIndex = [number integerValue];

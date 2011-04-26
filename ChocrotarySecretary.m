@@ -11,20 +11,31 @@
 
 
 @implementation ChocrotarySecretary
+
+-(ChocrotaryTask*) getCachedOrNewTask:(Task*)task {
+	ChocrotaryTask *cached = (ChocrotaryTask *)CFDictionaryGetValue(cachedTaskObjects, task);
+	if (cached == nil) {
+		cached = [ChocrotaryTask newWithWrappedTask:task];
+		CFDictionaryAddValue(cachedTaskObjects, task, cached);
+	}
+	return cached;
+}
+
 -(id)init {
-	[self initWithSecretary:secretary_new()];
-	observers = [NSMutableSet new];
-	return self;
+	return [self initWithSecretary:secretary_new()];
 }
 
 -(id)initWithSecretary:(Secretary*) ready {
 	[super init];
 	secretary = ready;
+	cachedTaskObjects = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
+	observers = [NSMutableSet new];
 	return self;
 }
 
 -(ChocrotaryTask*) appoint:(NSString*) description {
-	return secretary_appoint(secretary, [description UTF8String]);
+	Task *task = secretary_appoint(secretary, [description UTF8String]);
+	return [self getCachedOrNewTask:task];
 }
 
 -(NSInteger) countTasks {
@@ -32,15 +43,19 @@
 }
 
 -(ChocrotaryTask*) getNthTask:(NSInteger)n {
-	return secretary_get_nth_task(secretary, n);
+	Task *task =  secretary_get_nth_task(secretary, n);
+	return [self getCachedOrNewTask:task];
+
 }
 
--(void)schedule:(ChocrotaryTask*)task to:(NSDate*) date {
+-(void)schedule:(ChocrotaryTask*)aTask to:(NSDate*) date {
+	Task *task = [aTask wrappedTask];
 	time_t time = [date timeIntervalSince1970];
 	secretary_schedule(secretary, task, *localtime(&time));
 }
 
--(void)unschedule:(ChocrotaryTask*)task {
+-(void)unschedule:(ChocrotaryTask*)aTask {
+	Task *task = [aTask wrappedTask];
 	secretary_unschedule(secretary, task);
 }
 
@@ -49,7 +64,8 @@
 }
 
 -(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n {
-	return secretary_get_nth_scheduled(secretary, n);
+	Task *task = secretary_get_nth_scheduled(secretary, n);
+	return [self getCachedOrNewTask:task];
 }
 
 -(NSInteger) countTasksScheduledForToday {
@@ -57,18 +73,22 @@
 }
 
 -(ChocrotaryTask*) getNthTaskScheduledForToday:(NSInteger)n {
-	return secretary_get_nth_scheduled_for_today(secretary, n);
+	Task *task = secretary_get_nth_scheduled_for_today(secretary, n);
+	return [self getCachedOrNewTask:task];
 }
 
--(void)doTask:(ChocrotaryTask*) task {
+-(void)doTask:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
 	secretary_do(secretary, task);
 }
 
--(void)undo:(ChocrotaryTask*) task {
+-(void)undo:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
 	secretary_undo(secretary, task);
 }
 
--(void)switchDoneStatus: (ChocrotaryTask*) task; {
+-(void)switchDoneStatus: (ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
 	if (task_is_done(task)) {
 		secretary_undo(secretary, task);
 	} else {
@@ -76,7 +96,8 @@
 	}
 }
 
--(void) deleteTask:(ChocrotaryTask*) task {
+-(void) deleteTask:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
 	secretary_delete_task(secretary, task);
 }
 
@@ -100,11 +121,13 @@
 	secretary_delete_project(secretary, project);
 }
 
--(void) move:(ChocrotaryTask*) task to:(ChocrotaryProject*) project {
+-(void) move:(ChocrotaryTask*) aTask to:(ChocrotaryProject*) project {
+	Task *task = [aTask wrappedTask];
 	secretary_move(secretary, task, project);
 }
 
--(void)moveTaskToInbox:(ChocrotaryTask*) task {
+-(void)moveTaskToInbox:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
 	secretary_move_to_inbox(secretary, task);
 }
 
@@ -114,9 +137,14 @@
 }
 
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n {
-	return secretary_get_nth_inbox_task(secretary, n);
+	Task *task = secretary_get_nth_inbox_task(secretary, n);
+	return [self getCachedOrNewTask:task];
+
 }
 
+-(ChocrotaryTask*)wrapperForTask:(Task*) aTask {
+	return [self getCachedOrNewTask:aTask];
+}
 
 -(void)release {
 	secretary_free(secretary);

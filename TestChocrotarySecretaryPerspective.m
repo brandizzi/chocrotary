@@ -80,11 +80,11 @@
 											initWithChocrotarySecretary:secretary
 											forProject:project1];
 	STAssertEquals([projectPerspective countTasks], 1L, @"Should have one task in project 1");
-	STAssertEquals([projectPerspective getNthTask:0], task1, @"Should be task 1");	
+	STAssertEqualObjects([projectPerspective getNthTask:0], task1, @"Should be task 1");	
 	projectPerspective = [[ChocrotarySecretaryProjectPerspective alloc] 
 				   initWithChocrotarySecretary:secretary
 				   forProject:project2];
 	STAssertEquals([projectPerspective countTasks], 1L, @"Should have one task in project 2");
-	STAssertEquals([projectPerspective getNthTask:0], task2, @"Should be task 2");
+	STAssertEqualObjects([projectPerspective getNthTask:0], task2, @"Should be task 2");
 }
 @end

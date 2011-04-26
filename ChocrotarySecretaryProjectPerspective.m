@@ -27,7 +27,7 @@
 }
 - (ChocrotaryTask *) getNthTask:(NSInteger) n {
 	if (project != NULL) {
-		return project_get_nth_task(project, n);
+		return [secretary wrapperForTask:project_get_nth_task(project, n)];
 	}
 	return NULL;
 }

@@ -17,7 +17,7 @@
 		ChocrotaryBaseTableViewDataSource *dataSource = (ChocrotaryBaseTableViewDataSource*)[tableView dataSource];
 		ChocrotarySecretaryPerspective *view = [dataSource secretaryPerspective];
 		ChocrotaryTask *task = [view getNthTask:row];
-		ChocrotaryProject *project = task_get_project(task);
+		ChocrotaryProject *project = [task project];
 	
 		NSPopUpButtonCell *projectPopUpButton = cell;
 		NSString *selected = @"";

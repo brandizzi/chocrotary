@@ -17,5 +17,7 @@
 -(void) testCountScheduled;
 -(void) testCountScheduledForToday;
 -(void) testGetProject;
+-(void) testGetTaskObjectFromTask;
 -(void) testAttachDetachObserver;
+
 @end

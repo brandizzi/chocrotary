@@ -62,7 +62,7 @@
 	[secretary schedule:task2 to:[NSDate date]];
 	
 	STAssertEquals([secretary countScheduledTasks], 1L, @"Should have only one schduled tasks");
-	STAssertEquals([secretary getNthScheduledTask:0], task2, @"Should be task 2");
+	STAssertEqualObjects([secretary getNthScheduledTask:0], task2, @"Should be task 2");
 }
 
 -(void) testCountScheduledForToday {
@@ -89,6 +89,15 @@
 	STAssertEquals(project, project1, @"Should be the first project");
 	project = [secretary getProjectByName:@"libsecretary"];
 	STAssertEquals(project, project2, @"Should be the second project");	
+}
+
+-(void) testGetTaskObjectFromTask {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	ChocrotaryTask *task = [secretary appoint:@"Add hidden option"];
+	Task *wrapped = [task wrappedTask];
+	
+	ChocrotaryTask *task2 = [secretary wrapperForTask:wrapped];
+	STAssertEqualObjects(task, task2, @"Should be equal");
 }
 
 -(void) testAttachDetachObserver {

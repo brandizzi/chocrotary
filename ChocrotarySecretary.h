@@ -9,13 +9,12 @@
 #import <Cocoa/Cocoa.h>
 #import <secretary/secretary.h>
 #import "ChocrotarySecretaryObserver.h"
-
-typedef Task ChocrotaryTask;
-typedef Project ChocrotaryProject;
+#import "ChocrotaryTask.h"
 
 @interface ChocrotarySecretary : NSObject {
 	Secretary *secretary;
 	NSMutableSet *observers;
+	CFMutableDictionaryRef cachedTaskObjects;
 }
 -(id)init;
 -(id)initWithSecretary:(Secretary*) ready;
@@ -48,6 +47,9 @@ typedef Project ChocrotaryProject;
 
 -(NSInteger) countInboxTasks;
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n;
+
+// For retrieving a ChocrotaryTask wrapping a Task
+-(ChocrotaryTask*)wrapperForTask:(Task*) aTask;
 
 // Subject interface: the methods for reporting to observers that
 // the secretary has changed its state.
