@@ -89,7 +89,7 @@
 
 -(void)switchDoneStatus: (ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
-	if (task_is_done(task)) {
+	if ([aTask done]) {
 		secretary_undo(secretary, task);
 	} else {
 		secretary_do(secretary, task);
@@ -99,6 +99,7 @@
 -(void) deleteTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	secretary_delete_task(secretary, task);
+	CFDictionaryRemoveValue(cachedTaskObjects, task);
 }
 
 -(ChocrotaryProject*) start:(NSString*)name {
