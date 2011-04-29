@@ -7,14 +7,14 @@
 //
 
 #import <Cocoa/Cocoa.h>
-#import "SecretaryTaskObserver.h"
-#import "SecretaryProjectObserver.h"
+#import "ChocrotaryTaskObserver.h"
+#import "ChocrotaryProjectObserver.h"
 
-@interface ChocrotarySecretaryObserverStub : NSObject <ChocrotaryTaskObserver, SecretaryProjectObserver> {
-	NSInteger countProjectsUpdates, countTasksUpdates;
+@interface ChocrotarySecretaryObserverStub : NSObject <ChocrotaryTaskObserver, ChocrotaryProjectObserver> {
+	NSInteger countProjectUpdates, countTaskUpdates;
 }
 
-@property (readonly) NSInteger countProjectsUpdates, countTasksUpdates;
+@property (readonly) NSInteger countProjectUpdates, countTaskUpdates;
 
 -(id) init;
 -(void) projectsWereUpdated:(ChocrotarySecretary*) secretary;

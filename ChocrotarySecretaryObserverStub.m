@@ -12,19 +12,19 @@
 @implementation ChocrotarySecretaryObserverStub
 
 -(id) init {
-	countTasksUpdates=0;
-	countProjectsUpdates=0;
+	countTaskUpdates=0;
+	countProjectUpdates=0;
 	return self;
 }
 
-@synthesize countProjectsUpdates, countTasksUpdates;
+@synthesize countProjectUpdates, countTaskUpdates;
 
 -(void) projectsWereUpdated:(ChocrotarySecretary*) secretary {
-	countProjectsUpdates++;
+	countProjectUpdates++;
 }
 
 -(void) tasksWereUpdated:(ChocrotarySecretary*) secretary {
-	countTasksUpdates++;
+	countTaskUpdates++;
 }
 
 @end

@@ -9,14 +9,16 @@
 #import <Cocoa/Cocoa.h>
 #import <secretary/task.h>
 #import <secretary/project.h>
+#import "ChocrotaryTaskObserver.h"
 
 @class ChocrotaryProject;
 
 @interface ChocrotaryTask : NSObject {
 	Task *task;
+	NSMutableSet *observers;
 }
 
--(id)initWithTask:(Task*) aTask;
+-(id)initWithTaskStruct:(Task*) aTask;
 +(id)taskWithTaskStruct:(Task*) aTask;
 
 -(NSString*) description;
@@ -34,6 +36,11 @@
 -(ChocrotaryProject*) project;
 	
 -(Task*) wrappedTask;
+
+// Publisher interface
+-(void) attachTaskObserver:(id<ChocrotaryTaskObserver>) observer;
+-(void) detachTaskObserver:(id<ChocrotaryTaskObserver>) observer;
+-(void) notifyTasksObservers;
 
 // Overwritten
 -(BOOL)isEqual:(id)object;

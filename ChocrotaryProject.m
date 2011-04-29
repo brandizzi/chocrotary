@@ -58,11 +58,13 @@
 	Task *task = [aTask wrappedTask];
 	project_add(project, task);
 	CFDictionaryAddValue(cachedTaskObjects, task, aTask);
+	[aTask notifyTasksObservers];
 }
 -(void) removeTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	project_remove(project, task);
 	CFDictionaryRemoveValue(cachedTaskObjects, task);
+	[aTask notifyTasksObservers];
 }
 
 -(BOOL)isEqual:(id)object {

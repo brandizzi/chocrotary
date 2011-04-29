@@ -102,50 +102,46 @@
 -(void) testAttachDetachTaskObserver {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
-	[secretary attachObserver:stub];
-	STAssertEquals([stub countProjectsUpdates], 0L, @"Should have no task update");
-	STAssertEquals([stub countProjectsUpdates], 0L, @"Should have no project update");
+	[secretary attachTaskObserver:stub];
+	STAssertEquals([stub countTaskUpdates], 0L, @"Should have no task update");
 	
-	[secretary notifyProjectsUpdate];
-	STAssertEquals([stub countTasksUpdates], 0L, @"Should have no task update");
-	STAssertEquals([stub countProjectsUpdates], 1L, @"Should have one project update");
-	[secretary notifyTasksUpdate];
-	STAssertEquals([stub countTasksUpdates], 1L, @"Now should have one task update");
-	STAssertEquals([stub countProjectsUpdates], 1L, @"Should have still one project update");
+	[secretary notifyTaskUpdate];
+	STAssertEquals([stub countTaskUpdates], 1L, @"Now should have one task update");
 
 	ChocrotarySecretaryObserverStub *stub2 = [[ChocrotarySecretaryObserverStub alloc] init];
-	[secretary attachObserver:stub2];
-	STAssertEquals([stub2 countTasksUpdates], 0L, @"Should have no task update");
-	STAssertEquals([stub2 countProjectsUpdates], 0L, @"Should have no project update");
+	[secretary attachTaskObserver:stub2];
+	STAssertEquals([stub2 countTaskUpdates], 0L, @"Should have no task update");
 	
-	[secretary notifyProjectsUpdate];
-	STAssertEquals([stub countTasksUpdates], 1L, @"Should have one task update");
-	STAssertEquals([stub countProjectsUpdates], 2L, @"Should have two project updates");
-	STAssertEquals([stub2 countTasksUpdates], 0L, @"Should have no task update");
-	STAssertEquals([stub2 countProjectsUpdates], 1L, @"Should have one project update");
-	[secretary notifyTasksUpdate];
-	STAssertEquals([stub countTasksUpdates], 2L, @"Should have two task updates");
-	STAssertEquals([stub countProjectsUpdates], 2L, @"Should have tow project updates");
-	STAssertEquals([stub2 countTasksUpdates], 1L, @"Now should have one task update");
-	STAssertEquals([stub2 countProjectsUpdates], 1L, @"Should have still one project update");
+	[secretary notifyTaskUpdate];
+	STAssertEquals([stub countTaskUpdates], 2L, @"Should have two task updates");
+	STAssertEquals([stub2 countTaskUpdates], 1L, @"Now should have one task update");
 	
-	[secretary detachObserver:stub];
-	[secretary notifyProjectsUpdate];
-	STAssertEquals([stub countTasksUpdates], 2L, @"Should have still two task updates");
-	STAssertEquals([stub countProjectsUpdates], 2L, @"Should have two projects update");
-	STAssertEquals([stub2 countTasksUpdates], 1L, @"Should have no task update");
-	STAssertEquals([stub2 countProjectsUpdates], 2L, @"Should have two project updates");
-	[secretary notifyTasksUpdate];
-	STAssertEquals([stub countTasksUpdates], 2L, @"Should have still two task updates");
-	STAssertEquals([stub countProjectsUpdates], 2L, @"Should have still project updates");
-	STAssertEquals([stub2 countTasksUpdates], 2L, @"Now should have two task updates");
-	STAssertEquals([stub2 countProjectsUpdates], 2L, @"Should have two project update");
+	[secretary detachTasksObserver:stub];
+	[secretary notifyTaskUpdate];
+	STAssertEquals([stub countTaskUpdates], 2L, @"Should have still two task updates");
+	STAssertEquals([stub2 countTaskUpdates], 2L, @"Now should have two task updates");
 }
 
 -(void) testAttachDetachProjectObserver {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
-	[secretary attachObserver:stub];
+	[secretary attachProjectObserver:stub];
+	STAssertEquals([stub countProjectUpdates], 0L, @"Should have no project update");
 	
+	[secretary notifyProjectUpdate];
+	STAssertEquals([stub countProjectUpdates],1L, @"Now should have one project update");
+	
+	ChocrotarySecretaryObserverStub *stub2 = [[ChocrotarySecretaryObserverStub alloc] init];
+	[secretary attachProjectObserver:stub2];
+	STAssertEquals([stub2 countProjectUpdates], 0L, @"Should have no project update");
+	
+	[secretary notifyProjectUpdate];
+	STAssertEquals([stub countProjectUpdates], 2L, @"Should have 2 project update");
+	STAssertEquals([stub2 countProjectUpdates], 1L, @"Should have no project update");
+	
+	[secretary detachProjectsObserver:stub];
+	[secretary notifyProjectUpdate];
+	STAssertEquals([stub countProjectUpdates], 2L, @"Should have still two project updates");
+	STAssertEquals([stub2 countProjectUpdates], 2L, @"Should have one project update");
 }
 @end

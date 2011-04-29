@@ -160,26 +160,26 @@
 	[super release];
 }
 
--(void)attachTasksObserver:(id<ChocrotaryTaskObserver>)observer {
+-(void)attachTaskObserver:(id<ChocrotaryTaskObserver>)observer {
 	[tasksObservers addObject:observer];
 }
 -(void)detachTasksObserver:(id<ChocrotaryTaskObserver>)observer {
 	[tasksObservers removeObject:observer];
 }
 
--(void)attachProjectsObserver:(id<ChocrotaryProjectObserver>)observer {
+-(void)attachProjectObserver:(id<ChocrotaryProjectObserver>)observer {
 	[projectsObservers addObject:observer];
 }
 -(void)detachProjectsObserver:(id<ChocrotaryProjectObserver>)observer {
 	[projectsObservers removeObject:observer];
 }
 
--(void)notifyProjectsUpdate {
+-(void)notifyProjectUpdate {
 	for (id<ChocrotaryProjectObserver> observer in projectsObservers) {
 		[observer projectsWereUpdated:self];
 	}
 }
--(void)notifyTasksUpdate {
+-(void)notifyTaskUpdate {
 	for (id<ChocrotaryTaskObserver> observer in tasksObservers) {
 		[observer tasksWereUpdated:self];
 	}

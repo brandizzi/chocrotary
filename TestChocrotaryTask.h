@@ -18,5 +18,5 @@
 -(void) testDo;
 -(void) testSchedule;
 -(void) testProject;
-
+-(void) testObserver;
 @end

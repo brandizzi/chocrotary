@@ -13,11 +13,12 @@
 @implementation ChocrotaryTask
 
 +(id)taskWithTaskStruct:(Task*) aTask {
-	return [[ChocrotaryTask alloc] initWithTask:aTask];
+	return [[ChocrotaryTask alloc] initWithTaskStruct:aTask];
 }
 
--(id)initWithTask:(Task*) aTask {
+-(id)initWithTaskStruct:(Task*) aTask {
 	task = aTask;
+	observers = [NSMutableSet new];
 	return self;
 }
 -(NSString*) description {
@@ -26,6 +27,7 @@
 
 -(void) setDescription:(NSString*) aDescription {
 	task_set_description(task, [aDescription UTF8String]);
+	[self notifyTasksObservers];
 }
 
 -(Task*) wrappedTask {
@@ -38,10 +40,12 @@
 
 -(void) markAsDone {
 	task_mark_as_done(task);
+	[self notifyTasksObservers];
 }
 
 -(void) unmarkAsDone {
 	task_unmark_as_done(task);	
+	[self notifyTasksObservers];
 }
 
 
@@ -63,10 +67,12 @@
 	time_t secondsSinceEpoch = [aDate timeIntervalSince1970];
 	struct tm structdate = *localtime(&secondsSinceEpoch);
 	task_schedule(task, structdate);
+	[self notifyTasksObservers];
 }
 
 -(void) unschedule {
 	task_unschedule(task);
+	[self notifyTasksObservers];
 }
 
 -(ChocrotaryProject*) project {
@@ -75,6 +81,20 @@
 		return [ChocrotaryProject projectWithProjectStruct:project];
 	return nil;
 }
+
+-(void) attachTaskObserver:(id<ChocrotaryTaskObserver>) anObserver {
+	[observers addObject:anObserver];
+}
+
+-(void) detachTaskObserver:(id<ChocrotaryTaskObserver>) anObserver {
+	[observers removeObject:anObserver];
+}
+-(void) notifyTasksObservers {
+	for (id<ChocrotaryTaskObserver> observer in observers) {
+		[observer tasksWereUpdated:nil];
+	}
+}
+
 
 -(BOOL)isEqual:(id)object {
 	if ([object respondsToSelector:@selector(wrappedTask)]) {

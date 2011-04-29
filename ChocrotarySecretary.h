@@ -56,12 +56,12 @@
 // Publisher interface: the methods for reporting to observers that
 // the secretary has changed its state.
 
--(void)attachTasksObserver:(id<ChocrotaryTaskObserver>)observer;
+-(void)attachTaskObserver:(id<ChocrotaryTaskObserver>)observer;
 -(void)detachTasksObserver:(id<ChocrotaryTaskObserver>)observer;
--(void)attachProjectsObserver:(id<ChocrotaryProjectObserver>)observer;
+-(void)attachProjectObserver:(id<ChocrotaryProjectObserver>)observer;
 -(void)detachProjectsObserver:(id<ChocrotaryProjectObserver>)observer;
--(void)notifyProjectsUpdate;
--(void)notifyTasksUpdate;
+-(void)notifyProjectUpdate;
+-(void)notifyTaskUpdate;
 
 // Observer interface: it is through this interface that secretary
 // knows when a task/project updates itself and then reports it

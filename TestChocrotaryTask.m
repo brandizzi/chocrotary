@@ -10,6 +10,8 @@
 #import "ChocrotaryTask.h"
 #import "ChocrotaryProject.h"
 #import <secretary/secretary.h>
+#import "ChocrotaryTaskObserver.h"
+#import "ChocrotarySecretaryObserverStub.h"
 
 @implementation TestChocrotaryTask
 
@@ -90,6 +92,77 @@
 	STAssertEqualObjects([task project], project, @"Should have project");
 	[project removeTask:task];
 	STAssertNil([task project], @"Should not have project");
+}
+
+-(void) testObserver {
+	Task *oldTask = task_new(1, "New task");
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
+	
+	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
+	STAssertEquals([stub countTaskUpdates], 0L, @"No update so far");
+	[task attachTaskObserver:stub];
+	
+	[task setDescription:@"Task with new name"];
+	STAssertEquals([stub countTaskUpdates], 1L, @"One update so far");
+	[task description];
+	STAssertEquals([stub countTaskUpdates], 1L, @"No more updates for now");
+	
+	ChocrotaryProject *project = [ChocrotaryProject projectWithProjectStruct:project_new("project")];
+	[project addTask:task];
+	STAssertEquals([stub countTaskUpdates], 2L, @"2 updates so far");
+	[task project];
+	STAssertEquals([stub countTaskUpdates], 2L, @"No more updates for now");
+	[project removeTask:task];
+	STAssertEquals([stub countTaskUpdates], 3L, @"3 updates so far");
+	
+	[task scheduleFor:[NSDate date]];
+	STAssertEquals([stub countTaskUpdates], 4L, @"4 updates so far");
+	[task isScheduled];
+	[task scheduledFor];
+	STAssertEquals([stub countTaskUpdates], 4L, @"No more updates for now");
+	[task unschedule];
+	STAssertEquals([stub countTaskUpdates], 5L, @"5 updates so far");
+	
+	[task markAsDone];
+	STAssertEquals([stub countTaskUpdates], 6L, @"6 updates so far");
+	[task done];
+	STAssertEquals([stub countTaskUpdates], 6L, @"No mor updates for now");
+	[task unmarkAsDone];
+	STAssertEquals([stub countTaskUpdates], 7L, @"7 updates so far");
+	
+	[task notifyTasksObservers];
+	STAssertEquals([stub countTaskUpdates], 8L, @"7 updates so far");
+	
+	// Now detached
+	[task detachTaskObserver:stub];
+	
+	[task setDescription:@"Task with new name"];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[task description];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	
+	[project addTask:task];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[task project];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[project removeTask:task];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	
+	[task scheduleFor:[NSDate date]];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[task isScheduled];
+	[task scheduledFor];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[task unschedule];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	
+	[task markAsDone];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[task done];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	[task unmarkAsDone];
+	STAssertEquals([stub countTaskUpdates], 8L, @"No more updates for detached object");
+	
 }
 
 @end
