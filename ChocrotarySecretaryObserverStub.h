@@ -17,7 +17,7 @@
 @property (readonly) NSInteger countProjectUpdates, countTaskUpdates;
 
 -(id) init;
--(void) projectsWereUpdated:(ChocrotarySecretary*) secretary;
--(void) tasksWereUpdated:(ChocrotarySecretary*) secretary;
+-(void) projectsWereUpdated:(id) objectWitState;
+-(void) tasksWereUpdated:(id) objectWitState;
 
 @end

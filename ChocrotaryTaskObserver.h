@@ -12,6 +12,6 @@
 
 @protocol ChocrotaryTaskObserver
 
--(void) tasksWereUpdated:(ChocrotarySecretary*) secretary;
+-(void) tasksWereUpdated:(id) objectWithState;
 
 @end

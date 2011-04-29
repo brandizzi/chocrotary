@@ -10,10 +10,11 @@
 #import <secretary/project.h>
 #import "ChocrotarySecretary.h"
 #import "ChocrotaryTask.h"
+#import "ChocrotaryProjectObserver.h"
 
 @interface ChocrotaryProject : NSObject {
-	ChocrotarySecretary *secretary;
 	Project *project;
+	NSMutableSet *observers;
 	CFMutableDictionaryRef cachedTaskObjects;
 }
 
@@ -29,7 +30,14 @@
 -(void) addTask:(ChocrotaryTask*) aTask;
 -(void) removeTask:(ChocrotaryTask*) aTask;
 
+// Publisher interface
+-(void) attachProjectObserver:(id<ChocrotaryProjectObserver>) objectWithState;
+-(void) detachProjectObserver:(id<ChocrotaryProjectObserver>) objectWithState;
+-(void) notifyProjectObservers;
+
+
 // Some overwritten
 -(BOOL)isEqual:(id)object;
 -(NSInteger)hash;
+
 @end

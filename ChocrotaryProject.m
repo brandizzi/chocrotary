@@ -24,6 +24,7 @@
 	[super init];
 	cachedTaskObjects = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
 	project = aProject;
+	observers = [NSMutableSet new];
 	return self;
 }
 
@@ -41,6 +42,7 @@
 
 -(void)setName:(NSString*) aName {
 	project_set_name(project, [aName UTF8String]);
+	[self notifyProjectObservers];
 }
 
 -(NSInteger) countTasks {
@@ -59,12 +61,26 @@
 	project_add(project, task);
 	CFDictionaryAddValue(cachedTaskObjects, task, aTask);
 	[aTask notifyTasksObservers];
+	[self notifyProjectObservers];
 }
 -(void) removeTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	project_remove(project, task);
 	CFDictionaryRemoveValue(cachedTaskObjects, task);
 	[aTask notifyTasksObservers];
+	[self notifyProjectObservers];
+}
+
+-(void) attachProjectObserver:(id<ChocrotaryProjectObserver>) observer {
+	[observers addObject:observer];
+}
+-(void) detachProjectObserver:(id<ChocrotaryProjectObserver>) observer {
+	[observers removeObject:observer];
+}
+-(void) notifyProjectObservers {
+	for (id<ChocrotaryProjectObserver> observer in observers) {
+		[observer projectsWereUpdated:self];
+	}
 }
 
 -(BOOL)isEqual:(id)object {

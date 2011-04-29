@@ -91,7 +91,7 @@
 }
 -(void) notifyTasksObservers {
 	for (id<ChocrotaryTaskObserver> observer in observers) {
-		[observer tasksWereUpdated:nil];
+		[observer tasksWereUpdated:self];
 	}
 }
 

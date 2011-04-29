@@ -10,6 +10,7 @@
 #import <secretary/project.h>
 #import "ChocrotaryProject.h"
 #import "ChocrotaryTask.h"
+#import "ChocrotarySecretaryObserverStub.h"
 
 @implementation TestChocrotaryProject
 
@@ -63,6 +64,50 @@
 	project_remove(wrappedProject, wrappedTask2);
 	STAssertEquals([project countTasks], 0L, @"Should have no task");
 	STAssertNil([project getNthTask:0], @"Should return nil");
+}
+
+-(void) testObserver {
+	Project *wrappedProject = project_new("Project");
+	ChocrotaryProject *project = [ChocrotaryProject projectWithProjectStruct:wrappedProject];
+	
+	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
+	[project attachProjectObserver:stub];
+	STAssertEquals([stub countProjectUpdates], 0L, @"No update");
+	
+	[project setName:@"Project rebranded!"];
+	STAssertEquals([stub countProjectUpdates], 1L, @"1 update so far");
+	[project name];
+	STAssertEquals([stub countProjectUpdates], 1L, @"No more updates for now");
+	
+	Task *wrappedTask = task_new(0, "Create ChocrotaryProject wrapper class");
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:wrappedTask];
+	
+	[project addTask:task];
+	STAssertEquals([stub countProjectUpdates], 2L, @"2 updates so far");
+	[project countTasks];
+	[project getNthTask:0];
+	STAssertEquals([stub countProjectUpdates], 2L, @"No more updates for now");
+	[project removeTask:task];
+	STAssertEquals([stub countProjectUpdates], 3L, @"3 updates so far");
+	
+	[project notifyProjectObservers];
+	STAssertEquals([stub countProjectUpdates], 4L, @"4 updates so far");
+	
+	[project detachProjectObserver:stub];
+	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
+	
+	[project setName:@"Project rebranded!"];
+	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
+	[project name];
+	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
+	
+	[project addTask:task];
+	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
+	[project countTasks];
+	[project getNthTask:0];
+	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
+	[project removeTask:task];
+	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
 }
 
 @end

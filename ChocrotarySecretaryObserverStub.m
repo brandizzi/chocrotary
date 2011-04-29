@@ -19,11 +19,11 @@
 
 @synthesize countProjectUpdates, countTaskUpdates;
 
--(void) projectsWereUpdated:(ChocrotarySecretary*) secretary {
+-(void) projectsWereUpdated:(id) objectWitState {
 	countProjectUpdates++;
 }
 
--(void) tasksWereUpdated:(ChocrotarySecretary*) secretary {
+-(void) tasksWereUpdated:(id) objectWitState {
 	countTaskUpdates++;
 }
 
