@@ -8,7 +8,6 @@
 
 #import "TestChocrotarySecretary.h"
 #import "ChocrotarySecretary.h"
-#import "ChocrotarySecretaryObserver.h"
 #import "ChocrotarySecretaryObserverStub.h"
 
 @implementation TestChocrotarySecretary
@@ -100,7 +99,7 @@
 	STAssertEqualObjects(task, task2, @"Should be equal");
 }
 
--(void) testAttachDetachObserver {
+-(void) testAttachDetachTaskObserver {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
 	[secretary attachObserver:stub];
@@ -141,6 +140,12 @@
 	STAssertEquals([stub countProjectsUpdates], 2L, @"Should have still project updates");
 	STAssertEquals([stub2 countTasksUpdates], 2L, @"Now should have two task updates");
 	STAssertEquals([stub2 countProjectsUpdates], 2L, @"Should have two project update");
+}
+
+-(void) testAttachDetachProjectObserver {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
+	[secretary attachObserver:stub];
 	
 }
 @end

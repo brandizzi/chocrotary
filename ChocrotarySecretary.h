@@ -8,12 +8,14 @@
 
 #import <Cocoa/Cocoa.h>
 #import <secretary/secretary.h>
-#import "ChocrotarySecretaryObserver.h"
 #import "ChocrotaryTask.h"
 
-@interface ChocrotarySecretary : NSObject {
+#import "ChocrotaryTaskObserver.h"
+#import "ChocrotaryProjectObserver.h"
+
+@interface ChocrotarySecretary : NSObject <ChocrotaryTaskObserver, ChocrotaryProjectObserver> {
 	Secretary *secretary;
-	NSMutableSet *observers;
+	NSMutableSet *tasksObservers, *projectsObservers;
 	CFMutableDictionaryRef cachedTaskObjects;
 }
 -(id)init;
@@ -51,13 +53,21 @@
 // For retrieving a ChocrotaryTask wrapping a Task
 -(ChocrotaryTask*)wrapperForTask:(Task*) aTask;
 
-// Subject interface: the methods for reporting to observers that
+// Publisher interface: the methods for reporting to observers that
 // the secretary has changed its state.
 
--(void)attachObserver:(id<ChocrotarySecretaryObserver>)observer;
--(void)detachObserver:(id<ChocrotarySecretaryObserver>)observer;
+-(void)attachTasksObserver:(id<ChocrotaryTaskObserver>)observer;
+-(void)detachTasksObserver:(id<ChocrotaryTaskObserver>)observer;
+-(void)attachProjectsObserver:(id<ChocrotaryProjectObserver>)observer;
+-(void)detachProjectsObserver:(id<ChocrotaryProjectObserver>)observer;
 -(void)notifyProjectsUpdate;
 -(void)notifyTasksUpdate;
+
+// Observer interface: it is through this interface that secretary
+// knows when a task/project updates itself and then reports it
+// to Secretary's own observers.
+-(void) tasksWereUpdated:(ChocrotarySecretary*) secretary;
+-(void) projectsWereUpdated:(ChocrotarySecretary*) secretary;
 
 //
 -(void)release;

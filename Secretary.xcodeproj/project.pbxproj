@@ -93,6 +93,8 @@
 		0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotarySecretary.m; sourceTree = "<group>"; };
 		032B7C42136A5CB400AF7DBA /* ChocrotaryProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryProject.h; sourceTree = "<group>"; };
 		032B7C43136A5CB400AF7DBA /* ChocrotaryProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryProject.m; sourceTree = "<group>"; };
+		032B7D92136A6E0E00AF7DBA /* ChocrotaryProjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryProjectObserver.h; sourceTree = "<group>"; };
+		032B7D94136A6E3300AF7DBA /* ChocrotaryTaskObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTaskObserver.h; sourceTree = "<group>"; };
 		03305962134000CF007B0B1C /* TestChocrotaryTasksInProjectTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TestChocrotaryTasksInProjectTableViewDataSource.h; sourceTree = "<group>"; };
 		03305963134000CF007B0B1C /* TestChocrotaryTasksInProjectTableViewDataSource.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TestChocrotaryTasksInProjectTableViewDataSource.m; sourceTree = "<group>"; };
 		0330597313400159007B0B1C /* ChocrotaryTasksInProjectTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTasksInProjectTableViewDataSource.h; sourceTree = "<group>"; };
@@ -295,6 +297,8 @@
 				0367049D133EE11300A56085 /* ChocrotaryBaseTableViewDataSource.m */,
 				036A5C961334564B00DD767E /* ChocrotaryTableViewDataSource.h */,
 				0307410B1361143E007A80E8 /* ChocrotarySecretaryObserver.h */,
+				032B7D92136A6E0E00AF7DBA /* ChocrotaryProjectObserver.h */,
+				032B7D94136A6E3300AF7DBA /* ChocrotaryTaskObserver.h */,
 			);
 			name = "Protocols and abstract classes";
 			sourceTree = "<group>";

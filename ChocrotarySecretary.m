@@ -30,7 +30,9 @@
 	[super init];
 	secretary = ready;
 	cachedTaskObjects = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
-	observers = [NSMutableSet new];
+	// Observers containers
+	tasksObservers = [NSMutableSet new];
+	projectsObservers = [NSMutableSet new];
 	return self;
 }
 
@@ -158,22 +160,34 @@
 	[super release];
 }
 
--(void)attachObserver:(id<ChocrotarySecretaryObserver>)observer {
-	[observers addObject:observer];
+-(void)attachTasksObserver:(id<ChocrotaryTaskObserver>)observer {
+	[tasksObservers addObject:observer];
 }
--(void)detachObserver:(id<ChocrotarySecretaryObserver>)observer {
-	[observers removeObject:observer];
+-(void)detachTasksObserver:(id<ChocrotaryTaskObserver>)observer {
+	[tasksObservers removeObject:observer];
+}
+
+-(void)attachProjectsObserver:(id<ChocrotaryProjectObserver>)observer {
+	[projectsObservers addObject:observer];
+}
+-(void)detachProjectsObserver:(id<ChocrotaryProjectObserver>)observer {
+	[projectsObservers removeObject:observer];
 }
 
 -(void)notifyProjectsUpdate {
-	for (id<ChocrotarySecretaryObserver> observer in observers) {
+	for (id<ChocrotaryProjectObserver> observer in projectsObservers) {
 		[observer projectsWereUpdated:self];
 	}
 }
 -(void)notifyTasksUpdate {
-	for (id<ChocrotarySecretaryObserver> observer in observers) {
+	for (id<ChocrotaryTaskObserver> observer in tasksObservers) {
 		[observer tasksWereUpdated:self];
 	}
+}
+
+-(void) tasksWereUpdated:(ChocrotarySecretary *)secretary {
+}
+-(void) projectsWereUpdated:(ChocrotarySecretary *)secretary {
 }
 
 @end
