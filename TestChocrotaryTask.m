@@ -8,13 +8,14 @@
 
 #import "TestChocrotaryTask.h"
 #import "ChocrotaryTask.h"
+#import "ChocrotaryProject.h"
 #import <secretary/secretary.h>
 
 @implementation TestChocrotaryTask
 
 -(void) testZero {
 	Task *oldTask = task_new(1, "New task");
-	ChocrotaryTask *task = [ChocrotaryTask newWithWrappedTask:oldTask];
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	STAssertEqualObjects([task description], @"New task", @"Should have the given description");
 	STAssertEquals([task wrappedTask], oldTask, @"Should be the same task");
 	
@@ -26,7 +27,7 @@
 
 -(void) testChangeDescription {
 	Task *oldTask = task_new(1, "New task");
-	ChocrotaryTask *task = [ChocrotaryTask newWithWrappedTask:oldTask];
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	STAssertEqualObjects([task description], @"New task", @"Should have the given description");
 	
 	[task setDescription:@"Same new task"];
@@ -35,7 +36,7 @@
 
 -(void) testDo {
 	Task *oldTask = task_new(1, "New task");
-	ChocrotaryTask *task = [ChocrotaryTask newWithWrappedTask:oldTask];
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	STAssertEqualObjects([task description], @"New task", @"Should have the given description");
 	
 	STAssertFalse([task done], @"Should not be done");
@@ -54,7 +55,7 @@
 
 -(void) testSchedule {
 	Task *oldTask = task_new(1, "New task");
-	ChocrotaryTask *task = [ChocrotaryTask newWithWrappedTask:oldTask];
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	
 	STAssertFalse([task isScheduled], @"Should not be scheduled");
 	STAssertNil([task scheduledFor], @"Should not return scheduled date");
@@ -81,14 +82,14 @@
 
 -(void) testProject {
 	Task *oldTask = task_new(1, "New task");
-	ChocrotaryTask *task = [ChocrotaryTask newWithWrappedTask:oldTask];
+	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 
-	STAssertEquals([task project], (ChocrotaryProject*)NULL, @"Should not have project");	
-	ChocrotaryProject *project = project_new("My project");
-	project_add(project, oldTask);
-	STAssertEquals([task project], project, @"Should have project");
-	project_remove(project, oldTask);
-	STAssertEquals([task project], (ChocrotaryProject*)NULL, @"Should not have project");
+	STAssertNil([task project], @"Should not have project");	
+	ChocrotaryProject *project = [ChocrotaryProject projectWithProjectStruct:project_new("My project")];
+	[project addTask:task];
+	STAssertEqualObjects([task project], project, @"Should have project");
+	[project removeTask:task];
+	STAssertNil([task project], @"Should not have project");
 }
 
 @end

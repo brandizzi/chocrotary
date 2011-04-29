@@ -54,7 +54,7 @@
 	[item setTag:-1];
 	for (int i = 0; i < [secretary countProjects]; i++) {
 		ChocrotaryProject *project = [secretary getNthProject:i];
-		NSString *projectName = [NSString stringWithUTF8String:project_get_name(project)];
+		NSString *projectName = [project name];
 		[projectArray addObject:projectName];
 		item = [projectsMenu addItemWithTitle:projectName action:nil keyEquivalent:@""];
 		[item setTag:i];

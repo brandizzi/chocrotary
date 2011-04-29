@@ -21,13 +21,13 @@
 }
 - (NSInteger) countTasks {
 	if (project != NULL) {
-		return project_count_task(project);
+		return [project countTasks];
 	}
 	return 0L;
 }
 - (ChocrotaryTask *) getNthTask:(NSInteger) n {
 	if (project != NULL) {
-		return [secretary wrapperForTask:project_get_nth_task(project, n)];
+		return [project getNthTask:n];
 	}
 	return NULL;
 }

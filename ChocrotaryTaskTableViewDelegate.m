@@ -22,7 +22,7 @@
 		NSPopUpButtonCell *projectPopUpButton = cell;
 		NSString *selected = @"";
 		if (project) {
-			selected = [NSString stringWithUTF8String:project_get_name(project)];
+			selected = [project name];
 		}
 		[projectPopUpButton selectItemWithTitle:selected];
 	}

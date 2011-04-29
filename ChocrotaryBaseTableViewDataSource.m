@@ -68,7 +68,7 @@
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
 		ChocrotaryProject *project = [task project];
 		if (project != NULL) {
-			return [[NSString alloc] initWithUTF8String:project_get_name(project) ];
+			return [project name];
 		} else {
 			return @"";
 		}

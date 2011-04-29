@@ -7,11 +7,12 @@
 //
 
 #import "ChocrotaryTask.h"
+#import "ChocrotaryProject.h"
 
 
 @implementation ChocrotaryTask
 
-+(id)newWithWrappedTask:(Task*) aTask {
++(id)taskWithTaskStruct:(Task*) aTask {
 	return [[ChocrotaryTask alloc] initWithTask:aTask];
 }
 
@@ -69,7 +70,20 @@
 }
 
 -(ChocrotaryProject*) project {
-	return task_get_project(task);
+	Project *project = task_get_project(task);
+	if (project)
+		return [ChocrotaryProject projectWithProjectStruct:project];
+	return nil;
+}
+
+-(BOOL)isEqual:(id)object {
+	if ([object respondsToSelector:@selector(wrappedTask)]) {
+		return task == [object wrappedTask];
+	}
+	return NO;
+}
+-(NSInteger)hash {
+	return (NSInteger) task;
 }
 
 @end

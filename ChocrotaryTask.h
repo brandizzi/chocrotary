@@ -10,14 +10,14 @@
 #import <secretary/task.h>
 #import <secretary/project.h>
 
-typedef Project ChocrotaryProject;
+@class ChocrotaryProject;
 
 @interface ChocrotaryTask : NSObject {
 	Task *task;
 }
 
 -(id)initWithTask:(Task*) aTask;
-+(id)newWithWrappedTask:(Task*) aTask;
++(id)taskWithTaskStruct:(Task*) aTask;
 
 -(NSString*) description;
 -(void) setDescription:(NSString*) aDescription;
@@ -35,4 +35,7 @@ typedef Project ChocrotaryProject;
 	
 -(Task*) wrappedTask;
 
+// Overwritten
+-(BOOL)isEqual:(id)object;
+-(NSInteger)hash;
 @end

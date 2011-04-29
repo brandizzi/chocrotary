@@ -7,7 +7,7 @@
 //
 
 #import "ChocrotaryProjectTableViewDataSource.h"
-#import "secretary/project.h"
+#import "ChocrotaryProject.h"
 
 
 @implementation ChocrotaryProjectTableViewDataSource
@@ -33,19 +33,18 @@
 		default:
 			if (row < [secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
 				ChocrotaryProject *project = [secretary getNthProject: row-ChocrotaryProjectTableViewDataSourceFirstProject];
-				return [NSString stringWithUTF8String:project_get_name(project)];
+				return [project name];
 			}
 			break;
 	}
 	return @"";
 }
 
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)name forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	ChocrotarySecretary *secretary = [controller secretary];
 	if (row < [secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
-		NSString *name = object;
 		ChocrotaryProject *project = [secretary getNthProject:row-ChocrotaryProjectTableViewDataSourceFirstProject];
-		project_set_name(project, [name UTF8String]);
+		[project setName:name];
 	}
 	[controller reloadMenuOfProjects];
 	[controller save];

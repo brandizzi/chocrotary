@@ -8,6 +8,7 @@
 
 #import "ChocrotarySecretary.h"
 #import <time.h>
+#import "ChocrotaryProject.h"
 
 
 @implementation ChocrotarySecretary
@@ -15,7 +16,7 @@
 -(ChocrotaryTask*) getCachedOrNewTask:(Task*)task {
 	ChocrotaryTask *cached = (ChocrotaryTask *)CFDictionaryGetValue(cachedTaskObjects, task);
 	if (cached == nil) {
-		cached = [ChocrotaryTask newWithWrappedTask:task];
+		cached = [ChocrotaryTask taskWithTaskStruct:task];
 		CFDictionaryAddValue(cachedTaskObjects, task, cached);
 	}
 	return cached;
@@ -103,15 +104,18 @@
 }
 
 -(ChocrotaryProject*) start:(NSString*)name {
-	return secretary_start(secretary, [name UTF8String]);
+	Project *project = secretary_start(secretary, [name UTF8String]);
+	return [ChocrotaryProject projectWithProjectStruct:project];
 }
 
 -(ChocrotaryProject*) getNthProject:(NSInteger)n {
-	return secretary_get_nth_project(secretary, n);
+	Project *project = secretary_get_nth_project(secretary, n);
+	return [ChocrotaryProject projectWithProjectStruct:project];
 }
 
 -(ChocrotaryProject*) getProjectByName:(NSString*) projectName {
-	return secretary_get_project(secretary, [projectName UTF8String]);
+	Project *project =  secretary_get_project(secretary, [projectName UTF8String]);
+	return [ChocrotaryProject projectWithProjectStruct:project];
 }
 
 -(NSInteger) countProjects {
@@ -119,11 +123,13 @@
 }
 
 -(void) deleteProject:(ChocrotaryProject*) project {
-	secretary_delete_project(secretary, project);
+	
+	secretary_delete_project(secretary, [project wrappedProject]);
 }
 
--(void) move:(ChocrotaryTask*) aTask to:(ChocrotaryProject*) project {
+-(void) move:(ChocrotaryTask*) aTask to:(ChocrotaryProject*) aProject {
 	Task *task = [aTask wrappedTask];
+	Project *project =  [aProject wrappedProject];
 	secretary_move(secretary, task, project);
 }
 

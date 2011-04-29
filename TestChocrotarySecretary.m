@@ -86,9 +86,9 @@
 	*project2 = [secretary start:@"libsecretary"], *project;
 	
 	project = [secretary getProjectByName:@"Chocrotary"];
-	STAssertEquals(project, project1, @"Should be the first project");
+	STAssertEqualObjects(project, project1, @"Should be the first project");
 	project = [secretary getProjectByName:@"libsecretary"];
-	STAssertEquals(project, project2, @"Should be the second project");	
+	STAssertEqualObjects(project, project2, @"Should be the second project");	
 }
 
 -(void) testGetTaskObjectFromTask {

@@ -140,13 +140,13 @@
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 
 	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display project view now");
-	STAssertEquals(tipDataSource.project, project1, @"Should be project 1");
+	STAssertEqualObjects(tipDataSource.project, project1, @"Should be project 1");
 
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display project view now");
-	STAssertEquals(tipDataSource.project, project2, @"Should be project 2");
+	STAssertEqualObjects(tipDataSource.project, project2, @"Should be project 2");
 
 }
 @end
