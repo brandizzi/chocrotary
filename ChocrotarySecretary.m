@@ -37,12 +37,12 @@
 }
 
 -(ChocrotaryTask*) appoint:(NSString*) description {
-	Task *task = secretary_appoint(secretary, [description UTF8String]);
+	Task *task = secretary_create_task(secretary, [description UTF8String]);
 	return [self getCachedOrNewTask:task];
 }
 
 -(NSInteger) countTasks {
-	return secretary_count_task(secretary);
+	return secretary_count_tasks(secretary);
 }
 
 -(ChocrotaryTask*) getNthTask:(NSInteger)n {
@@ -59,43 +59,43 @@
 
 -(void)unschedule:(ChocrotaryTask*)aTask {
 	Task *task = [aTask wrappedTask];
-	secretary_unschedule(secretary, task);
+	secretary_unschedule_task(secretary, task);
 }
 
 -(NSInteger)countScheduledTasks {
-	return secretary_count_scheduled(secretary);
+	return secretary_count_tasks_scheduled(secretary);
 }
 
 -(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n {
-	Task *task = secretary_get_nth_scheduled(secretary, n);
+	Task *task = secretary_get_nth_task_scheduled(secretary, n);
 	return [self getCachedOrNewTask:task];
 }
 
 -(NSInteger) countTasksScheduledForToday {
-	return secretary_count_scheduled_for_today(secretary);
+	return secretary_count_tasks_scheduled_for_today(secretary);
 }
 
 -(ChocrotaryTask*) getNthTaskScheduledForToday:(NSInteger)n {
-	Task *task = secretary_get_nth_scheduled_for_today(secretary, n);
+	Task *task = secretary_get_nth_task_scheduled_for_today(secretary, n);
 	return [self getCachedOrNewTask:task];
 }
 
 -(void)doTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
-	secretary_do(secretary, task);
+	secretary_mark_task_as_done(secretary, task);
 }
 
 -(void)undo:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
-	secretary_undo(secretary, task);
+	secretary_unmark_task_as_done(secretary, task);
 }
 
 -(void)switchDoneStatus: (ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	if ([aTask done]) {
-		secretary_undo(secretary, task);
+		secretary_unmark_task_as_done(secretary, task);
 	} else {
-		secretary_do(secretary, task);
+		secretary_mark_task_as_done(secretary, task);
 	}
 }
 
@@ -106,7 +106,7 @@
 }
 
 -(ChocrotaryProject*) start:(NSString*)name {
-	Project *project = secretary_start(secretary, [name UTF8String]);
+	Project *project = secretary_create_project(secretary, [name UTF8String]);
 	return [ChocrotaryProject projectWithProjectStruct:project];
 }
 
@@ -121,7 +121,7 @@
 }
 
 -(NSInteger) countProjects {
-	return secretary_count_project(secretary);
+	return secretary_count_projects(secretary);
 }
 
 -(void) deleteProject:(ChocrotaryProject*) project {
@@ -132,17 +132,17 @@
 -(void) move:(ChocrotaryTask*) aTask to:(ChocrotaryProject*) aProject {
 	Task *task = [aTask wrappedTask];
 	Project *project =  [aProject wrappedProject];
-	secretary_move(secretary, task, project);
+	secretary_move_to_project(secretary, task, project);
 }
 
 -(void)moveTaskToInbox:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
-	secretary_move_to_inbox(secretary, task);
+	secretary_remove_from_project(secretary, task);
 }
 
 
 -(NSInteger) countInboxTasks {
-	return secretary_count_inbox(secretary);
+	return secretary_count_inbox_tasks(secretary);
 }
 
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n {

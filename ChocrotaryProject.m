@@ -46,11 +46,11 @@
 }
 
 -(NSInteger) countTasks {
-	return project_count_task(project);
+	return project_count_tasks(project);
 }
 
 -(ChocrotaryTask*) getNthTask:(NSInteger) index {
-	if (index < project_count_task(project)) {
+	if (index < project_count_tasks(project)) {
 		Task *task = project_get_nth_task(project, index);
 		return [self getCachedOrNewTask:task];
 	}
@@ -58,14 +58,14 @@
 }
 -(void) addTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
-	project_add(project, task);
+	project_add_task(project, task);
 	CFDictionaryAddValue(cachedTaskObjects, task, aTask);
 	[aTask notifyTasksObservers];
 	[self notifyProjectObservers];
 }
 -(void) removeTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
-	project_remove(project, task);
+	project_remove_task(project, task);
 	CFDictionaryRemoveValue(cachedTaskObjects, task);
 	[aTask notifyTasksObservers];
 	[self notifyProjectObservers];
