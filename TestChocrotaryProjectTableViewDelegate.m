@@ -106,8 +106,8 @@
 - (void) testTableViewSelectProject {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
-	ChocrotaryProject *project1 = [notebook.secretary start:@"A project"];
-	ChocrotaryProject *project2 = [notebook.secretary start:@"Another project"];
+	ChocrotaryProject *project1 = [notebook.secretary createProject:@"A project"];
+	ChocrotaryProject *project2 = [notebook.secretary createProject:@"Another project"];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	

@@ -27,6 +27,7 @@
 -(BOOL) done;
 -(void) markAsDone;
 -(void) unmarkAsDone;
+-(void) switchDoneStatus;
 
 -(BOOL) isScheduled;
 -(NSDate*) scheduledFor;
@@ -34,6 +35,8 @@
 -(void) unschedule;
 
 -(ChocrotaryProject*) project;
+-(void) setProject:(ChocrotaryProject*) aProject;
+-(void) unsetProject;
 	
 -(Task*) wrappedTask;
 

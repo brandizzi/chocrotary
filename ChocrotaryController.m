@@ -69,13 +69,17 @@
 }
 
 -(IBAction) addTask:(id)sender {
-	ChocrotaryTask *task = [secretary appoint:@""];
+#warning It should delegate this responsibility to the perspective of the current data source 
+//	[[currentDataSource secretaryPerspective] addTask];
+	ChocrotaryTask *task = [secretary createTask:@""];
 	if ([currentDataSource isMemberOfClass:[ChocrotaryTasksInProjectTableViewDataSource class]]) {
-		[secretary move:task to:[(ChocrotaryTasksInProjectTableViewDataSource*)currentDataSource project]];
+		ChocrotaryProject *project = [(ChocrotaryTasksInProjectTableViewDataSource*)currentDataSource project];
+		[project addTask:task];
 	} else if ([currentDataSource isMemberOfClass:[ChocrotaryScheduledTableViewDataSource class]] ||
 			   [currentDataSource isMemberOfClass:[ChocrotaryTodayTableViewDataSource class]]) {
-		[secretary schedule:task to:[NSDate date]];
+		[task scheduleFor:[NSDate date]];
 	}
+ 
 	[taskTableView reloadData];
 	NSInteger lastRow = [taskTableView numberOfRows]-1;
 	[taskTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
@@ -95,7 +99,7 @@
 }
 
 -(IBAction) addProject:(id)sender {
-	[secretary start:@""];
+	[secretary createProject:@""];
 	[projectTableView reloadData];
 	NSInteger lastRow = [projectTableView numberOfRows]-1;
 	[projectTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];

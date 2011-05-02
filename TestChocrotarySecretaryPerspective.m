@@ -13,17 +13,19 @@
 #import "ChocrotarySecretaryScheduledPerspective.h"
 #import "ChocrotarySecretaryScheduledForTodayPerspective.h"
 #import "ChocrotarySecretaryProjectPerspective.h"
+#import "ChocrotaryProject.h"
 
 @implementation TestChocrotarySecretaryPerspective
 -(void) testInboxPerspective {
 	ChocrotarySecretary *secretary = [ChocrotarySecretary new];
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 =[secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 =[secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
-	[secretary move:task1 to:project];
-	[secretary schedule:task2 to:[NSDate date]];
+	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
+	[project addTask:task1];
+	[project addTask:task1];
+	[task2 scheduleFor:[NSDate date]];
 	
 	ChocrotarySecretaryPerspective *inboxPerspective = [[ChocrotarySecretaryInboxPerspective alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([inboxPerspective countTasks], 1L, @"Should have one task");
@@ -31,15 +33,15 @@
 }
 -(void) testScheduledPerspective {
 	ChocrotarySecretary *secretary = [ChocrotarySecretary new];
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 =[secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 =[secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
-	[secretary move:task1 to:project];
-	[secretary schedule:task2 to:[NSDate date]];
+	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
+	[project addTask:task1];
+	[task2 scheduleFor:[NSDate date]];
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
-	[secretary schedule:task3 to:future];
+	[task3 scheduleFor:future];
 	
 	ChocrotarySecretaryPerspective *scheduledPerspective = [[ChocrotarySecretaryScheduledPerspective alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([scheduledPerspective countTasks], 2L, @"Should have two task scheduled");
@@ -49,15 +51,15 @@
 }
 -(void) testTodayPerspective {
 	ChocrotarySecretary *secretary = [ChocrotarySecretary new];
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 =[secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 =[secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
-	[secretary move:task1 to:project];
-	[secretary schedule:task2 to:[NSDate date]];
+	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
+	[project addTask:task1];
+	[task2 scheduleFor:[NSDate date]];
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
-	[secretary schedule:task3 to:future];
+	[task3 scheduleFor:future];
 	
 	ChocrotarySecretaryPerspective *todayPerspective = [[ChocrotarySecretaryScheduledForTodayPerspective alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([todayPerspective countTasks], 1L, @"Should have one task scheduled for today");
@@ -67,14 +69,14 @@
 
 -(void) testProjectPerspective {
 	ChocrotarySecretary *secretary = [ChocrotarySecretary new];
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	/*ChocrotaryTask *task3 =*/[secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	/*ChocrotaryTask *task3 =*/[secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project1 = [secretary start:@"Chocrotary"];
-	[secretary move:task1 to:project1];
-	ChocrotaryProject *project2 = [secretary start:@"libsecretary"];
-	[secretary move:task2 to:project2];
+	ChocrotaryProject *project1 = [secretary createProject:@"Chocrotary"];
+	[project1 addTask:task1];
+	ChocrotaryProject *project2 = [secretary createProject:@"libsecretary"];
+	[project2 addTask:task2];
 	
 	ChocrotarySecretaryPerspective *projectPerspective = [[ChocrotarySecretaryProjectPerspective alloc] 
 											initWithChocrotarySecretary:secretary

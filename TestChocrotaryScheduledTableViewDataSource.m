@@ -19,18 +19,17 @@
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
 	ChocrotarySecretary *secretary = [notebook getSecretary];
-	/*ChocrotaryTask *task1 = */[secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 = [secretary appoint:@"Buy pequi"];
+	/*ChocrotaryTask *task1 = */[secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
 	
 	NSDate *date = [NSDate date];
-	[secretary schedule:task2 to:date];
+	[task2 scheduleFor:date];
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60.0f];
-	[secretary schedule:task3 to:future];
-	//[secretary doTask:task3];
+	[task3 scheduleFor:future];
 	
-	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
-	[secretary move:task3 to:project];
+	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
+	[project addTask:task3];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	ChocrotaryScheduledTableViewDataSource *dataSource = [[ChocrotaryScheduledTableViewDataSource alloc] initWithController:controller];

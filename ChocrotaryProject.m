@@ -56,6 +56,7 @@
 	}
 	return nil;
 }
+
 -(void) addTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	project_add_task(project, task);
@@ -63,6 +64,7 @@
 	[aTask notifyTasksObservers];
 	[self notifyProjectObservers];
 }
+
 -(void) removeTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	project_remove_task(project, task);

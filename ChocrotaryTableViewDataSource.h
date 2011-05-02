@@ -17,4 +17,5 @@
 
 @optional
 -(void) setProject:(ChocrotaryProject*) project;
+-(ChocrotaryProject*) project;
 @end

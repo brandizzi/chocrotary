@@ -8,6 +8,7 @@
 
 #import "TestChocrotarySecretary.h"
 #import "ChocrotarySecretary.h"
+#import "ChocrotaryProject.h"
 #import "ChocrotarySecretaryObserverStub.h"
 
 @implementation TestChocrotarySecretary
@@ -21,13 +22,14 @@
 -(void) testMoveToProject {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 = [secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
-	[secretary move:(ChocrotaryTask*) task1 to:(ChocrotaryProject*) project];
-	[secretary schedule:task2 to:[NSDate date]];
+	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
+	[project addTask:task1];
+	
+	[task2 scheduleFor:[NSDate date]];
 	
 	STAssertEquals([secretary countInboxTasks], 1L, @"Should have only one task in inbox");
 	STAssertEquals([secretary getNthInboxTask:0], task3, @"Task 3 should be the task in inbox");
@@ -36,18 +38,19 @@
 -(void) testMoveToInbox {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 	
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 = [secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project = [secretary start:@"Chocrotary"];
-	[secretary move:(ChocrotaryTask*) task1 to:(ChocrotaryProject*) project];
-	[secretary schedule:task2 to:[NSDate date]];
+	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
+	[project addTask:task1];
+	
+	[task2 scheduleFor:[NSDate date]];
 	
 	STAssertEquals([secretary countInboxTasks], 1L, @"Should have only one task in inbox");
 	STAssertEquals([secretary getNthInboxTask:0], task3, @"Task 3 should be the task in inbox");
 
-	[secretary moveTaskToInbox:task1];
+	[task1 unsetProject];
 	STAssertEquals([secretary countInboxTasks], 2L, @"Should have two tasks in inbox");
 	STAssertEquals([secretary getNthInboxTask:0], task1, @"Task 1 should be the task in inbox");
 }
@@ -55,10 +58,11 @@
 -(void) testCountScheduled {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 	
-	/*ChocrotaryTask *task1 = */[secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	/*ChocrotaryTask *task3 = */[secretary appoint:@"Buy pequi"];
-	[secretary schedule:task2 to:[NSDate date]];
+	/*ChocrotaryTask *task1 = */[secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	/*ChocrotaryTask *task3 = */[secretary createTask:@"Buy pequi"];	
+	[task2 scheduleFor:[NSDate date]];
+	
 	
 	STAssertEquals([secretary countScheduledTasks], 1L, @"Should have only one schduled tasks");
 	STAssertEqualObjects([secretary getNthScheduledTask:0], task2, @"Should be task 2");
@@ -67,13 +71,13 @@
 -(void) testCountScheduledForToday {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
 	
-	/*ChocrotaryTask *task1 = */[secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	ChocrotaryTask *task3 = [secretary appoint:@"Buy pequi"];
-	
-	[secretary schedule:task2 to:[NSDate date]];
+	/*ChocrotaryTask *task1 = */[secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
+		
+	[task2 scheduleFor:[NSDate date]];
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:60*60*72];
-	[secretary schedule:task3 to:future];
+	[task3 scheduleFor:future];
 	
 	STAssertEquals([secretary countTasksScheduledForToday], 1L, @"Should have only one schduled tasks");
 	STAssertEquals([secretary getNthTaskScheduledForToday:0], task2, @"Should be task 2");
@@ -81,8 +85,8 @@
 
 -(void) testGetProject {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
-	ChocrotaryProject *project1 = [secretary start:@"Chocrotary"],
-	*project2 = [secretary start:@"libsecretary"], *project;
+	ChocrotaryProject *project1 = [secretary createProject:@"Chocrotary"],
+	*project2 = [secretary createProject:@"libsecretary"], *project;
 	
 	project = [secretary getProjectByName:@"Chocrotary"];
 	STAssertEqualObjects(project, project1, @"Should be the first project");
@@ -92,7 +96,7 @@
 
 -(void) testGetTaskObjectFromTask {
 	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
-	ChocrotaryTask *task = [secretary appoint:@"Add hidden option"];
+	ChocrotaryTask *task = [secretary createTask:@"Add hidden option"];
 	Task *wrapped = [task wrappedTask];
 	
 	ChocrotaryTask *task2 = [secretary wrapperForTask:wrapped];

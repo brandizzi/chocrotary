@@ -18,13 +18,13 @@
 -(void) testSelectProjectInPopUpMenu {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
-	ChocrotaryProject *project1 = [notebook.secretary start:@"A project"];
-	ChocrotaryProject *project2 = [notebook.secretary start:@"Another project"];
+	ChocrotaryProject *project1 = [notebook.secretary createProject:@"A project"];
+	ChocrotaryProject *project2 = [notebook.secretary createProject:@"Another project"];
 	
-	ChocrotaryTask *task1 = [notebook.secretary appoint:@"task 1"],
-		*task2 = [notebook.secretary appoint:@"task 2"];
-	[notebook.secretary move:task1 to:project1];
-	[notebook.secretary move:task2 to:project2];
+	ChocrotaryTask *task1 = [notebook.secretary createTask:@"task 1"],
+		*task2 = [notebook.secretary createTask:@"task 2"];
+	[project1 addTask:task1];
+	[project2 addTask:task2];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	

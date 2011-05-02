@@ -15,15 +15,15 @@
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
 	ChocrotarySecretary *secretary = [ChocrotarySecretary new];
-	ChocrotaryTask *task1 = [secretary appoint:@"Improve interface"];
-	ChocrotaryTask *task2 = [secretary appoint:@"Add hidden option"];
-	/*ChocrotaryTask *task3 =*/[secretary appoint:@"Buy pequi"];
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	/*ChocrotaryTask *task3 =*/[secretary createTask:@"Buy pequi"];
 	
-	ChocrotaryProject *project1 = [secretary start:@"Chocrotary"];
-	[secretary move:task1 to:project1];
-	ChocrotaryProject *project2 = [secretary start:@"libsecretary"];
-	[secretary move:task2 to:project2];
-	[secretary schedule:task1 to:[NSDate date]];
+	ChocrotaryProject *project1 = [secretary createProject:@"Chocrotary"];
+	[project1 addTask:task1];
+	ChocrotaryProject *project2 = [secretary createProject:@"libsecretary"];
+	[project2 addTask:task2];
+	[task1 scheduleFor:[NSDate date]];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	ChocrotaryTasksInProjectTableViewDataSource *dataSource = [[ChocrotaryTasksInProjectTableViewDataSource alloc] 

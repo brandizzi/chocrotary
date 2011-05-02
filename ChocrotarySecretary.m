@@ -36,7 +36,7 @@
 	return self;
 }
 
--(ChocrotaryTask*) appoint:(NSString*) description {
+-(ChocrotaryTask*) createTask:(NSString*) description {
 	Task *task = secretary_create_task(secretary, [description UTF8String]);
 	return [self getCachedOrNewTask:task];
 }
@@ -51,16 +51,6 @@
 
 }
 
--(void)schedule:(ChocrotaryTask*)aTask to:(NSDate*) date {
-	Task *task = [aTask wrappedTask];
-	time_t time = [date timeIntervalSince1970];
-	secretary_schedule(secretary, task, *localtime(&time));
-}
-
--(void)unschedule:(ChocrotaryTask*)aTask {
-	Task *task = [aTask wrappedTask];
-	secretary_unschedule_task(secretary, task);
-}
 
 -(NSInteger)countScheduledTasks {
 	return secretary_count_tasks_scheduled(secretary);
@@ -80,32 +70,13 @@
 	return [self getCachedOrNewTask:task];
 }
 
--(void)doTask:(ChocrotaryTask*) aTask {
-	Task *task = [aTask wrappedTask];
-	secretary_mark_task_as_done(secretary, task);
-}
-
--(void)undo:(ChocrotaryTask*) aTask {
-	Task *task = [aTask wrappedTask];
-	secretary_unmark_task_as_done(secretary, task);
-}
-
--(void)switchDoneStatus: (ChocrotaryTask*) aTask {
-	Task *task = [aTask wrappedTask];
-	if ([aTask done]) {
-		secretary_unmark_task_as_done(secretary, task);
-	} else {
-		secretary_mark_task_as_done(secretary, task);
-	}
-}
-
 -(void) deleteTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	secretary_delete_task(secretary, task);
 	CFDictionaryRemoveValue(cachedTaskObjects, task);
 }
 
--(ChocrotaryProject*) start:(NSString*)name {
+-(ChocrotaryProject*) createProject:(NSString*)name {
 	Project *project = secretary_create_project(secretary, [name UTF8String]);
 	return [ChocrotaryProject projectWithProjectStruct:project];
 }
@@ -127,17 +98,6 @@
 -(void) deleteProject:(ChocrotaryProject*) project {
 	
 	secretary_delete_project(secretary, [project wrappedProject]);
-}
-
--(void) move:(ChocrotaryTask*) aTask to:(ChocrotaryProject*) aProject {
-	Task *task = [aTask wrappedTask];
-	Project *project =  [aProject wrappedProject];
-	secretary_move_to_project(secretary, task, project);
-}
-
--(void)moveTaskToInbox:(ChocrotaryTask*) aTask {
-	Task *task = [aTask wrappedTask];
-	secretary_remove_from_project(secretary, task);
 }
 
 

@@ -83,7 +83,7 @@
 	ChocrotaryTask *task = [view getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
 	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
-		[view.secretary switchDoneStatus:task];
+		[task switchDoneStatus];
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnDescription]) {
 		[task setDescription:object];
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
@@ -94,9 +94,9 @@
 		NSInteger projectIndex = [selected tag];
 		if (projectIndex != ChocrotaryControllerNoProject) {
 			ChocrotaryProject *project = [view.secretary getNthProject:projectIndex];
-			[view.secretary move:task to:project];
+			[project addTask:task];
 		} else {
-			[view.secretary moveTaskToInbox:task];
+			[task unsetProject];
 		}
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnScheduled]) {
 		NSString *value = object;
@@ -105,9 +105,9 @@
 			[formatter setDateStyle:NSDateFormatterMediumStyle];
 			[formatter setTimeStyle:NSDateFormatterNoStyle];
 			NSDate *date = [formatter dateFromString:object];
-			[view.secretary schedule:task to:date];
+			[task scheduleFor:date];
 		} else {
-			[view.secretary unschedule:task];
+			[task unschedule];
 		}
 		
 	}

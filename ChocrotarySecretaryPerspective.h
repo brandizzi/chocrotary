@@ -18,4 +18,6 @@
 - (id) initWithChocrotarySecretary: (ChocrotarySecretary*) secretary;
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
+-(void) addTask;
+
 @end

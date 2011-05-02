@@ -21,31 +21,22 @@
 -(id)init;
 -(id)initWithSecretary:(Secretary*) ready;
 
--(ChocrotaryTask*) appoint:(NSString*) description;
+-(ChocrotaryTask*) createTask:(NSString*) description;
 -(NSInteger) countTasks;
 -(ChocrotaryTask*) getNthTask:(NSInteger)n;
 -(void) deleteTask:(ChocrotaryTask*) task;
 
--(void)schedule:(ChocrotaryTask*)task to:(NSDate*) date;
--(void)unschedule:(ChocrotaryTask*)task;
 -(NSInteger)countScheduledTasks;
 -(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n;
 
 -(NSInteger) countTasksScheduledForToday;
 -(ChocrotaryTask*) getNthTaskScheduledForToday:(NSInteger)n;
 
--(void)doTask:(ChocrotaryTask*) task;
--(void)undo:(ChocrotaryTask*) task;
--(void)switchDoneStatus:(ChocrotaryTask*) task;
-
--(ChocrotaryProject*) start:(NSString*)name;
+-(ChocrotaryProject*) createProject:(NSString*)name;
 -(NSInteger) countProjects;
 -(ChocrotaryProject*) getNthProject:(NSInteger)n;
 -(ChocrotaryProject*) getProjectByName:(NSString*) projectName;
 -(void) deleteProject:(ChocrotaryProject*) project;
-
--(void) move:(ChocrotaryTask*) task to:(ChocrotaryProject*) project;
--(void) moveTaskToInbox:(ChocrotaryTask*) task;
 
 -(NSInteger) countInboxTasks;
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n;

@@ -28,4 +28,8 @@
 	return nil;
 }
 
+-(void) addTask {
+	[self doesNotRecognizeSelector:_cmd];
+}
+
 @end

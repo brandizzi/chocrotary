@@ -48,6 +48,10 @@
 	[self notifyTasksObservers];
 }
 
+-(void) switchDoneStatus {
+	task_switch_done_status(task);
+	[self notifyTasksObservers];
+}
 
 -(BOOL) isScheduled {
 	return task_is_scheduled(task);
@@ -80,6 +84,15 @@
 	if (project)
 		return [ChocrotaryProject projectWithProjectStruct:project];
 	return nil;
+}
+
+-(void) setProject:(ChocrotaryProject*) aProject {
+	Project *project = task_get_project(task);
+	task_set_project(task, project);
+}
+
+-(void) unsetProject {
+	task_unset_project(task);
 }
 
 -(void) attachTaskObserver:(id<ChocrotaryTaskObserver>) anObserver {

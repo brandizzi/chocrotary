@@ -15,8 +15,8 @@
 -(void) testUpdateProjectsMenu {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
 	
-	[notebook.secretary start:@"A project"];
-	[notebook.secretary start:@"Another project"];
+	[notebook.secretary createProject:@"A project"];
+	[notebook.secretary createProject:@"Another project"];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	
