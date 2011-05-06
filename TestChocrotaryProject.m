@@ -48,8 +48,8 @@
 	[project addTask:task1];
 	STAssertEquals([project countTasks], 1L, @"Should have a task");
 	STAssertEqualObjects([project getNthTask:0], task1, @"Should return the task");
-	STAssertEquals(project_count_tasks(wrappedProject), 1, @"Should have a task");
-	STAssertEquals(project_get_nth_task(wrappedProject, 0), wrappedTask1, @"Should have this task");
+	STAssertEquals(project_count_tasks(wrappedProject, false), 1, @"Should have a task");
+	STAssertEquals(project_get_nth_task(wrappedProject, 0, false), wrappedTask1, @"Should have this task");
 	
 	project_add_task(wrappedProject, wrappedTask2);
 	STAssertEquals([project countTasks], 2L, @"Should have two tasks");
@@ -58,8 +58,8 @@
 	[project removeTask:task1];
 	STAssertEquals([project countTasks], 1L, @"Should have a task");
 	STAssertEqualObjects([project getNthTask:0], task2, @"Should return the task");
-	STAssertEquals(project_count_tasks(wrappedProject), 1, @"Should have a task");
-	STAssertEquals(project_get_nth_task(wrappedProject, 0), wrappedTask2, @"Should have this task");
+	STAssertEquals(project_count_tasks(wrappedProject, false), 1, @"Should have a task");
+	STAssertEquals(project_get_nth_task(wrappedProject, 0, false), wrappedTask2, @"Should have this task");
 	
 	project_remove_task(wrappedProject, wrappedTask2);
 	STAssertEquals([project countTasks], 0L, @"Should have no task");

@@ -53,20 +53,20 @@
 
 
 -(NSInteger)countScheduledTasks {
-	return secretary_count_tasks_scheduled(secretary);
+	return secretary_count_tasks_scheduled(secretary, false);
 }
 
 -(ChocrotaryTask*)getNthScheduledTask:(NSInteger) n {
-	Task *task = secretary_get_nth_task_scheduled(secretary, n);
+	Task *task = secretary_get_nth_task_scheduled(secretary, n, false);
 	return [self getCachedOrNewTask:task];
 }
 
 -(NSInteger) countTasksScheduledForToday {
-	return secretary_count_tasks_scheduled_for_today(secretary);
+	return secretary_count_tasks_scheduled_for_today(secretary, false);
 }
 
 -(ChocrotaryTask*) getNthTaskScheduledForToday:(NSInteger)n {
-	Task *task = secretary_get_nth_task_scheduled_for_today(secretary, n);
+	Task *task = secretary_get_nth_task_scheduled_for_today(secretary, n, false);
 	return [self getCachedOrNewTask:task];
 }
 
@@ -102,11 +102,11 @@
 
 
 -(NSInteger) countInboxTasks {
-	return secretary_count_inbox_tasks(secretary);
+	return secretary_count_inbox_tasks(secretary, false);
 }
 
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n {
-	Task *task = secretary_get_nth_inbox_task(secretary, n);
+	Task *task = secretary_get_nth_inbox_task(secretary, n, false);
 	return [self getCachedOrNewTask:task];
 
 }

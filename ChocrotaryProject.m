@@ -46,12 +46,12 @@
 }
 
 -(NSInteger) countTasks {
-	return project_count_tasks(project);
+	return project_count_tasks(project, false);
 }
 
 -(ChocrotaryTask*) getNthTask:(NSInteger) index {
-	if (index < project_count_tasks(project)) {
-		Task *task = project_get_nth_task(project, index);
+	if (index < project_count_tasks(project, false)) {
+		Task *task = project_get_nth_task(project, index, false);
 		return [self getCachedOrNewTask:task];
 	}
 	return nil;
