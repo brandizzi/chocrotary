@@ -14,5 +14,8 @@
 }
 
 -(void) testUpdateProjectsMenu;
-
+-(void) testChangePerspectiveToInbox;
+-(void) testChangePerspectiveToScheduled;
+-(void) testChangePerspectiveToScheduledForToday;
+-(void) testChangePerspectiveToProject;
 @end

@@ -8,12 +8,13 @@
 
 #import "TestChocrotaryProjectTableViewDelegate.h"
 #import "ChocrotaryController.h"
-#import "ChocrotaryInboxTableViewDataSource.h"
-#import "ChocrotaryScheduledTableViewDataSource.h"
-#import "ChocrotaryTodayTableViewDataSource.h"
-#import "ChocrotaryTasksInProjectTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewDataSource.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
 #import "ChocrotaryProjectTableViewDelegate.h"
+#import "ChocrotarySecretaryInboxPerspective.h"
+#import "ChocrotarySecretaryScheduledPerspective.h"
+#import "ChocrotarySecretaryScheduledForTodayPerspective.h"
+#import "ChocrotarySecretaryProjectPerspective.h"
 
 @implementation TestChocrotaryProjectTableViewDelegate
 
@@ -21,13 +22,9 @@
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	NSTableView *projectTableView = [NSTableView new];
-	NSTableView *taskTableView = [NSTableView new];
-	ChocrotaryInboxTableViewDataSource *inboxDataSource = 
-		[[ChocrotaryInboxTableViewDataSource alloc] initWithController:controller];
-	ChocrotaryProjectTableViewDataSource *projectDataSource =
-		[[ChocrotaryProjectTableViewDataSource alloc] init];
-	ChocrotaryProjectTableViewDelegate *projectDelegate =
-		[[ChocrotaryProjectTableViewDelegate alloc] init];
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
 	
 	[projectDelegate setController:controller];
 	[projectDelegate setTableView:projectTableView];
@@ -35,27 +32,24 @@
 	[projectTableView setDataSource:projectDataSource];
 	[projectTableView setDelegate:projectDelegate];
 	
-	[controller setTaskTableView:taskTableView];
 	[controller setProjectTableView:projectTableView];
-	[controller setInboxTableDataSource:inboxDataSource];
+	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] initWithIndex:0];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
-	STAssertEqualObjects([controller currentDataSource], inboxDataSource, @"Should display inbox now");
+	STAssertTrue([controller.taskTableViewDataSource.perspective 
+				  isKindOfClass:[ChocrotarySecretaryInboxPerspective class]], @"Should present inbox now");
 }
 
 - (void) testTableViewSelectScheduled {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	NSTableView *projectTableView = [NSTableView new];
-	NSTableView *taskTableView = [NSTableView new];
-	ChocrotaryScheduledTableViewDataSource *scheduledDataSource = 
-		[[ChocrotaryScheduledTableViewDataSource alloc] initWithController:controller];
-	ChocrotaryProjectTableViewDataSource *projectDataSource =
-		[[ChocrotaryProjectTableViewDataSource alloc] init];
-	ChocrotaryProjectTableViewDelegate *projectDelegate =
-		[[ChocrotaryProjectTableViewDelegate alloc] init];
+
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
 	
 	[projectDelegate setController:controller];
 	[projectDelegate setTableView:projectTableView];
@@ -63,28 +57,26 @@
 	[projectTableView setDataSource:projectDataSource];
 	[projectTableView setDelegate:projectDelegate];
 	
-	[controller setTaskTableView:taskTableView];
+	[controller setTaskTableViewDataSource:taskDataSource];
 	[controller setProjectTableView:projectTableView];
-	[controller setScheduledTableDataSource:scheduledDataSource];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] 
 						 initWithIndex:ChocrotaryProjectTableViewDataSourceScheduled];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
-	STAssertEqualObjects([controller currentDataSource], scheduledDataSource, @"Should display scheduled now");
+	STAssertTrue([controller.taskTableViewDataSource.perspective 
+				  isKindOfClass:[ChocrotarySecretaryScheduledPerspective class]],
+				 @"Should present scheduled now");
 }
 
 - (void) testTableViewSelectScheduledForToday {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	NSTableView *projectTableView = [NSTableView new];
-	NSTableView *taskTableView = [NSTableView new];
-	ChocrotaryTodayTableViewDataSource *todayDataSource = 
-	[[ChocrotaryTodayTableViewDataSource alloc] initWithController:controller];
-	ChocrotaryProjectTableViewDataSource *projectDataSource =
-	[[ChocrotaryProjectTableViewDataSource alloc] init];
-	ChocrotaryProjectTableViewDelegate *projectDelegate =
-	[[ChocrotaryProjectTableViewDelegate alloc] init];
+
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
 	
 	[projectDelegate setController:controller];
 	[projectDelegate setTableView:projectTableView];
@@ -92,15 +84,16 @@
 	[projectTableView setDataSource:projectDataSource];
 	[projectTableView setDelegate:projectDelegate];
 	
-	[controller setTaskTableView:taskTableView];
+	[controller setTaskTableViewDataSource:taskDataSource];
 	[controller setProjectTableView:projectTableView];
-	[controller setTodayTableDataSource:todayDataSource];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] 
 						 initWithIndex:ChocrotaryProjectTableViewDataSourceScheduledForToday];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
-	STAssertEqualObjects([controller currentDataSource], todayDataSource, @"Should display scheduled now");
+	STAssertTrue([controller.taskTableViewDataSource.perspective 
+				  isKindOfClass:[ChocrotarySecretaryScheduledForTodayPerspective class]],
+				 @"Should present scheduled for today now");
 }
 
 - (void) testTableViewSelectProject {
@@ -112,15 +105,10 @@
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	
 	NSTableView *projectTableView = [NSTableView new];
-	NSTableView *taskTableView = [NSTableView new];
 	
-	ChocrotaryTasksInProjectTableViewDataSource *tipDataSource = 
-	[[ChocrotaryTasksInProjectTableViewDataSource alloc] initWithController:controller];
-	
-	ChocrotaryProjectTableViewDataSource *projectDataSource =
-	[[ChocrotaryProjectTableViewDataSource alloc] init];
-	ChocrotaryProjectTableViewDelegate *projectDelegate =
-	[[ChocrotaryProjectTableViewDelegate alloc] init];
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
 	
 	// Here controller will be needed
 	projectDataSource.controller = controller;
@@ -131,22 +119,25 @@
 	[projectTableView setDataSource:projectDataSource];
 	[projectTableView setDelegate:projectDelegate];
 	
-	[controller setTaskTableView:taskTableView];
+	[controller setTaskTableViewDataSource:taskDataSource];
 	[controller setProjectTableView:projectTableView];
-	[controller setTasksInProjectTableDataSource:tipDataSource];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] 
 						 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 
-	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display project view now");
-	STAssertEqualObjects(tipDataSource.project, project1, @"Should be project 1");
+	STAssertTrue([controller.taskTableViewDataSource.perspective 
+				  isKindOfClass:[ChocrotarySecretaryProjectPerspective class]],
+				 @"Should present scheduled for today now");
+	STAssertEqualObjects(taskDataSource.perspective.project, project1, @"Should be project 1");
 
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	STAssertEqualObjects([controller currentDataSource], tipDataSource, @"Should display project view now");
-	STAssertEqualObjects(tipDataSource.project, project2, @"Should be project 2");
+	STAssertTrue([controller.taskTableViewDataSource.perspective 
+				  isKindOfClass:[ChocrotarySecretaryProjectPerspective class]],
+				 @"Should present scheduled for today now");
+	STAssertEqualObjects(taskDataSource.perspective.project, project2, @"Should be project 2");
 
 }
 @end

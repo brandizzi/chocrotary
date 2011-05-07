@@ -10,6 +10,7 @@
 
 
 @implementation ChocrotarySecretaryInboxPerspective
+
 - (NSInteger) countTasks {
 	return [secretary countInboxTasks];
 }

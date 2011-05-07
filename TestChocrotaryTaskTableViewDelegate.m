@@ -12,6 +12,7 @@
 #import "ChocrotaryProjectTableViewDataSource.h"
 #import "ChocrotaryProjectTableViewDelegate.h"
 #import "ChocrotaryTaskTableViewDelegate.h"
+#import "ChocrotaryTaskTableViewDataSource.h"
 
 @implementation TestChocrotaryTaskTableViewDelegate
 
@@ -41,15 +42,14 @@
 	// Finally!!!
 	ChocrotaryTaskTableViewDelegate *tableViewDelegate = [[ChocrotaryTaskTableViewDelegate alloc] 
 														  init];
-	[taskTableView setDelegate:tableViewDelegate];
 	
-	ChocrotaryTasksInProjectTableViewDataSource *tipDataSource = 
-	[[ChocrotaryTasksInProjectTableViewDataSource alloc] initWithController:controller];
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
 	
 	ChocrotaryProjectTableViewDataSource *projectDataSource =
 	[[ChocrotaryProjectTableViewDataSource alloc] init];
 	ChocrotaryProjectTableViewDelegate *projectDelegate =
 	[[ChocrotaryProjectTableViewDelegate alloc] init];
+	
 	
 	// Here controller will be needed
 	projectDataSource.controller = controller;
@@ -60,9 +60,12 @@
 	[projectTableView setDataSource:projectDataSource];
 	[projectTableView setDelegate:projectDelegate];
 	
+	[taskTableView setDelegate:tableViewDelegate];
+	[taskTableView setDataSource:taskDataSource];
+
 	[controller setTaskTableView:taskTableView];
 	[controller setProjectTableView:projectTableView];
-	[controller setTasksInProjectTableDataSource:tipDataSource];
+	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] 
 						 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];

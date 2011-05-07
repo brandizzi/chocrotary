@@ -12,7 +12,7 @@
 		</object>
 		<object class="NSMutableArray" key="IBDocument.EditedObjectIDs">
 			<bool key="EncodedWithXMLCoder">YES</bool>
-			<integer value="372"/>
+			<integer value="533"/>
 			<integer value="988"/>
 		</object>
 		<object class="NSArray" key="IBDocument.PluginDependencies">
@@ -891,6 +891,9 @@
 				<bool key="NSFilterRestrictsInsertion">YES</bool>
 				<bool key="NSClearsFilterPredicateOnInsertion">YES</bool>
 			</object>
+			<object class="NSCustomObject" id="179218969">
+				<string key="NSClassName">ChocrotaryTaskTableViewDataSource</string>
+			</object>
 		</object>
 		<object class="IBObjectContainer" key="IBDocument.Objects">
 			<object class="NSMutableArray" key="connectionRecords">
@@ -1224,6 +1227,22 @@
 						<reference key="destination" ref="32521103"/>
 					</object>
 					<int key="connectionID">995</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">taskTableViewDataSource</string>
+						<reference key="source" ref="276645703"/>
+						<reference key="destination" ref="179218969"/>
+					</object>
+					<int key="connectionID">997</int>
+				</object>
+				<object class="IBConnectionRecord">
+					<object class="IBOutletConnection" key="connection">
+						<string key="label">dataSource</string>
+						<reference key="source" ref="1073200766"/>
+						<reference key="destination" ref="179218969"/>
+					</object>
+					<int key="connectionID">998</int>
 				</object>
 			</object>
 			<object class="IBMutableOrderedSet" key="objectRecords">
@@ -1722,6 +1741,11 @@
 						<reference key="object" ref="32521103"/>
 						<reference key="parent" ref="1071762643"/>
 					</object>
+					<object class="IBObjectRecord">
+						<int key="objectID">996</int>
+						<reference key="object" ref="179218969"/>
+						<reference key="parent" ref="0"/>
+					</object>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="flattenedProperties">
@@ -1830,6 +1854,7 @@
 					<string>988.IBPluginDependency</string>
 					<string>990.IBPluginDependency</string>
 					<string>991.IBPluginDependency</string>
+					<string>996.IBPluginDependency</string>
 				</object>
 				<object class="NSMutableArray" key="dict.values">
 					<bool key="EncodedWithXMLCoder">YES</bool>
@@ -1939,6 +1964,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
+					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 				</object>
 			</object>
 			<object class="NSMutableDictionary" key="unlocalizedProperties">
@@ -1957,7 +1983,7 @@
 				</object>
 			</object>
 			<nil key="sourceID"/>
-			<int key="maxID">995</int>
+			<int key="maxID">998</int>
 		</object>
 		<object class="IBClassDescriber" key="IBDocument.Classes">
 			<object class="NSMutableArray" key="referencedPartialClassDescriptions">
@@ -2075,6 +2101,7 @@
 							<string>projectsMenu</string>
 							<string>scheduledTableDataSource</string>
 							<string>taskTableView</string>
+							<string>taskTableViewDataSource</string>
 							<string>tasksInProjectTableDataSource</string>
 							<string>todayTableDataSource</string>
 						</object>
@@ -2087,6 +2114,7 @@
 							<string>NSMenu</string>
 							<string>id</string>
 							<string>NSTableView</string>
+							<string>ChocrotaryTaskTableViewDataSource</string>
 							<string>id</string>
 							<string>id</string>
 						</object>
@@ -2102,6 +2130,7 @@
 							<string>projectsMenu</string>
 							<string>scheduledTableDataSource</string>
 							<string>taskTableView</string>
+							<string>taskTableViewDataSource</string>
 							<string>tasksInProjectTableDataSource</string>
 							<string>todayTableDataSource</string>
 						</object>
@@ -2134,6 +2163,10 @@
 							<object class="IBToOneOutletInfo">
 								<string key="name">taskTableView</string>
 								<string key="candidateClassName">NSTableView</string>
+							</object>
+							<object class="IBToOneOutletInfo">
+								<string key="name">taskTableViewDataSource</string>
+								<string key="candidateClassName">ChocrotaryTaskTableViewDataSource</string>
 							</object>
 							<object class="IBToOneOutletInfo">
 								<string key="name">tasksInProjectTableDataSource</string>
@@ -2245,6 +2278,14 @@
 					<object class="IBClassDescriptionSource" key="sourceIdentifier">
 						<string key="majorKey">IBDocumentRelativeSource</string>
 						<string key="minorKey">../ChocrotaryScheduledTableViewDataSource.h</string>
+					</object>
+				</object>
+				<object class="IBPartialClassDescription">
+					<string key="className">ChocrotaryTaskTableViewDataSource</string>
+					<string key="superclassName">NSObject</string>
+					<object class="IBClassDescriptionSource" key="sourceIdentifier">
+						<string key="majorKey">IBDocumentRelativeSource</string>
+						<string key="minorKey">../ChocrotaryTaskTableViewDataSource.h</string>
 					</object>
 				</object>
 				<object class="IBPartialClassDescription">

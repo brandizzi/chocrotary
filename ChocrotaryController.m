@@ -15,7 +15,7 @@
 
 @implementation ChocrotaryController
 
-@synthesize projectTableView, taskTableView, secretary, 
+@synthesize projectTableView, taskTableView, taskTableViewDataSource, secretary, 
 	currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
 	todayTableDataSource, tasksInProjectTableDataSource, projectArray, projectsMenu;
 
@@ -122,7 +122,6 @@
 }
 
 -(IBAction) reconfigureTaskTable:(id)sender {
-	[taskTableView setDataSource:currentDataSource];
 	[taskTableView reloadData];
 
 }

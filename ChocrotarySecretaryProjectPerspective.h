@@ -11,10 +11,8 @@
 #import "ChocrotarySecretary.h"
 
 @interface ChocrotarySecretaryProjectPerspective : ChocrotarySecretaryPerspective {
-	ChocrotaryProject *project;
 }
 
-@property (readwrite,assign) ChocrotaryProject *project;
 
 -(id) initWithChocrotarySecretary:(ChocrotarySecretary*) secretary 
 					   forProject: (ChocrotaryProject*) project;

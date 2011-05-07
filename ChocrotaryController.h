@@ -13,6 +13,8 @@
 
 #define ChocrotaryControllerNoProject (-1L)
 
+@class ChocrotaryTaskTableViewDataSource;
+
 @interface ChocrotaryController : NSObject {
 	ChocrotaryNotebook *notebook;
 	ChocrotarySecretary *secretary;
@@ -20,6 +22,8 @@
 	IBOutlet NSTableView* taskTableView;
 	IBOutlet NSTableView* projectTableView;
 	IBOutlet NSMenu *projectsMenu;
+	
+	IBOutlet ChocrotaryTaskTableViewDataSource *taskTableViewDataSource;
 	
 	IBOutlet id<ChocrotaryTableViewDataSource> currentDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource;
@@ -38,11 +42,15 @@
 @property(readwrite,assign) NSTableView* taskTableView;
 @property(readwrite,assign) NSTableView* projectTableView;
 
+@property(readwrite,assign) ChocrotaryTaskTableViewDataSource *taskTableViewDataSource;
+
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> currentDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> scheduledTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> todayTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
+
+
 
 // DEPRECATED
 @property(readwrite,assign) NSMutableArray *projectArray;

@@ -11,8 +11,6 @@
 
 @implementation ChocrotarySecretaryProjectPerspective
 
-@synthesize project;
-
 -(id) initWithChocrotarySecretary:(ChocrotarySecretary*) s 
 					   forProject: (ChocrotaryProject*) p {
 	[super initWithChocrotarySecretary:s];

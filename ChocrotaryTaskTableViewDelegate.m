@@ -8,15 +8,16 @@
 
 #import "ChocrotaryTaskTableViewDelegate.h"
 #import "ChocrotaryBaseTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewDataSource.h"
 
 @implementation ChocrotaryTaskTableViewDelegate
 
 - (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell 
    forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
 	if ([[tableColumn identifier] isEqualToString:ChocrotaryTaskTableColumnProject]) {
-		ChocrotaryBaseTableViewDataSource *dataSource = (ChocrotaryBaseTableViewDataSource*)[tableView dataSource];
-		ChocrotarySecretaryPerspective *view = [dataSource secretaryPerspective];
-		ChocrotaryTask *task = [view getNthTask:row];
+		ChocrotaryTaskTableViewDataSource *dataSource = (ChocrotaryTaskTableViewDataSource*)[tableView dataSource];
+		ChocrotarySecretaryPerspective *perspective = [dataSource perspective];
+		ChocrotaryTask *task = [perspective getNthTask:row];
 		ChocrotaryProject *project = [task project];
 	
 		NSPopUpButtonCell *projectPopUpButton = cell;

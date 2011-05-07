@@ -11,11 +11,15 @@
 
 @implementation ChocrotarySecretaryPerspective
 
-@synthesize secretary;
+@synthesize secretary, project;
 
 - (id) initWithChocrotarySecretary: (ChocrotarySecretary*) s {
 	self->secretary = s;
 	return self;
+}
+
++ (id) newWithSecretary: (ChocrotarySecretary*) secretary {
+	return [[self alloc] initWithChocrotarySecretary:secretary];
 }
 
 - (NSInteger) countTasks {

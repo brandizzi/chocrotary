@@ -8,7 +8,12 @@
 
 #import "ChocrotaryProjectTableViewDelegate.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
-
+#import "ChocrotarySecretaryPerspective.h"
+#import "ChocrotarySecretaryInboxPerspective.h"
+#import "ChocrotarySecretaryScheduledPerspective.h"
+#import "ChocrotarySecretaryScheduledForTodayPerspective.h"
+#import "ChocrotarySecretaryProjectPerspective.h"
+#import "ChocrotaryTaskTableViewDataSource.h"
 
 @implementation ChocrotaryProjectTableViewDelegate
 
@@ -16,25 +21,26 @@
 
 -(void) tableViewSelectionDidChange:(NSNotification *)notification {
 	NSInteger row = [tableView selectedRow];
+	ChocrotarySecretaryPerspective *perspective = nil;
 	switch (row) {
 		case ChocrotaryProjectTableViewDataSourceInbox:
-			controller.currentDataSource = controller.inboxTableDataSource;
+			perspective = [ChocrotarySecretaryInboxPerspective newWithSecretary:controller.secretary];
 			break;
 		case ChocrotaryProjectTableViewDataSourceScheduled:
-			controller.currentDataSource = controller.scheduledTableDataSource;
+			perspective = [ChocrotarySecretaryScheduledPerspective newWithSecretary:controller.secretary];
 			break;
 		case ChocrotaryProjectTableViewDataSourceScheduledForToday:
-			controller.currentDataSource = controller.todayTableDataSource;
+			perspective = [ChocrotarySecretaryScheduledForTodayPerspective newWithSecretary:controller.secretary];
 			break;
 		default:
 		if (row < [controller.secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
 			NSInteger projectIndex = row - ChocrotaryProjectTableViewDataSourceFirstProject;
 			ChocrotaryProject *project = [controller.secretary getNthProject:projectIndex];
-			[controller.tasksInProjectTableDataSource setProject:project];
-			controller.currentDataSource = controller.tasksInProjectTableDataSource;
+			perspective = [ChocrotarySecretaryProjectPerspective newWithSecretary:controller.secretary];
+			[perspective setProject:project];
 		}
 	}
-
+	[[controller taskTableViewDataSource] setPerspective:perspective];
 	[controller reconfigureTaskTable:self];
 }
 

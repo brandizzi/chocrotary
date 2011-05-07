@@ -11,13 +11,17 @@
 
 @interface ChocrotarySecretaryPerspective : NSObject {
 	ChocrotarySecretary *secretary;
+	ChocrotaryProject *project;
 }
 
 @property (readonly) ChocrotarySecretary *secretary;
+@property (readwrite,assign) ChocrotaryProject *project;
 
 - (id) initWithChocrotarySecretary: (ChocrotarySecretary*) secretary;
++ (id) newWithSecretary: (ChocrotarySecretary*) secretary;
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
 -(void) addTask;
+
 
 @end
