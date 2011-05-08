@@ -8,7 +8,6 @@
 
 #import "TestChocrotaryTaskTableViewDelegate.h"
 #import "ChocrotaryController.h"
-#import "ChocrotaryTasksInProjectTableViewDataSource.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
 #import "ChocrotaryProjectTableViewDelegate.h"
 #import "ChocrotaryTaskTableViewDelegate.h"
