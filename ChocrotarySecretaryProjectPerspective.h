@@ -18,4 +18,5 @@
 					   forProject: (ChocrotaryProject*) project;
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
+- (void) addTask;
 @end

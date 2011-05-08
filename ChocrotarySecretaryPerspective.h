@@ -21,7 +21,7 @@
 + (id) newWithSecretary: (ChocrotarySecretary*) secretary;
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
--(void) addTask;
+- (void) addTask;
 
 
 @end

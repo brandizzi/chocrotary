@@ -7,6 +7,7 @@
 //
 
 #import "ChocrotarySecretaryProjectPerspective.h"
+#import "ChocrotaryProject.h"
 
 
 @implementation ChocrotarySecretaryProjectPerspective
@@ -18,15 +19,20 @@
 	return self;
 }
 - (NSInteger) countTasks {
-	if (project != NULL) {
+	if (project != nil) {
 		return [project countTasks];
 	}
 	return 0L;
 }
 - (ChocrotaryTask *) getNthTask:(NSInteger) n {
-	if (project != NULL) {
+	if (project != nil) {
 		return [project getNthTask:n];
 	}
-	return NULL;
+	return nil;
+}
+
+- (void) addTask {
+	ChocrotaryTask *task = [secretary createTask:@""];
+	[project addTask:task];
 }
 @end

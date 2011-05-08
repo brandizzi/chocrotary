@@ -8,16 +8,19 @@
 
 #import "ChocrotaryController.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
-#import "ChocrotaryTasksInProjectTableViewDataSource.h"
-#import "ChocrotaryScheduledTableViewDataSource.h"
-#import "ChocrotaryTodayTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewDataSource.h"
+#import "ChocrotarySecretaryInboxPerspective.h"
+#import "ChocrotarySecretaryScheduledPerspective.h"
+#import "ChocrotarySecretaryScheduledForTodayPerspective.h"
+#import "ChocrotarySecretaryProjectPerspective.h"
+#import "ChocrotaryTaskTableViewDataSource.h"
 
 
 @implementation ChocrotaryController
 
 @synthesize projectTableView, taskTableView, taskTableViewDataSource, secretary, 
-	currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
-	todayTableDataSource, tasksInProjectTableDataSource, projectArray, projectsMenu;
+	/*currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
+	todayTableDataSource, tasksInProjectTableDataSource,*/ projectArray, projectsMenu;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
@@ -69,17 +72,7 @@
 }
 
 -(IBAction) addTask:(id)sender {
-#warning It should delegate this responsibility to the perspective of the current data source 
-//	[[currentDataSource secretaryPerspective] addTask];
-	ChocrotaryTask *task = [secretary createTask:@""];
-	if ([currentDataSource isMemberOfClass:[ChocrotaryTasksInProjectTableViewDataSource class]]) {
-		ChocrotaryProject *project = [(ChocrotaryTasksInProjectTableViewDataSource*)currentDataSource project];
-		[project addTask:task];
-	} else if ([currentDataSource isMemberOfClass:[ChocrotaryScheduledTableViewDataSource class]] ||
-			   [currentDataSource isMemberOfClass:[ChocrotaryTodayTableViewDataSource class]]) {
-		[task scheduleFor:[NSDate date]];
-	}
- 
+	[taskTableViewDataSource.perspective addTask];
 	[taskTableView reloadData];
 	NSInteger lastRow = [taskTableView numberOfRows]-1;
 	[taskTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
@@ -87,10 +80,11 @@
 }
 
 -(IBAction) removeTask:(id)sender {
+	ChocrotaryTaskTableViewDataSource *dataSource = [taskTableView dataSource];
 	NSIndexSet* indexes = [taskTableView selectedRowIndexes];
 	NSInteger index = [indexes firstIndex];
 	while (index != NSNotFound) {
-		ChocrotaryTask *task = [currentDataSource.secretaryPerspective getNthTask:index];
+		ChocrotaryTask *task = [dataSource.perspective getNthTask:index];
 		[secretary deleteTask:task];
 		index = [indexes indexGreaterThanIndex:index];
 	}

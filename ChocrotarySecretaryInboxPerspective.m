@@ -18,4 +18,8 @@
 	return [secretary getNthInboxTask:n];
 }
 
+- (void) addTask {
+	[secretary createTask:@""];
+}
+
 @end

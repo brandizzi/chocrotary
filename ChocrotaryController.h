@@ -25,12 +25,13 @@
 	
 	IBOutlet ChocrotaryTaskTableViewDataSource *taskTableViewDataSource;
 	
+/*
 	IBOutlet id<ChocrotaryTableViewDataSource> currentDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> inboxTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> scheduledTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> todayTableDataSource;
 	IBOutlet id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
-	
+*/	
 	// DEPRECATED!!!
 	IBOutlet NSMutableArray *projectArray;
 	
@@ -44,11 +45,11 @@
 
 @property(readwrite,assign) ChocrotaryTaskTableViewDataSource *taskTableViewDataSource;
 
-@property(readwrite,assign) id<ChocrotaryTableViewDataSource> currentDataSource; 
+/*@property(readwrite,assign) id<ChocrotaryTableViewDataSource> currentDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> inboxTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> scheduledTableDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> todayTableDataSource; 
-@property(readwrite,assign) id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;
+@property(readwrite,assign) id<ChocrotaryTableViewDataSource> tasksInProjectTableDataSource;*/
 
 
 

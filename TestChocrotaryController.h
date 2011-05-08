@@ -18,4 +18,10 @@
 -(void) testChangePerspectiveToScheduled;
 -(void) testChangePerspectiveToScheduledForToday;
 -(void) testChangePerspectiveToProject;
+-(void) testAddTaskInbox;
+-(void) testAddTaskScheduled;
+-(void) testAddTaskScheduledForToday;
+-(void) testAddTaskProject;
+-(void) testRemoveTask;
+
 @end

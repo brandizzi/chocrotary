@@ -16,4 +16,8 @@
 - (ChocrotaryTask *) getNthTask:(NSInteger) n {
 	return [secretary getNthScheduledTask:n];
 }
+- (void) addTask {
+	ChocrotaryTask *task = [secretary createTask:@""];
+	[task scheduleFor:[NSDate date]];
+}
 @end

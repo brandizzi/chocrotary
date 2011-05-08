@@ -12,6 +12,7 @@
 #import "ChocrotaryProjectTableViewDelegate.h"
 #import "ChocrotaryTaskTableViewDataSource.h"
 #import "ChocrotaryTaskTableViewDelegate.h"
+#import "ChocrotarySecretaryInboxPerspective.h"
 
 
 @implementation TestChocrotaryController
@@ -84,14 +85,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	NSTableView *taskTableView = [NSTableView new];
 	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
-	ChocrotaryTaskTableViewDelegate *taskDelegate = [ChocrotaryTaskTableViewDelegate new];
-	
-	[taskTableView setDataSource:taskDataSource];
-	[taskTableView setDelegate:taskDelegate];
-
-	[controller setTaskTableView:taskTableView];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go! INBOX
@@ -101,24 +95,27 @@
 	
 	NSTableColumn *column = [NSTableColumn new];
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
-	NSButtonCell * doneCheckbox = [[taskTableView dataSource] tableView:taskTableView objectValueForTableColumn:column row:0L];
+	NSButtonCell * doneCheckbox = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
-	NSString *description = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
+	NSString *description = [taskDataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, [inboxTask description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
-	NSString *projectName = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSString *projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"", @"Should have no project");	
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
-	NSString *when = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSString *when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects(when,@"", @"Should be no one");
+	
+	remove("fluflufile");
+
 }
 
 -(void) testChangePerspectiveToScheduled {
@@ -155,14 +152,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	NSTableView *taskTableView = [NSTableView new];
 	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
-	ChocrotaryTaskTableViewDelegate *taskDelegate = [ChocrotaryTaskTableViewDelegate new];
-	
-	[taskTableView setDataSource:taskDataSource];
-	[taskTableView setDelegate:taskDelegate];
-	
-	[controller setTaskTableView:taskTableView];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -173,46 +163,49 @@
 	// Verifying values
 	NSTableColumn *column = [NSTableColumn new];
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
-	NSButtonCell * doneCheckbox = [[taskTableView dataSource] tableView:taskTableView objectValueForTableColumn:column row:0L];
+	NSButtonCell * doneCheckbox = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
-	NSString *description = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
+	NSString *description = [taskDataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, [scheduledTask description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
-	NSString *projectName = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSString *projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"", @"Should have no project");	
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
-	NSDatePickerCell *when = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSDatePickerCell *when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects([when dateValue], [scheduledTask scheduledFor], @"Should be the scheduled one");
 	
 	// Second row
 	column = [NSTableColumn new];
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
-	doneCheckbox = [[taskTableView dataSource] tableView:taskTableView objectValueForTableColumn:column row:1];
+	doneCheckbox = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
-	description = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:1];
+	description = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, [scheduledForTodayTask description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
-	projectName = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:1];
+	projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"", @"Should have no project");	
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
-	when = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:1];
+	when = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects([when dateValue], [scheduledForTodayTask scheduledFor], @"Should be no one");
+	
+	remove("fluflufile");
+
 }
 
 -(void) testChangePerspectiveToScheduledForToday {
@@ -249,14 +242,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	NSTableView *taskTableView = [NSTableView new];
 	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
-	ChocrotaryTaskTableViewDelegate *taskDelegate = [ChocrotaryTaskTableViewDelegate new];
-	
-	[taskTableView setDataSource:taskDataSource];
-	[taskTableView setDelegate:taskDelegate];
-	
-	[controller setTaskTableView:taskTableView];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -267,24 +253,27 @@
 	// Verifying values
 	NSTableColumn *column = [NSTableColumn new];
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
-	NSButtonCell * doneCheckbox = [[taskTableView dataSource] tableView:taskTableView objectValueForTableColumn:column row:0L];
+	NSButtonCell * doneCheckbox = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
-	NSString *description = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
+	NSString *description = [taskDataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, [scheduledForTodayTask description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
-	NSString *projectName = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSString *projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, @"", @"Should have no project");	
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
-	NSDatePickerCell *when = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSDatePickerCell *when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects([when dateValue], [scheduledForTodayTask scheduledFor], @"Should be the scheduled one");
+	
+	remove("fluflufile");
+
 }
 
 -(void) testChangePerspectiveToProject {
@@ -321,14 +310,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	NSTableView *taskTableView = [NSTableView new];
 	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
-	ChocrotaryTaskTableViewDelegate *taskDelegate = [ChocrotaryTaskTableViewDelegate new];
-	
-	[taskTableView setDataSource:taskDataSource];
-	[taskTableView setDelegate:taskDelegate];
-	
-	[controller setTaskTableView:taskTableView];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -339,22 +321,22 @@
 	// Verifying values
 	NSTableColumn *column = [NSTableColumn new];
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
-	NSButtonCell * doneCheckbox = [[taskTableView dataSource] tableView:taskTableView objectValueForTableColumn:column row:0L];
+	NSButtonCell * doneCheckbox = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
-	NSString *description = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
+	NSString *description = [taskDataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, [project1Task description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
-	NSString *projectName = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSString *projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, [[project1Task project] name], @"Should have no project");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
-	NSString *when = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0L];
+	NSString *when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects(when, @"", @"Should be the scheduled one");
 	
@@ -363,23 +345,228 @@
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
-	doneCheckbox = [[taskTableView dataSource] tableView:taskTableView objectValueForTableColumn:column row:0];
+	doneCheckbox = [taskDataSource tableView:nil objectValueForTableColumn:column row:0];
 	STAssertNotNil(doneCheckbox, @" done column should be Not nil");
 	STAssertFalse([doneCheckbox state], @"Should not be done");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
-	description = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0];
+	description = [taskDataSource tableView:nil objectValueForTableColumn:column row:0];
 	STAssertNotNil(description, @" description column should be Not nil");
 	STAssertEqualObjects(description, [project2Task description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
-	projectName = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0];
+	projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0];
 	STAssertNotNil(projectName, @" project column should be Not nil");
 	STAssertEqualObjects(projectName, [[project2Task project] name], @"Should have no project");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
-	when = [[taskTableView dataSource] tableView:nil objectValueForTableColumn:column row:0];
+	when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
 	STAssertEqualObjects(when, @"", @"Should be the scheduled one");
+	
+	remove("fluflufile");
+
+}
+
+-(void) testAddTaskInbox {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	STAssertEquals([notebook.secretary countTasks], 0L, @"Should have no one");
+	
+	// Controller
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	// Project table veiw
+	NSTableView *projectTableView = [NSTableView new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
+	
+	[projectDataSource setController:controller];
+	
+	[projectDelegate setController:controller];
+	[projectDelegate setTableView:projectTableView];
+	
+	[projectTableView setDataSource:projectDataSource];
+	[projectTableView setDelegate:projectDelegate];
+	
+	// Task table view
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	[controller setTaskTableViewDataSource:taskDataSource];
+	
+	// Not let us go!
+	NSMutableIndexSet *index = [[NSIndexSet alloc] 
+								initWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	
+	[controller addTask:nil];
+	
+	STAssertEquals([notebook.secretary countTasks], 1L, @"Should have one");
+	STAssertEquals([notebook.secretary countInboxTasks], 1L, @"Should have one");
+	
+	ChocrotaryTask *task = [notebook.secretary getNthInboxTask:0];
+	STAssertFalse([task done], @"Should not be done");
+	STAssertEqualObjects([task description], @"", @"Should be empty");
+	STAssertNil([task project], @"Should be empty");
+	STAssertFalse([task isScheduled], @"should be not schedued");
+	
+	remove("fluflufile");
+}
+
+-(void) testAddTaskScheduled {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	STAssertEquals([notebook.secretary countTasks], 0L, @"Should have no one");
+	
+	// Controller
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	// Project table veiw
+	NSTableView *projectTableView = [NSTableView new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
+	
+	[projectDataSource setController:controller];
+	
+	[projectDelegate setController:controller];
+	[projectDelegate setTableView:projectTableView];
+	
+	[projectTableView setDataSource:projectDataSource];
+	[projectTableView setDelegate:projectDelegate];
+	
+	// Task table view
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	[controller setTaskTableViewDataSource:taskDataSource];
+	
+	// Not let us go!
+	NSMutableIndexSet *index = [[NSIndexSet alloc] 
+								initWithIndex:ChocrotaryProjectTableViewDataSourceScheduled];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	
+	[controller addTask:nil];
+	
+	STAssertEquals([notebook.secretary countTasks], 1L, @"Should have one");
+	STAssertEquals([notebook.secretary countScheduledTasks], 1L, @"Should have one");
+	
+	ChocrotaryTask *task = [notebook.secretary getNthScheduledTask:0];
+	STAssertFalse([task done], @"Should not be done");
+	STAssertEqualObjects([task description], @"", @"Should be empty");
+	STAssertNil([task project], @"Should be empty");
+	STAssertTrue([task isScheduled], @"should be scheduled");
+	STAssertTrue(abs([[task scheduledFor] timeIntervalSinceNow]) < 1, @"should be scheduled");
+	
+	remove("fluflufile");
+}
+-(void) testAddTaskScheduledForToday {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	STAssertEquals([notebook.secretary countTasks], 0L, @"Should have no one");
+	
+	// Controller
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	// Project table veiw
+	NSTableView *projectTableView = [NSTableView new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
+	
+	[projectDataSource setController:controller];
+	
+	[projectDelegate setController:controller];
+	[projectDelegate setTableView:projectTableView];
+	
+	[projectTableView setDataSource:projectDataSource];
+	[projectTableView setDelegate:projectDelegate];
+	
+	// Task table view
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	[controller setTaskTableViewDataSource:taskDataSource];
+	
+	// Not let us go!
+	NSMutableIndexSet *index = [[NSIndexSet alloc] 
+								initWithIndex:ChocrotaryProjectTableViewDataSourceScheduledForToday];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	
+	[controller addTask:nil];
+	
+	STAssertEquals([notebook.secretary countTasks], 1L, @"Should have one");
+	STAssertEquals([notebook.secretary countScheduledTasks], 1L, @"Should have one");
+	
+	ChocrotaryTask *task = [notebook.secretary getNthTaskScheduledForToday:0];
+	STAssertFalse([task done], @"Should not be done");
+	STAssertEqualObjects([task description], @"", @"Should be empty");
+	STAssertNil([task project], @"Should be empty");
+	STAssertTrue([task isScheduled], @"should be scheduled");
+	STAssertTrue(abs([[task scheduledFor] timeIntervalSinceNow]) < 1, @"should be scheduled");
+	
+	remove("fluflufile");
+}
+-(void) testAddTaskProject {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	ChocrotaryProject *project = [notebook.secretary createProject:@"a project"];
+	STAssertEquals([notebook.secretary countTasks], 0L, @"Should have no one");
+	STAssertEquals([project countTasks], 0L, @"Should have no one");
+
+	// Controller
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	// Project table veiw
+	NSTableView *projectTableView = [NSTableView new];
+	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
+	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
+	
+	[projectDataSource setController:controller];
+	
+	[projectDelegate setController:controller];
+	[projectDelegate setTableView:projectTableView];
+	
+	[projectTableView setDataSource:projectDataSource];
+	[projectTableView setDelegate:projectDelegate];
+	
+	// Task table view
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	[controller setTaskTableViewDataSource:taskDataSource];
+	
+	// Not let us go!
+	NSMutableIndexSet *index = [[NSIndexSet alloc] 
+								initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	
+	[controller addTask:nil];
+	
+	STAssertEquals([notebook.secretary countTasks], 1L, @"Should have one");
+	
+	ChocrotaryTask *task = [project getNthTask:0];
+	STAssertFalse([task done], @"Should not be done");
+	STAssertEqualObjects([task description], @"", @"Should be empty");
+	STAssertNotNil([task project], @"Should not be empty");
+	STAssertEqualObjects([task project], project, @"should be project");
+	STAssertFalse([task isScheduled], @"should not be scheduled");
+	
+	remove("fluflufile");
+}
+
+-(void) testRemoveTask {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	/*ChocrotaryTask *task = */[notebook.secretary createTask:@"task"];
+	
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	// Task table view
+	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	NSTableView *taskTableView = [NSTableView new];
+	[taskTableView setDataSource:taskDataSource];
+
+	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableView:taskTableView];
+	
+	[taskDataSource setPerspective:[ChocrotarySecretaryInboxPerspective 
+									newWithSecretary:notebook.secretary]];
+	[taskTableView reloadData];
+
+	STAssertEquals([notebook.secretary countTasks], 1L, @"should have one");
+	// do it!
+	NSIndexSet *index = [NSIndexSet indexSetWithIndex:0];
+	[taskTableView selectRowIndexes:index byExtendingSelection:NO];
+	[controller removeTask:nil];
+	[taskTableView reloadData];
+
+	STAssertEquals([notebook.secretary countTasks], 0L, @"should have no one more");
 }
 @end
