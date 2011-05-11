@@ -16,7 +16,7 @@
 @interface ChocrotarySecretary : NSObject <ChocrotaryTaskObserver, ChocrotaryProjectObserver> {
 	Secretary *secretary;
 	NSMutableSet *tasksObservers, *projectsObservers;
-	CFMutableDictionaryRef cachedTaskObjects;
+	CFMutableDictionaryRef cachedObjects;
 }
 -(id)init;
 -(id)initWithSecretary:(Secretary*) ready;

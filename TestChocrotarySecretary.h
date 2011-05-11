@@ -20,6 +20,7 @@
 -(void) testGetTaskObjectFromTask;
 -(void) testAttachDetachTaskObserver;
 -(void) testAttachDetachProjectObserver;
-
+-(void) testAttachedTaskObserverKnowsTaskUpdate;
+-(void) testAttachedProjectObserverKnowsProjectUpdate;
 
 @end

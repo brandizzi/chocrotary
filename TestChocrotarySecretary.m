@@ -148,4 +148,50 @@
 	STAssertEquals([stub countProjectUpdates], 2L, @"Should have still two project updates");
 	STAssertEquals([stub2 countProjectUpdates], 2L, @"Should have one project update");
 }
+
+-(void) testAttachedTaskObserverKnowsTaskUpdate {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
+	[secretary attachTaskObserver:stub];
+	STAssertEquals([stub countTaskUpdates], 0L, @"Should have no task update");
+	
+	ChocrotaryTask *task = [secretary createTask:@"a task"];
+	STAssertEquals([stub countTaskUpdates], 1L, @"Now should have one task update");
+
+	[task setDescription:@"better description"];
+	STAssertEquals([stub countTaskUpdates], 2L, @"Now should have one task update");
+	[task markAsDone];
+	STAssertEquals([stub countTaskUpdates], 3L, @"Now should have one task update");
+	[task scheduleFor:[NSDate date]];
+	STAssertEquals([stub countTaskUpdates], 4L, @"Now should have one task update");
+
+	ChocrotaryProject *project = [secretary createProject:@"a project"];
+	// Does not change
+	STAssertEquals([stub countTaskUpdates], 4L, @"Now should have one task update");
+	[task setProject:project];
+	STAssertEquals([stub countTaskUpdates], 5L, @"Now should have one task update");
+	[task unsetProject];
+	STAssertEquals([stub countTaskUpdates], 6L, @"Now should have one task update");
+}
+
+-(void) testAttachedProjectObserverKnowsProjectUpdate{
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];
+	[secretary attachProjectObserver:stub];
+	STAssertEquals([stub countProjectUpdates], 0L, @"Should have no task update");	
+	
+	ChocrotaryProject *project = [secretary createProject:@"a project"];
+	STAssertEquals([stub countProjectUpdates], 1L, @"Now should have one task update");
+	
+	[project setName:@"better description"];
+	STAssertEquals([stub countProjectUpdates], 2L, @"Now should have one task update");
+	
+	ChocrotaryTask *task = [secretary createTask:@"a task"];
+	STAssertEquals([stub countProjectUpdates], 2L, @"Does not change");
+	
+	[project addTask:task];
+	STAssertEquals([stub countProjectUpdates], 3L, @"Now should have one task update");
+	[project removeTask:task];
+	STAssertEquals([stub countProjectUpdates], 4L, @"Now should have one task update");
+}
 @end

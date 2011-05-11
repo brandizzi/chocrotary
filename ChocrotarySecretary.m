@@ -14,10 +14,23 @@
 @implementation ChocrotarySecretary
 
 -(ChocrotaryTask*) getCachedOrNewTask:(Task*)task {
-	ChocrotaryTask *cached = (ChocrotaryTask *)CFDictionaryGetValue(cachedTaskObjects, task);
+	ChocrotaryTask *cached = (ChocrotaryTask *)CFDictionaryGetValue(cachedObjects, task);
 	if (cached == nil) {
 		cached = [ChocrotaryTask taskWithTaskStruct:task];
-		CFDictionaryAddValue(cachedTaskObjects, task, cached);
+		[cached attachTaskObserver:self];
+		CFDictionaryAddValue(cachedObjects, task, cached);
+		[self notifyTaskUpdate];
+	}
+	return cached;
+}
+
+-(ChocrotaryProject*) getCachedOrNewProject:(Project*)project {
+	ChocrotaryProject *cached = (ChocrotaryProject *)CFDictionaryGetValue(cachedObjects, project);
+	if (cached == nil) {
+		cached = [ChocrotaryProject projectWithProjectStruct:project];
+		[cached attachProjectObserver:self];
+		CFDictionaryAddValue(cachedObjects, project, cached);
+		[self notifyProjectUpdate];
 	}
 	return cached;
 }
@@ -29,7 +42,7 @@
 -(id)initWithSecretary:(Secretary*) ready {
 	[super init];
 	secretary = ready;
-	cachedTaskObjects = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
+	cachedObjects = CFDictionaryCreateMutable(NULL, 0, NULL, NULL);
 	// Observers containers
 	tasksObservers = [NSMutableSet new];
 	projectsObservers = [NSMutableSet new];
@@ -73,12 +86,12 @@
 -(void) deleteTask:(ChocrotaryTask*) aTask {
 	Task *task = [aTask wrappedTask];
 	secretary_delete_task(secretary, task);
-	CFDictionaryRemoveValue(cachedTaskObjects, task);
+	CFDictionaryRemoveValue(cachedObjects, task);
 }
 
 -(ChocrotaryProject*) createProject:(NSString*)name {
 	Project *project = secretary_create_project(secretary, [name UTF8String]);
-	return [ChocrotaryProject projectWithProjectStruct:project];
+	return [self getCachedOrNewProject:project];
 }
 
 -(ChocrotaryProject*) getNthProject:(NSInteger)n {
@@ -146,8 +159,10 @@
 }
 
 -(void) tasksWereUpdated:(ChocrotarySecretary *)secretary {
+	[self notifyTaskUpdate];
 }
 -(void) projectsWereUpdated:(ChocrotarySecretary *)secretary {
+	[self notifyProjectUpdate];
 }
 
 @end

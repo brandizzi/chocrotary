@@ -286,8 +286,12 @@
 	
 }
 
--(void) testMarkAsDone{}
--(void) testEditDescription{}
+-(void) testMarkAsDone{
+#warning implement testMarkAsDone
+}
+-(void) testEditDescription{
+#warning implement testEditDescription
+}
 -(void) testMoveToProject {
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
 	
@@ -384,6 +388,8 @@
 	STAssertEquals([taskTableView numberOfRows], 2L, @"Should two tasks");
 
 }
--(void) testSchedule {}
+-(void) testSchedule {
+#warning implement testSchedule
+}
 
 @end

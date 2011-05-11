@@ -87,12 +87,14 @@
 }
 
 -(void) setProject:(ChocrotaryProject*) aProject {
-	Project *project = task_get_project(task);
+	Project *project = [aProject wrappedProject];
 	task_set_project(task, project);
+	[self notifyTasksObservers];
 }
 
 -(void) unsetProject {
 	task_unset_project(task);
+	[self notifyTasksObservers];
 }
 
 -(void) attachTaskObserver:(id<ChocrotaryTaskObserver>) anObserver {
