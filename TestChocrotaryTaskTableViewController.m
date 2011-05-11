@@ -6,16 +6,18 @@
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "TestChocrotaryTaskTableViewDataSource.h"
-#import "ChocrotaryTaskTableViewDataSource.h"
+#import "TestChocrotaryTaskTableViewController.h"
+#import "ChocrotaryTaskTableViewController.h"
 #import "ChocrotaryNotebook.h"
 #import "ChocrotaryController.h"
 #import "ChocrotarySecretaryInboxPerspective.h"
 #import "ChocrotarySecretaryScheduledPerspective.h"
 #import "ChocrotarySecretaryScheduledForTodayPerspective.h"
 #import "ChocrotarySecretaryProjectPerspective.h"
+#import "ChocrotaryProjectTableViewDataSource.h"
+#import "ChocrotaryProjectTableViewDelegate.h"
 
-@implementation TestChocrotaryTaskTableViewDataSource
+@implementation TestChocrotaryTaskTableViewController
 -(void) testInboxTasks {
 	ChocrotarySecretary *secretary = [ChocrotarySecretary new];
 	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
@@ -26,7 +28,7 @@
 	[project addTask:task1];
 	[task2 scheduleFor:[NSDate date]];
 	
-	ChocrotaryTaskTableViewDataSource *dataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryInboxPerspective newWithSecretary:secretary];
 	[dataSource setPerspective:perspective];
 	
@@ -68,7 +70,7 @@
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
 	[project addTask:task3];
 	
-	ChocrotaryTaskTableViewDataSource *dataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryScheduledPerspective newWithSecretary:secretary];
 	[dataSource setPerspective:perspective];	
 	
@@ -125,7 +127,7 @@
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
 	[project addTask:task3];
 	
-	ChocrotaryTaskTableViewDataSource *dataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryScheduledForTodayPerspective newWithSecretary:secretary];
 	[dataSource setPerspective:perspective];
 	
@@ -164,7 +166,7 @@
 	[project2 addTask:task2];
 	[task1 scheduleFor:[NSDate date]];
 	
-	ChocrotaryTaskTableViewDataSource *dataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryProjectPerspective newWithSecretary:secretary];
 	[dataSource setPerspective:perspective];
 	// Testing with one project
@@ -216,5 +218,172 @@
 	STAssertEqualObjects(nothing, @"", @"Should have no date");	
 }
 
+-(void) testSelectProjectInPopUpMenu {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
+	
+	ChocrotaryProject *project1 = [notebook.secretary createProject:@"A project"];
+	ChocrotaryProject *project2 = [notebook.secretary createProject:@"Another project"];
+	
+	ChocrotaryTask *task1 = [notebook.secretary createTask:@"task 1"],
+	*task2 = [notebook.secretary createTask:@"task 2"];
+	[project1 addTask:task1];
+	[project2 addTask:task2];
+	
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	NSTableView *projectTableView = [NSTableView new];
+	NSTableView *taskTableView = [NSTableView new];
+	
+	NSPopUpButtonCell *projectCell = [NSPopUpButtonCell new];
+	[projectCell addItemWithTitle:@"A project"];
+	[projectCell addItemWithTitle:@"Another project"];
+	NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"project"];
+	[column setDataCell:projectCell];
+	[taskTableView addTableColumn:column];
+	
+	// Finally!!!
+
+	ChocrotaryTaskTableViewController *taskController= [ChocrotaryTaskTableViewController new];
+	
+	ChocrotaryProjectTableViewDataSource *projectDataSource =
+	[[ChocrotaryProjectTableViewDataSource alloc] init];
+	ChocrotaryProjectTableViewDelegate *projectDelegate =
+	[[ChocrotaryProjectTableViewDelegate alloc] init];
+	
+	
+	// Here controller will be needed
+	projectDataSource.controller = controller;
+	
+	[projectDelegate setController:controller];
+	[projectDelegate setTableView:projectTableView];
+	
+	[projectTableView setDataSource:projectDataSource];
+	[projectTableView setDelegate:projectDelegate];
+	
+	[taskTableView setDelegate:taskController];
+	[taskTableView setDataSource:taskController];
+	
+	[controller setTaskTableView:taskTableView];
+	[controller setProjectTableView:projectTableView];
+	[controller setTaskTableViewDataSource:taskController];
+	
+	NSIndexSet *index = [[NSIndexSet alloc] 
+						 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	
+	// The actually relevant part is here
+	[taskController tableView:taskTableView willDisplayCell:projectCell 
+				  forTableColumn:column row:0];
+	STAssertEqualObjects([projectCell titleOfSelectedItem], @"A project", @"Should be the first project");
+	
+	index = [[NSIndexSet alloc] 
+			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	// The actually relevant part is here
+	[taskController tableView:taskTableView willDisplayCell:projectCell 
+				  forTableColumn:column row:0];
+	STAssertEqualObjects([projectCell titleOfSelectedItem], @"Another project", @"Should be the second project");
+	
+}
+
+-(void) testMarkAsDone{}
+-(void) testEditDescription{}
+-(void) testMoveToProject {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"somefile"];
+	
+	ChocrotaryProject *project1 = [notebook.secretary createProject:@"A project"];
+	ChocrotaryProject *project2 = [notebook.secretary createProject:@"Another project"];
+	
+	ChocrotaryTask *task1 = [notebook.secretary createTask:@"task 1"],
+	*task2 = [notebook.secretary createTask:@"task 2"];
+	[project1 addTask:task1];
+	[project2 addTask:task2];
+	
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	NSTableView *projectTableView = [NSTableView new];
+	NSTableView *taskTableView = [NSTableView new];
+	
+	// Creating popup button for selecting projects, anda column
+	NSPopUpButtonCell *projectCell = [NSPopUpButtonCell new];
+	//    Creating items for popup button. itemNone represents the empty line for
+	//    selecting no project
+	NSMenuItem *item1 = [[NSMenuItem alloc] initWithTitle:@"A project" action:nil keyEquivalent:@""],
+		*item2 = [[NSMenuItem alloc] initWithTitle:@"Another project" action:nil keyEquivalent:@""],
+		*itemNone = [[NSMenuItem alloc] initWithTitle:@"" action:nil keyEquivalent:@""];
+	[itemNone setTag:-1];
+	[item1 setTag:0];
+	[item2 setTag:1];
+	[[projectCell menu] addItem:itemNone];
+	[[projectCell menu] addItem:item1];
+	[[projectCell menu] addItem:item2];
+	NSTableColumn *stub1 = [[NSTableColumn alloc] initWithIdentifier:@"done"],
+	*stub2= [[NSTableColumn alloc] initWithIdentifier:@"description"];
+	[taskTableView addTableColumn:stub1];
+	[taskTableView addTableColumn:stub2];	
+	
+	NSTableColumn *column = [[NSTableColumn alloc] initWithIdentifier:@"project"];
+	[column setDataCell:projectCell];
+	[taskTableView addTableColumn:column];
+	
+	// Finally!!!
+	
+	ChocrotaryTaskTableViewController *taskController= [ChocrotaryTaskTableViewController new];
+	
+	ChocrotaryProjectTableViewDataSource *projectDataSource =
+	[[ChocrotaryProjectTableViewDataSource alloc] init];
+	ChocrotaryProjectTableViewDelegate *projectDelegate =
+	[[ChocrotaryProjectTableViewDelegate alloc] init];
+	
+	
+	// Here controller will be needed
+	projectDataSource.controller = controller;
+	
+	[projectDelegate setController:controller];
+	[projectDelegate setTableView:projectTableView];
+	
+	[projectTableView setDataSource:projectDataSource];
+	[projectTableView setDelegate:projectDelegate];
+	
+	[taskTableView setDelegate:taskController];
+	[taskTableView setDataSource:taskController];
+	[controller setTaskTableView:taskTableView];
+	[controller setProjectTableView:projectTableView];
+	[controller setTaskTableViewDataSource:taskController];
+	
+	NSIndexSet *index = [[NSIndexSet alloc] 
+						 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	// Verifying if tasks are correctly associated to projects
+	[taskController tableView:taskTableView willDisplayCell:projectCell   forTableColumn:column row:0];
+
+	STAssertEqualObjects([projectCell titleOfSelectedItem], @"A project", @"Should be the first project");
+	STAssertEquals([taskTableView numberOfRows], 1L, @"Should should have only one");
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	[taskController tableView:taskTableView willDisplayCell:projectCell  forTableColumn:column row:0];
+	STAssertEqualObjects([projectCell titleOfSelectedItem], @"Another project", @"Should be the second project");
+	STAssertEquals([taskTableView numberOfRows], 1L, @"Should should have only one");
+	
+	// Now let us edit the project of a task
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	NSNumber *number = [[NSNumber alloc] initWithInteger:2];
+	
+	STAssertTrue([taskController respondsToSelector:@selector(tableView:setObjectValue:forTableColumn:row:)], @"");
+	NSLog(@"Itemarray %d", [[[projectCell menu] itemArray] count]);
+ 	[taskController tableView:taskTableView setObjectValue:number forTableColumn:column row:0];
+
+	// Should have no more tasks
+	STAssertEquals([taskTableView numberOfRows], 0L, @"Should no task");
+	// Looking at other project
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+	// There should be two tasks
+	STAssertEquals([taskTableView numberOfRows], 2L, @"Should two tasks");
+
+}
+-(void) testSchedule {}
 
 @end

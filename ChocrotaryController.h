@@ -13,7 +13,7 @@
 
 #define ChocrotaryControllerNoProject (-1L)
 
-@class ChocrotaryTaskTableViewDataSource;
+@class ChocrotaryTaskTableViewController;
 
 @interface ChocrotaryController : NSObject {
 	ChocrotaryNotebook *notebook;
@@ -23,7 +23,7 @@
 	IBOutlet NSTableView* projectTableView;
 	IBOutlet NSMenu *projectsMenu;
 	
-	IBOutlet ChocrotaryTaskTableViewDataSource *taskTableViewDataSource;
+	IBOutlet ChocrotaryTaskTableViewController *taskTableViewDataSource;
 	
 /*
 	IBOutlet id<ChocrotaryTableViewDataSource> currentDataSource;
@@ -43,7 +43,7 @@
 @property(readwrite,assign) NSTableView* taskTableView;
 @property(readwrite,assign) NSTableView* projectTableView;
 
-@property(readwrite,assign) ChocrotaryTaskTableViewDataSource *taskTableViewDataSource;
+@property(readwrite,assign) ChocrotaryTaskTableViewController *taskTableViewDataSource;
 
 /*@property(readwrite,assign) id<ChocrotaryTableViewDataSource> currentDataSource; 
 @property(readwrite,assign) id<ChocrotaryTableViewDataSource> inboxTableDataSource; 

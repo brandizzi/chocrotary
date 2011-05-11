@@ -9,7 +9,7 @@
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface TestChocrotaryTaskTableViewDataSource : SenTestCase {
+@interface TestChocrotaryTaskTableViewController : SenTestCase {
 
 }
 
@@ -17,5 +17,8 @@
 -(void) testScheduleTasks;
 -(void) testScheduleForToday;
 -(void) testProject;
-
+-(void) testMarkAsDone;
+-(void) testEditDescription;
+-(void) testMoveToProject;
+-(void) testSchedule;
 @end

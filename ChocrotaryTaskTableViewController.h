@@ -15,7 +15,7 @@
 #define ChocrotaryTaskTableColumnProject @"project"
 #define ChocrotaryTaskTableColumnScheduled @"scheduled"
 
-@interface ChocrotaryTaskTableViewDataSource : NSObject <NSTableViewDataSource> {
+@interface ChocrotaryTaskTableViewController : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
 	ChocrotaryController *controller;
 	ChocrotarySecretaryPerspective *perspective;
 }
@@ -25,6 +25,6 @@
 
 +(id)new;
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
-
-
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell 
+   forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 @end

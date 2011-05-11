@@ -10,8 +10,7 @@
 #import "ChocrotaryController.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
 #import "ChocrotaryProjectTableViewDelegate.h"
-#import "ChocrotaryTaskTableViewDataSource.h"
-#import "ChocrotaryTaskTableViewDelegate.h"
+#import "ChocrotaryTaskTableViewController.h"
 #import "ChocrotarySecretaryInboxPerspective.h"
 
 
@@ -85,7 +84,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go! INBOX
@@ -152,7 +151,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -242,7 +241,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -310,7 +309,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -389,7 +388,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -432,7 +431,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -475,7 +474,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -520,7 +519,7 @@
 	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	[controller setTaskTableViewDataSource:taskDataSource];
 	
 	// Not let us go!
@@ -549,7 +548,7 @@
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	
 	// Task table view
-	ChocrotaryTaskTableViewDataSource *taskDataSource = [ChocrotaryTaskTableViewDataSource new];
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
 	NSTableView *taskTableView = [NSTableView new];
 	[taskTableView setDataSource:taskDataSource];
 
@@ -561,12 +560,13 @@
 	[taskTableView reloadData];
 
 	STAssertEquals([notebook.secretary countTasks], 1L, @"should have one");
+		STAssertEquals([taskTableView numberOfRows], 1L, @"should have one");
 	// do it!
 	NSIndexSet *index = [NSIndexSet indexSetWithIndex:0];
 	[taskTableView selectRowIndexes:index byExtendingSelection:NO];
 	[controller removeTask:nil];
-	[taskTableView reloadData];
 
+	STAssertEquals([taskTableView numberOfRows], 0L, @"should have no one more");
 	STAssertEquals([notebook.secretary countTasks], 0L, @"should have no one more");
 }
 @end

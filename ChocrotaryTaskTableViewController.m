@@ -1,40 +1,31 @@
 //
-//  ChocrotaryBaseTableViewDataSource.m
+//  ChocrotaryTaskTableViewDataSource.m
 //  Secretary
 //
-//  Created by Adam Victor Nazareth Brandizzi on 27/03/11.
+//  Created by Adam Victor Nazareth Brandizzi on 06/05/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
-#import "ChocrotaryBaseTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewController.h"
 
 
-@implementation ChocrotaryBaseTableViewDataSource
-- (id) init {
-	[super init];
-	return self;
+@implementation ChocrotaryTaskTableViewController
+
+@synthesize controller, perspective;
+
++(id)new {
+	return [[ChocrotaryTaskTableViewController alloc] init];
 }
 
--(id) controller {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
--(ChocrotarySecretaryPerspective*) secretaryPerspective {
-	[self doesNotRecognizeSelector:_cmd];
-	return nil;
-}
-
+// FOR DATA SOURCE PROTOCOL
 
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView {
-	ChocrotarySecretaryPerspective* view = [self secretaryPerspective];
-	return [view countTasks];
+	return [perspective countTasks];
 }
 
 
 - (id)tableView:(NSTableView *)tableView objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretaryPerspective* view = [self secretaryPerspective];
-	ChocrotaryTask *task = [view getNthTask:row];
+	ChocrotaryTask *task = [perspective getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
  	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
 		NSButtonCell *button = [NSButtonCell new];
@@ -72,15 +63,15 @@
 		} else {
 			return @"";
 		}
-
+		
 	} else {
 		NSLog(@"But how?!");
 		return @"";
 	}
 }
-- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
-	ChocrotarySecretaryPerspective* view = [self secretaryPerspective];
-	ChocrotaryTask *task = [view getNthTask:row];
+- (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object 
+   forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	ChocrotaryTask *task = [perspective getNthTask:row];
 	NSString *columnName = [tableColumn identifier];
 	if ([columnName isEqualToString: ChocrotaryTaskTableColumnDone ]) {
 		[task switchDoneStatus];
@@ -92,8 +83,9 @@
 		NSPopUpButtonCell *projectCell = [tableColumn dataCell];
 		NSMenuItem *selected = [projectCell itemAtIndex:selectedIndex];
 		NSInteger projectIndex = [selected tag];
+
 		if (projectIndex != ChocrotaryControllerNoProject) {
-			ChocrotaryProject *project = [view.secretary getNthProject:projectIndex];
+			ChocrotaryProject *project = [perspective.secretary getNthProject:projectIndex];
 			[project addTask:task];
 		} else {
 			[task unsetProject];
@@ -113,6 +105,25 @@
 	}
 	[[self controller] reloadMenuOfProjects];
 	[[self controller] save];
+	[aTableView reloadData];
 }
+
+// FOR DELEGATE PROTOCOL
+
+- (void)tableView:(NSTableView *)tableView willDisplayCell:(id)cell 
+   forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row {
+	if ([[tableColumn identifier] isEqualToString:ChocrotaryTaskTableColumnProject]) {
+		ChocrotaryTask *task = [perspective getNthTask:row];
+		ChocrotaryProject *project = [task project];
+		
+		NSPopUpButtonCell *projectPopUpButton = cell;
+		NSString *selected = @"";
+		if (project) {
+			selected = [project name];
+		}
+		[projectPopUpButton selectItemWithTitle:selected];
+	}
+}
+
 
 @end

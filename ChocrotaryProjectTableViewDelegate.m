@@ -13,7 +13,7 @@
 #import "ChocrotarySecretaryScheduledPerspective.h"
 #import "ChocrotarySecretaryScheduledForTodayPerspective.h"
 #import "ChocrotarySecretaryProjectPerspective.h"
-#import "ChocrotaryTaskTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewController.h"
 
 @implementation ChocrotaryProjectTableViewDelegate
 

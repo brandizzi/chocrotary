@@ -8,12 +8,12 @@
 
 #import "ChocrotaryController.h"
 #import "ChocrotaryProjectTableViewDataSource.h"
-#import "ChocrotaryTaskTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewController.h"
 #import "ChocrotarySecretaryInboxPerspective.h"
 #import "ChocrotarySecretaryScheduledPerspective.h"
 #import "ChocrotarySecretaryScheduledForTodayPerspective.h"
 #import "ChocrotarySecretaryProjectPerspective.h"
-#import "ChocrotaryTaskTableViewDataSource.h"
+#import "ChocrotaryTaskTableViewController.h"
 
 
 @implementation ChocrotaryController
@@ -80,7 +80,8 @@
 }
 
 -(IBAction) removeTask:(id)sender {
-	ChocrotaryTaskTableViewDataSource *dataSource = [taskTableView dataSource];
+	ChocrotaryTaskTableViewController *dataSource = 
+		(ChocrotaryTaskTableViewController*)[taskTableView dataSource];
 	NSIndexSet* indexes = [taskTableView selectedRowIndexes];
 	NSInteger index = [indexes firstIndex];
 	while (index != NSNotFound) {
