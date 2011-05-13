@@ -21,5 +21,7 @@
 - (void) addTask {
 	[secretary createTask:@""];
 }
-
+- (void) archiveAllDoneTasks {
+	[secretary archiveDoneInboxTasks];
+}
 @end

@@ -568,5 +568,41 @@
 
 	STAssertEquals([taskTableView numberOfRows], 0L, @"should have no one more");
 	STAssertEquals([notebook.secretary countTasks], 0L, @"should have no one more");
+	remove("fluflufile");
+}
+
+-(void) testArchive {
+	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	[notebook.secretary createTask:@"task1"];
+	[[notebook.secretary createTask:@"task2"] markAsDone];
+	[notebook.secretary createTask:@"task3"];
+	
+	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
+	
+	// Task table view
+	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
+	[taskDataSource setPerspective:[ChocrotarySecretaryInboxPerspective newWithSecretary:notebook.secretary]];
+	NSTableView *taskTableView = [NSTableView new];
+	[taskTableView setDataSource:taskDataSource];
+
+	
+	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableView:taskTableView];
+	
+	[taskDataSource setPerspective:[ChocrotarySecretaryInboxPerspective 
+									newWithSecretary:notebook.secretary]];
+	[taskTableView reloadData];
+	
+	STAssertEquals([notebook.secretary countTasks], 3L, @"should have 3");
+	STAssertEquals([taskTableView numberOfRows], 3L, @"should have 3");
+	// do it!
+	[controller archiveTasksOfCurrentPerspective:nil];
+	
+	NSLog(@"number t: %d", [taskTableView numberOfRows]);
+	NSLog(@"number n: %d", [notebook.secretary countTasks]);
+
+	STAssertEquals([taskTableView numberOfRows], 2L, @"should have 2");
+	STAssertEquals([notebook.secretary countInboxTasks], 2L, @"should have 2");
+	remove("fluflufile");
 }
 @end

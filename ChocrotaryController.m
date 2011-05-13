@@ -19,8 +19,7 @@
 @implementation ChocrotaryController
 
 @synthesize projectTableView, taskTableView, taskTableViewDataSource, secretary, 
-	/*currentDataSource, inboxTableDataSource, scheduledTableDataSource, 
-	todayTableDataSource, tasksInProjectTableDataSource,*/ projectArray, projectsMenu;
+	projectArray, projectsMenu;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
@@ -93,6 +92,11 @@
 	[self save];
 }
 
+-(IBAction) archiveTasksOfCurrentPerspective:(id)sender {
+	[taskTableViewDataSource.perspective archiveAllDoneTasks];
+	[taskTableView reloadData];
+}
+
 -(IBAction) addProject:(id)sender {
 	[secretary createProject:@""];
 	[projectTableView reloadData];
@@ -118,7 +122,6 @@
 
 -(IBAction) reconfigureTaskTable:(id)sender {
 	[taskTableView reloadData];
-
 }
 
 @end

@@ -18,9 +18,13 @@
 -(void) testCountScheduledForToday;
 -(void) testGetProject;
 -(void) testGetTaskObjectFromTask;
+
 -(void) testAttachDetachTaskObserver;
 -(void) testAttachDetachProjectObserver;
 -(void) testAttachedTaskObserverKnowsTaskUpdate;
 -(void) testAttachedProjectObserverKnowsProjectUpdate;
 
+-(void) testArchiveInboxTasks;
+-(void) testArchiveScheduledTasks;
+-(void) testArchiveScheduledForTodayTasks;
 @end

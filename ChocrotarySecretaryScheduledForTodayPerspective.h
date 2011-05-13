@@ -16,5 +16,5 @@
 - (NSInteger) countTasks;
 - (ChocrotaryTask *) getNthTask:(NSInteger) n;
 - (void) addTask;
-
+- (void) archiveAllDoneTasks;
 @end

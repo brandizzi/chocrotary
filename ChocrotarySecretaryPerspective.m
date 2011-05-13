@@ -36,4 +36,8 @@
 	[self doesNotRecognizeSelector:_cmd];
 }
 
+- (void) archiveAllDoneTasks {
+	[self doesNotRecognizeSelector:_cmd];
+}
+
 @end

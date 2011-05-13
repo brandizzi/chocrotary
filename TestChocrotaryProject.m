@@ -110,4 +110,33 @@
 	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
 }
 
+-(void) testArchive {
+	Task *wrappedTask1 = task_new(0, "Create ChocrotaryProject wrapper class"),
+		*wrappedTask2 = task_new(1, "Use ChocrotaryProject elsewhere"),
+		*wrappedTask3 = task_new(2, "Use ChocrotaryProject elsewhere");
+	ChocrotaryTask *task1 = [ChocrotaryTask taskWithTaskStruct:wrappedTask1],
+		*task2 = [ChocrotaryTask taskWithTaskStruct:wrappedTask2],
+		*task3 = [ChocrotaryTask taskWithTaskStruct:wrappedTask3];	
+	
+	Project *wrappedProject = project_new("Project");
+	ChocrotaryProject *project = [ChocrotaryProject projectWithProjectStruct:wrappedProject];
+	
+	[task2 markAsDone];
+
+	[project addTask:task1];
+	[project addTask:task2];
+	[project addTask:task3];
+	
+	STAssertEquals([project countTasks], 3L, @"Should have 3");
+	STAssertEqualObjects([project getNthTask:0], task1, @"should be task 1");
+	STAssertEqualObjects([project getNthTask:1], task2, @"should be task 2");
+	STAssertEqualObjects([project getNthTask:2], task3, @"should be task 3");
+	
+	[project archiveDoneTasks];
+
+	STAssertEquals([project countTasks], 2L, @"Should have 3");
+	STAssertEqualObjects([project getNthTask:0], task1, @"should be task 1");
+	STAssertEqualObjects([project getNthTask:1], task3, @"should be task 3");	
+}
+
 @end

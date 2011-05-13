@@ -17,5 +17,5 @@
 -(void) testChangeName;
 -(void) testAddRemoveTask;
 -(void) testObserver;
-
+-(void) testArchive;
 @end

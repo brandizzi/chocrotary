@@ -30,6 +30,8 @@
 -(void) addTask:(ChocrotaryTask*) aTask;
 -(void) removeTask:(ChocrotaryTask*) aTask;
 
+-(void) archiveDoneTasks;
+
 // Publisher interface
 -(void) attachProjectObserver:(id<ChocrotaryProjectObserver>) objectWithState;
 -(void) detachProjectObserver:(id<ChocrotaryProjectObserver>) objectWithState;

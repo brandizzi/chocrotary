@@ -41,6 +41,10 @@
 -(NSInteger) countInboxTasks;
 -(ChocrotaryTask*) getNthInboxTask:(NSInteger) n;
 
+-(void) archiveDoneInboxTasks;
+-(void) archiveDoneScheduledTasks;
+-(void) archiveDoneTasksScheduledForToday;
+
 // For retrieving a ChocrotaryTask wrapping a Task
 -(ChocrotaryTask*)wrapperForTask:(Task*) aTask;
 

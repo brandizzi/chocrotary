@@ -124,6 +124,21 @@
 
 }
 
+-(void) archiveDoneInboxTasks {
+	secretary_archive_inbox_tasks(secretary);
+	[self notifyTaskUpdate];
+}
+
+-(void) archiveDoneScheduledTasks {
+	secretary_archive_scheduled_tasks(secretary);
+	[self notifyTaskUpdate];
+}
+
+-(void) archiveDoneTasksScheduledForToday {
+	secretary_archive_tasks_scheduled_for_today(secretary);
+	[self notifyTaskUpdate];
+}
+
 -(ChocrotaryTask*)wrapperForTask:(Task*) aTask {
 	return [self getCachedOrNewTask:aTask];
 }

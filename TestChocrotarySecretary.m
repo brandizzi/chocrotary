@@ -194,4 +194,76 @@
 	[project removeTask:task];
 	STAssertEquals([stub countProjectUpdates], 4L, @"Now should have one task update");
 }
+
+-(void) testArchiveInboxTasks {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
+	
+	[task2 markAsDone];
+	
+	STAssertEquals([secretary countInboxTasks], 3L, @"Should have only one task in inbox");
+	STAssertEquals([secretary getNthInboxTask:0], task1, @"Task 1 should be a task in inbox");
+	STAssertEquals([secretary getNthInboxTask:1], task2, @"Task 2 should be a task in inbox");
+	STAssertEquals([secretary getNthInboxTask:2], task3, @"Task 1 should be a task in inbox");
+	
+	[secretary archiveDoneInboxTasks];
+	
+	STAssertEquals([secretary countInboxTasks], 2L, @"Should have two tasks in inbox");
+	STAssertEquals([secretary getNthInboxTask:0], task1, @"Task 1 should be a task in inbox");
+	STAssertEquals([secretary getNthInboxTask:1], task3, @"Task 3 should be the task in inbox");
+	
+}
+
+-(void) testArchiveScheduledTasks {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
+	
+	NSDate *date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*30];
+	[task1 scheduleFor:date];
+	[task2 scheduleFor:date];
+	[task3 scheduleFor:date];
+	[task2 markAsDone];
+	
+	STAssertEquals([secretary countScheduledTasks], 3L, @"Should have three sch tasks");
+	STAssertEquals([secretary getNthScheduledTask:0], task1, @"Task 1 should be a task sch");
+	STAssertEquals([secretary getNthScheduledTask:1], task2, @"Task 2 should be a task sch");
+	STAssertEquals([secretary getNthScheduledTask:2], task3, @"Task 1 should be a task sch");
+	
+	[secretary archiveDoneScheduledTasks];
+	
+	STAssertEquals([secretary countScheduledTasks], 2L, @"Should have two tasks in inbox");
+	STAssertEquals([secretary getNthScheduledTask:0], task1, @"Task 1 should be a task sch");
+	STAssertEquals([secretary getNthScheduledTask:1], task3, @"Task 3 should be the task sch");
+}
+
+-(void) testArchiveScheduledForTodayTasks {
+	ChocrotarySecretary *secretary = [[ChocrotarySecretary alloc] init];
+	
+	ChocrotaryTask *task1 = [secretary createTask:@"Improve interface"];
+	ChocrotaryTask *task2 = [secretary createTask:@"Add hidden option"];
+	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
+	
+	NSDate *date = [NSDate date];
+	[task1 scheduleFor:date];
+	[task2 scheduleFor:date];
+	[task3 scheduleFor:date];
+	[task2 markAsDone];
+	
+	STAssertEquals([secretary countTasksScheduledForToday], 3L, @"Should have three sch tasks");
+	STAssertEquals([secretary getNthTaskScheduledForToday:0], task1, @"Task 1 should be a task sch");
+	STAssertEquals([secretary getNthTaskScheduledForToday:1], task2, @"Task 2 should be a task sch");
+	STAssertEquals([secretary getNthTaskScheduledForToday:2], task3, @"Task 1 should be a task sch");
+	
+	[secretary archiveDoneTasksScheduledForToday];
+	
+	STAssertEquals([secretary countTasksScheduledForToday], 2L, @"Should have two tasks in inbox");
+	STAssertEquals([secretary getNthTaskScheduledForToday:0], task1, @"Task 1 should be a task sch");
+	STAssertEquals([secretary getNthTaskScheduledForToday:1], task3, @"Task 3 should be the task sch");
+}
 @end

@@ -20,4 +20,7 @@
 	ChocrotaryTask *task = [secretary createTask:@""];
 	[task scheduleFor:[NSDate date]];
 }
+- (void) archiveAllDoneTasks {
+	[secretary archiveDoneScheduledTasks];
+}
 @end

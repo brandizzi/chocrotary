@@ -73,6 +73,11 @@
 	[self notifyProjectObservers];
 }
 
+-(void) archiveDoneTasks {
+	project_archive_tasks(project);
+#warning should report to observers
+}
+
 -(void) attachProjectObserver:(id<ChocrotaryProjectObserver>) observer {
 	[observers addObject:observer];
 }

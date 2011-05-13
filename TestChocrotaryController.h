@@ -23,5 +23,5 @@
 -(void) testAddTaskScheduledForToday;
 -(void) testAddTaskProject;
 -(void) testRemoveTask;
-
+-(void) testArchive;
 @end

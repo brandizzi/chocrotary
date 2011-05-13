@@ -35,4 +35,8 @@
 	ChocrotaryTask *task = [secretary createTask:@""];
 	[project addTask:task];
 }
+
+- (void) archiveAllDoneTasks {
+	[project archiveDoneTasks];
+}
 @end
