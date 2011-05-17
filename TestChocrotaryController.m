@@ -169,7 +169,7 @@
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
 	NSString *description = [taskDataSource tableView:nil objectValueForTableColumn:column row:(NSInteger)0];
 	STAssertNotNil(description, @" description column should be Not nil");
-	STAssertEqualObjects(description, [scheduledTask description], @"Wrong task description");
+	STAssertEqualObjects(description, [scheduledForTodayTask description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
 	NSString *projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
@@ -179,7 +179,7 @@
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
 	NSDatePickerCell *when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
-	STAssertEqualObjects([when dateValue], [scheduledTask scheduledFor], @"Should be the scheduled one");
+	STAssertEqualObjects([when dateValue], [scheduledForTodayTask scheduledFor], @"Should be no one");
 	
 	// Second row
 	column = [NSTableColumn new];
@@ -191,7 +191,7 @@
 	[column setIdentifier:ChocrotaryTaskTableColumnDescription];
 	description = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
 	STAssertNotNil(description, @" description column should be Not nil");
-	STAssertEqualObjects(description, [scheduledForTodayTask description], @"Wrong task description");
+	STAssertEqualObjects(description, [scheduledTask description], @"Wrong task description");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
 	projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
@@ -201,7 +201,7 @@
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
 	when = [taskDataSource tableView:nil objectValueForTableColumn:column row:1];
 	STAssertNotNil(when, @"For scheduled tasks date column should be Not nil");
-	STAssertEqualObjects([when dateValue], [scheduledForTodayTask scheduledFor], @"Should be no one");
+	STAssertEqualObjects([when dateValue], [scheduledTask scheduledFor], @"Should be the scheduled one");
 	
 	remove("fluflufile");
 

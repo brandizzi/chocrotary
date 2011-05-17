@@ -19,7 +19,6 @@
 	
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
 	[project addTask:task1];
-	[project addTask:task1];
 	[task2 scheduleFor:[NSDate date]];
 	
 	ChocrotarySecretaryPerspective *inboxPerspective = [ChocrotarySecretaryInboxPerspective newWithSecretary:secretary];

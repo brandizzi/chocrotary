@@ -52,7 +52,8 @@
 
 	[task1 unsetProject];
 	STAssertEquals([secretary countInboxTasks], 2L, @"Should have two tasks in inbox");
-	STAssertEquals([secretary getNthInboxTask:0], task1, @"Task 1 should be the task in inbox");
+	STAssertEquals([secretary getNthInboxTask:0], task3, @"Task 3 should be a task in inbox");
+	STAssertEquals([secretary getNthInboxTask:1], task1, @"Task 1 should be a task in inbox");
 }
 
 -(void) testCountScheduled {
