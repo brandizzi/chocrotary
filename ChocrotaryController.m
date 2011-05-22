@@ -34,13 +34,13 @@
 	if (projectsMenu == nil) {
 		projectsMenu = [NSMenu new];
 	}
-	[self reloadMenuOfProjects];
 	return self;
 }
 
 -(void) awakeFromNib {
 	NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
 	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
+	[self reloadMenuOfProjects];
 }
 
 -(ChocrotarySecretary*)secretary {
@@ -66,8 +66,8 @@
 
 -(void)save {
 	[notebook save];
-	[taskTableView reloadData];
-	[projectTableView reloadData];
+//	[projectTableView reloadData];
+//	[taskTableView reloadData];
 }
 
 -(IBAction) addTask:(id)sender {
@@ -108,16 +108,32 @@
 
 -(IBAction) removeProject:(id)sender {
 	NSIndexSet* indexes = [projectTableView selectedRowIndexes];
-	NSInteger index = [indexes firstIndex];
+	NSInteger index = [indexes firstIndex], greater = index;
 	while (index != NSNotFound && index >= ChocrotaryProjectTableViewDataSourceFirstProject) {
+		if (index > greater) {
+			greater = index;
+		}
 		ChocrotaryProject *project = [secretary 
 									  getNthProject: index-ChocrotaryProjectTableViewDataSourceFirstProject];
 		[secretary deleteProject:project];
 		index = [indexes indexGreaterThanIndex:index];
 	}
-	[self reloadMenuOfProjects];
+
+	[self save];	
+
+	NSInteger projects = [notebook.secretary countProjects],
+	numberOfRows = projects+ChocrotaryProjectTableViewDataSourceFirstProject;
+	indexes = [NSIndexSet indexSetWithIndex:0];
+	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
+	if (greater >= numberOfRows) {
+		indexes = [NSIndexSet indexSetWithIndex:numberOfRows-1];
+	} else {
+		indexes = [NSIndexSet indexSetWithIndex:greater];
+	}
+	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
 	[projectTableView reloadData];
-	[self save];
+	[self reloadMenuOfProjects];
+	
 }
 
 -(IBAction) reconfigureTaskTable:(id)sender {

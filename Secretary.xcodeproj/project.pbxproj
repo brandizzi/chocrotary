@@ -26,6 +26,7 @@
 		0317BCB51329CC96004055F8 /* ChocrotaryProjectTableViewDataSource.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BCB41329CC96004055F8 /* ChocrotaryProjectTableViewDataSource.m */; };
 		0317BD781329D733004055F8 /* ChocrotaryNotebook.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BD771329D733004055F8 /* ChocrotaryNotebook.m */; };
 		0317BDF11329DA56004055F8 /* ChocrotarySecretary.m in Sources */ = {isa = PBXBuildFile; fileRef = 0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */; };
+		032476BE13860206002E5798 /* tasks-archive.tiff in Resources */ = {isa = PBXBuildFile; fileRef = 032476BD13860206002E5798 /* tasks-archive.tiff */; };
 		032B7C44136A5CB400AF7DBA /* ChocrotaryProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 032B7C43136A5CB400AF7DBA /* ChocrotaryProject.m */; };
 		036E2D131365122B00FA983E /* ChocrotarySecretaryInboxPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E2D081365122B00FA983E /* ChocrotarySecretaryInboxPerspective.m */; };
 		036E2D161365122B00FA983E /* ChocrotarySecretaryScheduledForTodayPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E2D0E1365122B00FA983E /* ChocrotarySecretaryScheduledForTodayPerspective.m */; };
@@ -84,6 +85,7 @@
 		0317BD771329D733004055F8 /* ChocrotaryNotebook.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryNotebook.m; sourceTree = "<group>"; };
 		0317BDEF1329DA56004055F8 /* ChocrotarySecretary.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotarySecretary.h; sourceTree = "<group>"; };
 		0317BDF01329DA56004055F8 /* ChocrotarySecretary.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotarySecretary.m; sourceTree = "<group>"; };
+		032476BD13860206002E5798 /* tasks-archive.tiff */ = {isa = PBXFileReference; lastKnownFileType = image.tiff; name = "tasks-archive.tiff"; path = "../Chocrotary/Icons/tasks-archive.tiff"; sourceTree = SOURCE_ROOT; };
 		032B7C42136A5CB400AF7DBA /* ChocrotaryProject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryProject.h; sourceTree = "<group>"; };
 		032B7C43136A5CB400AF7DBA /* ChocrotaryProject.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryProject.m; sourceTree = "<group>"; };
 		032B7D92136A6E0E00AF7DBA /* ChocrotaryProjectObserver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryProjectObserver.h; sourceTree = "<group>"; };
@@ -197,6 +199,7 @@
 		0386722B13569AC20049B310 /* Icons */ = {
 			isa = PBXGroup;
 			children = (
+				032476BD13860206002E5798 /* tasks-archive.tiff */,
 				0386720F135697320049B310 /* Secretary.icns */,
 				038672031356971A0049B310 /* project-add.tiff */,
 				038672041356971A0049B310 /* project-remove.tiff */,
@@ -471,6 +474,7 @@
 				038672091356971A0049B310 /* task-add.tiff in Resources */,
 				0386720A1356971A0049B310 /* task-remove.tiff in Resources */,
 				03867210135697320049B310 /* Secretary.icns in Resources */,
+				032476BE13860206002E5798 /* tasks-archive.tiff in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

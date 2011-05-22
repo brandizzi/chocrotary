@@ -328,7 +328,10 @@
 								<string key="NSToolbarItemPaletteLabel">Archive all done tasks listed below</string>
 								<string key="NSToolbarItemToolTip"/>
 								<nil key="NSToolbarItemView"/>
-								<nil key="NSToolbarItemImage"/>
+								<object class="NSCustomResource" key="NSToolbarItemImage">
+									<string key="NSClassName">NSImage</string>
+									<string key="NSResourceName">tasks-archive</string>
+								</object>
 								<nil key="NSToolbarItemTarget"/>
 								<nil key="NSToolbarItemAction"/>
 								<string key="NSToolbarItemMinSize">{0, 0}</string>
@@ -1811,9 +1814,9 @@
 					<integer value="1"/>
 					<string>{74, 862}</string>
 					<string>{{6, 978}, {478, 20}}</string>
-					<string>{{199, 4}, {852, 669}}</string>
+					<string>{{203, 32}, {852, 669}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{199, 4}, {852, 669}}</string>
+					<string>{{203, 32}, {852, 669}}</string>
 					<integer value="1"/>
 					<string>{{33, 99}, {480, 360}}</string>
 					<string>{3.40282e+38, 3.40282e+38}</string>
@@ -1863,7 +1866,7 @@
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
-					<string>{{317, 388}, {616, 285}}</string>
+					<string>{{321, 416}, {616, 285}}</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<string>com.apple.InterfaceBuilder.CocoaPlugin</string>
 					<boolean value="NO"/>
@@ -2730,6 +2733,7 @@
 				<string>project-remove</string>
 				<string>task-add</string>
 				<string>task-remove</string>
+				<string>tasks-archive</string>
 			</object>
 			<object class="NSMutableArray" key="dict.values">
 				<bool key="EncodedWithXMLCoder">YES</bool>
@@ -2739,6 +2743,7 @@
 				<string>{38.4, 38.4}</string>
 				<string>{38.4, 38.4}</string>
 				<string>{38.4, 38.4}</string>
+				<string>{128, 128}</string>
 			</object>
 		</object>
 	</data>

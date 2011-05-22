@@ -24,4 +24,5 @@
 -(void) testAddTaskProject;
 -(void) testRemoveTask;
 -(void) testArchive;
+-(void) testRemoveProject;
 @end

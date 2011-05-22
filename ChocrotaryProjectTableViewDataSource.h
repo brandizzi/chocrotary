@@ -10,7 +10,7 @@
 #import "ChocrotaryController.h"
 
 typedef enum {
-	ChocrotaryProjectTableViewDataSourceInbox = 0,
+	ChocrotaryProjectTableViewDataSourceInbox = 0L,
 	ChocrotaryProjectTableViewDataSourceScheduled,
 	ChocrotaryProjectTableViewDataSourceScheduledForToday
 } ChocrotaryProjectTableViewSelected;
