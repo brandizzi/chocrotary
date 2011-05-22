@@ -879,7 +879,7 @@
        y1="22.851799"
        x2="27.900846"
        y2="34.976799"
-       gradientTransform="matrix(0.7304432,0,0,0.92129417,11.987551,14.267187)" />
+       gradientTransform="matrix(1.4445437,0,0,1.6827508,-10.773947,-15.890431)" />
   </defs>
   <sodipodi:namedview
      id="base"
@@ -889,7 +889,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="5.9220193"
-     inkscape:cx="48.344267"
+     inkscape:cx="42.646601"
      inkscape:cy="24.884639"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -909,7 +909,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
         <dc:date>2005-10-10</dc:date>
         <dc:creator>
           <cc:Agent>
@@ -945,60 +945,35 @@
      id="layer1"
      inkscape:label="Layer 1"
      inkscape:groupmode="layer">
-    <image
-       y="3.1420672"
-       x="2.9832399"
-       id="image4967"
-       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAACwAAAAtCAYAAADV2ImkAAAABHNCSVQICAgIfAhkiAAAA55JREFU
-WIW9mW1K60AUht+ZSUn9KIoUoSDiEkQQBLcjdyuuwC24BbfhAvwl+kuCtPYjrZmZ++dOmDs985VG
-D5QkJ8mcZ07eOSdtmdZaw7KqqvD09ASlFDjnYIyBcw4A0FpDaw0pJZRS7cc9TvFJKbfGcvevrq5w
-d3dn400LOPb8/Izb21tcXFxAKeWebs2ZZ9Cf6rP9nHPc39/j7e0NZ2dn7fkt4KZpUJYlqqrCbDYD
-YwxKKZRlCaXUf4EYY+Q+dRzzuxM4OTnBeDzGYrH4z78FbA+aErQLdGxMY9RTIIHtAWLbGLTPFzID
-St23BUw9cnurte4EnQIeAk0C9kFTWypQbmZTJk0C2zN1P1SG+4Q2DD7zZpiCCPn60rGdkCxgEyRH
-Cl1Lm69UJlUJ0yx8iy930aVkNkc2yRl2B8+tFDmSsPfdLGdrOGfRdVlw2ZJwq4Q9UAi2z0rRuUp8
-fn6CMYajo6Ns6C7gKY2Duw77DW29XmM8HkMIkd1AbL+7FtzaTvmTgW1JTCYTFEUBKWUSLAUaAgxN
-wDxN17xlzdy02WySGkYfC5CSRHKVoADdAftcgFSHS64SvqB9ZNpnblZ9lYKURKis5cDuKomsDFOB
-qIWQAx0CtyVhYiR3OvfCPuXh3kNlNSvDbpWw92PZz4V2/bFXSxI4RRKx0tVFy25mO9Vhd6DQRHaB
-pmB9kyM7nbn45eUFHx8fSc3A7VK+bajT+SBtIyVhsjyZTHB8fIzv7++tANR+CmRMEtlfkWxJHB4e
-omkaUks50LHrXdjQ66VXEjlgMWjfvm+CWRkOtcWYpUwoNdNZwF2hukDbMWOwQIIkqAC7WMpiDMUj
-v3F0lYQvYO5xyH4E+CctSRK5FhvDPZ8TMwl410m4P46YLeWPxcuWRCw7oWMXNgQdBZZSYjaboa7r
-6E0+y4G1/T5opRQWi0X7rR34V4dXqxW+vr4wn89R13VbwM3fXZxzcM5bP/XSE+pmbkNw6609GXtc
-rTWm0ymqqsJoNMLe3h4KpRTqusZyucR8PgdjDO/v7zg/P0dRFEkvJHaQLuZrKK+vr7i+vsZqtcJg
-MEBZlihMRjjnEELg5uYGj4+PeHh46BR8VzPQQghcXl7i9PS0fcKcczCttZZStpJYLpeo6xpN0wDA
-1qvlT9tgMGi3w+EQ+/v7ODg4wGg0ghBiyrQlHCkl6rrGer1u/0a1Bf8bJoRon3ZZlhgOhxBCmNNT
-prX+86tEu9nmLxhKwm/PSPhIAAAAAElFTkSuQmCC
-"
-       height="45"
-       width="44"
-       inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
-       inkscape:export-xdpi="1047.27"
-       inkscape:export-ydpi="1047.27" />
-    <path
-       inkscape:connector-curvature="0"
-       style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff5555;fill-opacity:1;stroke:#be0000;stroke-width:0.82033747px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       d="m 32.085224,40.394603 8.852306,0.106936 0,-6.444751 -8.845784,0 -5.128251,-0.01646 -8.734914,0.02468 -0.02609,6.420074 8.767523,0.01645 5.115207,-0.106935 z"
-       id="text1314"
-       sodipodi:nodetypes="ccccccccc"
-       inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
-       inkscape:export-xdpi="1047.27"
-       inkscape:export-ydpi="1047.27" />
-    <path
-       inkscape:connector-curvature="0"
-       style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:0.40860219;fill:#d40000;fill-opacity:1;stroke:url(#linearGradient4974);stroke-width:0.82033765px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-       d="m 40.167633,39.58814 0.0065,-4.614582 -21.227827,0.01645 -0.01957,4.581679 21.240871,0.01646 z"
-       id="path7076"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
-       inkscape:export-xdpi="1047.27"
-       inkscape:export-ydpi="1047.27" />
-    <path
-       inkscape:connector-curvature="0"
-       style="opacity:0.31182796;fill:#ffaaaa;fill-opacity:1;fill-rule:evenodd;stroke:none"
-       d="m 18.223816,36.792957 c 0,1.785008 22.004601,-0.863713 22.004601,0 l 0,-2.763882 -22.004601,0 0,2.763882 z"
-       id="path7914"
-       sodipodi:nodetypes="ccccc"
-       inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
-       inkscape:export-xdpi="1047.27"
-       inkscape:export-ydpi="1047.27" />
+    <g
+       id="g5281">
+      <path
+         inkscape:export-ydpi="1047.27"
+         inkscape:export-xdpi="1047.27"
+         inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
+         sodipodi:nodetypes="ccccccccc"
+         id="text1314"
+         d="m 28.97174,31.831492 17.506553,0.19532 0,-11.771387 -17.493655,0 -10.141765,-0.03006 -17.2743953,0.04508 -0.051596,11.726314 17.3388833,0.03005 10.115969,-0.195318 z"
+         style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#ff5555;fill-opacity:1;stroke:#be0000;stroke-width:1.55910516px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="1047.27"
+         inkscape:export-xdpi="1047.27"
+         inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
+         sodipodi:nodetypes="ccccc"
+         id="path7076"
+         d="m 44.955724,30.358482 0.01286,-8.428569 -41.9807095,0.03005 -0.038702,8.368471 42.0065055,0.03006 z"
+         style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:0.40860219;fill:#d40000;fill-opacity:1;stroke:url(#linearGradient4974);stroke-width:1.55910552px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
+         inkscape:connector-curvature="0" />
+      <path
+         inkscape:export-ydpi="1047.27"
+         inkscape:export-xdpi="1047.27"
+         inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/task-remove.tiff.png"
+         sodipodi:nodetypes="ccccc"
+         id="path7914"
+         d="m 2.2344996,25.759643 c 0,3.26033 43.5168774,-1.577579 43.5168774,0 l 0,-5.048252 -43.5168774,0 0,5.048252 z"
+         style="opacity:0.31182796;fill:#ffaaaa;fill-opacity:1;fill-rule:evenodd;stroke:none"
+         inkscape:connector-curvature="0" />
+    </g>
   </g>
 </svg>

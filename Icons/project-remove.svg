@@ -18,7 +18,7 @@
    sodipodi:docname="project-remove.svg"
    inkscape:output_extension="org.inkscape.output.svg.inkscape"
    version="1.1"
-   inkscape:export-filename="/Users/brandizzi/Desktop/project-remove.png"
+   inkscape:export-filename="/Users/brandizzi/Documents/software/secretary/Chocrotary/Icons/project-remove.png"
    inkscape:export-xdpi="90"
    inkscape:export-ydpi="90">
   <defs
@@ -928,9 +928,9 @@
      borderopacity="0.15294118"
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
-     inkscape:zoom="4.1875"
-     inkscape:cx="24"
-     inkscape:cy="24"
+     inkscape:zoom="5.9220193"
+     inkscape:cx="24.45464"
+     inkscape:cy="35.785673"
      inkscape:current-layer="layer1"
      showgrid="false"
      inkscape:grid-bbox="true"
@@ -1142,28 +1142,22 @@
        height="2"
        x="14"
        y="31" />
-    <g
-       inkscape:label="Layer 1"
-       id="layer1-4"
-       transform="matrix(0.5,0,0,0.5,26.17348,26.440897)">
-      <path
-         sodipodi:nodetypes="ccccccccc"
-         id="text1314"
-         d="m 27.514356,28.359472 12.119089,0.116071 0,-6.995324 -12.11016,0 -7.020739,-0.01786 -11.9583755,0.02679 -0.035714,6.968539 12.0030185,0.01786 7.002881,-0.116071 z"
-         style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;fill:#75a1d0;fill-opacity:1;stroke:#3465a4;stroke-width:1.00000036px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-         inkscape:connector-curvature="0" />
-      <path
-         sodipodi:nodetypes="ccccc"
-         id="path7076"
-         d="m 38.579429,27.484113 0.0089,-5.008804 -29.0615707,0.01786 -0.026786,4.97309 29.0794287,0.01786 z"
-         style="font-size:59.90107727px;font-style:normal;font-variant:normal;font-weight:bold;font-stretch:normal;text-align:start;line-height:125%;writing-mode:lr-tb;text-anchor:start;opacity:0.40860219;fill:url(#linearGradient4975);fill-opacity:1;stroke:url(#linearGradient7922);stroke-width:1.0000006px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;font-family:Bitstream Vera Sans"
-         inkscape:connector-curvature="0" />
-      <path
-         sodipodi:nodetypes="ccccc"
-         id="path7914"
-         d="m 9,25 c 0,1.9375 30.125,-0.9375 30.125,0 l 0,-3 L 9,22 9,25 z"
-         style="opacity:0.31182796;fill:#ffffff;fill-opacity:1;fill-rule:evenodd;stroke:none"
-         inkscape:connector-curvature="0" />
-    </g>
+    <image
+       y="36.200378"
+       x="16.878946"
+       id="image5330"
+       xlink:href="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAC8AAAAOCAYAAAC/10U/AAAABHNCSVQICAgIfAhkiAAAAclJREFU
+SInNlr9u20AMxn88XQsEihEvGoKiQ54hD+B3yJo9r9P3ydxBQPMKQT3bcIYOFirpjh30j5JtxEYd
+xAQE8CMp8tMdSUh+ZpmW6zX+5gYArSrCdsulS/bwkPtyvSa9u+Pb/f3pGVRxziHONTBGYl1PQnQU
+j8WTXH38NMbgUNf8fn4GwPvZjO+LBbeLxenkYxyKqUKMvZ199hbr9D0bt89makmSDOQtl+Ll5TjS
+3UlMT9XoOo0/dJrv2Y3fzed8mc16PCIfNpvjyH+WFAVcX/fQaQifyOZEmdygD9stsao+oI5CCE2x
+ENAYm/6NcVcPYZifFuueWfFZhhcZyAOEooCqolouEe/BexABEUSk6d8ukdXb4euIoIp2hA9tlf+R
+GMFsMw80hAEtS7Qsz1/0XGJOHaBZ0O2evniZkB9tm/nj4wDanut7z+hid7XxSdfDRu9itO1rYG+L
+qZ0Bk3fUgn5EtyH/Z7mkeH0dOfokplj/UQceVSWUZY9jXRMN0VDXvU8AlyQ7OQRIuk4wcybO4VQp
+3t7G5Fd5zirPj7y7yxF/+/T04+xJ0/RvcnVVAWiS6Ncse/dPr1qt0tFG6+ybTRpVZcch8usfZdSa
+4quNJGwAAAAASUVORK5CYII=
+"
+       height="6.5701017"
+       width="28.425255" />
   </g>
 </svg>
