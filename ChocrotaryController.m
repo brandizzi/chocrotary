@@ -95,6 +95,7 @@
 -(IBAction) archiveTasksOfCurrentPerspective:(id)sender {
 	[taskTableViewDataSource.perspective archiveAllDoneTasks];
 	[taskTableView reloadData];
+	[self save];
 }
 
 -(IBAction) addProject:(id)sender {
