@@ -16,7 +16,7 @@
 #define ChocrotaryTaskTableColumnScheduled @"scheduled"
 
 @interface ChocrotaryTaskTableViewController : NSObject <NSTableViewDataSource, NSTableViewDelegate> {
-	ChocrotaryController *controller;
+	IBOutlet ChocrotaryController *controller;
 	ChocrotarySecretaryPerspective *perspective;
 }
 
