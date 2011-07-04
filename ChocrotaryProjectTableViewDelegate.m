@@ -42,6 +42,7 @@
 	}
 	[[controller taskTableViewDataSource] setPerspective:perspective];
 	[controller reconfigureTaskTable:self];
+	[controller updateTotalLabel];
 }
 
 @end

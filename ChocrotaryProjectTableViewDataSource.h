@@ -18,14 +18,20 @@ typedef enum {
 #define ChocrotaryProjectTableViewDataSourceFirstProject (ChocrotaryProjectTableViewDataSourceScheduledForToday+1)
 
 
-@interface ChocrotaryProjectTableViewDataSource : NSObject < NSTableViewDataSource > {
+@interface ChocrotaryProjectTableViewDataSource : NSObject < NSTableViewDataSource/*, NSTableViewDelegate*/ > {
 	IBOutlet ChocrotaryController *controller;
+	//IBOutlet NSTableView *tableView;
 }
 
 @property (readwrite,assign) ChocrotaryController *controller;
-	
+//@property (readwrite,assign) NSTableView *tableView;
+
+// Data source protocol
 - (NSInteger)numberOfRowsInTableView:(NSTableView *)tableView;
 - (id)tableView:(NSTableView *)tableView 
 	objectValueForTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
 - (void)tableView:(NSTableView *)aTableView setObjectValue:(id)object forTableColumn:(NSTableColumn *)tableColumn row:(NSInteger)row;
+
+// Delegate protocol
+//- (void)tableViewSelectionDidChange:(NSNotification *)notification;
 @end

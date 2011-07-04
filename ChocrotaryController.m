@@ -19,7 +19,7 @@
 @implementation ChocrotaryController
 
 @synthesize projectTableView, taskTableView, taskTableViewDataSource, secretary, 
-	projectArray, projectsMenu;
+	projectArray, projectsMenu, totalLabel;
 
 -(id)init {
 	return [self initWithNotebook:[[ChocrotaryNotebook alloc] init]];
@@ -141,4 +141,10 @@
 	[taskTableView reloadData];
 }
 
+-(void) updateTotalLabel {
+	ChocrotarySecretaryPerspective *perspective = taskTableViewDataSource.perspective;
+	NSString *totals = [NSString stringWithFormat:@"%d tasks here (%d tasks everywhere)", 
+						[perspective countTasks], [secretary countTasks]];
+	[totalLabel setStringValue:totals];
+}
 @end

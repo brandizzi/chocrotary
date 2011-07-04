@@ -1,8 +1,8 @@
 //
-//  TestChocrotaryProjectTableViewDelegate.h
+//  TestChocrotaryProjectTableViewDelecate.h
 //  Secretary
 //
-//  Created by Adam Victor Nazareth Brandizzi on 19/03/11.
+//  Created by Adam Victor Nazareth Brandizzi on 04/07/11.
 //  Copyright 2011 __MyCompanyName__. All rights reserved.
 //
 
@@ -10,11 +10,11 @@
 
 
 @interface TestChocrotaryProjectTableViewDelegate : SenTestCase {
-
+	
 }
-- (void) testTableViewSelectInbox;
-- (void) testTableViewSelectScheduled;
-- (void) testTableViewSelectScheduledForToday;
-- (void) testTableViewSelectProject;
-
+-(void) testChangePerspectiveToInbox;
+-(void) testChangePerspectiveToScheduled;
+-(void) testChangePerspectiveToScheduledForToday;
+-(void) testChangePerspectiveToProject;
+-(void) testChangeTotalLabel;
 @end

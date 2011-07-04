@@ -14,10 +14,6 @@
 }
 
 -(void) testUpdateProjectsMenu;
--(void) testChangePerspectiveToInbox;
--(void) testChangePerspectiveToScheduled;
--(void) testChangePerspectiveToScheduledForToday;
--(void) testChangePerspectiveToProject;
 -(void) testAddTaskInbox;
 -(void) testAddTaskScheduled;
 -(void) testAddTaskScheduledForToday;

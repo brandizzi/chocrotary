@@ -12,6 +12,7 @@
 #import "ChocrotaryTableViewDataSource.h"
 
 #define ChocrotaryControllerNoProject (-1L)
+#define ChocrotaryTotalLabelMask @"%d tasks here (%d tasks everywhere)"
 
 @class ChocrotaryTaskTableViewController;
 
@@ -22,6 +23,7 @@
 	IBOutlet NSTableView* taskTableView;
 	IBOutlet NSTableView* projectTableView;
 	IBOutlet NSMenu *projectsMenu;
+	IBOutlet NSTextField *totalLabel;
 	
 	IBOutlet ChocrotaryTaskTableViewController *taskTableViewDataSource;
 
@@ -35,6 +37,7 @@
 
 @property(readwrite,assign) NSTableView* taskTableView;
 @property(readwrite,assign) NSTableView* projectTableView;
+@property(readwrite,assign) NSTextField* totalLabel;
 
 @property(readwrite,assign) ChocrotaryTaskTableViewController *taskTableViewDataSource;
 
@@ -49,6 +52,7 @@
 
 -(void)save;
 -(void)reloadMenuOfProjects;
+-(void) updateTotalLabel;
 
 -(IBAction) addTask:(id)sender;
 -(IBAction) removeTask:(id)sender;
