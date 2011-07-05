@@ -161,8 +161,8 @@
 
 -(void) updateTotalLabel {
 	ChocrotarySecretaryPerspective *perspective = taskTableViewDataSource.perspective;
-	NSString *totals = [NSString stringWithFormat:@"%d tasks here (%d tasks everywhere)", 
-						[perspective countTasks], [secretary countTasks]];
+	NSString *totals = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 
+						[secretary countProjects], [perspective countTasks], [secretary countTasks]];
 	[totalLabel setStringValue:totals];
 }
 @end

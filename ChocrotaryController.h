@@ -30,7 +30,7 @@
 #import "ChocrotaryTableViewDataSource.h"
 
 #define ChocrotaryControllerNoProject (-1L)
-#define ChocrotaryTotalLabelMask @"%d tasks here (%d tasks everywhere)"
+#define ChocrotaryTotalLabelMask @"%d projects, %d tasks here (%d tasks everywhere)"
 
 @class ChocrotaryTaskTableViewController;
 

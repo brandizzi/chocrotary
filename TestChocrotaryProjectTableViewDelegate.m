@@ -403,34 +403,34 @@
 	NSMutableIndexSet *index = [[NSIndexSet alloc] 
 								initWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	NSString *expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 1, 10];
+	NSString *expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 1, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Scheduled for today
 	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceScheduledForToday];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 1, 10];
+	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 1, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Scheduled
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceScheduled];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 10];
+	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 2, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Project 1
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 3, 10];
+	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 3, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Project 2
 	index = [[NSIndexSet alloc] 
 			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
-	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 4, 10];
+	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 4, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	remove("fluflufile");
