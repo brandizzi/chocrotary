@@ -19,20 +19,16 @@
  * You can get the latest version of this file at 
  * http://bitbucket.org/brandizzi/chocrotary/
  */
-//  TestChocrotaryProjectTableViewDelecate.h
-//  Secretary
-//  Created by Adam Victor Nazareth Brandizzi on 04/07/11.
-//  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
+/*
+ *  ChocrotarySecretaryPerspectives.h
+ *  Secretary
+ *
+ *  Created by Adam Victor Nazareth Brandizzi on 05/07/11.
+ *  Copyright 2011 __MyCompanyName__. All rights reserved.
+ *
+ */
 
-#import <SenTestingKit/SenTestingKit.h>
-
-
-@interface TestChocrotaryProjectTableViewDelegate : SenTestCase {
-	
-}
--(void) testChangePerspectiveToInbox;
--(void) testChangePerspectiveToScheduled;
--(void) testChangePerspectiveToScheduledForToday;
--(void) testChangePerspectiveToProject;
--(void) testChangeTotalLabel;
-@end
+#import  "ChocrotarySecretaryInboxPerspective.h"
+#import  "ChocrotarySecretaryProjectPerspective.h"
+#import  "ChocrotarySecretaryScheduledPerspective.h"
+#import  "ChocrotarySecretaryScheduledForTodayPerspective.h"

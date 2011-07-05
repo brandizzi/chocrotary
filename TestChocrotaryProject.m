@@ -36,20 +36,20 @@
 	Project *wrapped = project_new("Project");
 	ChocrotaryProject *project = [ChocrotaryProject projectWithProjectStruct:wrapped];
 	STAssertEquals([project wrappedProject], wrapped, @"Should be the same");
-	STAssertEqualObjects([project name], @"Project", @"Should be given name");
+	STAssertEqualObjects([project projectName], @"Project", @"Should be given name");
 	STAssertEquals([project countTasks], 0L, @"Should have no task");
 }
 -(void) testChangeName {
 	Project *wrapped = project_new("Project");
 	ChocrotaryProject *project = [ChocrotaryProject projectWithProjectStruct:wrapped];
-	STAssertEqualObjects([project name], @"Project", @"Should be given name");
+	STAssertEqualObjects([project projectName], @"Project", @"Should be given name");
 	
-	[project setName:@"Chocrotary"];
-	STAssertEqualObjects([project name], @"Chocrotary", @"Should be given name");
+	[project setProjectName:@"Chocrotary"];
+	STAssertEqualObjects([project projectName], @"Chocrotary", @"Should be given name");
 	STAssertEquals(strcmp(project_get_name(wrapped), "Chocrotary"), 0, @"Should change the name");
 	
 	project_set_name(wrapped, "libsecretary");
-	STAssertEqualObjects([project name], @"libsecretary", @"Should be given name");
+	STAssertEqualObjects([project projectName], @"libsecretary", @"Should be given name");
 				   
 }
 -(void) testAddRemoveTask {
@@ -92,9 +92,9 @@
 	[project attachProjectObserver:stub];
 	STAssertEquals([stub countProjectUpdates], 0L, @"No update");
 	
-	[project setName:@"Project rebranded!"];
+	[project setProjectName:@"Project rebranded!"];
 	STAssertEquals([stub countProjectUpdates], 1L, @"1 update so far");
-	[project name];
+	[project projectName];
 	STAssertEquals([stub countProjectUpdates], 1L, @"No more updates for now");
 	
 	Task *wrappedTask = task_new(0, "Create ChocrotaryProject wrapper class");
@@ -114,9 +114,9 @@
 	[project detachProjectObserver:stub];
 	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
 	
-	[project setName:@"Project rebranded!"];
+	[project setProjectName:@"Project rebranded!"];
 	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
-	[project name];
+	[project projectName];
 	STAssertEquals([stub countProjectUpdates], 4L, @"No more updates for dettached object");
 	
 	[project addTask:task];

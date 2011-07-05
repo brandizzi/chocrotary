@@ -51,7 +51,7 @@
 		default:
 			if (row < [secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
 				ChocrotaryProject *project = [secretary getNthProject: row-ChocrotaryProjectTableViewDataSourceFirstProject];
-				return [project name];
+				return [project projectName];
 			}
 			break;
 	}
@@ -62,7 +62,7 @@
 	ChocrotarySecretary *secretary = [controller secretary];
 	if (row < [secretary countProjects]+ChocrotaryProjectTableViewDataSourceFirstProject) {
 		ChocrotaryProject *project = [secretary getNthProject:row-ChocrotaryProjectTableViewDataSourceFirstProject];
-		[project setName:name];
+		[project setProjectName:name];
 	}
 	[controller reloadMenuOfProjects];
 	[controller save];

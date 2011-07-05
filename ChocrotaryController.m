@@ -25,18 +25,14 @@
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
 
 #import "ChocrotaryController.h"
-#import "ChocrotaryProjectTableViewDataSource.h"
-#import "ChocrotaryTaskTableViewController.h"
-#import "ChocrotarySecretaryInboxPerspective.h"
-#import "ChocrotarySecretaryScheduledPerspective.h"
-#import "ChocrotarySecretaryScheduledForTodayPerspective.h"
-#import "ChocrotarySecretaryProjectPerspective.h"
+#import "ChocrotarySecretaryPerspectives.h"
+#import "ChocrotaryProjectTableViewController.h"
 #import "ChocrotaryTaskTableViewController.h"
 
 
 @implementation ChocrotaryController
 
-@synthesize projectTableView, taskTableView, taskTableViewDataSource, secretary, 
+@synthesize projectTableView, taskTableView, taskTableViewController, secretary, notebook,
 	projectArray, projectsMenu, totalLabel;
 
 -(id)init {
@@ -56,7 +52,7 @@
 }
 
 -(void) awakeFromNib {
-	NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
+	NSIndexSet *indexes = [NSIndexSet indexSetWithIndex:ChocrotaryProjectTableViewControllerInbox];
 	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
 	[self reloadMenuOfProjects];
 }
@@ -74,7 +70,7 @@
 	[item setTag:-1];
 	for (int i = 0; i < [secretary countProjects]; i++) {
 		ChocrotaryProject *project = [secretary getNthProject:i];
-		NSString *projectName = [project name];
+		NSString *projectName = [project projectName];
 		[projectArray addObject:projectName];
 		item = [projectsMenu addItemWithTitle:projectName action:nil keyEquivalent:@""];
 		[item setTag:i];
@@ -89,11 +85,14 @@
 }
 
 -(IBAction) addTask:(id)sender {
-	[taskTableViewDataSource.perspective addTask];
+	[taskTableViewController.perspective addTask];
 	[taskTableView reloadData];
 	NSInteger lastRow = [taskTableView numberOfRows]-1;
 	[taskTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
 	[taskTableView editColumn:1 row:lastRow withEvent:nil select:YES];
+	
+#warning Let us execute this update with observers!
+	[self updateTotalLabel];
 }
 
 -(IBAction) removeTask:(id)sender {
@@ -106,13 +105,18 @@
 		[secretary deleteTask:task];
 		index = [indexes indexGreaterThanIndex:index];
 	}
+#warning Let us execute this update with observers!
+	[self updateTotalLabel];
 	[taskTableView reloadData];
 	[self save];
 }
 
 -(IBAction) archiveTasksOfCurrentPerspective:(id)sender {
-	[taskTableViewDataSource.perspective archiveAllDoneTasks];
+	[taskTableViewController.perspective archiveAllDoneTasks];
 	[taskTableView reloadData];
+
+#warning Let us execute this update with observers!
+	[self updateTotalLabel];
 	[self save];
 }
 
@@ -122,26 +126,29 @@
 	NSInteger lastRow = [projectTableView numberOfRows]-1;
 	[projectTableView selectRowIndexes:[NSIndexSet indexSetWithIndex:lastRow] byExtendingSelection:NO];
 	[projectTableView editColumn:0 row:lastRow withEvent:nil select:YES];
+
+#warning Let us execute this update with observers!
+	[self updateTotalLabel];
 	[self reloadMenuOfProjects];
 }
 
 -(IBAction) removeProject:(id)sender {
 	NSIndexSet* indexes = [projectTableView selectedRowIndexes];
 	NSInteger index = [indexes firstIndex], greater = index;
-	while (index != NSNotFound && index >= ChocrotaryProjectTableViewDataSourceFirstProject) {
+	while (index != NSNotFound && index >= ChocrotaryProjectTableViewControllerFirstProject) {
 		if (index > greater) {
 			greater = index;
 		}
 		ChocrotaryProject *project = [secretary 
-									  getNthProject: index-ChocrotaryProjectTableViewDataSourceFirstProject];
+									  getNthProject: index-ChocrotaryProjectTableViewControllerFirstProject];
 		[secretary deleteProject:project];
 		index = [indexes indexGreaterThanIndex:index];
 	}
-
+	
 	[self save];	
 
 	NSInteger projects = [notebook.secretary countProjects],
-	numberOfRows = projects+ChocrotaryProjectTableViewDataSourceFirstProject;
+	numberOfRows = projects+ChocrotaryProjectTableViewControllerFirstProject;
 	indexes = [NSIndexSet indexSetWithIndex:0];
 	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
 	if (greater >= numberOfRows) {
@@ -151,16 +158,17 @@
 	}
 	[projectTableView selectRowIndexes:indexes byExtendingSelection:NO];
 	[projectTableView reloadData];
+#warning Let us execute this update with observers!
+	[self updateTotalLabel];
 	[self reloadMenuOfProjects];
-	
 }
 
--(IBAction) reconfigureTaskTable:(id)sender {
+-(void) reconfigureTaskTable {
 	[taskTableView reloadData];
 }
 
 -(void) updateTotalLabel {
-	ChocrotarySecretaryPerspective *perspective = taskTableViewDataSource.perspective;
+	ChocrotarySecretaryPerspective *perspective = taskTableViewController.perspective;
 	NSString *totals = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 
 						[secretary countProjects], [perspective countTasks], [secretary countTasks]];
 	[totalLabel setStringValue:totals];

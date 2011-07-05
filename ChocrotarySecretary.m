@@ -73,7 +73,7 @@
 }
 
 -(NSInteger) countTasks {
-	return secretary_count_tasks(secretary);
+	return secretary_count_tasks(secretary, false);
 }
 
 -(ChocrotaryTask*) getNthTask:(NSInteger)n {

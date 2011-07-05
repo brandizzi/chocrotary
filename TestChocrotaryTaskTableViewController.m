@@ -25,15 +25,12 @@
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
 
 #import "TestChocrotaryTaskTableViewController.h"
-#import "ChocrotaryTaskTableViewController.h"
+#import "ChocrotaryTestUtils.h"
 #import "ChocrotaryNotebook.h"
 #import "ChocrotaryController.h"
-#import "ChocrotarySecretaryInboxPerspective.h"
-#import "ChocrotarySecretaryScheduledPerspective.h"
-#import "ChocrotarySecretaryScheduledForTodayPerspective.h"
-#import "ChocrotarySecretaryProjectPerspective.h"
-#import "ChocrotaryProjectTableViewDataSource.h"
-#import "ChocrotaryProjectTableViewDelegate.h"
+#import "ChocrotarySecretaryPerspectives.h"
+#import "ChocrotaryTaskTableViewController.h"
+#import "ChocrotaryProjectTableViewController.h"
 
 @implementation TestChocrotaryTaskTableViewController
 -(void) testInboxTasks {
@@ -262,31 +259,19 @@
 	// Finally!!!
 
 	ChocrotaryTaskTableViewController *taskController= [ChocrotaryTaskTableViewController new];
-	
-	ChocrotaryProjectTableViewDataSource *projectDataSource =
-	[[ChocrotaryProjectTableViewDataSource alloc] init];
-	ChocrotaryProjectTableViewDelegate *projectDelegate =
-	[[ChocrotaryProjectTableViewDelegate alloc] init];
-	
-	
-	// Here controller will be needed
-	projectDataSource.controller = controller;
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
+
 	
 	[taskTableView setDelegate:taskController];
 	[taskTableView setDataSource:taskController];
 	
 	[controller setTaskTableView:taskTableView];
 	[controller setProjectTableView:projectTableView];
-	[controller setTaskTableViewDataSource:taskController];
+	[controller setTaskTableViewController:taskController];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] 
-						 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+						 initWithIndex:ChocrotaryProjectTableViewControllerFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	// The actually relevant part is here
@@ -295,7 +280,7 @@
 	STAssertEqualObjects([projectCell titleOfSelectedItem], @"A project", @"Should be the first project");
 	
 	index = [[NSIndexSet alloc] 
-			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+			 initWithIndex:ChocrotaryProjectTableViewControllerFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	// The actually relevant part is here
 	[taskController tableView:taskTableView willDisplayCell:projectCell 
@@ -351,37 +336,24 @@
 	// Finally!!!
 	
 	ChocrotaryTaskTableViewController *taskController= [ChocrotaryTaskTableViewController new];
-	
-	ChocrotaryProjectTableViewDataSource *projectDataSource =
-	[[ChocrotaryProjectTableViewDataSource alloc] init];
-	ChocrotaryProjectTableViewDelegate *projectDelegate =
-	[[ChocrotaryProjectTableViewDelegate alloc] init];
-	
-	
-	// Here controller will be needed
-	projectDataSource.controller = controller;
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
 	
 	[taskTableView setDelegate:taskController];
 	[taskTableView setDataSource:taskController];
 	[controller setTaskTableView:taskTableView];
 	[controller setProjectTableView:projectTableView];
-	[controller setTaskTableViewDataSource:taskController];
+	[controller setTaskTableViewController:taskController];
 	
 	NSIndexSet *index = [[NSIndexSet alloc] 
-						 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+						 initWithIndex:ChocrotaryProjectTableViewControllerFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	// Verifying if tasks are correctly associated to projects
 	[taskController tableView:taskTableView willDisplayCell:projectCell   forTableColumn:column row:0];
 
 	STAssertEqualObjects([projectCell titleOfSelectedItem], @"A project", @"Should be the first project");
 	STAssertEquals([taskTableView numberOfRows], 1L, @"Should should have only one");
-	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewControllerFirstProject+1];
 
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	[taskController tableView:taskTableView willDisplayCell:projectCell  forTableColumn:column row:0];
@@ -389,7 +361,7 @@
 	STAssertEquals([taskTableView numberOfRows], 1L, @"Should should have only one");
 	
 	// Now let us edit the project of a task
-	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewControllerFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	NSNumber *number = [[NSNumber alloc] initWithInteger:2];
 	
@@ -400,7 +372,7 @@
 	// Should have no more tasks
 	STAssertEquals([taskTableView numberOfRows], 0L, @"Should no task");
 	// Looking at other project
-	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewControllerFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	// There should be two tasks
 	STAssertEquals([taskTableView numberOfRows], 2L, @"Should two tasks");

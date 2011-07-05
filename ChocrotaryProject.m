@@ -54,11 +54,11 @@
 	return project;
 }
 
--(NSString*) name {
+-(NSString*) projectName {
 	return [NSString stringWithUTF8String:project_get_name(project)];
 }
 
--(void)setName:(NSString*) aName {
+-(void)setProjectName:(NSString*) aName {
 	project_set_name(project, [aName UTF8String]);
 	[self notifyProjectObservers];
 }

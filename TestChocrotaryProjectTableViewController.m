@@ -19,19 +19,19 @@
  * You can get the latest version of this file at 
  * http://bitbucket.org/brandizzi/chocrotary/
  */
-//  TestChocrotaryProjectTableViewDelecate.m
+//  TestChocrotaryProjectTableViewController.m
 //  Secretary
 //  Created by Adam Victor Nazareth Brandizzi on 04/07/11.
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
 
-#import "TestChocrotaryProjectTableViewDelegate.h"
+#import "TestChocrotaryProjectTableViewController.h"
+#import "ChocrotaryTestUtils.h"
 #import "ChocrotaryController.h"
-#import "ChocrotaryProjectTableViewDataSource.h"
-#import "ChocrotaryProjectTableViewDelegate.h"
+#import "ChocrotaryProjectTableViewController.h"
 #import "ChocrotaryTaskTableViewController.h"
 
 
-@implementation TestChocrotaryProjectTableViewDelegate
+@implementation TestChocrotaryProjectTableViewController
 
 -(void) testChangePerspectiveToInbox {
 	// Content
@@ -55,24 +55,18 @@
 	
 	// Project table veiw
 	NSTableView *projectTableView = [NSTableView new];
-	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
-	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
-	
-	[projectDataSource setController:controller];
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
+
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
+
 	
 	// Task table view
 	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
-	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableViewController:taskDataSource];
 	
 	// Not let us go! INBOX
 	NSMutableIndexSet *index = [[NSIndexSet alloc] 
-								initWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
+								initWithIndex:ChocrotaryProjectTableViewControllerInbox];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	NSTableColumn *column = [NSTableColumn new];
@@ -122,24 +116,16 @@
 	
 	// Project table veiw
 	NSTableView *projectTableView = [NSTableView new];
-	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
-	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
-	
-	[projectDataSource setController:controller];
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
 	
 	// Task table view
 	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
-	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableViewController:taskDataSource];
 	
 	// Not let us go!
 	NSMutableIndexSet *index = [[NSIndexSet alloc] 
-								initWithIndex:ChocrotaryProjectTableViewDataSourceScheduled];
+								initWithIndex:ChocrotaryProjectTableViewControllerScheduled];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	// Verifying values
@@ -212,24 +198,18 @@
 	
 	// Project table veiw
 	NSTableView *projectTableView = [NSTableView new];
-	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
-	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
+
 	
-	[projectDataSource setController:controller];
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
 	
 	// Task table view
 	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
-	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableViewController:taskDataSource];
 	
 	// Not let us go!
 	NSMutableIndexSet *index = [[NSIndexSet alloc] 
-								initWithIndex:ChocrotaryProjectTableViewDataSourceScheduledForToday];
+								initWithIndex:ChocrotaryProjectTableViewControllerScheduledForToday];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	// Verifying values
@@ -280,24 +260,17 @@
 	
 	// Project table veiw
 	NSTableView *projectTableView = [NSTableView new];
-	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
-	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
-	
-	[projectDataSource setController:controller];
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
+
 	
 	// Task table view
 	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
-	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableViewController:taskDataSource];
 	
 	// Not let us go!
 	NSMutableIndexSet *index = [[NSIndexSet alloc] 
-								initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+								initWithIndex:ChocrotaryProjectTableViewControllerFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	// Verifying values
@@ -315,7 +288,7 @@
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
 	NSString *projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
 	STAssertNotNil(projectName, @" project column should be Not nil");
-	STAssertEqualObjects(projectName, [[project1Task project] name], @"Should have no project");
+	STAssertEqualObjects(projectName, [[project1Task project] projectName], @"Should have no project");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
 	NSString *when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0L];
@@ -323,7 +296,7 @@
 	STAssertEqualObjects(when, @"", @"Should be the scheduled one");
 	
 	// Second row
-	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewControllerFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	
 	[column	setIdentifier:ChocrotaryTaskTableColumnDone];
@@ -339,7 +312,7 @@
 	[column setIdentifier:ChocrotaryTaskTableColumnProject];
 	projectName = [taskDataSource tableView:nil objectValueForTableColumn:column row:0];
 	STAssertNotNil(projectName, @" project column should be Not nil");
-	STAssertEqualObjects(projectName, [[project2Task project] name], @"Should have no project");
+	STAssertEqualObjects(projectName, [[project2Task project] projectName], @"Should have no project");
 	
 	[column setIdentifier:ChocrotaryTaskTableColumnScheduled];
 	when = [taskDataSource tableView:nil objectValueForTableColumn:column row:0];
@@ -384,51 +357,43 @@
 	
 	// Project table veiw
 	NSTableView *projectTableView = [NSTableView new];
-	ChocrotaryProjectTableViewDataSource *projectDataSource = [ChocrotaryProjectTableViewDataSource new];
-	ChocrotaryProjectTableViewDelegate *projectDelegate = [ChocrotaryProjectTableViewDelegate new];
-	
-	[projectDataSource setController:controller];
-	
-	[projectDelegate setController:controller];
-	[projectDelegate setTableView:projectTableView];
-	
-	[projectTableView setDataSource:projectDataSource];
-	[projectTableView setDelegate:projectDelegate];
+	/*ChocrotaryProjectTableViewController *projectController = */
+	TestGetChocrotaryProjectTableViewController(controller, projectTableView);
 	
 	// Task table view
 	ChocrotaryTaskTableViewController *taskDataSource = [ChocrotaryTaskTableViewController new];
-	[controller setTaskTableViewDataSource:taskDataSource];
+	[controller setTaskTableViewController:taskDataSource];
 	
 	// Now let us go! INBOX
 	NSMutableIndexSet *index = [[NSIndexSet alloc] 
-								initWithIndex:ChocrotaryProjectTableViewDataSourceInbox];
+								initWithIndex:ChocrotaryProjectTableViewControllerInbox];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	NSString *expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 1, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Scheduled for today
-	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewDataSourceScheduledForToday];
+	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewControllerScheduledForToday];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 1, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Scheduled
 	index = [[NSIndexSet alloc] 
-			 initWithIndex:ChocrotaryProjectTableViewDataSourceScheduled];
+			 initWithIndex:ChocrotaryProjectTableViewControllerScheduled];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 2, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Project 1
 	index = [[NSIndexSet alloc] 
-			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject];
+			 initWithIndex:ChocrotaryProjectTableViewControllerFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 3, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");
 	
 	// Project 2
 	index = [[NSIndexSet alloc] 
-			 initWithIndex:ChocrotaryProjectTableViewDataSourceFirstProject+1];
+			 initWithIndex:ChocrotaryProjectTableViewControllerFirstProject+1];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
 	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 4, 10];
 	STAssertEqualObjects([controller.totalLabel stringValue], expected, @"Not as expected");

@@ -19,27 +19,20 @@
  * You can get the latest version of this file at 
  * http://bitbucket.org/brandizzi/chocrotary/
  */
-//  TestChocrotaryController.h
+//  TestChocrotaryProjectTableViewController.h
 //  Secretary
-//  Created by Adam Victor Nazareth Brandizzi on 05/04/11.
+//  Created by Adam Victor Nazareth Brandizzi on 04/07/11.
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
 
 #import <SenTestingKit/SenTestingKit.h>
 
 
-@interface TestChocrotaryController : SenTestCase {
-
+@interface TestChocrotaryProjectTableViewController : SenTestCase {
+	
 }
-
--(void) testUpdateProjectsMenu;
--(void) testAddTaskInbox;
--(void) testAddTaskScheduled;
--(void) testAddTaskScheduledForToday;
--(void) testAddTaskProject;
--(void) testRemoveTask;
--(void) testArchive;
--(void) testRemoveProject;
--(void) testUpdateTotalLabelAddingRemovingTask;
--(void) testUpdateTotalLabelArchivingTask;
--(void) testUpdateTotalLabelAddingRemovingProject;
+-(void) testChangePerspectiveToInbox;
+-(void) testChangePerspectiveToScheduled;
+-(void) testChangePerspectiveToScheduledForToday;
+-(void) testChangePerspectiveToProject;
+-(void) testChangeTotalLabel;
 @end

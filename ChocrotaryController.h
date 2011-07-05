@@ -25,8 +25,8 @@
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
 
 #import <Cocoa/Cocoa.h>
-#import <secretary/secretary.h>
 #import "ChocrotaryNotebook.h"
+#import "ChocrotaryProject.h"
 #import "ChocrotaryTableViewDataSource.h"
 
 #define ChocrotaryControllerNoProject (-1L)
@@ -43,7 +43,7 @@
 	IBOutlet NSMenu *projectsMenu;
 	IBOutlet NSTextField *totalLabel;
 	
-	IBOutlet ChocrotaryTaskTableViewController *taskTableViewDataSource;
+	IBOutlet ChocrotaryTaskTableViewController *taskTableViewController;
 
 	// DEPRECATED!!!
 	IBOutlet NSMutableArray *projectArray;
@@ -52,12 +52,13 @@
 }
 
 @property(readonly) ChocrotarySecretary *secretary;
+@property(readonly) ChocrotaryNotebook *notebook;
 
 @property(readwrite,assign) NSTableView* taskTableView;
 @property(readwrite,assign) NSTableView* projectTableView;
 @property(readwrite,assign) NSTextField* totalLabel;
 
-@property(readwrite,assign) ChocrotaryTaskTableViewController *taskTableViewDataSource;
+@property(readwrite,assign) ChocrotaryTaskTableViewController *taskTableViewController;
 
 
 // DEPRECATED
@@ -68,9 +69,9 @@
 -(id) initWithNotebook:(ChocrotaryNotebook*) n;
 -(void) awakeFromNib;
 
--(void)save;
 -(void)reloadMenuOfProjects;
 -(void) updateTotalLabel;
+-(void) reconfigureTaskTable;
 
 -(IBAction) addTask:(id)sender;
 -(IBAction) removeTask:(id)sender;
@@ -78,6 +79,6 @@
 -(IBAction) addProject:(id)sender;
 -(IBAction) removeProject:(id)sender;
 
--(IBAction) reconfigureTaskTable:(id)sender;
+
 
 @end

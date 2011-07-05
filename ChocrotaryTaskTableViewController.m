@@ -19,7 +19,7 @@
  * You can get the latest version of this file at 
  * http://bitbucket.org/brandizzi/chocrotary/
  */
-//  ChocrotaryTaskTableViewDataSource.m
+//  ChocrotaryTaskTableViewController.m
 //  Secretary
 //  Created by Adam Victor Nazareth Brandizzi on 06/05/11.
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.
@@ -77,7 +77,7 @@
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnProject]) {
 		ChocrotaryProject *project = [task project];
 		if (project != NULL) {
-			return [project name];
+			return [project projectName];
 		} else {
 			return @"";
 		}
@@ -121,8 +121,10 @@
 		}
 		
 	}
-	[[self controller] reloadMenuOfProjects];
-	[[self controller] save];
+#warning use observer to call these methods
+	[controller reloadMenuOfProjects];
+	[[controller notebook] save];
+	//[controller updateTotalLabel];
 	[aTableView reloadData];
 }
 
@@ -137,7 +139,7 @@
 		NSPopUpButtonCell *projectPopUpButton = cell;
 		NSString *selected = @"";
 		if (project) {
-			selected = [project name];
+			selected = [project projectName];
 		}
 		[projectPopUpButton selectItemWithTitle:selected];
 	}

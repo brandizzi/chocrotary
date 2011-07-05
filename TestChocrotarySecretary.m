@@ -202,7 +202,7 @@
 	ChocrotaryProject *project = [secretary createProject:@"a project"];
 	STAssertEquals([stub countProjectUpdates], 1L, @"Now should have one task update");
 	
-	[project setName:@"better description"];
+	[project setProjectName:@"better description"];
 	STAssertEquals([stub countProjectUpdates], 2L, @"Now should have one task update");
 	
 	ChocrotaryTask *task = [secretary createTask:@"a task"];

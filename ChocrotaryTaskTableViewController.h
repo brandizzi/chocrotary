@@ -19,7 +19,7 @@
  * You can get the latest version of this file at 
  * http://bitbucket.org/brandizzi/chocrotary/
  */
-//  ChocrotaryTaskTableViewDataSource.h
+//  ChocrotaryTaskTableViewController.h
 //  Secretary
 //  Created by Adam Victor Nazareth Brandizzi on 06/05/11.
 //  Copyright 2011 Adam Victor Nazareth Brandizzi. All rights reserved.

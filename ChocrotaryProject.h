@@ -40,8 +40,8 @@
 +(id)projectWithProjectStruct:(Project*) aProject;
 -(Project*) wrappedProject;
 
--(NSString*) name;
--(void)setName:(NSString*) aName;
+-(NSString*) projectName;
+-(void)setProjectName:(NSString*) aName;
 
 -(NSInteger) countTasks;
 -(ChocrotaryTask*) getNthTask:(NSInteger) index;
