@@ -36,15 +36,15 @@
 	ChocrotaryTask *task3 =[secretary createTask:@"Buy pequi"];
 	
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
-	[project addTask:task1];
-	[task2 scheduleFor:[NSDate date]];
+	[secretary moveTask:task1 toProject:project];
+	[secretary scheduleTask:task2 forDate:[NSDate date]];
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
-	[task3 scheduleFor:future];
+	[secretary scheduleTask:task3 forDate:future];
 	
 	ChocrotarySecretaryPerspective *scheduledPerspective = [[ChocrotarySecretaryScheduledPerspective alloc] initWithChocrotarySecretary:secretary];
 	STAssertEquals([scheduledPerspective countTasks], 2L, @"Should have two task scheduled");
-	STAssertEquals([scheduledPerspective getNthTask:0], task2, @"Should be task 2");
-	STAssertEquals([scheduledPerspective getNthTask:1], task3, @"Should be task 3");
+	STAssertEqualObjects([scheduledPerspective getNthTask:0], task2, @"Should be task 2");
+	STAssertEqualObjects([scheduledPerspective getNthTask:1], task3, @"Should be task 3");
 	
 }
 -(void) testArchive {
@@ -55,28 +55,29 @@
 	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
 	
 	NSDate *date = [NSDate dateWithTimeIntervalSinceNow:24*60*60*30];
-	[task1 scheduleFor:date];
-	[task2 scheduleFor:date];
-	[task3 scheduleFor:date];
+	
+	[secretary scheduleTask:task1 forDate:date];
+	[secretary scheduleTask:task2 forDate:date];
+	[secretary scheduleTask:task3 forDate:date];
 	[task2 markAsDone];
 	
 	STAssertEquals([secretary countScheduledTasks], 3L, @"Should have three sch tasks");
-	STAssertEquals([secretary getNthScheduledTask:0], task1, @"Task 1 should be a task sch");
-	STAssertEquals([secretary getNthScheduledTask:1], task2, @"Task 2 should be a task sch");
-	STAssertEquals([secretary getNthScheduledTask:2], task3, @"Task 1 should be a task sch");
+	STAssertEqualObjects([secretary getNthScheduledTask:0], task1, @"Task 1 should be a task sch");
+	STAssertEqualObjects([secretary getNthScheduledTask:1], task2, @"Task 2 should be a task sch");
+	STAssertEqualObjects([secretary getNthScheduledTask:2], task3, @"Task 1 should be a task sch");
 	
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryScheduledPerspective newWithSecretary:secretary];
 	STAssertEquals([perspective countTasks], 3L, @"Should have one task");
-	STAssertEquals([perspective getNthTask:0], task1, @"Should be task 1");
-	STAssertEquals([perspective getNthTask:1], task2, @"Should be task 2");
-	STAssertEquals([perspective getNthTask:2], task3, @"Should be task 3");
+	STAssertEqualObjects([perspective getNthTask:0], task1, @"Should be task 1");
+	STAssertEqualObjects([perspective getNthTask:1], task2, @"Should be task 2");
+	STAssertEqualObjects([perspective getNthTask:2], task3, @"Should be task 3");
 	
 	[perspective archiveAllDoneTasks];
 	
 	
 	STAssertEquals([secretary countScheduledTasks], 2L, @"Should have two tasks in inbox");
-	STAssertEquals([secretary getNthScheduledTask:0], task1, @"Task 1 should be a task sch");
-	STAssertEquals([secretary getNthScheduledTask:1], task3, @"Task 3 should be the task sch");
+	STAssertEqualObjects([secretary getNthScheduledTask:0], task1, @"Task 1 should be a task sch");
+	STAssertEqualObjects([secretary getNthScheduledTask:1], task3, @"Task 3 should be the task sch");
 	
 }
 

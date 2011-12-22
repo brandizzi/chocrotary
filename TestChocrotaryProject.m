@@ -53,8 +53,8 @@
 				   
 }
 -(void) testAddRemoveTask {
-	Task *wrappedTask1 = task_new(0, "Create ChocrotaryProject wrapper class"),
-		 *wrappedTask2 = task_new(1, "Use ChocrotaryProject elsewhere");
+	Task *wrappedTask1 = task_new("Create ChocrotaryProject wrapper class"),
+		 *wrappedTask2 = task_new("Use ChocrotaryProject elsewhere");
 	ChocrotaryTask *task1 = [ChocrotaryTask taskWithTaskStruct:wrappedTask1],
 				   *task2 = [ChocrotaryTask taskWithTaskStruct:wrappedTask2];
 	
@@ -97,7 +97,7 @@
 	[project projectName];
 	STAssertEquals([stub countProjectUpdates], 1L, @"No more updates for now");
 	
-	Task *wrappedTask = task_new(0, "Create ChocrotaryProject wrapper class");
+	Task *wrappedTask = task_new("Create ChocrotaryProject wrapper class");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:wrappedTask];
 	
 	[project addTask:task];
@@ -129,9 +129,9 @@
 }
 
 -(void) testArchive {
-	Task *wrappedTask1 = task_new(0, "Create ChocrotaryProject wrapper class"),
-		*wrappedTask2 = task_new(1, "Use ChocrotaryProject elsewhere"),
-		*wrappedTask3 = task_new(2, "Use ChocrotaryProject elsewhere");
+	Task *wrappedTask1 = task_new("Create ChocrotaryProject wrapper class"),
+		*wrappedTask2 = task_new("Use ChocrotaryProject elsewhere"),
+		*wrappedTask3 = task_new("Use ChocrotaryProject elsewhere");
 	ChocrotaryTask *task1 = [ChocrotaryTask taskWithTaskStruct:wrappedTask1],
 		*task2 = [ChocrotaryTask taskWithTaskStruct:wrappedTask2],
 		*task3 = [ChocrotaryTask taskWithTaskStruct:wrappedTask3];	

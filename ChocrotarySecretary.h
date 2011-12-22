@@ -63,6 +63,17 @@
 -(void) archiveDoneScheduledTasks;
 -(void) archiveDoneTasksScheduledForToday;
 
+// For processing tasks
+-(void) scheduleTask:(ChocrotaryTask*) task forDate:(NSDate*)date;
+-(void) unscheduleTask:(ChocrotaryTask*) task;
+-(void) moveTask:(ChocrotaryTask*) task toProject:(ChocrotaryProject*) project;
+-(void) removeTaskFromProject:(ChocrotaryTask*) task;
+
+
+-(void) archiveTask:(ChocrotaryTask*) task;
+-(void) archiveTasksFromProject:(ChocrotaryProject*)project;
+
+
 // For retrieving a ChocrotaryTask wrapping a Task
 -(ChocrotaryTask*)wrapperForTask:(Task*) aTask;
 

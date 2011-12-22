@@ -29,6 +29,7 @@
 		032B7C44136A5CB400AF7DBA /* ChocrotaryProject.m in Sources */ = {isa = PBXBuildFile; fileRef = 032B7C43136A5CB400AF7DBA /* ChocrotaryProject.m */; };
 		032DE06213C347E50016A781 /* ChocrotaryProjectTableViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 032DE06113C347E50016A781 /* ChocrotaryProjectTableViewController.m */; };
 		032DE0AF13C358280016A781 /* ChocrotaryTestUtils.m in Sources */ = {isa = PBXBuildFile; fileRef = 032DE0AE13C358280016A781 /* ChocrotaryTestUtils.m */; };
+		0353357814A2D1B300A30E5E /* Cocoa.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0353357714A2D1B300A30E5E /* Cocoa.framework */; };
 		036E2D131365122B00FA983E /* ChocrotarySecretaryInboxPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E2D081365122B00FA983E /* ChocrotarySecretaryInboxPerspective.m */; };
 		036E2D161365122B00FA983E /* ChocrotarySecretaryScheduledForTodayPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E2D0E1365122B00FA983E /* ChocrotarySecretaryScheduledForTodayPerspective.m */; };
 		036E2D171365122B00FA983E /* ChocrotarySecretaryScheduledPerspective.m in Sources */ = {isa = PBXBuildFile; fileRef = 036E2D101365122B00FA983E /* ChocrotarySecretaryScheduledPerspective.m */; };
@@ -94,6 +95,7 @@
 		032DE06D13C349460016A781 /* ChocrotarySecretaryPerspectives.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotarySecretaryPerspectives.h; sourceTree = "<group>"; };
 		032DE0AD13C358280016A781 /* ChocrotaryTestUtils.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTestUtils.h; sourceTree = "<group>"; };
 		032DE0AE13C358280016A781 /* ChocrotaryTestUtils.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ChocrotaryTestUtils.m; sourceTree = "<group>"; };
+		0353357714A2D1B300A30E5E /* Cocoa.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Cocoa.framework; path = System/Library/Frameworks/Cocoa.framework; sourceTree = SDKROOT; };
 		036A5C961334564B00DD767E /* ChocrotaryTableViewDataSource.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChocrotaryTableViewDataSource.h; sourceTree = "<group>"; };
 		036E2D071365122B00FA983E /* ChocrotarySecretaryInboxPerspective.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = ChocrotarySecretaryInboxPerspective.h; path = ../Chocrotary/ChocrotarySecretaryInboxPerspective.h; sourceTree = SOURCE_ROOT; };
 		036E2D081365122B00FA983E /* ChocrotarySecretaryInboxPerspective.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = ChocrotarySecretaryInboxPerspective.m; path = ../Chocrotary/ChocrotarySecretaryInboxPerspective.m; sourceTree = SOURCE_ROOT; };
@@ -157,6 +159,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0353357814A2D1B300A30E5E /* Cocoa.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -362,6 +365,7 @@
 				29B97323FDCFA39411CA2CEA /* Frameworks */,
 				19C28FACFE9D520D11CA2CBB /* Products */,
 				03D17870132C00A9004F43A1 /* Unit Tests-Info.plist */,
+				0353357714A2D1B300A30E5E /* Cocoa.framework */,
 			);
 			comments = "/**\n * Secretary for Mac OS X (aka Chocrotary): a Objective-C-written, \n * Cocoa-based todo list manager\n * Copyright (C) 2011  Adam Victor Nazareth Brandizzi <brandizzi@gmail.com>\n * \n * This program is free software: you can redistribute it and/or modify\n * it under the terms of the GNU General Public License as published by\n * the Free Software Foundation, either version 3 of the License, or\n * (at your option) any later version.\n * \n * This program is distributed in the hope that it will be useful,\n * but WITHOUT ANY WARRANTY; without even the implied warranty of\n * MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the\n * GNU General Public License for more details.\n * \n * You should have received a copy of the GNU General Public License\n * along with this program.  If not, see <http://www.gnu.org/licenses/>.\n *\n * You can get the latest version of this file at \n * http://bitbucket.org/brandizzi/chocrotary/\n */";
 			name = Chocrotary;
@@ -619,9 +623,10 @@
 		03D17871132C00A9004F43A1 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_ENABLE_FIX_AND_CONTINUE = NO;
@@ -630,16 +635,23 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = (
+					"./**",
+					"/usr/local/include//**",
+				);
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					.,
+					/usr/local/lib,
+				);
 				OTHER_CFLAGS = "-g";
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
 					"-framework",
 					SenTestingKit,
-					../lib/libsecretary.a,
+					"-lsecretary",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
@@ -651,7 +663,8 @@
 		03D17872132C00A9004F43A1 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
-				ALWAYS_SEARCH_USER_PATHS = NO;
+				ALWAYS_SEARCH_USER_PATHS = YES;
+				BUNDLE_LOADER = "$(TEST_HOST)";
 				COPY_PHASE_STRIP = YES;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				FRAMEWORK_SEARCH_PATHS = "$(DEVELOPER_LIBRARY_DIR)/Frameworks";
@@ -660,18 +673,26 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = (
+					"./**",
+					"/usr/local/include//**",
+				);
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
+				LIBRARY_SEARCH_PATHS = (
+					.,
+					/usr/local/lib,
+				);
 				OTHER_LDFLAGS = (
 					"-framework",
 					Cocoa,
 					"-framework",
 					SenTestingKit,
-					../lib/libsecretary.a,
+					"-lsecretary",
 				);
 				PREBINDING = NO;
 				PRODUCT_NAME = "Unit Tests";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Secretary.app/Contents/MacOS/Secretary";
 				WRAPPER_EXTENSION = octest;
 				ZERO_LINK = NO;
 			};
@@ -689,18 +710,17 @@
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Secretary_Prefix.pch;
 				HEADER_SEARCH_PATHS = (
+					/usr/local/include/,
 					"./**",
-					"../lib/include/**",
 				);
 				INFOPLIST_FILE = "Secretary-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
+					/usr/local/lib,
 					"$(inherited)",
-					"\"$(SRCROOT)/../lib\"",
-					../lib,
 				);
-				OTHER_LDFLAGS = ../lib/libsecretary.a;
+				OTHER_LDFLAGS = "-lsecretary";
 				PRODUCT_NAME = Secretary;
 			};
 			name = Debug;
@@ -709,19 +729,22 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
-				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				DEBUG_INFORMATION_FORMAT = dwarf;
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Secretary_Prefix.pch;
-				HEADER_SEARCH_PATHS = ../lib/include;
+				HEADER_SEARCH_PATHS = (
+					./,
+					/usr/local/include,
+				);
 				INFOPLIST_FILE = "Secretary-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
-					../lib,
+					/usr/local/lib,
 					"$(inherited)",
-					"\"$(SRCROOT)/../lib\"",
 				);
-				OTHER_LDFLAGS = ../lib/libsecretary.a;
+				ONLY_ACTIVE_ARCH = YES;
+				OTHER_LDFLAGS = "-lsecretary";
 				PRODUCT_NAME = Secretary;
 			};
 			name = Release;

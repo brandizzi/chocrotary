@@ -40,8 +40,8 @@
 	/*ChocrotaryTask *task3 =*/[secretary createTask:@"Buy pequi"];
 	
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
-	[project addTask:task1];
-	[task2 scheduleFor:[NSDate date]];
+	[secretary moveTask:task1 toProject:project];
+	[secretary scheduleTask:task2 forDate:[NSDate date]];
 	
 	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryInboxPerspective newWithSecretary:secretary];
@@ -78,12 +78,13 @@
 	ChocrotaryTask *task3 = [secretary createTask:@"Buy pequi"];
 	
 	NSDate *date = [NSDate date];
-	[task2 scheduleFor:date];
-	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60.0f];
-	[task3 scheduleFor:future];
+	[secretary scheduleTask:task2 forDate:date];
+	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
+	[secretary scheduleTask:task3 forDate:future];
+	
 	
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
-	[project addTask:task3];
+	[secretary moveTask:task3 toProject:project];
 	
 	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryScheduledPerspective newWithSecretary:secretary];
@@ -133,14 +134,13 @@
 	
 	// Scheduled for today
 	NSDate *date = [NSDate date];
-	[task2 scheduleFor:date];
-	// Scheduled for future
+	[secretary scheduleTask:task2 forDate:date];
 	NSDate *future = [[NSDate alloc] initWithTimeIntervalSinceNow:72*60*60];
-	[task3 scheduleFor:future];
+	[secretary scheduleTask:task3 forDate:future];
 	
 	
 	ChocrotaryProject *project = [secretary createProject:@"Chocrotary"];
-	[project addTask:task3];
+	[secretary moveTask:task3 toProject:project];
 	
 	ChocrotaryTaskTableViewController *dataSource = [ChocrotaryTaskTableViewController new];
 	ChocrotarySecretaryPerspective *perspective = [ChocrotarySecretaryScheduledForTodayPerspective newWithSecretary:secretary];

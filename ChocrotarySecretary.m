@@ -157,6 +157,34 @@
 	[self notifyTaskUpdate];
 }
 
+-(void) scheduleTask:(ChocrotaryTask*) aTask forDate:(NSDate*)aDate {
+	Task *task = [aTask wrappedTask];
+	time_t secondsSinceEpoch = [aDate timeIntervalSince1970];
+	secretary_schedule_task(secretary, task, secondsSinceEpoch);
+}
+
+-(void) unscheduleTask:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
+	secretary_unschedule_task(secretary, task);
+}
+-(void) moveTask:(ChocrotaryTask*) aTask toProject:(ChocrotaryProject*) aProject {
+	Task *task = [aTask wrappedTask];
+	Project *project = [aProject wrappedProject];
+	secretary_move_task_to_project(secretary, project, task);
+}
+-(void) removeTaskFromProject:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
+	secretary_remove_task_from_project(secretary, task);
+}
+-(void) archiveTask:(ChocrotaryTask*) aTask {
+	Task *task = [aTask wrappedTask];
+	secretary_archive_task(secretary, task);
+}
+
+
+-(void) archiveTasksFromProject:(ChocrotaryProject*)project {
+	secretary_archive_tasks_from_project(secretary, [project wrappedProject]);
+}
 -(ChocrotaryTask*)wrapperForTask:(Task*) aTask {
 	return [self getCachedOrNewTask:aTask];
 }

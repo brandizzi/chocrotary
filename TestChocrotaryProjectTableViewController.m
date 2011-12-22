@@ -332,24 +332,27 @@
 	
 	/*ChocrotaryTask *inboxTask = */[notebook.secretary createTask:@"Inbox task"];
 	ChocrotaryTask *scheduledTask = [notebook.secretary createTask:@"Scheduled task"];
-	[scheduledTask scheduleFor:[NSDate dateWithTimeIntervalSinceNow:24*60*60*4]];
+	[notebook.secretary scheduleTask:scheduledTask 
+							 forDate:[NSDate dateWithTimeIntervalSinceNow:UTIL_SECONDS_IN_DAY*4]];
 	ChocrotaryTask *scheduledForTodayTask = [notebook.secretary createTask:@"Scheduled for today task"];
-	[scheduledForTodayTask scheduleFor:[NSDate date]];
+	[notebook.secretary scheduleTask:scheduledForTodayTask forDate:[NSDate date]];
+
 	ChocrotaryTask *project1Task1 = [notebook.secretary createTask:@"Project 1 task 1"],
 		*project1Task2 = [notebook.secretary createTask:@"Project 1 task 2"],
 		*project1Task3 = [notebook.secretary createTask:@"Project 1 task 3"];
-	[project1 addTask:project1Task1];
-	[project1 addTask:project1Task2];
-	[project1 addTask:project1Task3];
+	[notebook.secretary moveTask:project1Task1 toProject:project1];
+	[notebook.secretary moveTask:project1Task2 toProject:project1];
+	[notebook.secretary moveTask:project1Task3 toProject:project1];
 	
 	ChocrotaryTask *project2Task1 = [notebook.secretary createTask:@"Project 2 task 1"],
 		*project2Task2 = [notebook.secretary createTask:@"Project 2 task 2"],
 		*project2Task3 = [notebook.secretary createTask:@"Project 2 task 3"],
 		*project2Task4 = [notebook.secretary createTask:@"Project 2 task 4"];
-	[project2 addTask:project2Task1];
-	[project2 addTask:project2Task2];
-	[project2 addTask:project2Task3];
-	[project2 addTask:project2Task4];
+	[notebook.secretary moveTask:project2Task1 toProject:project2];
+	[notebook.secretary moveTask:project2Task2 toProject:project2];
+	[notebook.secretary moveTask:project2Task3 toProject:project2];
+	[notebook.secretary moveTask:project2Task4 toProject:project2];
+	
 	
 	// Controller
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];

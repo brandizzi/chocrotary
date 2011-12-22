@@ -136,7 +136,7 @@
 	STAssertEqualObjects([task description], @"", @"Should be empty");
 	STAssertNil([task project], @"Should be empty");
 	STAssertTrue([task isScheduled], @"should be scheduled");
-	STAssertTrue(abs([[task scheduledFor] timeIntervalSinceNow]) < 1, @"should be scheduled");
+	STAssertTrue(abs([[task scheduledFor] timeIntervalSinceNow]) < UTIL_SECONDS_IN_DAY, @"should be scheduled");
 	
 	remove("fluflufile");
 }
@@ -172,7 +172,7 @@
 	STAssertEqualObjects([task description], @"", @"Should be empty");
 	STAssertNil([task project], @"Should be empty");
 	STAssertTrue([task isScheduled], @"should be scheduled");
-	STAssertTrue(abs([[task scheduledFor] timeIntervalSinceNow]) < 1, @"should be scheduled");
+	STAssertTrue(abs([[task scheduledFor] timeIntervalSinceNow]) < UTIL_SECONDS_IN_DAY, @"should be scheduled");
 	
 	remove("fluflufile");
 }
@@ -271,9 +271,6 @@
 	// do it!
 	[controller archiveTasksOfCurrentPerspective:nil];
 	
-	NSLog(@"number t: %d", [taskTableView numberOfRows]);
-	NSLog(@"number n: %d", [notebook.secretary countTasks]);
-	
 	STAssertEquals([taskTableView numberOfRows], 2L, @"should have 2");
 	STAssertEquals([notebook.secretary countInboxTasks], 2L, @"should have 2");
 	remove("fluflufile");
@@ -328,30 +325,35 @@
 -(void) testUpdateTotalLabel {
 	// Content
 	ChocrotaryNotebook *notebook = [[ChocrotaryNotebook alloc] initWithFile:@"fluflufile"];
+	ChocrotarySecretary *secretary = notebook.secretary;
 	
-	ChocrotaryProject *project1 = [notebook.secretary createProject:@"Project 1"];
-	ChocrotaryProject *project2 = [notebook.secretary createProject:@"Project 2"];
+	ChocrotaryProject *project1 = [secretary createProject:@"Project 1"];
+	ChocrotaryProject *project2 = [secretary createProject:@"Project 2"];
 	
-	/*ChocrotaryTask *inboxTask = */[notebook.secretary createTask:@"Inbox task"];
-	ChocrotaryTask *scheduledTask = [notebook.secretary createTask:@"Scheduled task"];
-	[scheduledTask scheduleFor:[NSDate dateWithTimeIntervalSinceNow:24*60*60*4]];
-	ChocrotaryTask *scheduledForTodayTask = [notebook.secretary createTask:@"Scheduled for today task"];
-	[scheduledForTodayTask scheduleFor:[NSDate date]];
-	ChocrotaryTask *project1Task1 = [notebook.secretary createTask:@"Project 1 task 1"],
-	*project1Task2 = [notebook.secretary createTask:@"Project 1 task 2"],
-	*project1Task3 = [notebook.secretary createTask:@"Project 1 task 3"];
-	[project1 addTask:project1Task1];
-	[project1 addTask:project1Task2];
-	[project1 addTask:project1Task3];
+	/*ChocrotaryTask *inboxTask = */[secretary createTask:@"Inbox task"];
+	ChocrotaryTask *scheduledTask = [secretary createTask:@"Scheduled task"];
+	[secretary scheduleTask:scheduledTask forDate:[NSDate dateWithTimeIntervalSinceNow:24*60*60*4]];
 	
-	ChocrotaryTask *project2Task1 = [notebook.secretary createTask:@"Project 2 task 1"],
-	*project2Task2 = [notebook.secretary createTask:@"Project 2 task 2"],
-	*project2Task3 = [notebook.secretary createTask:@"Project 2 task 3"],
-	*project2Task4 = [notebook.secretary createTask:@"Project 2 task 4"];
-	[project2 addTask:project2Task1];
-	[project2 addTask:project2Task2];
-	[project2 addTask:project2Task3];
-	[project2 addTask:project2Task4];
+	ChocrotaryTask *scheduledForTodayTask = [secretary createTask:@"Scheduled for today task"];
+	[secretary scheduleTask:scheduledForTodayTask forDate:[NSDate date]];
+	
+	ChocrotaryTask *project1Task1 = [secretary createTask:@"Project 1 task 1"],
+	*project1Task2 = [secretary createTask:@"Project 1 task 2"],
+	*project1Task3 = [secretary createTask:@"Project 1 task 3"];
+	[secretary moveTask:project1Task1 toProject:project1];
+	[secretary moveTask:project1Task2 toProject:project1];
+	[secretary moveTask:project1Task3 toProject:project1];	
+	
+	ChocrotaryTask *project2Task1 = [secretary createTask:@"Project 2 task 1"],
+	*project2Task2 = [secretary createTask:@"Project 2 task 2"],
+	*project2Task3 = [secretary createTask:@"Project 2 task 3"],
+	*project2Task4 = [secretary createTask:@"Project 2 task 4"];
+	[secretary moveTask:project2Task1 toProject:project2];
+	[secretary moveTask:project2Task2 toProject:project2];
+	[secretary moveTask:project2Task3 toProject:project2];
+	[secretary moveTask:project2Task4 toProject:project2];
+	
+	
 	
 	// Controller
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
@@ -617,6 +619,7 @@
 	// removing
 	index = [NSIndexSet indexSetWithIndex:0];
 	[taskTableView selectRowIndexes:index byExtendingSelection:NO];
+
 	[[project1 getNthTask:0] markAsDone];
 	[controller archiveTasksOfCurrentPerspective:nil];
 	expected = [NSString stringWithFormat:ChocrotaryTotalLabelMask, 2, 0, 0];

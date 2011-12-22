@@ -34,7 +34,7 @@
 @implementation TestChocrotaryTask
 
 -(void) testZero {
-	Task *oldTask = task_new(1, "New task");
+	Task *oldTask = task_new("New task");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	STAssertEqualObjects([task description], @"New task", @"Should have the given description");
 	STAssertEquals([task wrappedTask], oldTask, @"Should be the same task");
@@ -46,7 +46,7 @@
 }
 
 -(void) testChangeDescription {
-	Task *oldTask = task_new(1, "New task");
+	Task *oldTask = task_new("New task");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	STAssertEqualObjects([task description], @"New task", @"Should have the given description");
 	
@@ -55,7 +55,7 @@
 }
 
 -(void) testDo {
-	Task *oldTask = task_new(1, "New task");
+	Task *oldTask = task_new("New task");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	STAssertEqualObjects([task description], @"New task", @"Should have the given description");
 	
@@ -74,18 +74,15 @@
 }
 
 -(void) testSchedule {
-	Task *oldTask = task_new(1, "New task");
+	Task *oldTask = task_new("New task");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	
 	STAssertFalse([task isScheduled], @"Should not be scheduled");
-	STAssertNil([task scheduledFor], @"Should not return scheduled date");
-	struct tm date;
-	time_t timedate = time(NULL);
-	date = *localtime(&timedate);
-	task_schedule(oldTask, date);
+	STAssertNil([task scheduledFor], @"Should not return scheduled date");	time_t timedate = time(NULL);
+	task_schedule(oldTask, timedate);
 	STAssertTrue([task isScheduled], @"Should be scheduled");
 	NSDate *scheduledDate = [task scheduledFor];
-	STAssertEqualObjects(scheduledDate, [NSDate dateWithTimeIntervalSince1970:timedate],
+	STAssertEqualObjects(scheduledDate, [NSDate dateWithTimeIntervalSince1970:util_beginning_of_day(timedate)],
 						 @"Should be today");
 	task_unschedule(oldTask);
 	STAssertFalse([task isScheduled], @"Should not be scheduled");
@@ -94,14 +91,13 @@
 	STAssertFalse(task_is_scheduled(oldTask), @"Should not be scheduled");
 	[task scheduleFor:scheduledDate];
 	STAssertTrue(task_is_scheduled(oldTask), @"Should be scheduled");
-	date = task_get_scheduled_date(oldTask);
-	STAssertEquals(mktime(&date), timedate, @"Should be today");
+	STAssertEquals(task_get_scheduled_date(oldTask), util_beginning_of_day(timedate), @"Should be today");
 	[task unschedule];
 	STAssertFalse(task_is_scheduled(oldTask), @"Should not be scheduled");
 }
 
 -(void) testProject {
-	Task *oldTask = task_new(1, "New task");
+	Task *oldTask = task_new("New task");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 
 	STAssertNil([task project], @"Should not have project");	
@@ -113,7 +109,7 @@
 }
 
 -(void) testObserver {
-	Task *oldTask = task_new(1, "New task");
+	Task *oldTask = task_new("New task");
 	ChocrotaryTask *task = [ChocrotaryTask taskWithTaskStruct:oldTask];
 	
 	ChocrotarySecretaryObserverStub *stub = [[ChocrotarySecretaryObserverStub alloc] init];

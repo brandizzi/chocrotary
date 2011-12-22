@@ -45,4 +45,9 @@
 -(void) testArchiveInboxTasks;
 -(void) testArchiveScheduledTasks;
 -(void) testArchiveScheduledForTodayTasks;
+
+-(void) testScheduleTask;
+-(void) testMoveTaskToProject;	
+-(void) testArchiveTask;
+-(void) testArchiveTasksFromProject;
 @end

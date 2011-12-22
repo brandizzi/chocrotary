@@ -51,10 +51,10 @@
 
 - (void) addTask {
 	ChocrotaryTask *task = [secretary createTask:@""];
-	[project addTask:task];
+	[secretary moveTask:task toProject:project];
 }
 
 - (void) archiveAllDoneTasks {
-	[project archiveDoneTasks];
+	[secretary archiveTasksFromProject:project];
 }
 @end

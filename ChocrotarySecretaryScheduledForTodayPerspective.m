@@ -36,7 +36,7 @@
 }
 - (void) addTask {
 	ChocrotaryTask *task = [secretary createTask:@""];
-	[task scheduleFor:[NSDate date]];
+	[secretary scheduleTask:task forDate:[NSDate date]];
 }
 
 - (void) archiveAllDoneTasks {

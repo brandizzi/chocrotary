@@ -77,8 +77,7 @@
 
 -(NSDate*) scheduledFor {
 	if (task_is_scheduled(task)) {
-		struct tm structdate = task_get_scheduled_date(task);
-		time_t secondsSinceEpoch = mktime(&structdate);
+		time_t secondsSinceEpoch = task_get_scheduled_date(task);
 		return [NSDate dateWithTimeIntervalSince1970:secondsSinceEpoch];
 	} else {
 		return nil;
@@ -87,8 +86,7 @@
 
 -(void) scheduleFor:(NSDate*) aDate {
 	time_t secondsSinceEpoch = [aDate timeIntervalSince1970];
-	struct tm structdate = *localtime(&secondsSinceEpoch);
-	task_schedule(task, structdate);
+	task_schedule(task, secondsSinceEpoch);
 	[self notifyTasksObservers];
 }
 
