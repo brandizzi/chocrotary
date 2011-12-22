@@ -504,7 +504,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "DMG_FILE=\"${HOME}/Desktop/Secretary.dmg\"\nDIR_TO_PACK=/tmp/topack\n[ -f \"$DMG_FILE\" ] && ( rm  $DMG_FILE || exit 1) && echo \"Old .dmg removed\"\nmkdir -p $DIR_TO_PACK && ( echo \"temp dir created\" || exit 2 )\ncp -R ${OBJROOT}/Debug/Secretary.app $DIR_TO_PACK && echo \"Bundle copied\" || exit 3\nhdiutil create -fs HFS+ -volname \"Secretary\" -srcfolder \"$DIR_TO_PACK\" \"$DMG_FILE\" && echo \"Image generated\" || exit 4\nrm -r \"$DIR_TO_PACK\" && echo \"temp dir removed\" || exit 5";
+			shellScript = "DMG_FILE=\"${HOME}/Desktop/Secretary.dmg\"\nDIR_TO_PACK=/tmp/topack\n[ -f \"$DMG_FILE\" ] && ( rm  $DMG_FILE || exit 1) && echo \"Old .dmg removed\"\nmkdir -p $DIR_TO_PACK && ( echo \"temp dir created\" || exit 2 )\ncp -R ${OBJROOT}/Debug/Secretary.app $DIR_TO_PACK && echo \"Bundle copied\" || exit 3\nhdiutil create -fs HFS+ -volname \"Secretary\" -srcfolder \"$DIR_TO_PACK\" \"$DMG_FILE\" && echo \"Image generated\" || exit 4\nrm -r \"$DIR_TO_PACK\" && echo \"temp dir removed\" || exit 5\necho done\nenv\necho more done";
 		};
 		03D1786D132C00A9004F43A1 /* ShellScript */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -709,10 +709,7 @@
 				GCC_OPTIMIZATION_LEVEL = 0;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Secretary_Prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					/usr/local/include/,
-					"./**",
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "Secretary-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
@@ -733,10 +730,7 @@
 				GCC_MODEL_TUNING = G5;
 				GCC_PRECOMPILE_PREFIX_HEADER = YES;
 				GCC_PREFIX_HEADER = Secretary_Prefix.pch;
-				HEADER_SEARCH_PATHS = (
-					./,
-					/usr/local/include,
-				);
+				HEADER_SEARCH_PATHS = /usr/local/include;
 				INFOPLIST_FILE = "Secretary-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
