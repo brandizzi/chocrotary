@@ -62,6 +62,7 @@
 		flags |= NSYearMonthDatePickerElementFlag;
 		flags |= NSYearMonthDayDatePickerElementFlag;
 		[datepicker setDatePickerElements:flags];
+		[datepicker setLocale:[NSLocale currentLocale]];
 		NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
 		[formatter setDateStyle:NSDateFormatterMediumStyle];
 		[formatter setTimeStyle:NSDateFormatterNoStyle];
