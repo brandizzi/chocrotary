@@ -719,7 +719,10 @@
 					"$(inherited)",
 				);
 				OTHER_CFLAGS = "-g";
-				OTHER_LDFLAGS = "-lsecretary";
+				OTHER_LDFLAGS = (
+					"-static",
+					"-lsecretary",
+				);
 				PRODUCT_NAME = Secretary;
 			};
 			name = Debug;
