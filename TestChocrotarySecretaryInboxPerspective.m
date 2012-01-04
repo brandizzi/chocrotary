@@ -40,7 +40,7 @@
 	[secretary scheduleTask:task2 forDate:[NSDate date]];
 	
 	ChocrotarySecretaryPerspective *inboxPerspective = [ChocrotarySecretaryInboxPerspective newWithSecretary:secretary];
-	STAssertEqualObjects([inboxPerspective countTasks], 1L, @"Should have one task");
+	STAssertEquals([inboxPerspective countTasks], 1L, @"Should have one task");
 	STAssertEqualObjects([inboxPerspective getNthTask:0], task3, @"Should be task 3, which is neither associated to project nor scheduled");
 }
 

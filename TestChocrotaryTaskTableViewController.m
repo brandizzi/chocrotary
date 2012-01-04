@@ -303,8 +303,8 @@
 	
 	ChocrotaryTask *task1 = [notebook.secretary createTask:@"task 1"],
 	*task2 = [notebook.secretary createTask:@"task 2"];
-	[project1 addTask:task1];
-	[project2 addTask:task2];
+	[notebook.secretary moveTask:task1 toProject:project1];
+	[notebook.secretary moveTask:task2 toProject:project2];
 	
 	ChocrotaryController *controller = [[ChocrotaryController alloc] initWithNotebook:notebook];
 	
@@ -363,10 +363,10 @@
 	// Now let us edit the project of a task
 	index = [[NSIndexSet alloc] initWithIndex:ChocrotaryProjectTableViewControllerFirstProject];
 	[projectTableView selectRowIndexes:index byExtendingSelection:NO];
+
 	NSNumber *number = [[NSNumber alloc] initWithInteger:2];
-	
+	STAssertEquals([taskTableView numberOfRows], 1L, @"Should one task");
 	STAssertTrue([taskController respondsToSelector:@selector(tableView:setObjectValue:forTableColumn:row:)], @"");
-	NSLog(@"Itemarray %d", [[[projectCell menu] itemArray] count]);
  	[taskController tableView:taskTableView setObjectValue:number forTableColumn:column row:0];
 
 	// Should have no more tasks

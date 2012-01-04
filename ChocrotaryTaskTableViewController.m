@@ -102,12 +102,11 @@
 		NSPopUpButtonCell *projectCell = [tableColumn dataCell];
 		NSMenuItem *selected = [projectCell itemAtIndex:selectedIndex];
 		NSInteger projectIndex = [selected tag];
-
 		if (projectIndex != ChocrotaryControllerNoProject) {
 			ChocrotaryProject *project = [perspective.secretary getNthProject:projectIndex];
-			[project addTask:task];
+			[perspective.secretary moveTask:task toProject:project];
 		} else {
-			[task unsetProject];
+			[perspective.secretary removeTaskFromProject:task];
 		}
 	} else if ([columnName isEqualToString: ChocrotaryTaskTableColumnScheduled]) {
 		NSString *value = object;
@@ -116,16 +115,16 @@
 			[formatter setDateStyle:NSDateFormatterMediumStyle];
 			[formatter setTimeStyle:NSDateFormatterNoStyle];
 			NSDate *date = [formatter dateFromString:object];
-			[task scheduleFor:date];
+			[perspective.secretary scheduleTask:task forDate:date];
 		} else {
-			[task unschedule];
+			[perspective.secretary unscheduleTask:task];
 		}
 		
 	}
 #warning use observer to call these methods
 	[controller reloadMenuOfProjects];
 	[[controller notebook] save];
-	//[controller updateTotalLabel];
+	[controller updateTotalLabel];
 	[aTableView reloadData];
 }
 

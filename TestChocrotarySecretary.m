@@ -368,7 +368,6 @@
 	[secretary moveTask:task3 toProject:project];
 		
 	STAssertEquals([project countTasks], 3L, @"Should have the three tasks");
-	NSLog([[project getNthTask:0] description]);
 	STAssertEqualObjects([project getNthTask:0], task1, @"Task 1 should be in project");
 	STAssertEqualObjects([project getNthTask:1], task2, @"Task 2 should be in project");
 	STAssertEqualObjects([project getNthTask:2], task3, @"Task 3 should be in project");

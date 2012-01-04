@@ -637,7 +637,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
 				HEADER_SEARCH_PATHS = (
 					"./**",
-					"/usr/local/include//**",
+					"/usr/local/include/**",
 				);
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
@@ -675,7 +675,7 @@
 				GCC_PREFIX_HEADER = "$(SYSTEM_LIBRARY_DIR)/Frameworks/Cocoa.framework/Headers/Cocoa.h";
 				HEADER_SEARCH_PATHS = (
 					"./**",
-					"/usr/local/include//**",
+					"/usr/local/include/**",
 				);
 				INFOPLIST_FILE = "Unit Tests-Info.plist";
 				INSTALL_PATH = "$(USER_LIBRARY_DIR)/Bundles";
@@ -714,9 +714,11 @@
 				INSTALL_PATH = "$(HOME)/Applications";
 				LD_RUNPATH_SEARCH_PATHS = "";
 				LIBRARY_SEARCH_PATHS = (
+					.,
 					/usr/local/lib,
 					"$(inherited)",
 				);
+				OTHER_CFLAGS = "-g";
 				OTHER_LDFLAGS = "-lsecretary";
 				PRODUCT_NAME = Secretary;
 			};
@@ -734,6 +736,7 @@
 				INFOPLIST_FILE = "Secretary-Info.plist";
 				INSTALL_PATH = "$(HOME)/Applications";
 				LIBRARY_SEARCH_PATHS = (
+					.,
 					/usr/local/lib,
 					"$(inherited)",
 				);
